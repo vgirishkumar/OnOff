@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="devcoma"
+         name="Visteon Studio for Coma"
+         point="org.eclipse.core.runtime.applications">
+      <application
+            cardinality="*"
+            thread="main"
+            visible="true">
+         <run
+               class="com.visteon.onoff.dev.app.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="RCP Perspective"
+            class="com.visteon.onoff.dev.app.Perspective"
+            id="com.visteon.onoff.dev.app.perspective">
+      </perspective>
+   </extension>
+   <extension
+         id="devComa"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.ui.ide.workbench"
+            name="Visteon IDE for Coma">
+         <property
+               name="appName"
+               value="Visteon IDE for Coma">
+         </property>
+      </product>
+   </extension>
+
+</plugin>

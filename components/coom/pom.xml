@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <groupId>com.visteon.onoff.tycho</groupId>
+        <artifactId>components</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    
+    <artifactId>coom</artifactId>
+    <packaging>pom</packaging>
+    
+    <modules>
+        <!-- Build *.ui and *.tests here, BEFORE features/* -->
+        <module>core/com.visteon.onoff.coom</module>
+        <module>ui/com.visteon.onoff.coom.ide</module>
+        <module>ui/com.visteon.onoff.coom.ui</module>
+        <module>tests/com.visteon.onoff.coom.tests</module>
+        <module>tests/com.visteon.onoff.coom.ui.tests</module>
+        <module>features/com.visteon.onoff.coom.core.feature</module>
+        <module>features/com.visteon.onoff.coom.tests.feature</module>
+        <module>features/com.visteon.onoff.coom.ui.feature</module>
+    </modules>
+</project>

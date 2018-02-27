@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="headlessgen"
+         point="org.eclipse.core.runtime.applications">
+         <application
+            cardinality="singleton-global"
+            thread="main"
+            visible="true">
+         <run
+               class="com.visteon.onoff.generator.app.RunGeneration">
+         </run>
+      </application>
+   </extension>
+   <extension
+         id="headless"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="com.visteon.onoff.generator.app"
+            name="HeadlessGenerator">
+         <property
+               name="appName"
+               value="HeadlessGenerator">
+         </property>
+      </product>
+   </extension>
+
+</plugin>

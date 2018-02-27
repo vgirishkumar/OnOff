@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<feature id="com.visteon.onoff.coom.tests.feature" label="%featureLabel" plugin="${feature.plugin}" provider-name="%providerName" version="1.0.0.qualifier">
+    
+    <description url="%descriptionURL">
+        %description
+    </description>
+
+    <copyright url="%copyrightURL">
+        %copyright
+    </copyright>
+
+    <license url="%licenseURL">
+       %license
+    </license>
+    
+    <plugin download-size="0" id="com.visteon.onoff.coom.tests" install-size="0" unpack="false" version="0.0.0"/>
+    <plugin download-size="0" id="com.visteon.onoff.coom.ui.tests" install-size="0" unpack="false" version="0.0.0"/>
+</feature>

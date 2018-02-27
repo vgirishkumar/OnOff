@@ -1,19 +1,18 @@
 <project>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.vogella.tycho</groupId>
-	<artifactId>com.vogella.tycho.root</artifactId>
+	<groupId>com.visteon.onoff.tycho</groupId>
+	<artifactId>com.visteon.onoff.tycho.root</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<parent>
-		<groupId>com.vogella.tycho</groupId>
-		<artifactId>com.vogella.tycho.configuration</artifactId>
+		<groupId>com.visteon.onoff.tycho</groupId>
+		<artifactId>com.visteon.onoff.tycho.configuration</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
-		<relativePath>./releng/com.vogella.tycho.configuration</relativePath>
+		<relativePath>./releng/com.visteon.onoff.tycho.configuration</relativePath>
 	</parent>
 
 	<modules>
-		<module>bundles</module>
-		<module>features</module>
+		<module>components</module>
 		<module>releng</module>
 	</modules>
 </project>
