@@ -1,0 +1,32 @@
+grammar com.visteon.onoff.Coom with org.eclipse.xtext.common.Terminals
+
+generate coom "http://www.visteon.com/onoff/Coom"
+
+FullComponentOnOffManifest:
+	('package' name=FQN)?
+	(coom=ComponentOnOffManifest)?;
+
+ComponentOnOffManifest:
+	{ComponentOnOffManifest}
+	'Component' name=FQN '{'
+	version=Version
+	(states+=State |
+	transitions+=Transition)*
+	'}';
+
+Version:
+	'version' '{'
+	'major' majorMalue=INT
+	'minor' minorValue=INT
+	'}';
+
+State:
+	(initial?='initial')? 'State' name=ID
+	('{'
+	'}')?;
+
+Transition:
+	'Transition' name=ID ':' fromState=[State] '->' toState=[State];
+
+FQN:
+	ID ('.' ID)*;

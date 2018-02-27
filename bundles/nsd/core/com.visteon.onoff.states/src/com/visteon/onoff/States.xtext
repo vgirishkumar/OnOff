@@ -1,0 +1,81 @@
+grammar com.visteon.onoff.States with org.eclipse.xtext.common.Terminals
+
+generate states "http://www.visteon.com/onoff/States"
+import "http://www.visteon.com/onoff/Coom" as coom
+
+NodeStateConfiguration:
+	('package' name=FQN)?
+	imports+=Import*
+	(nsd=NodeStateDiagram)?
+	(clientConfig+=ClientConfiguration)*;
+
+Import:
+	'import' importURI=STRING;
+
+NodeStateDiagram:
+	{NodeStateDiagram}
+	'NodeStateDiagram' '{'
+	('GlobalTransitionTimeout' gTransitionTimeoutInMilliseconds=INT)?
+	('GlobalEdgeweight' gEdgeWeight=INT)?
+	(nodeStates+=NodeState |
+	nodeTransitions+=NodeTransition)*
+	'}';
+
+NodeState:
+	'State' name=ID
+	('{'
+	(initial?='initial')?
+	'}')?;
+
+NodeTransition:
+	'Transition' name=ID ':' fromState=[NodeState] '->' toState=[NodeState]
+	('{'
+	('edgeweight' edgeweight=INT)?
+	('timeout' timeoutInMilliseconds=INT)?
+	'}')?;
+
+ClientConfiguration:
+	'Client' name=FQN // instance name - scope coming from COOM
+	'{'
+	('COOM' coomRef=[coom::ComponentOnOffManifest|FQN])
+	('ClientTransitionTimeout' transTimeoutInMilliseconds=INT)?
+	(componentTransitions+=ComponentTransition |
+	nodeStateAssociations+=NodeStateAssociation |
+	componentStates+=ComponentState |
+	features+=Feature)*
+	'}';
+
+ComponentTransition:
+	'Transition' transition=[coom::Transition|FQN]
+	'{'
+	('timeout' timeoutInMilliseconds=INT)?
+	'}';
+
+ComponentState:
+	'State' state=[coom::State|FQN]
+	'{'
+	(stateDependencies+=StateDependency |
+	featureDependencies+=FeatureDependency |
+	transitionDependencies+=TransitionDependency)*
+	'}';
+
+StateDependency:
+	'depends on State' stateDependeny=[coom::State|FQN];
+
+TransitionDependency:
+	'depends on Transition' transitionDependeny=[coom::Transition|FQN];
+
+FeatureDependency:
+	'depends on Feature' featureDependeny=[Feature|FQN];
+
+NodeStateAssociation:
+	'For' nodeState=[NodeState] 'set' clientState=[coom::State|FQN];
+
+Feature:
+	'Feature' name=ID
+	'{'
+	'States' featureStates+=[coom::State|FQN] (',' featureStates+=[coom::State|FQN])*
+	'}';
+
+FQN:
+	ID ('.' ID)*;

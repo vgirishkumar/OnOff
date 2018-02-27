@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="Visteon IDE for Coma" uid="devComa" id="org.eclipse.visteon.dev.product.devComa" application="org.eclipse.ui.ide.workbench" version="1.0.0.qualifier" useFeatures="true" includeLaunchers="true">
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
+      </vmArgsMac>
+   </launcherArgs>
+
+   <plugins>
+   </plugins>
+
+   <features>
+      <feature id="org.eclipse.jdt"/>
+      <feature id="org.eclipse.ocl"/>
+      <feature id="org.eclipse.platform"/>
+      <feature id="org.eclipse.rcp"/>
+      <feature id="org.eclipse.xsd"/>
+      <feature id="org.eclipse.xsd.edit"/>
+      <feature id="org.eclipse.equinox.p2.user.ui"/>
+      <feature id="org.eclipse.emf"/>
+      <feature id="org.eclipse.emf.codegen"/>
+      <feature id="org.eclipse.emf.codegen.ecore"/>
+      <feature id="org.eclipse.emf.codegen.ecore.ui"/>
+      <feature id="org.eclipse.emf.codegen.ui"/>
+      <feature id="org.eclipse.emf.common"/>
+      <feature id="org.eclipse.emf.common.ui"/>
+      <feature id="org.eclipse.emf.converter"/>
+      <feature id="org.eclipse.emf.databinding"/>
+      <feature id="org.eclipse.emf.databinding.edit"/>
+      <feature id="org.eclipse.emf.ecore"/>
+      <feature id="org.eclipse.emf.ecore.edit"/>
+      <feature id="org.eclipse.emf.ecore.editor"/>
+      <feature id="org.eclipse.emf.edit"/>
+      <feature id="org.eclipse.emf.edit.ui"/>
+      <feature id="org.eclipse.emf.mapping"/>
+      <feature id="org.eclipse.emf.mapping.ecore"/>
+      <feature id="org.eclipse.emf.mapping.ecore.editor"/>
+      <feature id="org.eclipse.emf.mapping.ui"/>
+      <feature id="org.eclipse.emf.mwe.core"/>
+      <feature id="org.eclipse.emf.mwe.ui"/>
+      <feature id="org.eclipse.emf.mwe2.launcher"/>
+      <feature id="org.eclipse.emf.query"/>
+      <feature id="org.eclipse.emf.transaction"/>
+      <feature id="org.eclipse.emf.validation"/>
+      <feature id="org.eclipse.emf.validation.ocl"/>
+      <feature id="org.eclipse.emf.workspace"/>
+      <feature id="org.eclipse.xtend.typesystem.emf"/>
+      <feature id="org.eclipse.xtext.redist"/>
+      <feature id="org.eclipse.xtext.runtime"/>
+      <feature id="org.eclipse.xtext.ui"/>
+      <feature id="org.eclipse.xtext.xbase"/>
+      <feature id="org.eclipse.xtext.xbase.lib"/>
+      <feature id="org.eclipse.xtext.xtext.ui"/>
+      <feature id="org.eclipse.xtend"/>
+      <feature id="org.eclipse.xtend.backend"/>
+      <feature id="org.eclipse.xtend.backend.ui"/>
+      <feature id="org.eclipse.xtend.backend.uml2types"/>
+      <feature id="org.eclipse.xtend.backend.xsdtypes"/>
+      <feature id="org.eclipse.xtend.dependencies"/>
+      <feature id="org.eclipse.xtend.middleend.xpand"/>
+      <feature id="org.eclipse.xtend.middleend.xtend"/>
+      <feature id="org.eclipse.xtend.typesystem.xsd"/>
+      <feature id="org.eclipse.xtend.ui"/>
+      <feature id="org.eclipse.xpand"/>
+      <feature id="org.eclipse.xpand.ui"/>
+      <feature id="org.eclipse.ecf.filetransfer.httpclient4.feature"/>
+      <feature id="org.eclipse.help"/>
+      <feature id="org.eclipse.equinox.p2.core.feature"/>
+      <feature id="org.eclipse.ecf.core.ssl.feature"/>
+      <feature id="org.eclipse.ecf.filetransfer.ssl.feature"/>
+      <feature id="org.eclipse.equinox.p2.rcp.feature"/>
+      <feature id="org.eclipse.ecf.filetransfer.feature"/>
+      <feature id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature"/>
+      <feature id="org.eclipse.equinox.p2.extras.feature"/>
+      <feature id="org.eclipse.ecf.core.feature"/>
+      <feature id="org.eclipse.e4.rcp"/>
+      <feature id="org.eclipse.emf.ecore.xcore"/>
+      <feature id="org.eclipse.emf.ecore.xcore.lib"/>
+      <feature id="org.eclipse.emf.ecore.xcore.ui"/>
+      <feature id="org.eclipse.pde" version="3.13.2.v20171130-0510"/>
+      <feature id="com.vogella.tycho.feature"/>
+      <feature id="org.eclipse.emf.mwe2.language.sdk"/>
+      <feature id="org.eclipse.emf.mwe2.runtime.sdk"/>
+      <feature id="org.eclipse.emf.ecore.xcore.sdk"/>
+      <feature id="org.eclipse.xtend.backend.sdk"/>
+      <feature id="org.eclipse.xtend.sdk"/>
+      <feature id="org.eclipse.xtext.sdk"/>
+      <feature id="org.eclipse.emf.ecore.xcore.ui.source"/>
+      <feature id="org.eclipse.emf.ecore.xcore.source"/>
+      <feature id="org.eclipse.emf.ecore.xcore.lib.source"/>
+      <feature id="org.eclipse.xtend.backend.source"/>
+      <feature id="org.eclipse.xtend.backend.xsdtypes.source"/>
+      <feature id="org.eclipse.xtext.docs"/>
+      <feature id="org.eclipse.xtend.backend.ui.source"/>
+      <feature id="org.eclipse.emf.mwe2.launcher.source"/>
+      <feature id="org.eclipse.xtext.examples"/>
+      <feature id="org.eclipse.xtend.backend.uml2types.source"/>
+      <feature id="org.genivi.commonapi.core.feature"/>
+      <feature id="org.genivi.commonapi.core.validator.feature"/>
+      <feature id="org.genivi.commonapi.dbus.feature"/>
+      <feature id="org.genivi.commonapi.dbus.validator.feature"/>
+      <feature id="org.genivi.commonapi.someip.feature"/>
+      <feature id="org.genivi.commonapi.someip.validator.feature"/>
+      <feature id="org.franca.core.sdk"/>
+      <feature id="org.franca.core"/>
+      <feature id="org.franca.ui.sdk"/>
+      <feature id="org.franca.ui"/>
+      <feature id="org.franca.ui.addons.sdk"/>
+      <feature id="org.franca.ui.addons"/>
+      <feature id="org.franca.dbus.sdk"/>
+      <feature id="org.franca.dbus"/>
+      <feature id="org.franca.dbus.ui.sdk"/>
+      <feature id="org.franca.dbus.ui"/>
+      <feature id="org.eclipse.egit"/>
+      <feature id="org.eclipse.jgit"/>
+      <feature id="org.eclipse.jgit.http.apache"/>
+      <feature id="com.ibm.team.rtc.client.feature"/>
+   </features>
+
+   <configurations>
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
+   </configurations>
+
+</product>
