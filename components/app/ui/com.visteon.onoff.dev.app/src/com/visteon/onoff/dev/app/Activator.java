@@ -10,7 +10,7 @@ import org.osgi.framework.BundleContext;
 public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "org.eclipse.visteon.dev.product"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "com.visteon.onoff.dev.app"; //$NON-NLS-1$
 
 	// The shared instance
 	private static Activator plugin;
