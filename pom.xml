@@ -14,5 +14,6 @@
 	<modules>
 		<module>components</module>
 		<module>releng</module>
+		<module>tests</module>
 	</modules>
 </project>
