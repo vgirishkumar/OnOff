@@ -3,3 +3,4 @@ bin/
 *._trace
 *.xtendbin
 .antlr-generator-*.jar
+*.gitignore
