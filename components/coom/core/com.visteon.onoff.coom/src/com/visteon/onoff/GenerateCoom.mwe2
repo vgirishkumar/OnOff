@@ -4,21 +4,28 @@ import org.eclipse.xtext.xtext.generator.*
 import org.eclipse.xtext.xtext.generator.model.project.*
 
 var rootPath = ".."
-
+var baseName = "com.visteon.onoff.coom"
 Workflow {
 	
 	component = XtextGenerator {
 		configuration = {
 			project = StandardProjectConfig {
-				baseName = "com.visteon.onoff.coom"
+				baseName = baseName
 				rootPath = rootPath
 				runtimeTest = {
+					root = "../../tests/${baseName}.tests"
 					enabled = true
 				}
 				eclipsePlugin = {
+					root = "../../ui/${baseName}.ui"
 					enabled = true
 				}
 				eclipsePluginTest = {
+					root = "../../tests/${baseName}.ui.tests"
+					enabled = true
+				}
+				genericIde = {
+					root = "../../ui/${baseName}.ide"
 					enabled = true
 				}
 				createEclipseMetaData = true
