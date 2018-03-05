@@ -16,9 +16,9 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
-import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.resource.XtextResourceSet;
 
 import com.visteon.onoff.CoomStandaloneSetup;
@@ -88,7 +88,7 @@ public class RunGeneration implements IApplication {
 					.createURI(locationURI.toString());
 			rset.getResource(createURI, true);
 		}
-		EcoreUtil2.resolveAll(rset);
+		EcoreUtil.resolveAll(rset);
 		return rset;
 	}
 
@@ -107,7 +107,8 @@ public class RunGeneration implements IApplication {
 
 		final List<IResource> resources = new ArrayList<>();
 		try {
-			((IProject) project).accept(new IResourceVisitor() {
+			project.accept(new IResourceVisitor() {
+				@Override
 				public boolean visit(IResource resource) throws CoreException {
 					if (resource instanceof IFile && !"bin".equals(resource.getProjectRelativePath().segments()[0])
 							&& extensions.contains(resource.getFileExtension())) {
