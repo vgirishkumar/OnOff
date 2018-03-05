@@ -53,6 +53,9 @@ class CoomParsingTest {
 		val errors = result.eResource.errors
 		Assert.assertTrue('''Unexpected errors: «errors.join(", ")»''', errors.isEmpty)
 
+		val validate = validationHelper.validate(result)
+		Assert.assertTrue(validate.size == 0);
+
 		val coom = result.coom
 		Assert.assertEquals("ComponentA", coom.name)
 		Assert.assertEquals(3, coom.states.size)
@@ -95,8 +98,10 @@ class CoomParsingTest {
 		Assert.assertTrue('''Unexpected errors: «errors.join(", ")»''', errors.isEmpty)
 
 		val validate = validationHelper.validate(result)
-
 		Assert.assertTrue(validate.size == 2);
+
+		Assert.assertEquals("Duplicate State 'State2' in ComponentOnOffManifest 'ComponentA'", validate.get(0).message)
+		Assert.assertEquals("Duplicate State 'State2' in ComponentOnOffManifest 'ComponentA'", validate.get(1).message)
 	}
 
 	@Test
@@ -133,6 +138,9 @@ class CoomParsingTest {
 		val errors = result.eResource.errors
 		Assert.assertTrue('''Unexpected errors: «errors.join(", ")»''', errors.isEmpty)
 
+		val validate = validationHelper.validate(result)
+		Assert.assertTrue(validate.size == 0);
+
 		val coom = result.coom
 		Assert.assertEquals("ComponentA", coom.name)
 
@@ -149,5 +157,46 @@ class CoomParsingTest {
 
 		Assert.assertEquals("S1ToS2", transitions.get(0).name)
 		Assert.assertEquals("S2ToS3", transitions.get(1).name)
+	}
+
+	@Test
+	def loadModelWithMultipleStartStates() {
+		val result = parseHelper.parse('''
+			package test.component
+			
+			Component ComponentA {
+				
+				version {
+					major 1
+					minor 1
+				}
+				
+				initial State State1 {
+					
+				}
+				
+				initial State State2 {
+					
+				}
+				
+				State State3 {
+					
+				}
+				
+				Transition S1ToS2	: State1 -> State2
+				Transition S2ToS3	: State2 -> State3
+				
+			}
+		''')
+
+		Assert.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assert.assertTrue('''Unexpected errors: «errors.join(", ")»''', errors.isEmpty)
+
+		val validate = validationHelper.validate(result)
+		Assert.assertTrue(validate.size == 2);
+
+		Assert.assertEquals("A component cannot have multiple start States", validate.get(0).message)
+		Assert.assertEquals("A component cannot have multiple start States", validate.get(1).message)
 	}
 }

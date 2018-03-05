@@ -99,6 +99,10 @@ public class CoomParsingTest {
       String _join = IterableExtensions.join(errors, ", ");
       _builder_1.append(_join);
       Assert.assertTrue(_builder_1.toString(), errors.isEmpty());
+      final List<Issue> validate = this.validationHelper.validate(result);
+      int _size = validate.size();
+      boolean _equals = (_size == 0);
+      Assert.assertTrue(_equals);
       final ComponentOnOffManifest coom = result.getCoom();
       Assert.assertEquals("ComponentA", coom.getName());
       Assert.assertEquals(3, coom.getStates().size());
@@ -180,6 +184,8 @@ public class CoomParsingTest {
       int _size = validate.size();
       boolean _equals = (_size == 2);
       Assert.assertTrue(_equals);
+      Assert.assertEquals("Duplicate State \'State2\' in ComponentOnOffManifest \'ComponentA\'", validate.get(0).getMessage());
+      Assert.assertEquals("Duplicate State \'State2\' in ComponentOnOffManifest \'ComponentA\'", validate.get(1).getMessage());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -258,6 +264,10 @@ public class CoomParsingTest {
       String _join = IterableExtensions.join(errors, ", ");
       _builder_1.append(_join);
       Assert.assertTrue(_builder_1.toString(), errors.isEmpty());
+      final List<Issue> validate = this.validationHelper.validate(result);
+      int _size = validate.size();
+      boolean _equals = (_size == 0);
+      Assert.assertTrue(_equals);
       final ComponentOnOffManifest coom = result.getCoom();
       Assert.assertEquals("ComponentA", coom.getName());
       final EList<State> states = coom.getStates();
@@ -270,6 +280,90 @@ public class CoomParsingTest {
       Assert.assertEquals(2, transitions.size());
       Assert.assertEquals("S1ToS2", transitions.get(0).getName());
       Assert.assertEquals("S2ToS3", transitions.get(1).getName());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void loadModelWithMultipleStartStates() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("package test.component");
+      _builder.newLine();
+      _builder.newLine();
+      _builder.append("Component ComponentA {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("version {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("major 1");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("minor 1");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("initial State State1 {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("initial State State2 {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("State State3 {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Transition S1ToS2\t: State1 -> State2");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Transition S2ToS3\t: State2 -> State3");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final FullComponentOnOffManifest result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assert.assertTrue(_builder_1.toString(), errors.isEmpty());
+      final List<Issue> validate = this.validationHelper.validate(result);
+      int _size = validate.size();
+      boolean _equals = (_size == 2);
+      Assert.assertTrue(_equals);
+      Assert.assertEquals("A component cannot have multiple start States", validate.get(0).getMessage());
+      Assert.assertEquals("A component cannot have multiple start States", validate.get(1).getMessage());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
