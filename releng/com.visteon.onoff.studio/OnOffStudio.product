@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="Visteon Coma IDE for OnOff Users" uid="OnOffStudio" id="com.visteon.onoff.dev.app.devComa" application="org.eclipse.ui.ide.workbench" version="1.0.0.qualifier" useFeatures="true" includeLaunchers="true">
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
+      </vmArgsMac>
+   </launcherArgs>
+
+   <launcher>
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+   </vm>
+
+   <plugins>
+   </plugins>
+
+   <features>
+      <feature id="org.genivi.commonapi.core.feature"/>
+      <feature id="org.genivi.commonapi.core.validator.feature"/>
+      <feature id="org.genivi.commonapi.dbus.feature"/>
+      <feature id="org.genivi.commonapi.dbus.validator.feature"/>
+      <feature id="org.genivi.commonapi.someip.feature"/>
+      <feature id="org.genivi.commonapi.someip.validator.feature"/>
+      <feature id="org.franca.core"/>
+      <feature id="org.franca.dbus"/>
+      <feature id="org.franca.dbus.ui"/>
+      <feature id="org.franca.ui"/>
+      <feature id="org.franca.ui.addons"/>
+      <feature id="com.visteon.onoff.app.core.feature"/>
+      <feature id="com.visteon.onoff.app.ui.feature"/>
+      <feature id="com.visteon.onoff.coom.core.feature"/>
+      <feature id="com.visteon.onoff.coom.ui.feature"/>
+      <feature id="com.visteon.onoff.nsd.core.feature"/>
+      <feature id="com.visteon.onoff.nsd.ui.feature"/>
+      <feature id="org.eclipse.equinox.p2.core.feature"/>
+   </features>
+
+   <configurations>
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
+   </configurations>
+
+</product>
