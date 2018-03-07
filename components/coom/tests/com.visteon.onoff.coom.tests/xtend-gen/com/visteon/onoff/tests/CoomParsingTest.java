@@ -368,4 +368,33 @@ public class CoomParsingTest {
       throw Exceptions.sneakyThrow(_e);
     }
   }
+  
+  @Test
+  public void loadCoomWithoutVersion() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("package test.component");
+      _builder.newLine();
+      _builder.newLine();
+      _builder.append("Component ComponentA {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final FullComponentOnOffManifest result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      boolean _isEmpty = errors.isEmpty();
+      boolean _not = (!_isEmpty);
+      Assert.assertTrue(_builder_1.toString(), _not);
+      Assert.assertEquals("mismatched input \'}\' expecting \'version\'", errors.get(0).getMessage());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
 }

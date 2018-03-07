@@ -199,4 +199,20 @@ class CoomParsingTest {
 		Assert.assertEquals("A component cannot have multiple start States", validate.get(0).message)
 		Assert.assertEquals("A component cannot have multiple start States", validate.get(1).message)
 	}
+
+	@Test
+	def loadCoomWithoutVersion() {
+		val result = parseHelper.parse('''
+			package test.component
+			
+			Component ComponentA {
+				
+			}
+		''')
+
+		Assert.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assert.assertTrue('''Unexpected errors: «errors.join(", ")»''', !errors.isEmpty)
+		Assert.assertEquals("mismatched input '}' expecting 'version'", errors.get(0).message);
+	}
 }
