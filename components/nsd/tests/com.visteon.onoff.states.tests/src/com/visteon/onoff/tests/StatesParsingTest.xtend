@@ -17,11 +17,36 @@ import org.junit.runner.RunWith
 class StatesParsingTest {
 	@Inject
 	ParseHelper<NodeStateConfiguration> parseHelper
-	
+
 	@Test
 	def void loadModel() {
 		val result = parseHelper.parse('''
-			Hello Xtext!
+			NodeStateDiagram {
+				State State1
+				State State2
+				
+				Transition S1toS2 : State1 -> State2
+			}
+			
+			Client Test {
+				COOM test.CompA
+				State test.CompA.S1 {
+					depends on Transition test.CompA.S1toS2
+				}
+				
+					State test.CompA.S2 {
+					depends on Transition test.CompA.S1toS2
+				}
+				
+				For State1 set test.CompA.S1 
+				Feature Name {
+					States test.CompA.S1 , test.CompA.S2
+				}
+				
+				Transition test.CompA.S1toS2 {
+					timeout 1
+				}
+			}
 		''')
 		Assert.assertNotNull(result)
 		val errors = result.eResource.errors

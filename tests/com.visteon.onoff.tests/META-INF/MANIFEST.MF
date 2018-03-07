@@ -6,4 +6,5 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: VISTEON
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.junit,
- com.visteon.onoff.coom.tests
+ com.visteon.onoff.coom.tests,
+ com.visteon.onoff.states.tests

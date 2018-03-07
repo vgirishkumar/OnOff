@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ CoomParsingTest.class })
+@SuiteClasses({ CoomParsingTest.class, StatesParsingTest.class })
 public class AllTests {
 
 }
