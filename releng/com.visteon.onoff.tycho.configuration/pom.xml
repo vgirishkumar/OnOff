@@ -7,6 +7,7 @@
 
 	<properties>
 		<tycho.version>1.0.0</tycho.version>
+		<xtend.maven.version>1.0.0</xtend.maven.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<eclipse-repo.url>http://download.eclipse.org/releases/oxygen</eclipse-repo.url>
 	</properties>
@@ -163,6 +164,15 @@
 							<arch>x86_64</arch>
 						</environment>
 					</environments>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.xtend</groupId>
+				<artifactId>xtend-maven-plugin</artifactId>
+				<version>${xtend.maven.version}</version>
+				<configuration>
+					<!-- need to prefix by basedir to generate to currently built module -->
+					<outputDirectory>${basedir}/xtend-gen</outputDirectory>
 				</configuration>
 			</plugin>
 		</plugins>
