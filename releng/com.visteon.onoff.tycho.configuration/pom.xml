@@ -7,7 +7,7 @@
 
 	<properties>
 		<tycho.version>1.0.0</tycho.version>
-		<xtend.maven.version>1.0.0</xtend.maven.version>
+		<xtend.maven.version>2.13.0</xtend.maven.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<eclipse-repo.url>http://download.eclipse.org/releases/oxygen</eclipse-repo.url>
 	</properties>
@@ -121,6 +121,26 @@
 		<repository>
 			<id>RTC</id>
 			<url>file:/${ds.p2cache.location}/com.ibm.team.rtc/6.0.5/RTC-Client-p2Repo-6.0.5</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>SIRIUS</id>
+			<url>file:/${ds.p2cache.location}/org.eclipse.sirius/5.1.1/org.eclipse.sirius-5.1.1-oxygen</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>ACCELEO</id>
+			<url>file:/${ds.p2cache.location}/org.eclipse.acceleo/3.7.2/acceleo-update-3.7.2</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>GMF-RUNTIME</id>
+			<url>file:/${ds.p2cache.location}/org.eclipse.gmf.runtime/1.9.0/gmf-runtime-Update-1.9.0</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>GMF-NOTATION</id>
+			<url>file:/${ds.p2cache.location}/org.eclipse.gmf.notation/1.11.0/gmf-notation-Update-1.11.0</url>
 			<layout>p2</layout>
 		</repository>
 	</repositories>
