@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.visteon.onoff.states.impl.NodeTransitionImpl#isEssential <em>Essential</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.NodeTransitionImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.NodeTransitionImpl#getFromState <em>From State</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.NodeTransitionImpl#getToState <em>To State</em>}</li>
@@ -34,6 +35,26 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class NodeTransitionImpl extends MinimalEObjectImpl.Container implements NodeTransition
 {
+  /**
+   * The default value of the '{@link #isEssential() <em>Essential</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isEssential()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean ESSENTIAL_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isEssential() <em>Essential</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isEssential()
+   * @generated
+   * @ordered
+   */
+  protected boolean essential = ESSENTIAL_EDEFAULT;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -133,6 +154,29 @@ public class NodeTransitionImpl extends MinimalEObjectImpl.Container implements 
   protected EClass eStaticClass()
   {
     return StatesPackage.Literals.NODE_TRANSITION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isEssential()
+  {
+    return essential;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setEssential(boolean newEssential)
+  {
+    boolean oldEssential = essential;
+    essential = newEssential;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, StatesPackage.NODE_TRANSITION__ESSENTIAL, oldEssential, essential));
   }
 
   /**
@@ -300,6 +344,8 @@ public class NodeTransitionImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
+      case StatesPackage.NODE_TRANSITION__ESSENTIAL:
+        return isEssential();
       case StatesPackage.NODE_TRANSITION__NAME:
         return getName();
       case StatesPackage.NODE_TRANSITION__FROM_STATE:
@@ -326,6 +372,9 @@ public class NodeTransitionImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
+      case StatesPackage.NODE_TRANSITION__ESSENTIAL:
+        setEssential((Boolean)newValue);
+        return;
       case StatesPackage.NODE_TRANSITION__NAME:
         setName((String)newValue);
         return;
@@ -355,6 +404,9 @@ public class NodeTransitionImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
+      case StatesPackage.NODE_TRANSITION__ESSENTIAL:
+        setEssential(ESSENTIAL_EDEFAULT);
+        return;
       case StatesPackage.NODE_TRANSITION__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -384,6 +436,8 @@ public class NodeTransitionImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
+      case StatesPackage.NODE_TRANSITION__ESSENTIAL:
+        return essential != ESSENTIAL_EDEFAULT;
       case StatesPackage.NODE_TRANSITION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case StatesPackage.NODE_TRANSITION__FROM_STATE:
@@ -409,7 +463,9 @@ public class NodeTransitionImpl extends MinimalEObjectImpl.Container implements 
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (essential: ");
+    result.append(essential);
+    result.append(", name: ");
     result.append(name);
     result.append(", edgeweight: ");
     result.append(edgeweight);

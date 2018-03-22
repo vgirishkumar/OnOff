@@ -5,6 +5,8 @@ package com.visteon.onoff.states;
 
 import com.visteon.onoff.coom.State;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.visteon.onoff.states.StateDependency#getStateDependeny <em>State Dependeny</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.StateDependency#getStates <em>States</em>}</li>
  * </ul>
  *
  * @see com.visteon.onoff.states.StatesPackage#getStateDependency()
@@ -26,29 +28,19 @@ import org.eclipse.emf.ecore.EObject;
 public interface StateDependency extends EObject
 {
   /**
-   * Returns the value of the '<em><b>State Dependeny</b></em>' reference.
+   * Returns the value of the '<em><b>States</b></em>' reference list.
+   * The list contents are of type {@link com.visteon.onoff.coom.State}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>State Dependeny</em>' reference isn't clear,
+   * If the meaning of the '<em>States</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>State Dependeny</em>' reference.
-   * @see #setStateDependeny(State)
-   * @see com.visteon.onoff.states.StatesPackage#getStateDependency_StateDependeny()
+   * @return the value of the '<em>States</em>' reference list.
+   * @see com.visteon.onoff.states.StatesPackage#getStateDependency_States()
    * @model
    * @generated
    */
-  State getStateDependeny();
-
-  /**
-   * Sets the value of the '{@link com.visteon.onoff.states.StateDependency#getStateDependeny <em>State Dependeny</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>State Dependeny</em>' reference.
-   * @see #getStateDependeny()
-   * @generated
-   */
-  void setStateDependeny(State value);
+  EList<State> getStates();
 
 } // StateDependency

@@ -14,19 +14,20 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NodeStateDiagram">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gEdgeWeight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="gTransitionTimeoutInMilliseconds"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gEdgeWeight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nodeStates" upperBound="-1"
         eType="#//NodeState" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nodeTransitions" upperBound="-1"
         eType="#//NodeTransition" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NodeState">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="initial" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NodeTransition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="essential" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fromState" eType="#//NodeState"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="toState" eType="#//NodeState"/>
@@ -49,27 +50,32 @@
         eType="#//Feature" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComponentTransition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="essential" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transition" eType="ecore:EClass platform:/resource/com.visteon.onoff.coom/model/generated/Coom.ecore#//Transition"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeoutInMilliseconds"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxretries" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComponentState">
     <eStructuralFeatures xsi:type="ecore:EReference" name="state" eType="ecore:EClass platform:/resource/com.visteon.onoff.coom/model/generated/Coom.ecore#//State"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="stateDependencies" upperBound="-1"
-        eType="#//StateDependency" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureDependencies" upperBound="-1"
-        eType="#//FeatureDependency" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stateDependencies" eType="#//StateDependency"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureDependencies" eType="#//FeatureDependency"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transitionDependencies"
-        upperBound="-1" eType="#//TransitionDependency" containment="true"/>
+        eType="#//TransitionDependency" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StateDependency">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="stateDependeny" eType="ecore:EClass platform:/resource/com.visteon.onoff.coom/model/generated/Coom.ecore#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="states" unique="false"
+        upperBound="-1" eType="ecore:EClass platform:/resource/com.visteon.onoff.coom/model/generated/Coom.ecore#//State"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TransitionDependency">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="transitionDependeny" eType="ecore:EClass platform:/resource/com.visteon.onoff.coom/model/generated/Coom.ecore#//Transition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transistions" unique="false"
+        upperBound="-1" eType="ecore:EClass platform:/resource/com.visteon.onoff.coom/model/generated/Coom.ecore#//Transition"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FeatureDependency">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureDependeny" eType="#//Feature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="features" unique="false"
+        upperBound="-1" eType="#//Feature"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NodeStateAssociation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="nodeState" eType="#//NodeState"/>

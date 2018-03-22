@@ -5,8 +5,6 @@ package com.visteon.onoff.states;
 
 import com.visteon.onoff.coom.State;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -57,51 +55,81 @@ public interface ComponentState extends EObject
   void setState(State value);
 
   /**
-   * Returns the value of the '<em><b>State Dependencies</b></em>' containment reference list.
-   * The list contents are of type {@link com.visteon.onoff.states.StateDependency}.
+   * Returns the value of the '<em><b>State Dependencies</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>State Dependencies</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>State Dependencies</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>State Dependencies</em>' containment reference list.
+   * @return the value of the '<em>State Dependencies</em>' containment reference.
+   * @see #setStateDependencies(StateDependency)
    * @see com.visteon.onoff.states.StatesPackage#getComponentState_StateDependencies()
    * @model containment="true"
    * @generated
    */
-  EList<StateDependency> getStateDependencies();
+  StateDependency getStateDependencies();
 
   /**
-   * Returns the value of the '<em><b>Feature Dependencies</b></em>' containment reference list.
-   * The list contents are of type {@link com.visteon.onoff.states.FeatureDependency}.
+   * Sets the value of the '{@link com.visteon.onoff.states.ComponentState#getStateDependencies <em>State Dependencies</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>State Dependencies</em>' containment reference.
+   * @see #getStateDependencies()
+   * @generated
+   */
+  void setStateDependencies(StateDependency value);
+
+  /**
+   * Returns the value of the '<em><b>Feature Dependencies</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Feature Dependencies</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Feature Dependencies</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Feature Dependencies</em>' containment reference list.
+   * @return the value of the '<em>Feature Dependencies</em>' containment reference.
+   * @see #setFeatureDependencies(FeatureDependency)
    * @see com.visteon.onoff.states.StatesPackage#getComponentState_FeatureDependencies()
    * @model containment="true"
    * @generated
    */
-  EList<FeatureDependency> getFeatureDependencies();
+  FeatureDependency getFeatureDependencies();
 
   /**
-   * Returns the value of the '<em><b>Transition Dependencies</b></em>' containment reference list.
-   * The list contents are of type {@link com.visteon.onoff.states.TransitionDependency}.
+   * Sets the value of the '{@link com.visteon.onoff.states.ComponentState#getFeatureDependencies <em>Feature Dependencies</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Feature Dependencies</em>' containment reference.
+   * @see #getFeatureDependencies()
+   * @generated
+   */
+  void setFeatureDependencies(FeatureDependency value);
+
+  /**
+   * Returns the value of the '<em><b>Transition Dependencies</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Transition Dependencies</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Transition Dependencies</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Transition Dependencies</em>' containment reference list.
+   * @return the value of the '<em>Transition Dependencies</em>' containment reference.
+   * @see #setTransitionDependencies(TransitionDependency)
    * @see com.visteon.onoff.states.StatesPackage#getComponentState_TransitionDependencies()
    * @model containment="true"
    * @generated
    */
-  EList<TransitionDependency> getTransitionDependencies();
+  TransitionDependency getTransitionDependencies();
+
+  /**
+   * Sets the value of the '{@link com.visteon.onoff.states.ComponentState#getTransitionDependencies <em>Transition Dependencies</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Transition Dependencies</em>' containment reference.
+   * @see #getTransitionDependencies()
+   * @generated
+   */
+  void setTransitionDependencies(TransitionDependency value);
 
 } // ComponentState

@@ -24,14 +24,36 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.visteon.onoff.states.impl.ComponentTransitionImpl#isEssential <em>Essential</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.ComponentTransitionImpl#getTransition <em>Transition</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.ComponentTransitionImpl#getTimeoutInMilliseconds <em>Timeout In Milliseconds</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.impl.ComponentTransitionImpl#getMaxretries <em>Maxretries</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ComponentTransitionImpl extends MinimalEObjectImpl.Container implements ComponentTransition
 {
+  /**
+   * The default value of the '{@link #isEssential() <em>Essential</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isEssential()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean ESSENTIAL_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isEssential() <em>Essential</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isEssential()
+   * @generated
+   * @ordered
+   */
+  protected boolean essential = ESSENTIAL_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getTransition() <em>Transition</em>}' reference.
    * <!-- begin-user-doc -->
@@ -63,6 +85,26 @@ public class ComponentTransitionImpl extends MinimalEObjectImpl.Container implem
   protected int timeoutInMilliseconds = TIMEOUT_IN_MILLISECONDS_EDEFAULT;
 
   /**
+   * The default value of the '{@link #getMaxretries() <em>Maxretries</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMaxretries()
+   * @generated
+   * @ordered
+   */
+  protected static final int MAXRETRIES_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getMaxretries() <em>Maxretries</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMaxretries()
+   * @generated
+   * @ordered
+   */
+  protected int maxretries = MAXRETRIES_EDEFAULT;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -81,6 +123,29 @@ public class ComponentTransitionImpl extends MinimalEObjectImpl.Container implem
   protected EClass eStaticClass()
   {
     return StatesPackage.Literals.COMPONENT_TRANSITION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isEssential()
+  {
+    return essential;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setEssential(boolean newEssential)
+  {
+    boolean oldEssential = essential;
+    essential = newEssential;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, StatesPackage.COMPONENT_TRANSITION__ESSENTIAL, oldEssential, essential));
   }
 
   /**
@@ -154,16 +219,43 @@ public class ComponentTransitionImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
+  public int getMaxretries()
+  {
+    return maxretries;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMaxretries(int newMaxretries)
+  {
+    int oldMaxretries = maxretries;
+    maxretries = newMaxretries;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, StatesPackage.COMPONENT_TRANSITION__MAXRETRIES, oldMaxretries, maxretries));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
+      case StatesPackage.COMPONENT_TRANSITION__ESSENTIAL:
+        return isEssential();
       case StatesPackage.COMPONENT_TRANSITION__TRANSITION:
         if (resolve) return getTransition();
         return basicGetTransition();
       case StatesPackage.COMPONENT_TRANSITION__TIMEOUT_IN_MILLISECONDS:
         return getTimeoutInMilliseconds();
+      case StatesPackage.COMPONENT_TRANSITION__MAXRETRIES:
+        return getMaxretries();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -178,11 +270,17 @@ public class ComponentTransitionImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
+      case StatesPackage.COMPONENT_TRANSITION__ESSENTIAL:
+        setEssential((Boolean)newValue);
+        return;
       case StatesPackage.COMPONENT_TRANSITION__TRANSITION:
         setTransition((Transition)newValue);
         return;
       case StatesPackage.COMPONENT_TRANSITION__TIMEOUT_IN_MILLISECONDS:
         setTimeoutInMilliseconds((Integer)newValue);
+        return;
+      case StatesPackage.COMPONENT_TRANSITION__MAXRETRIES:
+        setMaxretries((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -198,11 +296,17 @@ public class ComponentTransitionImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
+      case StatesPackage.COMPONENT_TRANSITION__ESSENTIAL:
+        setEssential(ESSENTIAL_EDEFAULT);
+        return;
       case StatesPackage.COMPONENT_TRANSITION__TRANSITION:
         setTransition((Transition)null);
         return;
       case StatesPackage.COMPONENT_TRANSITION__TIMEOUT_IN_MILLISECONDS:
         setTimeoutInMilliseconds(TIMEOUT_IN_MILLISECONDS_EDEFAULT);
+        return;
+      case StatesPackage.COMPONENT_TRANSITION__MAXRETRIES:
+        setMaxretries(MAXRETRIES_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -218,10 +322,14 @@ public class ComponentTransitionImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
+      case StatesPackage.COMPONENT_TRANSITION__ESSENTIAL:
+        return essential != ESSENTIAL_EDEFAULT;
       case StatesPackage.COMPONENT_TRANSITION__TRANSITION:
         return transition != null;
       case StatesPackage.COMPONENT_TRANSITION__TIMEOUT_IN_MILLISECONDS:
         return timeoutInMilliseconds != TIMEOUT_IN_MILLISECONDS_EDEFAULT;
+      case StatesPackage.COMPONENT_TRANSITION__MAXRETRIES:
+        return maxretries != MAXRETRIES_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -237,8 +345,12 @@ public class ComponentTransitionImpl extends MinimalEObjectImpl.Container implem
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (timeoutInMilliseconds: ");
+    result.append(" (essential: ");
+    result.append(essential);
+    result.append(", timeoutInMilliseconds: ");
     result.append(timeoutInMilliseconds);
+    result.append(", maxretries: ");
+    result.append(maxretries);
     result.append(')');
     return result.toString();
   }

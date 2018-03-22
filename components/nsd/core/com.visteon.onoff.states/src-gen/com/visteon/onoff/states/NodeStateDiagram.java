@@ -16,8 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.visteon.onoff.states.NodeStateDiagram#getGTransitionTimeoutInMilliseconds <em>GTransition Timeout In Milliseconds</em>}</li>
  *   <li>{@link com.visteon.onoff.states.NodeStateDiagram#getGEdgeWeight <em>GEdge Weight</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.NodeStateDiagram#getGTransitionTimeoutInMilliseconds <em>GTransition Timeout In Milliseconds</em>}</li>
  *   <li>{@link com.visteon.onoff.states.NodeStateDiagram#getNodeStates <em>Node States</em>}</li>
  *   <li>{@link com.visteon.onoff.states.NodeStateDiagram#getNodeTransitions <em>Node Transitions</em>}</li>
  * </ul>
@@ -28,32 +28,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface NodeStateDiagram extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>GTransition Timeout In Milliseconds</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>GTransition Timeout In Milliseconds</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>GTransition Timeout In Milliseconds</em>' attribute.
-   * @see #setGTransitionTimeoutInMilliseconds(int)
-   * @see com.visteon.onoff.states.StatesPackage#getNodeStateDiagram_GTransitionTimeoutInMilliseconds()
-   * @model
-   * @generated
-   */
-  int getGTransitionTimeoutInMilliseconds();
-
-  /**
-   * Sets the value of the '{@link com.visteon.onoff.states.NodeStateDiagram#getGTransitionTimeoutInMilliseconds <em>GTransition Timeout In Milliseconds</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>GTransition Timeout In Milliseconds</em>' attribute.
-   * @see #getGTransitionTimeoutInMilliseconds()
-   * @generated
-   */
-  void setGTransitionTimeoutInMilliseconds(int value);
-
   /**
    * Returns the value of the '<em><b>GEdge Weight</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -79,6 +53,32 @@ public interface NodeStateDiagram extends EObject
    * @generated
    */
   void setGEdgeWeight(int value);
+
+  /**
+   * Returns the value of the '<em><b>GTransition Timeout In Milliseconds</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>GTransition Timeout In Milliseconds</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>GTransition Timeout In Milliseconds</em>' attribute.
+   * @see #setGTransitionTimeoutInMilliseconds(int)
+   * @see com.visteon.onoff.states.StatesPackage#getNodeStateDiagram_GTransitionTimeoutInMilliseconds()
+   * @model
+   * @generated
+   */
+  int getGTransitionTimeoutInMilliseconds();
+
+  /**
+   * Sets the value of the '{@link com.visteon.onoff.states.NodeStateDiagram#getGTransitionTimeoutInMilliseconds <em>GTransition Timeout In Milliseconds</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>GTransition Timeout In Milliseconds</em>' attribute.
+   * @see #getGTransitionTimeoutInMilliseconds()
+   * @generated
+   */
+  void setGTransitionTimeoutInMilliseconds(int value);
 
   /**
    * Returns the value of the '<em><b>Node States</b></em>' containment reference list.

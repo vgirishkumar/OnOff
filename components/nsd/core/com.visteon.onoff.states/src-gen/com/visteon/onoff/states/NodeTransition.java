@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.visteon.onoff.states.NodeTransition#isEssential <em>Essential</em>}</li>
  *   <li>{@link com.visteon.onoff.states.NodeTransition#getName <em>Name</em>}</li>
  *   <li>{@link com.visteon.onoff.states.NodeTransition#getFromState <em>From State</em>}</li>
  *   <li>{@link com.visteon.onoff.states.NodeTransition#getToState <em>To State</em>}</li>
@@ -27,6 +28,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface NodeTransition extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Essential</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Essential</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Essential</em>' attribute.
+   * @see #setEssential(boolean)
+   * @see com.visteon.onoff.states.StatesPackage#getNodeTransition_Essential()
+   * @model
+   * @generated
+   */
+  boolean isEssential();
+
+  /**
+   * Sets the value of the '{@link com.visteon.onoff.states.NodeTransition#isEssential <em>Essential</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Essential</em>' attribute.
+   * @see #isEssential()
+   * @generated
+   */
+  void setEssential(boolean value);
+
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->

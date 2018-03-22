@@ -11,21 +11,14 @@ import com.visteon.onoff.states.StateDependency;
 import com.visteon.onoff.states.StatesPackage;
 import com.visteon.onoff.states.TransitionDependency;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,34 +49,34 @@ public class ComponentStateImpl extends MinimalEObjectImpl.Container implements 
   protected State state;
 
   /**
-   * The cached value of the '{@link #getStateDependencies() <em>State Dependencies</em>}' containment reference list.
+   * The cached value of the '{@link #getStateDependencies() <em>State Dependencies</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getStateDependencies()
    * @generated
    * @ordered
    */
-  protected EList<StateDependency> stateDependencies;
+  protected StateDependency stateDependencies;
 
   /**
-   * The cached value of the '{@link #getFeatureDependencies() <em>Feature Dependencies</em>}' containment reference list.
+   * The cached value of the '{@link #getFeatureDependencies() <em>Feature Dependencies</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getFeatureDependencies()
    * @generated
    * @ordered
    */
-  protected EList<FeatureDependency> featureDependencies;
+  protected FeatureDependency featureDependencies;
 
   /**
-   * The cached value of the '{@link #getTransitionDependencies() <em>Transition Dependencies</em>}' containment reference list.
+   * The cached value of the '{@link #getTransitionDependencies() <em>Transition Dependencies</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getTransitionDependencies()
    * @generated
    * @ordered
    */
-  protected EList<TransitionDependency> transitionDependencies;
+  protected TransitionDependency transitionDependencies;
 
   /**
    * <!-- begin-user-doc -->
@@ -154,12 +147,8 @@ public class ComponentStateImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<StateDependency> getStateDependencies()
+  public StateDependency getStateDependencies()
   {
-    if (stateDependencies == null)
-    {
-      stateDependencies = new EObjectContainmentEList<StateDependency>(StateDependency.class, this, StatesPackage.COMPONENT_STATE__STATE_DEPENDENCIES);
-    }
     return stateDependencies;
   }
 
@@ -168,12 +157,46 @@ public class ComponentStateImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<FeatureDependency> getFeatureDependencies()
+  public NotificationChain basicSetStateDependencies(StateDependency newStateDependencies, NotificationChain msgs)
   {
-    if (featureDependencies == null)
+    StateDependency oldStateDependencies = stateDependencies;
+    stateDependencies = newStateDependencies;
+    if (eNotificationRequired())
     {
-      featureDependencies = new EObjectContainmentEList<FeatureDependency>(FeatureDependency.class, this, StatesPackage.COMPONENT_STATE__FEATURE_DEPENDENCIES);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StatesPackage.COMPONENT_STATE__STATE_DEPENDENCIES, oldStateDependencies, newStateDependencies);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setStateDependencies(StateDependency newStateDependencies)
+  {
+    if (newStateDependencies != stateDependencies)
+    {
+      NotificationChain msgs = null;
+      if (stateDependencies != null)
+        msgs = ((InternalEObject)stateDependencies).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StatesPackage.COMPONENT_STATE__STATE_DEPENDENCIES, null, msgs);
+      if (newStateDependencies != null)
+        msgs = ((InternalEObject)newStateDependencies).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StatesPackage.COMPONENT_STATE__STATE_DEPENDENCIES, null, msgs);
+      msgs = basicSetStateDependencies(newStateDependencies, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, StatesPackage.COMPONENT_STATE__STATE_DEPENDENCIES, newStateDependencies, newStateDependencies));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FeatureDependency getFeatureDependencies()
+  {
     return featureDependencies;
   }
 
@@ -182,13 +205,85 @@ public class ComponentStateImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<TransitionDependency> getTransitionDependencies()
+  public NotificationChain basicSetFeatureDependencies(FeatureDependency newFeatureDependencies, NotificationChain msgs)
   {
-    if (transitionDependencies == null)
+    FeatureDependency oldFeatureDependencies = featureDependencies;
+    featureDependencies = newFeatureDependencies;
+    if (eNotificationRequired())
     {
-      transitionDependencies = new EObjectContainmentEList<TransitionDependency>(TransitionDependency.class, this, StatesPackage.COMPONENT_STATE__TRANSITION_DEPENDENCIES);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StatesPackage.COMPONENT_STATE__FEATURE_DEPENDENCIES, oldFeatureDependencies, newFeatureDependencies);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFeatureDependencies(FeatureDependency newFeatureDependencies)
+  {
+    if (newFeatureDependencies != featureDependencies)
+    {
+      NotificationChain msgs = null;
+      if (featureDependencies != null)
+        msgs = ((InternalEObject)featureDependencies).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StatesPackage.COMPONENT_STATE__FEATURE_DEPENDENCIES, null, msgs);
+      if (newFeatureDependencies != null)
+        msgs = ((InternalEObject)newFeatureDependencies).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StatesPackage.COMPONENT_STATE__FEATURE_DEPENDENCIES, null, msgs);
+      msgs = basicSetFeatureDependencies(newFeatureDependencies, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, StatesPackage.COMPONENT_STATE__FEATURE_DEPENDENCIES, newFeatureDependencies, newFeatureDependencies));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TransitionDependency getTransitionDependencies()
+  {
     return transitionDependencies;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTransitionDependencies(TransitionDependency newTransitionDependencies, NotificationChain msgs)
+  {
+    TransitionDependency oldTransitionDependencies = transitionDependencies;
+    transitionDependencies = newTransitionDependencies;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StatesPackage.COMPONENT_STATE__TRANSITION_DEPENDENCIES, oldTransitionDependencies, newTransitionDependencies);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTransitionDependencies(TransitionDependency newTransitionDependencies)
+  {
+    if (newTransitionDependencies != transitionDependencies)
+    {
+      NotificationChain msgs = null;
+      if (transitionDependencies != null)
+        msgs = ((InternalEObject)transitionDependencies).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StatesPackage.COMPONENT_STATE__TRANSITION_DEPENDENCIES, null, msgs);
+      if (newTransitionDependencies != null)
+        msgs = ((InternalEObject)newTransitionDependencies).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StatesPackage.COMPONENT_STATE__TRANSITION_DEPENDENCIES, null, msgs);
+      msgs = basicSetTransitionDependencies(newTransitionDependencies, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, StatesPackage.COMPONENT_STATE__TRANSITION_DEPENDENCIES, newTransitionDependencies, newTransitionDependencies));
   }
 
   /**
@@ -202,11 +297,11 @@ public class ComponentStateImpl extends MinimalEObjectImpl.Container implements 
     switch (featureID)
     {
       case StatesPackage.COMPONENT_STATE__STATE_DEPENDENCIES:
-        return ((InternalEList<?>)getStateDependencies()).basicRemove(otherEnd, msgs);
+        return basicSetStateDependencies(null, msgs);
       case StatesPackage.COMPONENT_STATE__FEATURE_DEPENDENCIES:
-        return ((InternalEList<?>)getFeatureDependencies()).basicRemove(otherEnd, msgs);
+        return basicSetFeatureDependencies(null, msgs);
       case StatesPackage.COMPONENT_STATE__TRANSITION_DEPENDENCIES:
-        return ((InternalEList<?>)getTransitionDependencies()).basicRemove(otherEnd, msgs);
+        return basicSetTransitionDependencies(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -239,7 +334,6 @@ public class ComponentStateImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -249,16 +343,13 @@ public class ComponentStateImpl extends MinimalEObjectImpl.Container implements 
         setState((State)newValue);
         return;
       case StatesPackage.COMPONENT_STATE__STATE_DEPENDENCIES:
-        getStateDependencies().clear();
-        getStateDependencies().addAll((Collection<? extends StateDependency>)newValue);
+        setStateDependencies((StateDependency)newValue);
         return;
       case StatesPackage.COMPONENT_STATE__FEATURE_DEPENDENCIES:
-        getFeatureDependencies().clear();
-        getFeatureDependencies().addAll((Collection<? extends FeatureDependency>)newValue);
+        setFeatureDependencies((FeatureDependency)newValue);
         return;
       case StatesPackage.COMPONENT_STATE__TRANSITION_DEPENDENCIES:
-        getTransitionDependencies().clear();
-        getTransitionDependencies().addAll((Collection<? extends TransitionDependency>)newValue);
+        setTransitionDependencies((TransitionDependency)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -278,13 +369,13 @@ public class ComponentStateImpl extends MinimalEObjectImpl.Container implements 
         setState((State)null);
         return;
       case StatesPackage.COMPONENT_STATE__STATE_DEPENDENCIES:
-        getStateDependencies().clear();
+        setStateDependencies((StateDependency)null);
         return;
       case StatesPackage.COMPONENT_STATE__FEATURE_DEPENDENCIES:
-        getFeatureDependencies().clear();
+        setFeatureDependencies((FeatureDependency)null);
         return;
       case StatesPackage.COMPONENT_STATE__TRANSITION_DEPENDENCIES:
-        getTransitionDependencies().clear();
+        setTransitionDependencies((TransitionDependency)null);
         return;
     }
     super.eUnset(featureID);
@@ -303,11 +394,11 @@ public class ComponentStateImpl extends MinimalEObjectImpl.Container implements 
       case StatesPackage.COMPONENT_STATE__STATE:
         return state != null;
       case StatesPackage.COMPONENT_STATE__STATE_DEPENDENCIES:
-        return stateDependencies != null && !stateDependencies.isEmpty();
+        return stateDependencies != null;
       case StatesPackage.COMPONENT_STATE__FEATURE_DEPENDENCIES:
-        return featureDependencies != null && !featureDependencies.isEmpty();
+        return featureDependencies != null;
       case StatesPackage.COMPONENT_STATE__TRANSITION_DEPENDENCIES:
-        return transitionDependencies != null && !transitionDependencies.isEmpty();
+        return transitionDependencies != null;
     }
     return super.eIsSet(featureID);
   }

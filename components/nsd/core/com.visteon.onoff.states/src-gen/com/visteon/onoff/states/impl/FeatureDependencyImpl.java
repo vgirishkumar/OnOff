@@ -7,13 +7,15 @@ import com.visteon.onoff.states.Feature;
 import com.visteon.onoff.states.FeatureDependency;
 import com.visteon.onoff.states.StatesPackage;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.visteon.onoff.states.impl.FeatureDependencyImpl#getFeatureDependeny <em>Feature Dependeny</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.impl.FeatureDependencyImpl#getFeatures <em>Features</em>}</li>
  * </ul>
  *
  * @generated
@@ -31,14 +33,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class FeatureDependencyImpl extends MinimalEObjectImpl.Container implements FeatureDependency
 {
   /**
-   * The cached value of the '{@link #getFeatureDependeny() <em>Feature Dependeny</em>}' reference.
+   * The cached value of the '{@link #getFeatures() <em>Features</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFeatureDependeny()
+   * @see #getFeatures()
    * @generated
    * @ordered
    */
-  protected Feature featureDependeny;
+  protected EList<Feature> features;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,42 +68,13 @@ public class FeatureDependencyImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public Feature getFeatureDependeny()
+  public EList<Feature> getFeatures()
   {
-    if (featureDependeny != null && featureDependeny.eIsProxy())
+    if (features == null)
     {
-      InternalEObject oldFeatureDependeny = (InternalEObject)featureDependeny;
-      featureDependeny = (Feature)eResolveProxy(oldFeatureDependeny);
-      if (featureDependeny != oldFeatureDependeny)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, StatesPackage.FEATURE_DEPENDENCY__FEATURE_DEPENDENY, oldFeatureDependeny, featureDependeny));
-      }
+      features = new EObjectResolvingEList<Feature>(Feature.class, this, StatesPackage.FEATURE_DEPENDENCY__FEATURES);
     }
-    return featureDependeny;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Feature basicGetFeatureDependeny()
-  {
-    return featureDependeny;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setFeatureDependeny(Feature newFeatureDependeny)
-  {
-    Feature oldFeatureDependeny = featureDependeny;
-    featureDependeny = newFeatureDependeny;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, StatesPackage.FEATURE_DEPENDENCY__FEATURE_DEPENDENY, oldFeatureDependeny, featureDependeny));
+    return features;
   }
 
   /**
@@ -114,9 +87,8 @@ public class FeatureDependencyImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case StatesPackage.FEATURE_DEPENDENCY__FEATURE_DEPENDENY:
-        if (resolve) return getFeatureDependeny();
-        return basicGetFeatureDependeny();
+      case StatesPackage.FEATURE_DEPENDENCY__FEATURES:
+        return getFeatures();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -126,13 +98,15 @@ public class FeatureDependencyImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case StatesPackage.FEATURE_DEPENDENCY__FEATURE_DEPENDENY:
-        setFeatureDependeny((Feature)newValue);
+      case StatesPackage.FEATURE_DEPENDENCY__FEATURES:
+        getFeatures().clear();
+        getFeatures().addAll((Collection<? extends Feature>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -148,8 +122,8 @@ public class FeatureDependencyImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case StatesPackage.FEATURE_DEPENDENCY__FEATURE_DEPENDENY:
-        setFeatureDependeny((Feature)null);
+      case StatesPackage.FEATURE_DEPENDENCY__FEATURES:
+        getFeatures().clear();
         return;
     }
     super.eUnset(featureID);
@@ -165,8 +139,8 @@ public class FeatureDependencyImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case StatesPackage.FEATURE_DEPENDENCY__FEATURE_DEPENDENY:
-        return featureDependeny != null;
+      case StatesPackage.FEATURE_DEPENDENCY__FEATURES:
+        return features != null && !features.isEmpty();
     }
     return super.eIsSet(featureID);
   }

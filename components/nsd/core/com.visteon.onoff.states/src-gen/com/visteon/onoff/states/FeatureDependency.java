@@ -3,6 +3,8 @@
  */
 package com.visteon.onoff.states;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.visteon.onoff.states.FeatureDependency#getFeatureDependeny <em>Feature Dependeny</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.FeatureDependency#getFeatures <em>Features</em>}</li>
  * </ul>
  *
  * @see com.visteon.onoff.states.StatesPackage#getFeatureDependency()
@@ -24,29 +26,19 @@ import org.eclipse.emf.ecore.EObject;
 public interface FeatureDependency extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Feature Dependeny</b></em>' reference.
+   * Returns the value of the '<em><b>Features</b></em>' reference list.
+   * The list contents are of type {@link com.visteon.onoff.states.Feature}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Feature Dependeny</em>' reference isn't clear,
+   * If the meaning of the '<em>Features</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Feature Dependeny</em>' reference.
-   * @see #setFeatureDependeny(Feature)
-   * @see com.visteon.onoff.states.StatesPackage#getFeatureDependency_FeatureDependeny()
+   * @return the value of the '<em>Features</em>' reference list.
+   * @see com.visteon.onoff.states.StatesPackage#getFeatureDependency_Features()
    * @model
    * @generated
    */
-  Feature getFeatureDependeny();
-
-  /**
-   * Sets the value of the '{@link com.visteon.onoff.states.FeatureDependency#getFeatureDependeny <em>Feature Dependeny</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Feature Dependeny</em>' reference.
-   * @see #getFeatureDependeny()
-   * @generated
-   */
-  void setFeatureDependeny(Feature value);
+  EList<Feature> getFeatures();
 
 } // FeatureDependency

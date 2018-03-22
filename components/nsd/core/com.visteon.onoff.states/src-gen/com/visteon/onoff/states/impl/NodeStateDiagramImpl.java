@@ -32,8 +32,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.visteon.onoff.states.impl.NodeStateDiagramImpl#getGTransitionTimeoutInMilliseconds <em>GTransition Timeout In Milliseconds</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.NodeStateDiagramImpl#getGEdgeWeight <em>GEdge Weight</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.impl.NodeStateDiagramImpl#getGTransitionTimeoutInMilliseconds <em>GTransition Timeout In Milliseconds</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.NodeStateDiagramImpl#getNodeStates <em>Node States</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.NodeStateDiagramImpl#getNodeTransitions <em>Node Transitions</em>}</li>
  * </ul>
@@ -42,26 +42,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class NodeStateDiagramImpl extends MinimalEObjectImpl.Container implements NodeStateDiagram
 {
-  /**
-   * The default value of the '{@link #getGTransitionTimeoutInMilliseconds() <em>GTransition Timeout In Milliseconds</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getGTransitionTimeoutInMilliseconds()
-   * @generated
-   * @ordered
-   */
-  protected static final int GTRANSITION_TIMEOUT_IN_MILLISECONDS_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getGTransitionTimeoutInMilliseconds() <em>GTransition Timeout In Milliseconds</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getGTransitionTimeoutInMilliseconds()
-   * @generated
-   * @ordered
-   */
-  protected int gTransitionTimeoutInMilliseconds = GTRANSITION_TIMEOUT_IN_MILLISECONDS_EDEFAULT;
-
   /**
    * The default value of the '{@link #getGEdgeWeight() <em>GEdge Weight</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -81,6 +61,26 @@ public class NodeStateDiagramImpl extends MinimalEObjectImpl.Container implement
    * @ordered
    */
   protected int gEdgeWeight = GEDGE_WEIGHT_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getGTransitionTimeoutInMilliseconds() <em>GTransition Timeout In Milliseconds</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getGTransitionTimeoutInMilliseconds()
+   * @generated
+   * @ordered
+   */
+  protected static final int GTRANSITION_TIMEOUT_IN_MILLISECONDS_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getGTransitionTimeoutInMilliseconds() <em>GTransition Timeout In Milliseconds</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getGTransitionTimeoutInMilliseconds()
+   * @generated
+   * @ordered
+   */
+  protected int gTransitionTimeoutInMilliseconds = GTRANSITION_TIMEOUT_IN_MILLISECONDS_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getNodeStates() <em>Node States</em>}' containment reference list.
@@ -128,29 +128,6 @@ public class NodeStateDiagramImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getGTransitionTimeoutInMilliseconds()
-  {
-    return gTransitionTimeoutInMilliseconds;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setGTransitionTimeoutInMilliseconds(int newGTransitionTimeoutInMilliseconds)
-  {
-    int oldGTransitionTimeoutInMilliseconds = gTransitionTimeoutInMilliseconds;
-    gTransitionTimeoutInMilliseconds = newGTransitionTimeoutInMilliseconds;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, StatesPackage.NODE_STATE_DIAGRAM__GTRANSITION_TIMEOUT_IN_MILLISECONDS, oldGTransitionTimeoutInMilliseconds, gTransitionTimeoutInMilliseconds));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public int getGEdgeWeight()
   {
     return gEdgeWeight;
@@ -167,6 +144,29 @@ public class NodeStateDiagramImpl extends MinimalEObjectImpl.Container implement
     gEdgeWeight = newGEdgeWeight;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, StatesPackage.NODE_STATE_DIAGRAM__GEDGE_WEIGHT, oldGEdgeWeight, gEdgeWeight));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public int getGTransitionTimeoutInMilliseconds()
+  {
+    return gTransitionTimeoutInMilliseconds;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setGTransitionTimeoutInMilliseconds(int newGTransitionTimeoutInMilliseconds)
+  {
+    int oldGTransitionTimeoutInMilliseconds = gTransitionTimeoutInMilliseconds;
+    gTransitionTimeoutInMilliseconds = newGTransitionTimeoutInMilliseconds;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, StatesPackage.NODE_STATE_DIAGRAM__GTRANSITION_TIMEOUT_IN_MILLISECONDS, oldGTransitionTimeoutInMilliseconds, gTransitionTimeoutInMilliseconds));
   }
 
   /**
@@ -225,10 +225,10 @@ public class NodeStateDiagramImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case StatesPackage.NODE_STATE_DIAGRAM__GTRANSITION_TIMEOUT_IN_MILLISECONDS:
-        return getGTransitionTimeoutInMilliseconds();
       case StatesPackage.NODE_STATE_DIAGRAM__GEDGE_WEIGHT:
         return getGEdgeWeight();
+      case StatesPackage.NODE_STATE_DIAGRAM__GTRANSITION_TIMEOUT_IN_MILLISECONDS:
+        return getGTransitionTimeoutInMilliseconds();
       case StatesPackage.NODE_STATE_DIAGRAM__NODE_STATES:
         return getNodeStates();
       case StatesPackage.NODE_STATE_DIAGRAM__NODE_TRANSITIONS:
@@ -248,11 +248,11 @@ public class NodeStateDiagramImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case StatesPackage.NODE_STATE_DIAGRAM__GTRANSITION_TIMEOUT_IN_MILLISECONDS:
-        setGTransitionTimeoutInMilliseconds((Integer)newValue);
-        return;
       case StatesPackage.NODE_STATE_DIAGRAM__GEDGE_WEIGHT:
         setGEdgeWeight((Integer)newValue);
+        return;
+      case StatesPackage.NODE_STATE_DIAGRAM__GTRANSITION_TIMEOUT_IN_MILLISECONDS:
+        setGTransitionTimeoutInMilliseconds((Integer)newValue);
         return;
       case StatesPackage.NODE_STATE_DIAGRAM__NODE_STATES:
         getNodeStates().clear();
@@ -276,11 +276,11 @@ public class NodeStateDiagramImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case StatesPackage.NODE_STATE_DIAGRAM__GTRANSITION_TIMEOUT_IN_MILLISECONDS:
-        setGTransitionTimeoutInMilliseconds(GTRANSITION_TIMEOUT_IN_MILLISECONDS_EDEFAULT);
-        return;
       case StatesPackage.NODE_STATE_DIAGRAM__GEDGE_WEIGHT:
         setGEdgeWeight(GEDGE_WEIGHT_EDEFAULT);
+        return;
+      case StatesPackage.NODE_STATE_DIAGRAM__GTRANSITION_TIMEOUT_IN_MILLISECONDS:
+        setGTransitionTimeoutInMilliseconds(GTRANSITION_TIMEOUT_IN_MILLISECONDS_EDEFAULT);
         return;
       case StatesPackage.NODE_STATE_DIAGRAM__NODE_STATES:
         getNodeStates().clear();
@@ -302,10 +302,10 @@ public class NodeStateDiagramImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case StatesPackage.NODE_STATE_DIAGRAM__GTRANSITION_TIMEOUT_IN_MILLISECONDS:
-        return gTransitionTimeoutInMilliseconds != GTRANSITION_TIMEOUT_IN_MILLISECONDS_EDEFAULT;
       case StatesPackage.NODE_STATE_DIAGRAM__GEDGE_WEIGHT:
         return gEdgeWeight != GEDGE_WEIGHT_EDEFAULT;
+      case StatesPackage.NODE_STATE_DIAGRAM__GTRANSITION_TIMEOUT_IN_MILLISECONDS:
+        return gTransitionTimeoutInMilliseconds != GTRANSITION_TIMEOUT_IN_MILLISECONDS_EDEFAULT;
       case StatesPackage.NODE_STATE_DIAGRAM__NODE_STATES:
         return nodeStates != null && !nodeStates.isEmpty();
       case StatesPackage.NODE_STATE_DIAGRAM__NODE_TRANSITIONS:
@@ -325,10 +325,10 @@ public class NodeStateDiagramImpl extends MinimalEObjectImpl.Container implement
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (gTransitionTimeoutInMilliseconds: ");
-    result.append(gTransitionTimeoutInMilliseconds);
-    result.append(", gEdgeWeight: ");
+    result.append(" (gEdgeWeight: ");
     result.append(gEdgeWeight);
+    result.append(", gTransitionTimeoutInMilliseconds: ");
+    result.append(gTransitionTimeoutInMilliseconds);
     result.append(')');
     return result.toString();
   }

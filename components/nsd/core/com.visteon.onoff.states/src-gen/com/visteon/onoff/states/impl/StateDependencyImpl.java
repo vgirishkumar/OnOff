@@ -8,13 +8,15 @@ import com.visteon.onoff.coom.State;
 import com.visteon.onoff.states.StateDependency;
 import com.visteon.onoff.states.StatesPackage;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.visteon.onoff.states.impl.StateDependencyImpl#getStateDependeny <em>State Dependeny</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.impl.StateDependencyImpl#getStates <em>States</em>}</li>
  * </ul>
  *
  * @generated
@@ -32,14 +34,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class StateDependencyImpl extends MinimalEObjectImpl.Container implements StateDependency
 {
   /**
-   * The cached value of the '{@link #getStateDependeny() <em>State Dependeny</em>}' reference.
+   * The cached value of the '{@link #getStates() <em>States</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getStateDependeny()
+   * @see #getStates()
    * @generated
    * @ordered
    */
-  protected State stateDependeny;
+  protected EList<State> states;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,42 +69,13 @@ public class StateDependencyImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public State getStateDependeny()
+  public EList<State> getStates()
   {
-    if (stateDependeny != null && stateDependeny.eIsProxy())
+    if (states == null)
     {
-      InternalEObject oldStateDependeny = (InternalEObject)stateDependeny;
-      stateDependeny = (State)eResolveProxy(oldStateDependeny);
-      if (stateDependeny != oldStateDependeny)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, StatesPackage.STATE_DEPENDENCY__STATE_DEPENDENY, oldStateDependeny, stateDependeny));
-      }
+      states = new EObjectResolvingEList<State>(State.class, this, StatesPackage.STATE_DEPENDENCY__STATES);
     }
-    return stateDependeny;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public State basicGetStateDependeny()
-  {
-    return stateDependeny;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setStateDependeny(State newStateDependeny)
-  {
-    State oldStateDependeny = stateDependeny;
-    stateDependeny = newStateDependeny;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, StatesPackage.STATE_DEPENDENCY__STATE_DEPENDENY, oldStateDependeny, stateDependeny));
+    return states;
   }
 
   /**
@@ -115,9 +88,8 @@ public class StateDependencyImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case StatesPackage.STATE_DEPENDENCY__STATE_DEPENDENY:
-        if (resolve) return getStateDependeny();
-        return basicGetStateDependeny();
+      case StatesPackage.STATE_DEPENDENCY__STATES:
+        return getStates();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -127,13 +99,15 @@ public class StateDependencyImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case StatesPackage.STATE_DEPENDENCY__STATE_DEPENDENY:
-        setStateDependeny((State)newValue);
+      case StatesPackage.STATE_DEPENDENCY__STATES:
+        getStates().clear();
+        getStates().addAll((Collection<? extends State>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -149,8 +123,8 @@ public class StateDependencyImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case StatesPackage.STATE_DEPENDENCY__STATE_DEPENDENY:
-        setStateDependeny((State)null);
+      case StatesPackage.STATE_DEPENDENCY__STATES:
+        getStates().clear();
         return;
     }
     super.eUnset(featureID);
@@ -166,8 +140,8 @@ public class StateDependencyImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case StatesPackage.STATE_DEPENDENCY__STATE_DEPENDENY:
-        return stateDependeny != null;
+      case StatesPackage.STATE_DEPENDENCY__STATES:
+        return states != null && !states.isEmpty();
     }
     return super.eIsSet(featureID);
   }

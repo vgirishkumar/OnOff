@@ -8,13 +8,15 @@ import com.visteon.onoff.coom.Transition;
 import com.visteon.onoff.states.StatesPackage;
 import com.visteon.onoff.states.TransitionDependency;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.visteon.onoff.states.impl.TransitionDependencyImpl#getTransitionDependeny <em>Transition Dependeny</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.impl.TransitionDependencyImpl#getTransistions <em>Transistions</em>}</li>
  * </ul>
  *
  * @generated
@@ -32,14 +34,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class TransitionDependencyImpl extends MinimalEObjectImpl.Container implements TransitionDependency
 {
   /**
-   * The cached value of the '{@link #getTransitionDependeny() <em>Transition Dependeny</em>}' reference.
+   * The cached value of the '{@link #getTransistions() <em>Transistions</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTransitionDependeny()
+   * @see #getTransistions()
    * @generated
    * @ordered
    */
-  protected Transition transitionDependeny;
+  protected EList<Transition> transistions;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,42 +69,13 @@ public class TransitionDependencyImpl extends MinimalEObjectImpl.Container imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public Transition getTransitionDependeny()
+  public EList<Transition> getTransistions()
   {
-    if (transitionDependeny != null && transitionDependeny.eIsProxy())
+    if (transistions == null)
     {
-      InternalEObject oldTransitionDependeny = (InternalEObject)transitionDependeny;
-      transitionDependeny = (Transition)eResolveProxy(oldTransitionDependeny);
-      if (transitionDependeny != oldTransitionDependeny)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, StatesPackage.TRANSITION_DEPENDENCY__TRANSITION_DEPENDENY, oldTransitionDependeny, transitionDependeny));
-      }
+      transistions = new EObjectResolvingEList<Transition>(Transition.class, this, StatesPackage.TRANSITION_DEPENDENCY__TRANSISTIONS);
     }
-    return transitionDependeny;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Transition basicGetTransitionDependeny()
-  {
-    return transitionDependeny;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setTransitionDependeny(Transition newTransitionDependeny)
-  {
-    Transition oldTransitionDependeny = transitionDependeny;
-    transitionDependeny = newTransitionDependeny;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, StatesPackage.TRANSITION_DEPENDENCY__TRANSITION_DEPENDENY, oldTransitionDependeny, transitionDependeny));
+    return transistions;
   }
 
   /**
@@ -115,9 +88,8 @@ public class TransitionDependencyImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case StatesPackage.TRANSITION_DEPENDENCY__TRANSITION_DEPENDENY:
-        if (resolve) return getTransitionDependeny();
-        return basicGetTransitionDependeny();
+      case StatesPackage.TRANSITION_DEPENDENCY__TRANSISTIONS:
+        return getTransistions();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -127,13 +99,15 @@ public class TransitionDependencyImpl extends MinimalEObjectImpl.Container imple
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case StatesPackage.TRANSITION_DEPENDENCY__TRANSITION_DEPENDENY:
-        setTransitionDependeny((Transition)newValue);
+      case StatesPackage.TRANSITION_DEPENDENCY__TRANSISTIONS:
+        getTransistions().clear();
+        getTransistions().addAll((Collection<? extends Transition>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -149,8 +123,8 @@ public class TransitionDependencyImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case StatesPackage.TRANSITION_DEPENDENCY__TRANSITION_DEPENDENY:
-        setTransitionDependeny((Transition)null);
+      case StatesPackage.TRANSITION_DEPENDENCY__TRANSISTIONS:
+        getTransistions().clear();
         return;
     }
     super.eUnset(featureID);
@@ -166,8 +140,8 @@ public class TransitionDependencyImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case StatesPackage.TRANSITION_DEPENDENCY__TRANSITION_DEPENDENY:
-        return transitionDependeny != null;
+      case StatesPackage.TRANSITION_DEPENDENCY__TRANSISTIONS:
+        return transistions != null && !transistions.isEmpty();
     }
     return super.eIsSet(featureID);
   }

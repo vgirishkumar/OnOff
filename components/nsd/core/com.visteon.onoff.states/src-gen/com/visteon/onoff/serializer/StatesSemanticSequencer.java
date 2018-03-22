@@ -111,9 +111,9 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *
 	 * Constraint:
 	 *     (
-	 *         state=[State|FQN] 
-	 *         (stateDependencies+=StateDependency | featureDependencies+=FeatureDependency | transitionDependencies+=TransitionDependency)*
-	 *     )
+	 *         (featureDependencies=FeatureDependency | transitionDependencies=TransitionDependency)? 
+	 *         (state=[State|FQN] stateDependencies=StateDependency?)?
+	 *     )+
 	 */
 	protected void sequence_ComponentState(ISerializationContext context, ComponentState semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -125,7 +125,7 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     ComponentTransition returns ComponentTransition
 	 *
 	 * Constraint:
-	 *     (transition=[Transition|FQN] timeoutInMilliseconds=INT?)
+	 *     (essential?='essential'? transition=[Transition|FQN] timeoutInMilliseconds=INT? maxretries=INT?)
 	 */
 	protected void sequence_ComponentTransition(ISerializationContext context, ComponentTransition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -137,16 +137,10 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     FeatureDependency returns FeatureDependency
 	 *
 	 * Constraint:
-	 *     featureDependeny=[Feature|FQN]
+	 *     (features+=[Feature|FQN] features+=[Feature|FQN]*)
 	 */
 	protected void sequence_FeatureDependency(ISerializationContext context, FeatureDependency semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, StatesPackage.Literals.FEATURE_DEPENDENCY__FEATURE_DEPENDENY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StatesPackage.Literals.FEATURE_DEPENDENCY__FEATURE_DEPENDENY));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getFeatureDependencyAccess().getFeatureDependenyFeatureFQNParserRuleCall_1_0_1(), semanticObject.eGet(StatesPackage.Literals.FEATURE_DEPENDENCY__FEATURE_DEPENDENY, false));
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -223,7 +217,7 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     NodeStateDiagram returns NodeStateDiagram
 	 *
 	 * Constraint:
-	 *     (gTransitionTimeoutInMilliseconds=INT? gEdgeWeight=INT? (nodeStates+=NodeState | nodeTransitions+=NodeTransition)*)
+	 *     (gEdgeWeight=INT? gTransitionTimeoutInMilliseconds=INT? (nodeStates+=NodeState | nodeTransitions+=NodeTransition)*)
 	 */
 	protected void sequence_NodeStateDiagram(ISerializationContext context, NodeStateDiagram semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -235,7 +229,7 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     NodeState returns NodeState
 	 *
 	 * Constraint:
-	 *     (name=ID initial?='initial'?)
+	 *     (initial?='initial'? name=ID)
 	 */
 	protected void sequence_NodeState(ISerializationContext context, NodeState semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -247,7 +241,14 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     NodeTransition returns NodeTransition
 	 *
 	 * Constraint:
-	 *     (name=ID fromState=[NodeState|ID] toState=[NodeState|ID] edgeweight=INT? timeoutInMilliseconds=INT?)
+	 *     (
+	 *         essential?='essential'? 
+	 *         name=ID 
+	 *         fromState=[NodeState|ID] 
+	 *         toState=[NodeState|ID] 
+	 *         edgeweight=INT? 
+	 *         timeoutInMilliseconds=INT?
+	 *     )
 	 */
 	protected void sequence_NodeTransition(ISerializationContext context, NodeTransition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -259,16 +260,10 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     StateDependency returns StateDependency
 	 *
 	 * Constraint:
-	 *     stateDependeny=[State|FQN]
+	 *     (states+=[State|FQN] states+=[State|FQN]*)
 	 */
 	protected void sequence_StateDependency(ISerializationContext context, StateDependency semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, StatesPackage.Literals.STATE_DEPENDENCY__STATE_DEPENDENY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StatesPackage.Literals.STATE_DEPENDENCY__STATE_DEPENDENY));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getStateDependencyAccess().getStateDependenyStateFQNParserRuleCall_1_0_1(), semanticObject.eGet(StatesPackage.Literals.STATE_DEPENDENCY__STATE_DEPENDENY, false));
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -277,16 +272,10 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     TransitionDependency returns TransitionDependency
 	 *
 	 * Constraint:
-	 *     transitionDependeny=[Transition|FQN]
+	 *     (transistions+=[Transition|FQN] transistions+=[Transition|FQN]*)
 	 */
 	protected void sequence_TransitionDependency(ISerializationContext context, TransitionDependency semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, StatesPackage.Literals.TRANSITION_DEPENDENCY__TRANSITION_DEPENDENY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StatesPackage.Literals.TRANSITION_DEPENDENCY__TRANSITION_DEPENDENY));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTransitionDependencyAccess().getTransitionDependenyTransitionFQNParserRuleCall_1_0_1(), semanticObject.eGet(StatesPackage.Literals.TRANSITION_DEPENDENCY__TRANSITION_DEPENDENY, false));
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

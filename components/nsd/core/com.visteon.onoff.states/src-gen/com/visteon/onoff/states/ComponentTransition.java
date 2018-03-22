@@ -16,8 +16,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.visteon.onoff.states.ComponentTransition#isEssential <em>Essential</em>}</li>
  *   <li>{@link com.visteon.onoff.states.ComponentTransition#getTransition <em>Transition</em>}</li>
  *   <li>{@link com.visteon.onoff.states.ComponentTransition#getTimeoutInMilliseconds <em>Timeout In Milliseconds</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.ComponentTransition#getMaxretries <em>Maxretries</em>}</li>
  * </ul>
  *
  * @see com.visteon.onoff.states.StatesPackage#getComponentTransition()
@@ -26,6 +28,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ComponentTransition extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Essential</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Essential</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Essential</em>' attribute.
+   * @see #setEssential(boolean)
+   * @see com.visteon.onoff.states.StatesPackage#getComponentTransition_Essential()
+   * @model
+   * @generated
+   */
+  boolean isEssential();
+
+  /**
+   * Sets the value of the '{@link com.visteon.onoff.states.ComponentTransition#isEssential <em>Essential</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Essential</em>' attribute.
+   * @see #isEssential()
+   * @generated
+   */
+  void setEssential(boolean value);
+
   /**
    * Returns the value of the '<em><b>Transition</b></em>' reference.
    * <!-- begin-user-doc -->
@@ -77,5 +105,31 @@ public interface ComponentTransition extends EObject
    * @generated
    */
   void setTimeoutInMilliseconds(int value);
+
+  /**
+   * Returns the value of the '<em><b>Maxretries</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Maxretries</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Maxretries</em>' attribute.
+   * @see #setMaxretries(int)
+   * @see com.visteon.onoff.states.StatesPackage#getComponentTransition_Maxretries()
+   * @model
+   * @generated
+   */
+  int getMaxretries();
+
+  /**
+   * Sets the value of the '{@link com.visteon.onoff.states.ComponentTransition#getMaxretries <em>Maxretries</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Maxretries</em>' attribute.
+   * @see #getMaxretries()
+   * @generated
+   */
+  void setMaxretries(int value);
 
 } // ComponentTransition
