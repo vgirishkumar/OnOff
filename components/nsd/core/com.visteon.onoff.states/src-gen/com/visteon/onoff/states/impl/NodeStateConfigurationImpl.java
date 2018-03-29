@@ -33,7 +33,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.visteon.onoff.states.impl.NodeStateConfigurationImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.NodeStateConfigurationImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.NodeStateConfigurationImpl#getNsd <em>Nsd</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.NodeStateConfigurationImpl#getClientConfig <em>Client Config</em>}</li>
@@ -43,26 +42,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class NodeStateConfigurationImpl extends MinimalEObjectImpl.Container implements NodeStateConfiguration
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -112,29 +91,6 @@ public class NodeStateConfigurationImpl extends MinimalEObjectImpl.Container imp
   protected EClass eStaticClass()
   {
     return StatesPackage.Literals.NODE_STATE_CONFIGURATION;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, StatesPackage.NODE_STATE_CONFIGURATION__NAME, oldName, name));
   }
 
   /**
@@ -243,8 +199,6 @@ public class NodeStateConfigurationImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case StatesPackage.NODE_STATE_CONFIGURATION__NAME:
-        return getName();
       case StatesPackage.NODE_STATE_CONFIGURATION__IMPORTS:
         return getImports();
       case StatesPackage.NODE_STATE_CONFIGURATION__NSD:
@@ -266,9 +220,6 @@ public class NodeStateConfigurationImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case StatesPackage.NODE_STATE_CONFIGURATION__NAME:
-        setName((String)newValue);
-        return;
       case StatesPackage.NODE_STATE_CONFIGURATION__IMPORTS:
         getImports().clear();
         getImports().addAll((Collection<? extends Import>)newValue);
@@ -294,9 +245,6 @@ public class NodeStateConfigurationImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case StatesPackage.NODE_STATE_CONFIGURATION__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case StatesPackage.NODE_STATE_CONFIGURATION__IMPORTS:
         getImports().clear();
         return;
@@ -320,8 +268,6 @@ public class NodeStateConfigurationImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case StatesPackage.NODE_STATE_CONFIGURATION__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case StatesPackage.NODE_STATE_CONFIGURATION__IMPORTS:
         return imports != null && !imports.isEmpty();
       case StatesPackage.NODE_STATE_CONFIGURATION__NSD:
@@ -330,23 +276,6 @@ public class NodeStateConfigurationImpl extends MinimalEObjectImpl.Container imp
         return clientConfig != null && !clientConfig.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //NodeStateConfigurationImpl

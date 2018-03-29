@@ -58,43 +58,6 @@ public interface CoomPackage extends EPackage
   CoomPackage eINSTANCE = com.visteon.onoff.coom.impl.CoomPackageImpl.init();
 
   /**
-   * The meta object id for the '{@link com.visteon.onoff.coom.impl.FullComponentOnOffManifestImpl <em>Full Component On Off Manifest</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.visteon.onoff.coom.impl.FullComponentOnOffManifestImpl
-   * @see com.visteon.onoff.coom.impl.CoomPackageImpl#getFullComponentOnOffManifest()
-   * @generated
-   */
-  int FULL_COMPONENT_ON_OFF_MANIFEST = 0;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FULL_COMPONENT_ON_OFF_MANIFEST__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Coom</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FULL_COMPONENT_ON_OFF_MANIFEST__COOM = 1;
-
-  /**
-   * The number of structural features of the '<em>Full Component On Off Manifest</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FULL_COMPONENT_ON_OFF_MANIFEST_FEATURE_COUNT = 2;
-
-  /**
    * The meta object id for the '{@link com.visteon.onoff.coom.impl.ComponentOnOffManifestImpl <em>Component On Off Manifest</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -102,7 +65,7 @@ public interface CoomPackage extends EPackage
    * @see com.visteon.onoff.coom.impl.CoomPackageImpl#getComponentOnOffManifest()
    * @generated
    */
-  int COMPONENT_ON_OFF_MANIFEST = 1;
+  int COMPONENT_ON_OFF_MANIFEST = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -157,7 +120,7 @@ public interface CoomPackage extends EPackage
    * @see com.visteon.onoff.coom.impl.CoomPackageImpl#getVersion()
    * @generated
    */
-  int VERSION = 2;
+  int VERSION = 1;
 
   /**
    * The feature id for the '<em><b>Major Malue</b></em>' attribute.
@@ -194,7 +157,7 @@ public interface CoomPackage extends EPackage
    * @see com.visteon.onoff.coom.impl.CoomPackageImpl#getState()
    * @generated
    */
-  int STATE = 3;
+  int STATE = 2;
 
   /**
    * The feature id for the '<em><b>Initial</b></em>' attribute.
@@ -231,7 +194,7 @@ public interface CoomPackage extends EPackage
    * @see com.visteon.onoff.coom.impl.CoomPackageImpl#getTransition()
    * @generated
    */
-  int TRANSITION = 4;
+  int TRANSITION = 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -269,38 +232,6 @@ public interface CoomPackage extends EPackage
    */
   int TRANSITION_FEATURE_COUNT = 3;
 
-
-  /**
-   * Returns the meta object for class '{@link com.visteon.onoff.coom.FullComponentOnOffManifest <em>Full Component On Off Manifest</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Full Component On Off Manifest</em>'.
-   * @see com.visteon.onoff.coom.FullComponentOnOffManifest
-   * @generated
-   */
-  EClass getFullComponentOnOffManifest();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.visteon.onoff.coom.FullComponentOnOffManifest#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see com.visteon.onoff.coom.FullComponentOnOffManifest#getName()
-   * @see #getFullComponentOnOffManifest()
-   * @generated
-   */
-  EAttribute getFullComponentOnOffManifest_Name();
-
-  /**
-   * Returns the meta object for the containment reference '{@link com.visteon.onoff.coom.FullComponentOnOffManifest#getCoom <em>Coom</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Coom</em>'.
-   * @see com.visteon.onoff.coom.FullComponentOnOffManifest#getCoom()
-   * @see #getFullComponentOnOffManifest()
-   * @generated
-   */
-  EReference getFullComponentOnOffManifest_Coom();
 
   /**
    * Returns the meta object for class '{@link com.visteon.onoff.coom.ComponentOnOffManifest <em>Component On Off Manifest</em>}'.
@@ -486,32 +417,6 @@ public interface CoomPackage extends EPackage
    */
   interface Literals
   {
-    /**
-     * The meta object literal for the '{@link com.visteon.onoff.coom.impl.FullComponentOnOffManifestImpl <em>Full Component On Off Manifest</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see com.visteon.onoff.coom.impl.FullComponentOnOffManifestImpl
-     * @see com.visteon.onoff.coom.impl.CoomPackageImpl#getFullComponentOnOffManifest()
-     * @generated
-     */
-    EClass FULL_COMPONENT_ON_OFF_MANIFEST = eINSTANCE.getFullComponentOnOffManifest();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FULL_COMPONENT_ON_OFF_MANIFEST__NAME = eINSTANCE.getFullComponentOnOffManifest_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Coom</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FULL_COMPONENT_ON_OFF_MANIFEST__COOM = eINSTANCE.getFullComponentOnOffManifest_Coom();
-
     /**
      * The meta object literal for the '{@link com.visteon.onoff.coom.impl.ComponentOnOffManifestImpl <em>Component On Off Manifest</em>}' class.
      * <!-- begin-user-doc -->

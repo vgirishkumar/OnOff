@@ -76,11 +76,6 @@ public class CoomAdapterFactory extends AdapterFactoryImpl
     new CoomSwitch<Adapter>()
     {
       @Override
-      public Adapter caseFullComponentOnOffManifest(FullComponentOnOffManifest object)
-      {
-        return createFullComponentOnOffManifestAdapter();
-      }
-      @Override
       public Adapter caseComponentOnOffManifest(ComponentOnOffManifest object)
       {
         return createComponentOnOffManifestAdapter();
@@ -121,21 +116,6 @@ public class CoomAdapterFactory extends AdapterFactoryImpl
     return modelSwitch.doSwitch((EObject)target);
   }
 
-
-  /**
-   * Creates a new adapter for an object of class '{@link com.visteon.onoff.coom.FullComponentOnOffManifest <em>Full Component On Off Manifest</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.visteon.onoff.coom.FullComponentOnOffManifest
-   * @generated
-   */
-  public Adapter createFullComponentOnOffManifestAdapter()
-  {
-    return null;
-  }
 
   /**
    * Creates a new adapter for an object of class '{@link com.visteon.onoff.coom.ComponentOnOffManifest <em>Component On Off Manifest</em>}'.

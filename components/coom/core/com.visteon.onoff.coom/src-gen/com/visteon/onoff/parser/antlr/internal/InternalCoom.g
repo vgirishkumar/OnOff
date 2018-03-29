@@ -43,7 +43,7 @@ import com.visteon.onoff.services.CoomGrammarAccess;
 
     @Override
     protected String getFirstRuleName() {
-    	return "FullComponentOnOffManifest";
+    	return "ComponentOnOffManifest";
    	}
 
    	@Override
@@ -59,69 +59,6 @@ import com.visteon.onoff.services.CoomGrammarAccess;
         appendSkippedTokens();
     }
 }
-
-// Entry rule entryRuleFullComponentOnOffManifest
-entryRuleFullComponentOnOffManifest returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getFullComponentOnOffManifestRule()); }
-	iv_ruleFullComponentOnOffManifest=ruleFullComponentOnOffManifest
-	{ $current=$iv_ruleFullComponentOnOffManifest.current; }
-	EOF;
-
-// Rule FullComponentOnOffManifest
-ruleFullComponentOnOffManifest returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			otherlv_0='package'
-			{
-				newLeafNode(otherlv_0, grammarAccess.getFullComponentOnOffManifestAccess().getPackageKeyword_0_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getFullComponentOnOffManifestAccess().getNameFQNParserRuleCall_0_1_0());
-					}
-					lv_name_1_0=ruleFQN
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getFullComponentOnOffManifestRule());
-						}
-						set(
-							$current,
-							"name",
-							lv_name_1_0,
-							"com.visteon.onoff.Coom.FQN");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getFullComponentOnOffManifestAccess().getCoomComponentOnOffManifestParserRuleCall_1_0());
-				}
-				lv_coom_2_0=ruleComponentOnOffManifest
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getFullComponentOnOffManifestRule());
-					}
-					set(
-						$current,
-						"coom",
-						lv_coom_2_0,
-						"com.visteon.onoff.Coom.ComponentOnOffManifest");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)?
-	)
-;
 
 // Entry rule entryRuleComponentOnOffManifest
 entryRuleComponentOnOffManifest returns [EObject current=null]:
@@ -139,46 +76,38 @@ ruleComponentOnOffManifest returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getComponentOnOffManifestAccess().getComponentOnOffManifestAction_0(),
-					$current);
-			}
-		)
-		otherlv_1='Component'
+		otherlv_0='Component'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getComponentOnOffManifestAccess().getComponentKeyword_1());
+			newLeafNode(otherlv_0, grammarAccess.getComponentOnOffManifestAccess().getComponentKeyword_0());
 		}
 		(
 			(
+				lv_name_1_0=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getComponentOnOffManifestAccess().getNameFQNParserRuleCall_2_0());
+					newLeafNode(lv_name_1_0, grammarAccess.getComponentOnOffManifestAccess().getNameIDTerminalRuleCall_1_0());
 				}
-				lv_name_2_0=ruleFQN
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getComponentOnOffManifestRule());
+						$current = createModelElement(grammarAccess.getComponentOnOffManifestRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"name",
-						lv_name_2_0,
-						"com.visteon.onoff.Coom.FQN");
-					afterParserOrEnumRuleCall();
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
-		otherlv_3='{'
+		otherlv_2='{'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getComponentOnOffManifestAccess().getLeftCurlyBracketKeyword_3());
+			newLeafNode(otherlv_2, grammarAccess.getComponentOnOffManifestAccess().getLeftCurlyBracketKeyword_2());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getComponentOnOffManifestAccess().getVersionVersionParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getComponentOnOffManifestAccess().getVersionVersionParserRuleCall_3_0());
 				}
-				lv_version_4_0=ruleVersion
+				lv_version_3_0=ruleVersion
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getComponentOnOffManifestRule());
@@ -186,7 +115,7 @@ ruleComponentOnOffManifest returns [EObject current=null]
 					set(
 						$current,
 						"version",
-						lv_version_4_0,
+						lv_version_3_0,
 						"com.visteon.onoff.Coom.Version");
 					afterParserOrEnumRuleCall();
 				}
@@ -196,9 +125,9 @@ ruleComponentOnOffManifest returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getComponentOnOffManifestAccess().getStatesStateParserRuleCall_5_0_0());
+						newCompositeNode(grammarAccess.getComponentOnOffManifestAccess().getStatesStateParserRuleCall_4_0_0());
 					}
-					lv_states_5_0=ruleState
+					lv_states_4_0=ruleState
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getComponentOnOffManifestRule());
@@ -206,7 +135,7 @@ ruleComponentOnOffManifest returns [EObject current=null]
 						add(
 							$current,
 							"states",
-							lv_states_5_0,
+							lv_states_4_0,
 							"com.visteon.onoff.Coom.State");
 						afterParserOrEnumRuleCall();
 					}
@@ -216,9 +145,9 @@ ruleComponentOnOffManifest returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getComponentOnOffManifestAccess().getTransitionsTransitionParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getComponentOnOffManifestAccess().getTransitionsTransitionParserRuleCall_4_1_0());
 					}
-					lv_transitions_6_0=ruleTransition
+					lv_transitions_5_0=ruleTransition
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getComponentOnOffManifestRule());
@@ -226,16 +155,16 @@ ruleComponentOnOffManifest returns [EObject current=null]
 						add(
 							$current,
 							"transitions",
-							lv_transitions_6_0,
+							lv_transitions_5_0,
 							"com.visteon.onoff.Coom.Transition");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)*
-		otherlv_7='}'
+		otherlv_6='}'
 		{
-			newLeafNode(otherlv_7, grammarAccess.getComponentOnOffManifestAccess().getRightCurlyBracketKeyword_6());
+			newLeafNode(otherlv_6, grammarAccess.getComponentOnOffManifestAccess().getRightCurlyBracketKeyword_5());
 		}
 	)
 ;
@@ -367,16 +296,6 @@ ruleState returns [EObject current=null]
 				}
 			)
 		)
-		(
-			otherlv_3='{'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_3_0());
-			}
-			otherlv_4='}'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_3_1());
-			}
-		)?
 	)
 ;
 
@@ -452,46 +371,6 @@ ruleTransition returns [EObject current=null]
 				}
 			)
 		)
-	)
-;
-
-// Entry rule entryRuleFQN
-entryRuleFQN returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getFQNRule()); }
-	iv_ruleFQN=ruleFQN
-	{ $current=$iv_ruleFQN.current.getText(); }
-	EOF;
-
-// Rule FQN
-ruleFQN returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		this_ID_0=RULE_ID
-		{
-			$current.merge(this_ID_0);
-		}
-		{
-			newLeafNode(this_ID_0, grammarAccess.getFQNAccess().getIDTerminalRuleCall_0());
-		}
-		(
-			kw='.'
-			{
-				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getFQNAccess().getFullStopKeyword_1_0());
-			}
-			this_ID_2=RULE_ID
-			{
-				$current.merge(this_ID_2);
-			}
-			{
-				newLeafNode(this_ID_2, grammarAccess.getFQNAccess().getIDTerminalRuleCall_1_1());
-			}
-		)*
 	)
 ;
 

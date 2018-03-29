@@ -21,17 +21,11 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class StatesSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected StatesGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_ComponentState_RightCurlyBracketKeyword_2_1_a;
-	protected AbstractElementAlias match_ComponentState_RightCurlyBracketKeyword_2_1_p;
-	protected AbstractElementAlias match_NodeState___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_1__q;
 	protected AbstractElementAlias match_NodeTransition___LeftCurlyBracketKeyword_7_0_RightCurlyBracketKeyword_7_3__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (StatesGrammarAccess) access;
-		match_ComponentState_RightCurlyBracketKeyword_2_1_a = new TokenAlias(true, true, grammarAccess.getComponentStateAccess().getRightCurlyBracketKeyword_2_1());
-		match_ComponentState_RightCurlyBracketKeyword_2_1_p = new TokenAlias(true, false, grammarAccess.getComponentStateAccess().getRightCurlyBracketKeyword_2_1());
-		match_NodeState___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getNodeStateAccess().getLeftCurlyBracketKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getNodeStateAccess().getRightCurlyBracketKeyword_3_1()));
 		match_NodeTransition___LeftCurlyBracketKeyword_7_0_RightCurlyBracketKeyword_7_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getNodeTransitionAccess().getLeftCurlyBracketKeyword_7_0()), new TokenAlias(false, false, grammarAccess.getNodeTransitionAccess().getRightCurlyBracketKeyword_7_3()));
 	}
 	
@@ -47,70 +41,12 @@ public class StatesSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_ComponentState_RightCurlyBracketKeyword_2_1_a.equals(syntax))
-				emit_ComponentState_RightCurlyBracketKeyword_2_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_ComponentState_RightCurlyBracketKeyword_2_1_p.equals(syntax))
-				emit_ComponentState_RightCurlyBracketKeyword_2_1_p(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_NodeState___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_1__q.equals(syntax))
-				emit_NodeState___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_NodeTransition___LeftCurlyBracketKeyword_7_0_RightCurlyBracketKeyword_7_3__q.equals(syntax))
+			if (match_NodeTransition___LeftCurlyBracketKeyword_7_0_RightCurlyBracketKeyword_7_3__q.equals(syntax))
 				emit_NodeTransition___LeftCurlyBracketKeyword_7_0_RightCurlyBracketKeyword_7_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
-	/**
-	 * Ambiguous syntax:
-	 *     '}'*
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) 'State' state=[State|FQN]
-	 *     (rule start) (ambiguity) (rule start)
-	 *     (rule start) (ambiguity) featureDependencies=FeatureDependency
-	 *     (rule start) (ambiguity) transitionDependencies=TransitionDependency
-	 *     featureDependencies=FeatureDependency (ambiguity) 'State' state=[State|FQN]
-	 *     featureDependencies=FeatureDependency (ambiguity) (rule end)
-	 *     featureDependencies=FeatureDependency (ambiguity) featureDependencies=FeatureDependency
-	 *     featureDependencies=FeatureDependency (ambiguity) transitionDependencies=TransitionDependency
-	 *     state=[State|FQN] '{' (ambiguity) 'State' state=[State|FQN]
-	 *     state=[State|FQN] '{' (ambiguity) (rule end)
-	 *     state=[State|FQN] '{' (ambiguity) featureDependencies=FeatureDependency
-	 *     state=[State|FQN] '{' (ambiguity) transitionDependencies=TransitionDependency
-	 *     stateDependencies=StateDependency (ambiguity) 'State' state=[State|FQN]
-	 *     stateDependencies=StateDependency (ambiguity) (rule end)
-	 *     stateDependencies=StateDependency (ambiguity) featureDependencies=FeatureDependency
-	 *     stateDependencies=StateDependency (ambiguity) transitionDependencies=TransitionDependency
-	 */
-	protected void emit_ComponentState_RightCurlyBracketKeyword_2_1_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     '}'+
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) (rule start)
-	 *     transitionDependencies=TransitionDependency (ambiguity) 'State' state=[State|FQN]
-	 *     transitionDependencies=TransitionDependency (ambiguity) (rule end)
-	 *     transitionDependencies=TransitionDependency (ambiguity) featureDependencies=FeatureDependency
-	 *     transitionDependencies=TransitionDependency (ambiguity) transitionDependencies=TransitionDependency
-	 */
-	protected void emit_ComponentState_RightCurlyBracketKeyword_2_1_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('{' '}')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     name=ID (ambiguity) (rule end)
-	 */
-	protected void emit_NodeState___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
 	/**
 	 * Ambiguous syntax:
 	 *     ('{' '}')?

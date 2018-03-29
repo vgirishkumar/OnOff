@@ -24,15 +24,6 @@ public interface CoomFactory extends EFactory
   CoomFactory eINSTANCE = com.visteon.onoff.coom.impl.CoomFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Full Component On Off Manifest</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Full Component On Off Manifest</em>'.
-   * @generated
-   */
-  FullComponentOnOffManifest createFullComponentOnOffManifest();
-
-  /**
    * Returns a new object of class '<em>Component On Off Manifest</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

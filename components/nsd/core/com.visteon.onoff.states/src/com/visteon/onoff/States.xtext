@@ -4,7 +4,6 @@ generate states "http://www.visteon.com/onoff/States"
 import "http://www.visteon.com/onoff/Coom" as coom
 
 NodeStateConfiguration:
-	('package' name=FQN)?
 	imports+=Import*
 	(nsd=NodeStateDiagram)?
 	(clientConfig+=ClientConfiguration)*;
@@ -22,9 +21,7 @@ NodeStateDiagram:
 	'}';
 
 NodeState:
-	(initial?='initial')? 'State' name=ID
-	('{'
-	'}')?;
+	(initial?='initial')? 'State' name=ID;
 
 NodeTransition:
 	(essential?='essential')? 'Transition' name=ID ':' fromState=[NodeState] '->' toState=[NodeState]
@@ -34,9 +31,9 @@ NodeTransition:
 	'}')?;
 
 ClientConfiguration:
-	'Client' name=FQN // instance name - scope coming from COOM
+	'Client' name=ID // instance name - scope coming from COOM
 	'{'
-	('coom' coomRef=[coom::ComponentOnOffManifest|FQN])
+	('coom' coomRef=[coom::ComponentOnOffManifest])
 	('clientTransitionTimeout' transTimeoutInMilliseconds=INT)?
 	(componentTransitions+=ComponentTransition |
 	nodeStateAssociations+=NodeStateAssociation |
@@ -54,9 +51,9 @@ ComponentTransition:
 ComponentState:
 	'State' state=[coom::State|FQN]
 	'{'
-	(stateDependencies=StateDependency)? &
+	((stateDependencies=StateDependency)? &
 	(featureDependencies=FeatureDependency)? &
-	(transitionDependencies=TransitionDependency)?
+	(transitionDependencies=TransitionDependency)?)
 	'}';
 
 StateDependency:
@@ -66,7 +63,7 @@ TransitionDependency:
 	'depends on transitions' transistions+=[coom::Transition|FQN] (',' transistions+=[coom::Transition|FQN])*;
 
 FeatureDependency:
-	'depends in features' features+=[Feature|FQN] (',' features+=[Feature|FQN])*;
+	'depends on features' features+=[Feature] (',' features+=[Feature])*;
 
 NodeStateAssociation:
 	'For' nodeState=[NodeState] 'set' clientState=[coom::State|FQN];

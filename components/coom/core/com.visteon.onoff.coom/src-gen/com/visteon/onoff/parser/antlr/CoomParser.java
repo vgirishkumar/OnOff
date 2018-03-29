@@ -27,7 +27,7 @@ public class CoomParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "FullComponentOnOffManifest";
+		return "ComponentOnOffManifest";
 	}
 
 	public CoomGrammarAccess getGrammarAccess() {

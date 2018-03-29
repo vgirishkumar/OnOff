@@ -2,13 +2,8 @@ grammar com.visteon.onoff.Coom with org.eclipse.xtext.common.Terminals
 
 generate coom "http://www.visteon.com/onoff/Coom"
 
-FullComponentOnOffManifest:
-	('package' name=FQN)?
-	(coom=ComponentOnOffManifest)?;
-
 ComponentOnOffManifest:
-	{ComponentOnOffManifest}
-	'Component' name=FQN '{'
+	'Component' name=ID '{'
 	version=Version
 	(states+=State |
 	transitions+=Transition)*
@@ -21,12 +16,7 @@ Version:
 	'}';
 
 State:
-	(initial?='initial')? 'State' name=ID
-	('{'
-	'}')?;
+	(initial?='initial')? 'State' name=ID;
 
 Transition:
 	'Transition' name=ID ':' fromState=[State] '->' toState=[State];
-
-FQN:
-	ID ('.' ID)*;

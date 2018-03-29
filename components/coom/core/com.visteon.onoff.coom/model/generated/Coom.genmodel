@@ -6,10 +6,6 @@
     complianceLevel="6.0" copyrightFields="false" runtimeVersion="2.13">
   <genPackages prefix="Coom" basePackage="com.visteon.onoff" disposableProviderFactory="true"
       fileExtensions="coom" ecorePackage="Coom.ecore#/">
-    <genClasses ecoreClass="Coom.ecore#//FullComponentOnOffManifest">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Coom.ecore#//FullComponentOnOffManifest/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Coom.ecore#//FullComponentOnOffManifest/coom"/>
-    </genClasses>
     <genClasses ecoreClass="Coom.ecore#//ComponentOnOffManifest">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Coom.ecore#//ComponentOnOffManifest/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Coom.ecore#//ComponentOnOffManifest/version"/>

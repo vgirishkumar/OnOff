@@ -6,7 +6,6 @@ package com.visteon.onoff.coom.impl;
 import com.visteon.onoff.coom.ComponentOnOffManifest;
 import com.visteon.onoff.coom.CoomFactory;
 import com.visteon.onoff.coom.CoomPackage;
-import com.visteon.onoff.coom.FullComponentOnOffManifest;
 import com.visteon.onoff.coom.State;
 import com.visteon.onoff.coom.Transition;
 import com.visteon.onoff.coom.Version;
@@ -26,13 +25,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  */
 public class CoomPackageImpl extends EPackageImpl implements CoomPackage
 {
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass fullComponentOnOffManifestEClass = null;
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -122,36 +114,6 @@ public class CoomPackageImpl extends EPackageImpl implements CoomPackage
     // Update the registry and return the package
     EPackage.Registry.INSTANCE.put(CoomPackage.eNS_URI, theCoomPackage);
     return theCoomPackage;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getFullComponentOnOffManifest()
-  {
-    return fullComponentOnOffManifestEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getFullComponentOnOffManifest_Name()
-  {
-    return (EAttribute)fullComponentOnOffManifestEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getFullComponentOnOffManifest_Coom()
-  {
-    return (EReference)fullComponentOnOffManifestEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -334,10 +296,6 @@ public class CoomPackageImpl extends EPackageImpl implements CoomPackage
     isCreated = true;
 
     // Create classes and their features
-    fullComponentOnOffManifestEClass = createEClass(FULL_COMPONENT_ON_OFF_MANIFEST);
-    createEAttribute(fullComponentOnOffManifestEClass, FULL_COMPONENT_ON_OFF_MANIFEST__NAME);
-    createEReference(fullComponentOnOffManifestEClass, FULL_COMPONENT_ON_OFF_MANIFEST__COOM);
-
     componentOnOffManifestEClass = createEClass(COMPONENT_ON_OFF_MANIFEST);
     createEAttribute(componentOnOffManifestEClass, COMPONENT_ON_OFF_MANIFEST__NAME);
     createEReference(componentOnOffManifestEClass, COMPONENT_ON_OFF_MANIFEST__VERSION);
@@ -389,10 +347,6 @@ public class CoomPackageImpl extends EPackageImpl implements CoomPackage
     // Add supertypes to classes
 
     // Initialize classes and features; add operations and parameters
-    initEClass(fullComponentOnOffManifestEClass, FullComponentOnOffManifest.class, "FullComponentOnOffManifest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getFullComponentOnOffManifest_Name(), ecorePackage.getEString(), "name", null, 0, 1, FullComponentOnOffManifest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFullComponentOnOffManifest_Coom(), this.getComponentOnOffManifest(), null, "coom", null, 0, 1, FullComponentOnOffManifest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(componentOnOffManifestEClass, ComponentOnOffManifest.class, "ComponentOnOffManifest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getComponentOnOffManifest_Name(), ecorePackage.getEString(), "name", null, 0, 1, ComponentOnOffManifest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getComponentOnOffManifest_Version(), this.getVersion(), null, "version", null, 0, 1, ComponentOnOffManifest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

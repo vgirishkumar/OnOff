@@ -41,6 +41,10 @@
       <feature id="com.visteon.onoff.coom.ui.feature"/>
       <feature id="com.visteon.onoff.nsd.core.feature"/>
       <feature id="com.visteon.onoff.nsd.ui.feature"/>
+      <feature id="org.eclipse.sirius.runtime.ide.xtext"/>
+      <feature id="org.eclipse.sirius.properties.feature"/>
+      <feature id="org.eclipse.sirius.runtime.ide.ui"/>
+      <feature id="org.eclipse.sirius.runtime"/>
       <feature id="org.eclipse.equinox.p2.core.feature"/>
    </features>
 

@@ -4,7 +4,7 @@
 package com.visteon.onoff.tests
 
 import com.google.inject.Inject
-import com.visteon.onoff.coom.FullComponentOnOffManifest
+import com.visteon.onoff.coom.ComponentOnOffManifest
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.XtextRunner
 import org.eclipse.xtext.testing.util.ParseHelper
@@ -17,7 +17,7 @@ import org.junit.runner.RunWith
 @InjectWith(CoomInjectorProvider)
 class CoomParsingTest {
 	@Inject
-	ParseHelper<FullComponentOnOffManifest> parseHelper
+	ParseHelper<ComponentOnOffManifest> parseHelper
 
 	@Inject
 	ValidationTestHelper validationHelper
@@ -25,7 +25,6 @@ class CoomParsingTest {
 	@Test
 	def void loadModelWithValidStates() {
 		val result = parseHelper.parse('''
-			package test.component
 			
 			Component ComponentA {
 				
@@ -34,17 +33,11 @@ class CoomParsingTest {
 					minor 1
 				}
 				
-				initial State State1 {
-					
-				}
+				initial State State1
 				
-				State State2 {
-					
-				}
+				State State2
 				
-				State State3 {
-					
-				}
+				State State3
 				
 			}
 		''')
@@ -56,7 +49,7 @@ class CoomParsingTest {
 		val validate = validationHelper.validate(result)
 		Assert.assertTrue(validate.size == 0);
 
-		val coom = result.coom
+		val coom = result
 		Assert.assertEquals("ComponentA", coom.name)
 		Assert.assertEquals(3, coom.states.size)
 		Assert.assertTrue(coom.states.get(0).isInitial)
@@ -69,7 +62,6 @@ class CoomParsingTest {
 	@Test
 	def void loadModelWithDuplicateStates() {
 		val result = parseHelper.parse('''
-			package test.component
 			
 			Component ComponentA {
 				
@@ -78,17 +70,11 @@ class CoomParsingTest {
 					minor 1
 				}
 				
-				initial State State1 {
-					
-				}
+				initial State State1
 				
-				State State2 {
-					
-				}
+				State State2
 				
-				State State2 {
-					
-				}
+				State State2
 				
 			}
 		''')
@@ -107,7 +93,6 @@ class CoomParsingTest {
 	@Test
 	def void loadModelWithValidTransitions() {
 		val result = parseHelper.parse('''
-			package test.component
 			
 			Component ComponentA {
 				
@@ -116,17 +101,11 @@ class CoomParsingTest {
 					minor 1
 				}
 				
-				initial State State1 {
-					
-				}
+				initial State State1
 				
-				State State2 {
-					
-				}
+				State State2
 				
-				State State3 {
-					
-				}
+				State State3
 				
 				Transition S1ToS2	: State1 -> State2
 				Transition S2ToS3	: State2 -> State3
@@ -141,7 +120,7 @@ class CoomParsingTest {
 		val validate = validationHelper.validate(result)
 		Assert.assertTrue(validate.size == 0);
 
-		val coom = result.coom
+		val coom = result
 		Assert.assertEquals("ComponentA", coom.name)
 
 		val states = coom.states
@@ -162,7 +141,6 @@ class CoomParsingTest {
 	@Test
 	def loadModelWithMultipleStartStates() {
 		val result = parseHelper.parse('''
-			package test.component
 			
 			Component ComponentA {
 				
@@ -171,17 +149,11 @@ class CoomParsingTest {
 					minor 1
 				}
 				
-				initial State State1 {
-					
-				}
+				initial State State1
 				
-				initial State State2 {
-					
-				}
+				initial State State2
 				
-				State State3 {
-					
-				}
+				State State3
 				
 				Transition S1ToS2	: State1 -> State2
 				Transition S2ToS3	: State2 -> State3
@@ -203,7 +175,6 @@ class CoomParsingTest {
 	@Test
 	def loadCoomWithoutVersion() {
 		val result = parseHelper.parse('''
-			package test.component
 			
 			Component ComponentA {
 				

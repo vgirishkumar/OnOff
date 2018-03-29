@@ -68,22 +68,13 @@ public interface StatesPackage extends EPackage
   int NODE_STATE_CONFIGURATION = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NODE_STATE_CONFIGURATION__NAME = 0;
-
-  /**
    * The feature id for the '<em><b>Imports</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NODE_STATE_CONFIGURATION__IMPORTS = 1;
+  int NODE_STATE_CONFIGURATION__IMPORTS = 0;
 
   /**
    * The feature id for the '<em><b>Nsd</b></em>' containment reference.
@@ -92,7 +83,7 @@ public interface StatesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NODE_STATE_CONFIGURATION__NSD = 2;
+  int NODE_STATE_CONFIGURATION__NSD = 1;
 
   /**
    * The feature id for the '<em><b>Client Config</b></em>' containment reference list.
@@ -101,7 +92,7 @@ public interface StatesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NODE_STATE_CONFIGURATION__CLIENT_CONFIG = 3;
+  int NODE_STATE_CONFIGURATION__CLIENT_CONFIG = 2;
 
   /**
    * The number of structural features of the '<em>Node State Configuration</em>' class.
@@ -110,7 +101,7 @@ public interface StatesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NODE_STATE_CONFIGURATION_FEATURE_COUNT = 4;
+  int NODE_STATE_CONFIGURATION_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link com.visteon.onoff.states.impl.ImportImpl <em>Import</em>}' class.
@@ -665,17 +656,6 @@ public interface StatesPackage extends EPackage
    * @generated
    */
   EClass getNodeStateConfiguration();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.visteon.onoff.states.NodeStateConfiguration#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see com.visteon.onoff.states.NodeStateConfiguration#getName()
-   * @see #getNodeStateConfiguration()
-   * @generated
-   */
-  EAttribute getNodeStateConfiguration_Name();
 
   /**
    * Returns the meta object for the containment reference list '{@link com.visteon.onoff.states.NodeStateConfiguration#getImports <em>Imports</em>}'.
@@ -1247,14 +1227,6 @@ public interface StatesPackage extends EPackage
      * @generated
      */
     EClass NODE_STATE_CONFIGURATION = eINSTANCE.getNodeStateConfiguration();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute NODE_STATE_CONFIGURATION__NAME = eINSTANCE.getNodeStateConfiguration_Name();
 
     /**
      * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.

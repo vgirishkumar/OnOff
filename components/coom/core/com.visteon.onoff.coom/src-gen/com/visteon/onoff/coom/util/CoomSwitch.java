@@ -73,13 +73,6 @@ public class CoomSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case CoomPackage.FULL_COMPONENT_ON_OFF_MANIFEST:
-      {
-        FullComponentOnOffManifest fullComponentOnOffManifest = (FullComponentOnOffManifest)theEObject;
-        T result = caseFullComponentOnOffManifest(fullComponentOnOffManifest);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case CoomPackage.COMPONENT_ON_OFF_MANIFEST:
       {
         ComponentOnOffManifest componentOnOffManifest = (ComponentOnOffManifest)theEObject;
@@ -110,22 +103,6 @@ public class CoomSwitch<T> extends Switch<T>
       }
       default: return defaultCase(theEObject);
     }
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Full Component On Off Manifest</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Full Component On Off Manifest</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFullComponentOnOffManifest(FullComponentOnOffManifest object)
-  {
-    return null;
   }
 
   /**

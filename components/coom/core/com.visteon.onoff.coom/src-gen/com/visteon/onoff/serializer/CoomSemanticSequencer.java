@@ -6,7 +6,6 @@ package com.visteon.onoff.serializer;
 import com.google.inject.Inject;
 import com.visteon.onoff.coom.ComponentOnOffManifest;
 import com.visteon.onoff.coom.CoomPackage;
-import com.visteon.onoff.coom.FullComponentOnOffManifest;
 import com.visteon.onoff.coom.State;
 import com.visteon.onoff.coom.Transition;
 import com.visteon.onoff.coom.Version;
@@ -39,9 +38,6 @@ public class CoomSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case CoomPackage.COMPONENT_ON_OFF_MANIFEST:
 				sequence_ComponentOnOffManifest(context, (ComponentOnOffManifest) semanticObject); 
 				return; 
-			case CoomPackage.FULL_COMPONENT_ON_OFF_MANIFEST:
-				sequence_FullComponentOnOffManifest(context, (FullComponentOnOffManifest) semanticObject); 
-				return; 
 			case CoomPackage.STATE:
 				sequence_State(context, (State) semanticObject); 
 				return; 
@@ -61,21 +57,9 @@ public class CoomSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ComponentOnOffManifest returns ComponentOnOffManifest
 	 *
 	 * Constraint:
-	 *     (name=FQN version=Version (states+=State | transitions+=Transition)*)
+	 *     (name=ID version=Version (states+=State | transitions+=Transition)*)
 	 */
 	protected void sequence_ComponentOnOffManifest(ISerializationContext context, ComponentOnOffManifest semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     FullComponentOnOffManifest returns FullComponentOnOffManifest
-	 *
-	 * Constraint:
-	 *     ((name=FQN coom=ComponentOnOffManifest) | coom=ComponentOnOffManifest)?
-	 */
-	protected void sequence_FullComponentOnOffManifest(ISerializationContext context, FullComponentOnOffManifest semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

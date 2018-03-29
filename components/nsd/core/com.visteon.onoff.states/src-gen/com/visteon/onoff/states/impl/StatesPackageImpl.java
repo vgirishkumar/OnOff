@@ -208,19 +208,9 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getNodeStateConfiguration_Name()
-  {
-    return (EAttribute)nodeStateConfigurationEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getNodeStateConfiguration_Imports()
   {
-    return (EReference)nodeStateConfigurationEClass.getEStructuralFeatures().get(1);
+    return (EReference)nodeStateConfigurationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -230,7 +220,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
    */
   public EReference getNodeStateConfiguration_Nsd()
   {
-    return (EReference)nodeStateConfigurationEClass.getEStructuralFeatures().get(2);
+    return (EReference)nodeStateConfigurationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -240,7 +230,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
    */
   public EReference getNodeStateConfiguration_ClientConfig()
   {
-    return (EReference)nodeStateConfigurationEClass.getEStructuralFeatures().get(3);
+    return (EReference)nodeStateConfigurationEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -744,7 +734,6 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
 
     // Create classes and their features
     nodeStateConfigurationEClass = createEClass(NODE_STATE_CONFIGURATION);
-    createEAttribute(nodeStateConfigurationEClass, NODE_STATE_CONFIGURATION__NAME);
     createEReference(nodeStateConfigurationEClass, NODE_STATE_CONFIGURATION__IMPORTS);
     createEReference(nodeStateConfigurationEClass, NODE_STATE_CONFIGURATION__NSD);
     createEReference(nodeStateConfigurationEClass, NODE_STATE_CONFIGURATION__CLIENT_CONFIG);
@@ -844,7 +833,6 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(nodeStateConfigurationEClass, NodeStateConfiguration.class, "NodeStateConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getNodeStateConfiguration_Name(), ecorePackage.getEString(), "name", null, 0, 1, NodeStateConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNodeStateConfiguration_Imports(), this.getImport(), null, "imports", null, 0, -1, NodeStateConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNodeStateConfiguration_Nsd(), this.getNodeStateDiagram(), null, "nsd", null, 0, 1, NodeStateConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNodeStateConfiguration_ClientConfig(), this.getClientConfiguration(), null, "clientConfig", null, 0, -1, NodeStateConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

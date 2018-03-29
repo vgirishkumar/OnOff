@@ -94,8 +94,8 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *
 	 * Constraint:
 	 *     (
-	 *         name=FQN 
-	 *         coomRef=[ComponentOnOffManifest|FQN] 
+	 *         name=ID 
+	 *         coomRef=[ComponentOnOffManifest|ID] 
 	 *         transTimeoutInMilliseconds=INT? 
 	 *         (componentTransitions+=ComponentTransition | nodeStateAssociations+=NodeStateAssociation | componentStates+=ComponentState | features+=Feature)*
 	 *     )
@@ -110,10 +110,7 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     ComponentState returns ComponentState
 	 *
 	 * Constraint:
-	 *     (
-	 *         (featureDependencies=FeatureDependency | transitionDependencies=TransitionDependency)? 
-	 *         (state=[State|FQN] stateDependencies=StateDependency?)?
-	 *     )+
+	 *     (state=[State|FQN] (stateDependencies=StateDependency | featureDependencies=FeatureDependency | transitionDependencies=TransitionDependency)*)
 	 */
 	protected void sequence_ComponentState(ISerializationContext context, ComponentState semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -137,7 +134,7 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     FeatureDependency returns FeatureDependency
 	 *
 	 * Constraint:
-	 *     (features+=[Feature|FQN] features+=[Feature|FQN]*)
+	 *     (features+=[Feature|ID] features+=[Feature|ID]*)
 	 */
 	protected void sequence_FeatureDependency(ISerializationContext context, FeatureDependency semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -201,9 +198,8 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *
 	 * Constraint:
 	 *     (
-	 *         (name=FQN ((imports+=Import+ clientConfig+=ClientConfiguration+) | clientConfig+=ClientConfiguration+)) | 
-	 *         (((name=FQN imports+=Import+) | imports+=Import+)? nsd=NodeStateDiagram clientConfig+=ClientConfiguration+) | 
-	 *         (imports+=Import+ clientConfig+=ClientConfiguration+) | 
+	 *         (imports+=Import* nsd=NodeStateDiagram clientConfig+=ClientConfiguration+) | 
+	 *         (imports+=Import* clientConfig+=ClientConfiguration+) | 
 	 *         clientConfig+=ClientConfiguration+
 	 *     )?
 	 */

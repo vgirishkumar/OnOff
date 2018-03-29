@@ -5,8 +5,9 @@ import org.eclipse.xtext.xtext.generator.model.project.*
 
 var rootPath = ".."
 var baseName = "com.visteon.onoff.coom"
+
 Workflow {
-	
+
 	component = XtextGenerator {
 		configuration = {
 			project = StandardProjectConfig {
@@ -39,12 +40,14 @@ Workflow {
 		language = StandardLanguage {
 			name = "com.visteon.onoff.Coom"
 			fileExtensions = "coom"
-
 			serializer = {
 				generateStub = false
 			}
 			validator = {
 				composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
+			}
+			formatter = {
+				generateStub = true
 			}
 		}
 	}

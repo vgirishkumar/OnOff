@@ -65,7 +65,6 @@ public class CoomFactoryImpl extends EFactoryImpl implements CoomFactory
   {
     switch (eClass.getClassifierID())
     {
-      case CoomPackage.FULL_COMPONENT_ON_OFF_MANIFEST: return createFullComponentOnOffManifest();
       case CoomPackage.COMPONENT_ON_OFF_MANIFEST: return createComponentOnOffManifest();
       case CoomPackage.VERSION: return createVersion();
       case CoomPackage.STATE: return createState();
@@ -73,17 +72,6 @@ public class CoomFactoryImpl extends EFactoryImpl implements CoomFactory
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public FullComponentOnOffManifest createFullComponentOnOffManifest()
-  {
-    FullComponentOnOffManifestImpl fullComponentOnOffManifest = new FullComponentOnOffManifestImpl();
-    return fullComponentOnOffManifest;
   }
 
   /**
