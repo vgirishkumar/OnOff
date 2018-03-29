@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 import org.eclipse.emf.ecore.EObject;
 
 import com.visteon.onoff.coom.ComponentOnOffManifest;
-import com.visteon.onoff.coom.FullComponentOnOffManifest;
 import com.visteon.onoff.coom.State;
 
 /**
@@ -22,12 +21,12 @@ public class Services {
       return self;
     }
     
-    public List<State> initialStates(FullComponentOnOffManifest m) {
-    	return m.getCoom().getStates().stream().filter(s-> s.isInitial()).collect(Collectors.toList());
+    public List<State> initialStates(ComponentOnOffManifest m) {
+    	return m.getStates().stream().filter(s-> s.isInitial()).collect(Collectors.toList());
     }
     
-    public List<State> nonInitialStates(FullComponentOnOffManifest m) {
-    	return m.getCoom().getStates().stream().filter(s-> !s.isInitial()).collect(Collectors.toList());
+    public List<State> nonInitialStates(ComponentOnOffManifest m) {
+    	return m.getStates().stream().filter(s-> !s.isInitial()).collect(Collectors.toList());
     }
     
     public ComponentOnOffManifest test(EObject self) {
