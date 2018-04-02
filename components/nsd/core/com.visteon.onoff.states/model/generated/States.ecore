@@ -39,10 +39,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="coomRef" eType="ecore:EClass platform:/resource/com.visteon.onoff.coom/model/generated/Coom.ecore#//ComponentOnOffManifest"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="transTimeoutInMilliseconds"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodeStateAssociations"
+        eType="#//NodeStateAssociation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="componentTransitions" upperBound="-1"
         eType="#//ComponentTransition" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nodeStateAssociations"
-        upperBound="-1" eType="#//NodeStateAssociation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="componentStates" upperBound="-1"
         eType="#//ComponentState" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
@@ -77,8 +77,9 @@
         upperBound="-1" eType="#//Feature"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NodeStateAssociation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nodeState" eType="#//NodeState"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="clientState" eType="ecore:EClass platform:/resource/com.visteon.onoff.coom/model/generated/Coom.ecore#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="systemStates" unique="false"
+        upperBound="-1" eType="#//NodeState"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Feature">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

@@ -334,22 +334,22 @@ public interface StatesPackage extends EPackage
   int CLIENT_CONFIGURATION__TRANS_TIMEOUT_IN_MILLISECONDS = 2;
 
   /**
+   * The feature id for the '<em><b>Node State Associations</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS = 3;
+
+  /**
    * The feature id for the '<em><b>Component Transitions</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLIENT_CONFIGURATION__COMPONENT_TRANSITIONS = 3;
-
-  /**
-   * The feature id for the '<em><b>Node State Associations</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS = 4;
+  int CLIENT_CONFIGURATION__COMPONENT_TRANSITIONS = 4;
 
   /**
    * The feature id for the '<em><b>Component States</b></em>' containment reference list.
@@ -583,22 +583,22 @@ public interface StatesPackage extends EPackage
   int NODE_STATE_ASSOCIATION = 11;
 
   /**
-   * The feature id for the '<em><b>Node State</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NODE_STATE_ASSOCIATION__NODE_STATE = 0;
-
-  /**
    * The feature id for the '<em><b>Client State</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NODE_STATE_ASSOCIATION__CLIENT_STATE = 1;
+  int NODE_STATE_ASSOCIATION__CLIENT_STATE = 0;
+
+  /**
+   * The feature id for the '<em><b>System States</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NODE_STATE_ASSOCIATION__SYSTEM_STATES = 1;
 
   /**
    * The number of structural features of the '<em>Node State Association</em>' class.
@@ -917,6 +917,17 @@ public interface StatesPackage extends EPackage
   EAttribute getClientConfiguration_TransTimeoutInMilliseconds();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.visteon.onoff.states.ClientConfiguration#getNodeStateAssociations <em>Node State Associations</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Node State Associations</em>'.
+   * @see com.visteon.onoff.states.ClientConfiguration#getNodeStateAssociations()
+   * @see #getClientConfiguration()
+   * @generated
+   */
+  EReference getClientConfiguration_NodeStateAssociations();
+
+  /**
    * Returns the meta object for the containment reference list '{@link com.visteon.onoff.states.ClientConfiguration#getComponentTransitions <em>Component Transitions</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -926,17 +937,6 @@ public interface StatesPackage extends EPackage
    * @generated
    */
   EReference getClientConfiguration_ComponentTransitions();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link com.visteon.onoff.states.ClientConfiguration#getNodeStateAssociations <em>Node State Associations</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Node State Associations</em>'.
-   * @see com.visteon.onoff.states.ClientConfiguration#getNodeStateAssociations()
-   * @see #getClientConfiguration()
-   * @generated
-   */
-  EReference getClientConfiguration_NodeStateAssociations();
 
   /**
    * Returns the meta object for the containment reference list '{@link com.visteon.onoff.states.ClientConfiguration#getComponentStates <em>Component States</em>}'.
@@ -1142,17 +1142,6 @@ public interface StatesPackage extends EPackage
   EClass getNodeStateAssociation();
 
   /**
-   * Returns the meta object for the reference '{@link com.visteon.onoff.states.NodeStateAssociation#getNodeState <em>Node State</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Node State</em>'.
-   * @see com.visteon.onoff.states.NodeStateAssociation#getNodeState()
-   * @see #getNodeStateAssociation()
-   * @generated
-   */
-  EReference getNodeStateAssociation_NodeState();
-
-  /**
    * Returns the meta object for the reference '{@link com.visteon.onoff.states.NodeStateAssociation#getClientState <em>Client State</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1162,6 +1151,17 @@ public interface StatesPackage extends EPackage
    * @generated
    */
   EReference getNodeStateAssociation_ClientState();
+
+  /**
+   * Returns the meta object for the reference list '{@link com.visteon.onoff.states.NodeStateAssociation#getSystemStates <em>System States</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>System States</em>'.
+   * @see com.visteon.onoff.states.NodeStateAssociation#getSystemStates()
+   * @see #getNodeStateAssociation()
+   * @generated
+   */
+  EReference getNodeStateAssociation_SystemStates();
 
   /**
    * Returns the meta object for class '{@link com.visteon.onoff.states.Feature <em>Feature</em>}'.
@@ -1431,20 +1431,20 @@ public interface StatesPackage extends EPackage
     EAttribute CLIENT_CONFIGURATION__TRANS_TIMEOUT_IN_MILLISECONDS = eINSTANCE.getClientConfiguration_TransTimeoutInMilliseconds();
 
     /**
+     * The meta object literal for the '<em><b>Node State Associations</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS = eINSTANCE.getClientConfiguration_NodeStateAssociations();
+
+    /**
      * The meta object literal for the '<em><b>Component Transitions</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference CLIENT_CONFIGURATION__COMPONENT_TRANSITIONS = eINSTANCE.getClientConfiguration_ComponentTransitions();
-
-    /**
-     * The meta object literal for the '<em><b>Node State Associations</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS = eINSTANCE.getClientConfiguration_NodeStateAssociations();
 
     /**
      * The meta object literal for the '<em><b>Component States</b></em>' containment reference list feature.
@@ -1611,20 +1611,20 @@ public interface StatesPackage extends EPackage
     EClass NODE_STATE_ASSOCIATION = eINSTANCE.getNodeStateAssociation();
 
     /**
-     * The meta object literal for the '<em><b>Node State</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference NODE_STATE_ASSOCIATION__NODE_STATE = eINSTANCE.getNodeStateAssociation_NodeState();
-
-    /**
      * The meta object literal for the '<em><b>Client State</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference NODE_STATE_ASSOCIATION__CLIENT_STATE = eINSTANCE.getNodeStateAssociation_ClientState();
+
+    /**
+     * The meta object literal for the '<em><b>System States</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NODE_STATE_ASSOCIATION__SYSTEM_STATES = eINSTANCE.getNodeStateAssociation_SystemStates();
 
     /**
      * The meta object literal for the '{@link com.visteon.onoff.states.impl.FeatureImpl <em>Feature</em>}' class.

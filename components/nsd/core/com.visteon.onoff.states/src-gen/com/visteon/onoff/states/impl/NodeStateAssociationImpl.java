@@ -9,13 +9,19 @@ import com.visteon.onoff.states.NodeState;
 import com.visteon.onoff.states.NodeStateAssociation;
 import com.visteon.onoff.states.StatesPackage;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,24 +31,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.visteon.onoff.states.impl.NodeStateAssociationImpl#getNodeState <em>Node State</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.NodeStateAssociationImpl#getClientState <em>Client State</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.impl.NodeStateAssociationImpl#getSystemStates <em>System States</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class NodeStateAssociationImpl extends MinimalEObjectImpl.Container implements NodeStateAssociation
 {
-  /**
-   * The cached value of the '{@link #getNodeState() <em>Node State</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getNodeState()
-   * @generated
-   * @ordered
-   */
-  protected NodeState nodeState;
-
   /**
    * The cached value of the '{@link #getClientState() <em>Client State</em>}' reference.
    * <!-- begin-user-doc -->
@@ -52,6 +48,16 @@ public class NodeStateAssociationImpl extends MinimalEObjectImpl.Container imple
    * @ordered
    */
   protected State clientState;
+
+  /**
+   * The cached value of the '{@link #getSystemStates() <em>System States</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSystemStates()
+   * @generated
+   * @ordered
+   */
+  protected EList<NodeState> systemStates;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,49 +78,6 @@ public class NodeStateAssociationImpl extends MinimalEObjectImpl.Container imple
   protected EClass eStaticClass()
   {
     return StatesPackage.Literals.NODE_STATE_ASSOCIATION;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NodeState getNodeState()
-  {
-    if (nodeState != null && nodeState.eIsProxy())
-    {
-      InternalEObject oldNodeState = (InternalEObject)nodeState;
-      nodeState = (NodeState)eResolveProxy(oldNodeState);
-      if (nodeState != oldNodeState)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, StatesPackage.NODE_STATE_ASSOCIATION__NODE_STATE, oldNodeState, nodeState));
-      }
-    }
-    return nodeState;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NodeState basicGetNodeState()
-  {
-    return nodeState;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setNodeState(NodeState newNodeState)
-  {
-    NodeState oldNodeState = nodeState;
-    nodeState = newNodeState;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, StatesPackage.NODE_STATE_ASSOCIATION__NODE_STATE, oldNodeState, nodeState));
   }
 
   /**
@@ -165,17 +128,30 @@ public class NodeStateAssociationImpl extends MinimalEObjectImpl.Container imple
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<NodeState> getSystemStates()
+  {
+    if (systemStates == null)
+    {
+      systemStates = new EObjectResolvingEList<NodeState>(NodeState.class, this, StatesPackage.NODE_STATE_ASSOCIATION__SYSTEM_STATES);
+    }
+    return systemStates;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
-      case StatesPackage.NODE_STATE_ASSOCIATION__NODE_STATE:
-        if (resolve) return getNodeState();
-        return basicGetNodeState();
       case StatesPackage.NODE_STATE_ASSOCIATION__CLIENT_STATE:
         if (resolve) return getClientState();
         return basicGetClientState();
+      case StatesPackage.NODE_STATE_ASSOCIATION__SYSTEM_STATES:
+        return getSystemStates();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -185,16 +161,18 @@ public class NodeStateAssociationImpl extends MinimalEObjectImpl.Container imple
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case StatesPackage.NODE_STATE_ASSOCIATION__NODE_STATE:
-        setNodeState((NodeState)newValue);
-        return;
       case StatesPackage.NODE_STATE_ASSOCIATION__CLIENT_STATE:
         setClientState((State)newValue);
+        return;
+      case StatesPackage.NODE_STATE_ASSOCIATION__SYSTEM_STATES:
+        getSystemStates().clear();
+        getSystemStates().addAll((Collection<? extends NodeState>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -210,11 +188,11 @@ public class NodeStateAssociationImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case StatesPackage.NODE_STATE_ASSOCIATION__NODE_STATE:
-        setNodeState((NodeState)null);
-        return;
       case StatesPackage.NODE_STATE_ASSOCIATION__CLIENT_STATE:
         setClientState((State)null);
+        return;
+      case StatesPackage.NODE_STATE_ASSOCIATION__SYSTEM_STATES:
+        getSystemStates().clear();
         return;
     }
     super.eUnset(featureID);
@@ -230,10 +208,10 @@ public class NodeStateAssociationImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case StatesPackage.NODE_STATE_ASSOCIATION__NODE_STATE:
-        return nodeState != null;
       case StatesPackage.NODE_STATE_ASSOCIATION__CLIENT_STATE:
         return clientState != null;
+      case StatesPackage.NODE_STATE_ASSOCIATION__SYSTEM_STATES:
+        return systemStates != null && !systemStates.isEmpty();
     }
     return super.eIsSet(featureID);
   }

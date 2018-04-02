@@ -20,7 +20,7 @@
 'import'=11
 'initial'=17
 'max-retries'=28
-'set'=34
+'set system states'=34
 'states'=36
 'timeout'=24
 '{'=13

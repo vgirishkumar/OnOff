@@ -97,7 +97,8 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         name=ID 
 	 *         coomRef=[ComponentOnOffManifest|ID] 
 	 *         transTimeoutInMilliseconds=INT? 
-	 *         (componentTransitions+=ComponentTransition | nodeStateAssociations+=NodeStateAssociation | componentStates+=ComponentState | features+=Feature)*
+	 *         nodeStateAssociations=NodeStateAssociation? 
+	 *         (componentTransitions+=ComponentTransition | componentStates+=ComponentState | features+=Feature)*
 	 *     )
 	 */
 	protected void sequence_ClientConfiguration(ISerializationContext context, ClientConfiguration semanticObject) {
@@ -176,19 +177,10 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     NodeStateAssociation returns NodeStateAssociation
 	 *
 	 * Constraint:
-	 *     (nodeState=[NodeState|ID] clientState=[State|FQN])
+	 *     (clientState=[State|FQN] systemStates+=[NodeState|ID] systemStates+=[NodeState|ID]*)
 	 */
 	protected void sequence_NodeStateAssociation(ISerializationContext context, NodeStateAssociation semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, StatesPackage.Literals.NODE_STATE_ASSOCIATION__NODE_STATE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StatesPackage.Literals.NODE_STATE_ASSOCIATION__NODE_STATE));
-			if (transientValues.isValueTransient(semanticObject, StatesPackage.Literals.NODE_STATE_ASSOCIATION__CLIENT_STATE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StatesPackage.Literals.NODE_STATE_ASSOCIATION__CLIENT_STATE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getNodeStateAssociationAccess().getNodeStateNodeStateIDTerminalRuleCall_1_0_1(), semanticObject.eGet(StatesPackage.Literals.NODE_STATE_ASSOCIATION__NODE_STATE, false));
-		feeder.accept(grammarAccess.getNodeStateAssociationAccess().getClientStateStateFQNParserRuleCall_3_0_1(), semanticObject.eGet(StatesPackage.Literals.NODE_STATE_ASSOCIATION__CLIENT_STATE, false));
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -197,11 +189,7 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     NodeStateConfiguration returns NodeStateConfiguration
 	 *
 	 * Constraint:
-	 *     (
-	 *         (imports+=Import* nsd=NodeStateDiagram clientConfig+=ClientConfiguration+) | 
-	 *         (imports+=Import* clientConfig+=ClientConfiguration+) | 
-	 *         clientConfig+=ClientConfiguration+
-	 *     )?
+	 *     (imports+=Import* nsd=NodeStateDiagram clientConfig+=ClientConfiguration*)
 	 */
 	protected void sequence_NodeStateConfiguration(ISerializationContext context, NodeStateConfiguration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

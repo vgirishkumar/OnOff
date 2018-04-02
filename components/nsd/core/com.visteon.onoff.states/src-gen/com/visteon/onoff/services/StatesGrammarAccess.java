@@ -37,11 +37,10 @@ public class StatesGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//NodeStateConfiguration:
 		//	imports+=Import*
-		//	nsd=NodeStateDiagram?
-		//	clientConfig+=ClientConfiguration*;
+		//	nsd=NodeStateDiagram clientConfig+=ClientConfiguration*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//imports+=Import* nsd=NodeStateDiagram? clientConfig+=ClientConfiguration*
+		//imports+=Import* nsd=NodeStateDiagram clientConfig+=ClientConfiguration*
 		public Group getGroup() { return cGroup; }
 		
 		//imports+=Import*
@@ -50,7 +49,7 @@ public class StatesGrammarAccess extends AbstractGrammarElementFinder {
 		//Import
 		public RuleCall getImportsImportParserRuleCall_0_0() { return cImportsImportParserRuleCall_0_0; }
 		
-		//nsd=NodeStateDiagram?
+		//nsd=NodeStateDiagram
 		public Assignment getNsdAssignment_1() { return cNsdAssignment_1; }
 		
 		//NodeStateDiagram
@@ -325,28 +324,28 @@ public class StatesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cClientTransitionTimeoutKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cTransTimeoutInMillisecondsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
 		private final RuleCall cTransTimeoutInMillisecondsINTTerminalRuleCall_4_1_0 = (RuleCall)cTransTimeoutInMillisecondsAssignment_4_1.eContents().get(0);
-		private final Alternatives cAlternatives_5 = (Alternatives)cGroup.eContents().get(5);
-		private final Assignment cComponentTransitionsAssignment_5_0 = (Assignment)cAlternatives_5.eContents().get(0);
-		private final RuleCall cComponentTransitionsComponentTransitionParserRuleCall_5_0_0 = (RuleCall)cComponentTransitionsAssignment_5_0.eContents().get(0);
-		private final Assignment cNodeStateAssociationsAssignment_5_1 = (Assignment)cAlternatives_5.eContents().get(1);
-		private final RuleCall cNodeStateAssociationsNodeStateAssociationParserRuleCall_5_1_0 = (RuleCall)cNodeStateAssociationsAssignment_5_1.eContents().get(0);
-		private final Assignment cComponentStatesAssignment_5_2 = (Assignment)cAlternatives_5.eContents().get(2);
-		private final RuleCall cComponentStatesComponentStateParserRuleCall_5_2_0 = (RuleCall)cComponentStatesAssignment_5_2.eContents().get(0);
-		private final Assignment cFeaturesAssignment_5_3 = (Assignment)cAlternatives_5.eContents().get(3);
-		private final RuleCall cFeaturesFeatureParserRuleCall_5_3_0 = (RuleCall)cFeaturesAssignment_5_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cNodeStateAssociationsAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cNodeStateAssociationsNodeStateAssociationParserRuleCall_5_0 = (RuleCall)cNodeStateAssociationsAssignment_5.eContents().get(0);
+		private final Alternatives cAlternatives_6 = (Alternatives)cGroup.eContents().get(6);
+		private final Assignment cComponentTransitionsAssignment_6_0 = (Assignment)cAlternatives_6.eContents().get(0);
+		private final RuleCall cComponentTransitionsComponentTransitionParserRuleCall_6_0_0 = (RuleCall)cComponentTransitionsAssignment_6_0.eContents().get(0);
+		private final Assignment cComponentStatesAssignment_6_1 = (Assignment)cAlternatives_6.eContents().get(1);
+		private final RuleCall cComponentStatesComponentStateParserRuleCall_6_1_0 = (RuleCall)cComponentStatesAssignment_6_1.eContents().get(0);
+		private final Assignment cFeaturesAssignment_6_2 = (Assignment)cAlternatives_6.eContents().get(2);
+		private final RuleCall cFeaturesFeatureParserRuleCall_6_2_0 = (RuleCall)cFeaturesAssignment_6_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//ClientConfiguration:
 		//	'Client' name=ID // instance name - scope coming from COOM
 		//	'{' ('coom' coomRef=[coom::ComponentOnOffManifest]) ('clientTransitionTimeout' transTimeoutInMilliseconds=INT)?
-		//	(componentTransitions+=ComponentTransition | nodeStateAssociations+=NodeStateAssociation |
+		//	nodeStateAssociations=NodeStateAssociation? (componentTransitions+=ComponentTransition |
 		//	componentStates+=ComponentState | features+=Feature)*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Client' name=ID // instance name - scope coming from COOM
 		//'{' ('coom' coomRef=[coom::ComponentOnOffManifest]) ('clientTransitionTimeout' transTimeoutInMilliseconds=INT)?
-		//(componentTransitions+=ComponentTransition | nodeStateAssociations+=NodeStateAssociation |
+		//nodeStateAssociations=NodeStateAssociation? (componentTransitions+=ComponentTransition |
 		//componentStates+=ComponentState | features+=Feature)* '}'
 		public Group getGroup() { return cGroup; }
 		
@@ -390,36 +389,35 @@ public class StatesGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getTransTimeoutInMillisecondsINTTerminalRuleCall_4_1_0() { return cTransTimeoutInMillisecondsINTTerminalRuleCall_4_1_0; }
 		
-		//(componentTransitions+=ComponentTransition | nodeStateAssociations+=NodeStateAssociation |
-		//componentStates+=ComponentState | features+=Feature)*
-		public Alternatives getAlternatives_5() { return cAlternatives_5; }
-		
-		//componentTransitions+=ComponentTransition
-		public Assignment getComponentTransitionsAssignment_5_0() { return cComponentTransitionsAssignment_5_0; }
-		
-		//ComponentTransition
-		public RuleCall getComponentTransitionsComponentTransitionParserRuleCall_5_0_0() { return cComponentTransitionsComponentTransitionParserRuleCall_5_0_0; }
-		
-		//nodeStateAssociations+=NodeStateAssociation
-		public Assignment getNodeStateAssociationsAssignment_5_1() { return cNodeStateAssociationsAssignment_5_1; }
+		//nodeStateAssociations=NodeStateAssociation?
+		public Assignment getNodeStateAssociationsAssignment_5() { return cNodeStateAssociationsAssignment_5; }
 		
 		//NodeStateAssociation
-		public RuleCall getNodeStateAssociationsNodeStateAssociationParserRuleCall_5_1_0() { return cNodeStateAssociationsNodeStateAssociationParserRuleCall_5_1_0; }
+		public RuleCall getNodeStateAssociationsNodeStateAssociationParserRuleCall_5_0() { return cNodeStateAssociationsNodeStateAssociationParserRuleCall_5_0; }
+		
+		//(componentTransitions+=ComponentTransition | componentStates+=ComponentState | features+=Feature)*
+		public Alternatives getAlternatives_6() { return cAlternatives_6; }
+		
+		//componentTransitions+=ComponentTransition
+		public Assignment getComponentTransitionsAssignment_6_0() { return cComponentTransitionsAssignment_6_0; }
+		
+		//ComponentTransition
+		public RuleCall getComponentTransitionsComponentTransitionParserRuleCall_6_0_0() { return cComponentTransitionsComponentTransitionParserRuleCall_6_0_0; }
 		
 		//componentStates+=ComponentState
-		public Assignment getComponentStatesAssignment_5_2() { return cComponentStatesAssignment_5_2; }
+		public Assignment getComponentStatesAssignment_6_1() { return cComponentStatesAssignment_6_1; }
 		
 		//ComponentState
-		public RuleCall getComponentStatesComponentStateParserRuleCall_5_2_0() { return cComponentStatesComponentStateParserRuleCall_5_2_0; }
+		public RuleCall getComponentStatesComponentStateParserRuleCall_6_1_0() { return cComponentStatesComponentStateParserRuleCall_6_1_0; }
 		
 		//features+=Feature
-		public Assignment getFeaturesAssignment_5_3() { return cFeaturesAssignment_5_3; }
+		public Assignment getFeaturesAssignment_6_2() { return cFeaturesAssignment_6_2; }
 		
 		//Feature
-		public RuleCall getFeaturesFeatureParserRuleCall_5_3_0() { return cFeaturesFeatureParserRuleCall_5_3_0; }
+		public RuleCall getFeaturesFeatureParserRuleCall_6_2_0() { return cFeaturesFeatureParserRuleCall_6_2_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 	public class ComponentTransitionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.visteon.onoff.States.ComponentTransition");
@@ -712,44 +710,64 @@ public class StatesGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.visteon.onoff.States.NodeStateAssociation");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cForKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNodeStateAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cNodeStateNodeStateCrossReference_1_0 = (CrossReference)cNodeStateAssignment_1.eContents().get(0);
-		private final RuleCall cNodeStateNodeStateIDTerminalRuleCall_1_0_1 = (RuleCall)cNodeStateNodeStateCrossReference_1_0.eContents().get(1);
-		private final Keyword cSetKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cClientStateAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cClientStateStateCrossReference_3_0 = (CrossReference)cClientStateAssignment_3.eContents().get(0);
-		private final RuleCall cClientStateStateFQNParserRuleCall_3_0_1 = (RuleCall)cClientStateStateCrossReference_3_0.eContents().get(1);
+		private final Assignment cClientStateAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cClientStateStateCrossReference_1_0 = (CrossReference)cClientStateAssignment_1.eContents().get(0);
+		private final RuleCall cClientStateStateFQNParserRuleCall_1_0_1 = (RuleCall)cClientStateStateCrossReference_1_0.eContents().get(1);
+		private final Keyword cSetSystemStatesKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cSystemStatesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cSystemStatesNodeStateCrossReference_3_0 = (CrossReference)cSystemStatesAssignment_3.eContents().get(0);
+		private final RuleCall cSystemStatesNodeStateIDTerminalRuleCall_3_0_1 = (RuleCall)cSystemStatesNodeStateCrossReference_3_0.eContents().get(1);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cCommaKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cSystemStatesAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cSystemStatesNodeStateCrossReference_4_1_0 = (CrossReference)cSystemStatesAssignment_4_1.eContents().get(0);
+		private final RuleCall cSystemStatesNodeStateIDTerminalRuleCall_4_1_0_1 = (RuleCall)cSystemStatesNodeStateCrossReference_4_1_0.eContents().get(1);
 		
 		//NodeStateAssociation:
-		//	'For' nodeState=[NodeState] 'set' clientState=[coom::State|FQN];
+		//	'For' clientState=[coom::State|FQN] 'set system states' systemStates+=[NodeState] (',' systemStates+=[NodeState])*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'For' nodeState=[NodeState] 'set' clientState=[coom::State|FQN]
+		//'For' clientState=[coom::State|FQN] 'set system states' systemStates+=[NodeState] (',' systemStates+=[NodeState])*
 		public Group getGroup() { return cGroup; }
 		
 		//'For'
 		public Keyword getForKeyword_0() { return cForKeyword_0; }
 		
-		//nodeState=[NodeState]
-		public Assignment getNodeStateAssignment_1() { return cNodeStateAssignment_1; }
-		
-		//[NodeState]
-		public CrossReference getNodeStateNodeStateCrossReference_1_0() { return cNodeStateNodeStateCrossReference_1_0; }
-		
-		//ID
-		public RuleCall getNodeStateNodeStateIDTerminalRuleCall_1_0_1() { return cNodeStateNodeStateIDTerminalRuleCall_1_0_1; }
-		
-		//'set'
-		public Keyword getSetKeyword_2() { return cSetKeyword_2; }
-		
 		//clientState=[coom::State|FQN]
-		public Assignment getClientStateAssignment_3() { return cClientStateAssignment_3; }
+		public Assignment getClientStateAssignment_1() { return cClientStateAssignment_1; }
 		
 		//[coom::State|FQN]
-		public CrossReference getClientStateStateCrossReference_3_0() { return cClientStateStateCrossReference_3_0; }
+		public CrossReference getClientStateStateCrossReference_1_0() { return cClientStateStateCrossReference_1_0; }
 		
 		//FQN
-		public RuleCall getClientStateStateFQNParserRuleCall_3_0_1() { return cClientStateStateFQNParserRuleCall_3_0_1; }
+		public RuleCall getClientStateStateFQNParserRuleCall_1_0_1() { return cClientStateStateFQNParserRuleCall_1_0_1; }
+		
+		//'set system states'
+		public Keyword getSetSystemStatesKeyword_2() { return cSetSystemStatesKeyword_2; }
+		
+		//systemStates+=[NodeState]
+		public Assignment getSystemStatesAssignment_3() { return cSystemStatesAssignment_3; }
+		
+		//[NodeState]
+		public CrossReference getSystemStatesNodeStateCrossReference_3_0() { return cSystemStatesNodeStateCrossReference_3_0; }
+		
+		//ID
+		public RuleCall getSystemStatesNodeStateIDTerminalRuleCall_3_0_1() { return cSystemStatesNodeStateIDTerminalRuleCall_3_0_1; }
+		
+		//(',' systemStates+=[NodeState])*
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//','
+		public Keyword getCommaKeyword_4_0() { return cCommaKeyword_4_0; }
+		
+		//systemStates+=[NodeState]
+		public Assignment getSystemStatesAssignment_4_1() { return cSystemStatesAssignment_4_1; }
+		
+		//[NodeState]
+		public CrossReference getSystemStatesNodeStateCrossReference_4_1_0() { return cSystemStatesNodeStateCrossReference_4_1_0; }
+		
+		//ID
+		public RuleCall getSystemStatesNodeStateIDTerminalRuleCall_4_1_0_1() { return cSystemStatesNodeStateIDTerminalRuleCall_4_1_0_1; }
 	}
 	public class FeatureElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.visteon.onoff.States.Feature");
@@ -919,8 +937,7 @@ public class StatesGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//NodeStateConfiguration:
 	//	imports+=Import*
-	//	nsd=NodeStateDiagram?
-	//	clientConfig+=ClientConfiguration*;
+	//	nsd=NodeStateDiagram clientConfig+=ClientConfiguration*;
 	public NodeStateConfigurationElements getNodeStateConfigurationAccess() {
 		return pNodeStateConfiguration;
 	}
@@ -977,7 +994,7 @@ public class StatesGrammarAccess extends AbstractGrammarElementFinder {
 	//ClientConfiguration:
 	//	'Client' name=ID // instance name - scope coming from COOM
 	//	'{' ('coom' coomRef=[coom::ComponentOnOffManifest]) ('clientTransitionTimeout' transTimeoutInMilliseconds=INT)?
-	//	(componentTransitions+=ComponentTransition | nodeStateAssociations+=NodeStateAssociation |
+	//	nodeStateAssociations=NodeStateAssociation? (componentTransitions+=ComponentTransition |
 	//	componentStates+=ComponentState | features+=Feature)*
 	//	'}';
 	public ClientConfigurationElements getClientConfigurationAccess() {
@@ -1044,7 +1061,7 @@ public class StatesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//NodeStateAssociation:
-	//	'For' nodeState=[NodeState] 'set' clientState=[coom::State|FQN];
+	//	'For' clientState=[coom::State|FQN] 'set system states' systemStates+=[NodeState] (',' systemStates+=[NodeState])*;
 	public NodeStateAssociationElements getNodeStateAssociationAccess() {
 		return pNodeStateAssociation;
 	}

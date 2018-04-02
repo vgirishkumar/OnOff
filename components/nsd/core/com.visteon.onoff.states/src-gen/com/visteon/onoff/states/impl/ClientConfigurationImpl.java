@@ -39,8 +39,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.visteon.onoff.states.impl.ClientConfigurationImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.ClientConfigurationImpl#getCoomRef <em>Coom Ref</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.ClientConfigurationImpl#getTransTimeoutInMilliseconds <em>Trans Timeout In Milliseconds</em>}</li>
- *   <li>{@link com.visteon.onoff.states.impl.ClientConfigurationImpl#getComponentTransitions <em>Component Transitions</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.ClientConfigurationImpl#getNodeStateAssociations <em>Node State Associations</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.impl.ClientConfigurationImpl#getComponentTransitions <em>Component Transitions</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.ClientConfigurationImpl#getComponentStates <em>Component States</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.ClientConfigurationImpl#getFeatures <em>Features</em>}</li>
  * </ul>
@@ -100,6 +100,16 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
   protected int transTimeoutInMilliseconds = TRANS_TIMEOUT_IN_MILLISECONDS_EDEFAULT;
 
   /**
+   * The cached value of the '{@link #getNodeStateAssociations() <em>Node State Associations</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNodeStateAssociations()
+   * @generated
+   * @ordered
+   */
+  protected NodeStateAssociation nodeStateAssociations;
+
+  /**
    * The cached value of the '{@link #getComponentTransitions() <em>Component Transitions</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -108,16 +118,6 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
    * @ordered
    */
   protected EList<ComponentTransition> componentTransitions;
-
-  /**
-   * The cached value of the '{@link #getNodeStateAssociations() <em>Node State Associations</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getNodeStateAssociations()
-   * @generated
-   * @ordered
-   */
-  protected EList<NodeStateAssociation> nodeStateAssociations;
 
   /**
    * The cached value of the '{@link #getComponentStates() <em>Component States</em>}' containment reference list.
@@ -254,13 +254,9 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ComponentTransition> getComponentTransitions()
+  public NodeStateAssociation getNodeStateAssociations()
   {
-    if (componentTransitions == null)
-    {
-      componentTransitions = new EObjectContainmentEList<ComponentTransition>(ComponentTransition.class, this, StatesPackage.CLIENT_CONFIGURATION__COMPONENT_TRANSITIONS);
-    }
-    return componentTransitions;
+    return nodeStateAssociations;
   }
 
   /**
@@ -268,13 +264,51 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<NodeStateAssociation> getNodeStateAssociations()
+  public NotificationChain basicSetNodeStateAssociations(NodeStateAssociation newNodeStateAssociations, NotificationChain msgs)
   {
-    if (nodeStateAssociations == null)
+    NodeStateAssociation oldNodeStateAssociations = nodeStateAssociations;
+    nodeStateAssociations = newNodeStateAssociations;
+    if (eNotificationRequired())
     {
-      nodeStateAssociations = new EObjectContainmentEList<NodeStateAssociation>(NodeStateAssociation.class, this, StatesPackage.CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StatesPackage.CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS, oldNodeStateAssociations, newNodeStateAssociations);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return nodeStateAssociations;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNodeStateAssociations(NodeStateAssociation newNodeStateAssociations)
+  {
+    if (newNodeStateAssociations != nodeStateAssociations)
+    {
+      NotificationChain msgs = null;
+      if (nodeStateAssociations != null)
+        msgs = ((InternalEObject)nodeStateAssociations).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StatesPackage.CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS, null, msgs);
+      if (newNodeStateAssociations != null)
+        msgs = ((InternalEObject)newNodeStateAssociations).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StatesPackage.CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS, null, msgs);
+      msgs = basicSetNodeStateAssociations(newNodeStateAssociations, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, StatesPackage.CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS, newNodeStateAssociations, newNodeStateAssociations));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<ComponentTransition> getComponentTransitions()
+  {
+    if (componentTransitions == null)
+    {
+      componentTransitions = new EObjectContainmentEList<ComponentTransition>(ComponentTransition.class, this, StatesPackage.CLIENT_CONFIGURATION__COMPONENT_TRANSITIONS);
+    }
+    return componentTransitions;
   }
 
   /**
@@ -315,10 +349,10 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
+      case StatesPackage.CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS:
+        return basicSetNodeStateAssociations(null, msgs);
       case StatesPackage.CLIENT_CONFIGURATION__COMPONENT_TRANSITIONS:
         return ((InternalEList<?>)getComponentTransitions()).basicRemove(otherEnd, msgs);
-      case StatesPackage.CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS:
-        return ((InternalEList<?>)getNodeStateAssociations()).basicRemove(otherEnd, msgs);
       case StatesPackage.CLIENT_CONFIGURATION__COMPONENT_STATES:
         return ((InternalEList<?>)getComponentStates()).basicRemove(otherEnd, msgs);
       case StatesPackage.CLIENT_CONFIGURATION__FEATURES:
@@ -344,10 +378,10 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
         return basicGetCoomRef();
       case StatesPackage.CLIENT_CONFIGURATION__TRANS_TIMEOUT_IN_MILLISECONDS:
         return getTransTimeoutInMilliseconds();
-      case StatesPackage.CLIENT_CONFIGURATION__COMPONENT_TRANSITIONS:
-        return getComponentTransitions();
       case StatesPackage.CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS:
         return getNodeStateAssociations();
+      case StatesPackage.CLIENT_CONFIGURATION__COMPONENT_TRANSITIONS:
+        return getComponentTransitions();
       case StatesPackage.CLIENT_CONFIGURATION__COMPONENT_STATES:
         return getComponentStates();
       case StatesPackage.CLIENT_CONFIGURATION__FEATURES:
@@ -376,13 +410,12 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
       case StatesPackage.CLIENT_CONFIGURATION__TRANS_TIMEOUT_IN_MILLISECONDS:
         setTransTimeoutInMilliseconds((Integer)newValue);
         return;
+      case StatesPackage.CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS:
+        setNodeStateAssociations((NodeStateAssociation)newValue);
+        return;
       case StatesPackage.CLIENT_CONFIGURATION__COMPONENT_TRANSITIONS:
         getComponentTransitions().clear();
         getComponentTransitions().addAll((Collection<? extends ComponentTransition>)newValue);
-        return;
-      case StatesPackage.CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS:
-        getNodeStateAssociations().clear();
-        getNodeStateAssociations().addAll((Collection<? extends NodeStateAssociation>)newValue);
         return;
       case StatesPackage.CLIENT_CONFIGURATION__COMPONENT_STATES:
         getComponentStates().clear();
@@ -415,11 +448,11 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
       case StatesPackage.CLIENT_CONFIGURATION__TRANS_TIMEOUT_IN_MILLISECONDS:
         setTransTimeoutInMilliseconds(TRANS_TIMEOUT_IN_MILLISECONDS_EDEFAULT);
         return;
+      case StatesPackage.CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS:
+        setNodeStateAssociations((NodeStateAssociation)null);
+        return;
       case StatesPackage.CLIENT_CONFIGURATION__COMPONENT_TRANSITIONS:
         getComponentTransitions().clear();
-        return;
-      case StatesPackage.CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS:
-        getNodeStateAssociations().clear();
         return;
       case StatesPackage.CLIENT_CONFIGURATION__COMPONENT_STATES:
         getComponentStates().clear();
@@ -447,10 +480,10 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
         return coomRef != null;
       case StatesPackage.CLIENT_CONFIGURATION__TRANS_TIMEOUT_IN_MILLISECONDS:
         return transTimeoutInMilliseconds != TRANS_TIMEOUT_IN_MILLISECONDS_EDEFAULT;
+      case StatesPackage.CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS:
+        return nodeStateAssociations != null;
       case StatesPackage.CLIENT_CONFIGURATION__COMPONENT_TRANSITIONS:
         return componentTransitions != null && !componentTransitions.isEmpty();
-      case StatesPackage.CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS:
-        return nodeStateAssociations != null && !nodeStateAssociations.isEmpty();
       case StatesPackage.CLIENT_CONFIGURATION__COMPONENT_STATES:
         return componentStates != null && !componentStates.isEmpty();
       case StatesPackage.CLIENT_CONFIGURATION__FEATURES:

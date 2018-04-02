@@ -113,7 +113,7 @@ ruleNodeStateConfiguration returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)?
+		)
 		(
 			(
 				{
@@ -593,11 +593,30 @@ ruleClientConfiguration returns [EObject current=null]
 		)?
 		(
 			(
+				{
+					newCompositeNode(grammarAccess.getClientConfigurationAccess().getNodeStateAssociationsNodeStateAssociationParserRuleCall_5_0());
+				}
+				lv_nodeStateAssociations_7_0=ruleNodeStateAssociation
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getClientConfigurationRule());
+					}
+					set(
+						$current,
+						"nodeStateAssociations",
+						lv_nodeStateAssociations_7_0,
+						"com.visteon.onoff.States.NodeStateAssociation");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			(
 				(
 					{
-						newCompositeNode(grammarAccess.getClientConfigurationAccess().getComponentTransitionsComponentTransitionParserRuleCall_5_0_0());
+						newCompositeNode(grammarAccess.getClientConfigurationAccess().getComponentTransitionsComponentTransitionParserRuleCall_6_0_0());
 					}
-					lv_componentTransitions_7_0=ruleComponentTransition
+					lv_componentTransitions_8_0=ruleComponentTransition
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getClientConfigurationRule());
@@ -605,7 +624,7 @@ ruleClientConfiguration returns [EObject current=null]
 						add(
 							$current,
 							"componentTransitions",
-							lv_componentTransitions_7_0,
+							lv_componentTransitions_8_0,
 							"com.visteon.onoff.States.ComponentTransition");
 						afterParserOrEnumRuleCall();
 					}
@@ -615,27 +634,7 @@ ruleClientConfiguration returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getClientConfigurationAccess().getNodeStateAssociationsNodeStateAssociationParserRuleCall_5_1_0());
-					}
-					lv_nodeStateAssociations_8_0=ruleNodeStateAssociation
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getClientConfigurationRule());
-						}
-						add(
-							$current,
-							"nodeStateAssociations",
-							lv_nodeStateAssociations_8_0,
-							"com.visteon.onoff.States.NodeStateAssociation");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			    |
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getClientConfigurationAccess().getComponentStatesComponentStateParserRuleCall_5_2_0());
+						newCompositeNode(grammarAccess.getClientConfigurationAccess().getComponentStatesComponentStateParserRuleCall_6_1_0());
 					}
 					lv_componentStates_9_0=ruleComponentState
 					{
@@ -655,7 +654,7 @@ ruleClientConfiguration returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getClientConfigurationAccess().getFeaturesFeatureParserRuleCall_5_3_0());
+						newCompositeNode(grammarAccess.getClientConfigurationAccess().getFeaturesFeatureParserRuleCall_6_2_0());
 					}
 					lv_features_10_0=ruleFeature
 					{
@@ -674,7 +673,7 @@ ruleClientConfiguration returns [EObject current=null]
 		)*
 		otherlv_11='}'
 		{
-			newLeafNode(otherlv_11, grammarAccess.getClientConfigurationAccess().getRightCurlyBracketKeyword_6());
+			newLeafNode(otherlv_11, grammarAccess.getClientConfigurationAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;
@@ -1137,15 +1136,18 @@ ruleNodeStateAssociation returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getNodeStateAssociationRule());
 					}
 				}
-				otherlv_1=RULE_ID
 				{
-					newLeafNode(otherlv_1, grammarAccess.getNodeStateAssociationAccess().getNodeStateNodeStateCrossReference_1_0());
+					newCompositeNode(grammarAccess.getNodeStateAssociationAccess().getClientStateStateCrossReference_1_0());
+				}
+				ruleFQN
+				{
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_2='set'
+		otherlv_2='set system states'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getNodeStateAssociationAccess().getSetKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getNodeStateAssociationAccess().getSetSystemStatesKeyword_2());
 		}
 		(
 			(
@@ -1154,15 +1156,31 @@ ruleNodeStateAssociation returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getNodeStateAssociationRule());
 					}
 				}
+				otherlv_3=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getNodeStateAssociationAccess().getClientStateStateCrossReference_3_0());
-				}
-				ruleFQN
-				{
-					afterParserOrEnumRuleCall();
+					newLeafNode(otherlv_3, grammarAccess.getNodeStateAssociationAccess().getSystemStatesNodeStateCrossReference_3_0());
 				}
 			)
 		)
+		(
+			otherlv_4=','
+			{
+				newLeafNode(otherlv_4, grammarAccess.getNodeStateAssociationAccess().getCommaKeyword_4_0());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getNodeStateAssociationRule());
+						}
+					}
+					otherlv_5=RULE_ID
+					{
+						newLeafNode(otherlv_5, grammarAccess.getNodeStateAssociationAccess().getSystemStatesNodeStateCrossReference_4_1_0());
+					}
+				)
+			)
+		)*
 	)
 ;
 

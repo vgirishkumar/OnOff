@@ -32,7 +32,7 @@ public class StatesParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getNodeStateDiagramAccess().getAlternatives_5(), "rule__NodeStateDiagram__Alternatives_5");
-					put(grammarAccess.getClientConfigurationAccess().getAlternatives_5(), "rule__ClientConfiguration__Alternatives_5");
+					put(grammarAccess.getClientConfigurationAccess().getAlternatives_6(), "rule__ClientConfiguration__Alternatives_6");
 					put(grammarAccess.getNodeStateConfigurationAccess().getGroup(), "rule__NodeStateConfiguration__Group__0");
 					put(grammarAccess.getImportAccess().getGroup(), "rule__Import__Group__0");
 					put(grammarAccess.getNodeStateDiagramAccess().getGroup(), "rule__NodeStateDiagram__Group__0");
@@ -57,6 +57,7 @@ public class StatesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFeatureDependencyAccess().getGroup(), "rule__FeatureDependency__Group__0");
 					put(grammarAccess.getFeatureDependencyAccess().getGroup_2(), "rule__FeatureDependency__Group_2__0");
 					put(grammarAccess.getNodeStateAssociationAccess().getGroup(), "rule__NodeStateAssociation__Group__0");
+					put(grammarAccess.getNodeStateAssociationAccess().getGroup_4(), "rule__NodeStateAssociation__Group_4__0");
 					put(grammarAccess.getFeatureAccess().getGroup(), "rule__Feature__Group__0");
 					put(grammarAccess.getFeatureAccess().getGroup_5(), "rule__Feature__Group_5__0");
 					put(grammarAccess.getFQNAccess().getGroup(), "rule__FQN__Group__0");
@@ -80,10 +81,10 @@ public class StatesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getClientConfigurationAccess().getNameAssignment_1(), "rule__ClientConfiguration__NameAssignment_1");
 					put(grammarAccess.getClientConfigurationAccess().getCoomRefAssignment_3_1(), "rule__ClientConfiguration__CoomRefAssignment_3_1");
 					put(grammarAccess.getClientConfigurationAccess().getTransTimeoutInMillisecondsAssignment_4_1(), "rule__ClientConfiguration__TransTimeoutInMillisecondsAssignment_4_1");
-					put(grammarAccess.getClientConfigurationAccess().getComponentTransitionsAssignment_5_0(), "rule__ClientConfiguration__ComponentTransitionsAssignment_5_0");
-					put(grammarAccess.getClientConfigurationAccess().getNodeStateAssociationsAssignment_5_1(), "rule__ClientConfiguration__NodeStateAssociationsAssignment_5_1");
-					put(grammarAccess.getClientConfigurationAccess().getComponentStatesAssignment_5_2(), "rule__ClientConfiguration__ComponentStatesAssignment_5_2");
-					put(grammarAccess.getClientConfigurationAccess().getFeaturesAssignment_5_3(), "rule__ClientConfiguration__FeaturesAssignment_5_3");
+					put(grammarAccess.getClientConfigurationAccess().getNodeStateAssociationsAssignment_5(), "rule__ClientConfiguration__NodeStateAssociationsAssignment_5");
+					put(grammarAccess.getClientConfigurationAccess().getComponentTransitionsAssignment_6_0(), "rule__ClientConfiguration__ComponentTransitionsAssignment_6_0");
+					put(grammarAccess.getClientConfigurationAccess().getComponentStatesAssignment_6_1(), "rule__ClientConfiguration__ComponentStatesAssignment_6_1");
+					put(grammarAccess.getClientConfigurationAccess().getFeaturesAssignment_6_2(), "rule__ClientConfiguration__FeaturesAssignment_6_2");
 					put(grammarAccess.getComponentTransitionAccess().getEssentialAssignment_0(), "rule__ComponentTransition__EssentialAssignment_0");
 					put(grammarAccess.getComponentTransitionAccess().getTransitionAssignment_2(), "rule__ComponentTransition__TransitionAssignment_2");
 					put(grammarAccess.getComponentTransitionAccess().getTimeoutInMillisecondsAssignment_4_1(), "rule__ComponentTransition__TimeoutInMillisecondsAssignment_4_1");
@@ -98,8 +99,9 @@ public class StatesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTransitionDependencyAccess().getTransistionsAssignment_2_1(), "rule__TransitionDependency__TransistionsAssignment_2_1");
 					put(grammarAccess.getFeatureDependencyAccess().getFeaturesAssignment_1(), "rule__FeatureDependency__FeaturesAssignment_1");
 					put(grammarAccess.getFeatureDependencyAccess().getFeaturesAssignment_2_1(), "rule__FeatureDependency__FeaturesAssignment_2_1");
-					put(grammarAccess.getNodeStateAssociationAccess().getNodeStateAssignment_1(), "rule__NodeStateAssociation__NodeStateAssignment_1");
-					put(grammarAccess.getNodeStateAssociationAccess().getClientStateAssignment_3(), "rule__NodeStateAssociation__ClientStateAssignment_3");
+					put(grammarAccess.getNodeStateAssociationAccess().getClientStateAssignment_1(), "rule__NodeStateAssociation__ClientStateAssignment_1");
+					put(grammarAccess.getNodeStateAssociationAccess().getSystemStatesAssignment_3(), "rule__NodeStateAssociation__SystemStatesAssignment_3");
+					put(grammarAccess.getNodeStateAssociationAccess().getSystemStatesAssignment_4_1(), "rule__NodeStateAssociation__SystemStatesAssignment_4_1");
 					put(grammarAccess.getFeatureAccess().getNameAssignment_1(), "rule__Feature__NameAssignment_1");
 					put(grammarAccess.getFeatureAccess().getFeatureStatesAssignment_4(), "rule__Feature__FeatureStatesAssignment_4");
 					put(grammarAccess.getFeatureAccess().getFeatureStatesAssignment_5_1(), "rule__Feature__FeatureStatesAssignment_5_1");
