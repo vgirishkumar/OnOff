@@ -4,7 +4,6 @@
 ':'=19
 'Client'=23
 'Feature'=33
-'For'=31
 'NodeStateDiagram'=12
 'State'=17
 'Transition'=18
@@ -15,12 +14,13 @@
 'depends on transitions'=29
 'edgeweight'=21
 'essential'=37
+'for'=31
 'globalEdgeweight'=15
 'globalTransitionTimeout'=16
 'import'=11
 'initial'=36
 'max-retries'=26
-'set system states'=32
+'set system-states'=32
 'states'=34
 'timeout'=22
 '{'=13

@@ -21,10 +21,10 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.visteon.onoff.states.ClientConfiguration#getName <em>Name</em>}</li>
  *   <li>{@link com.visteon.onoff.states.ClientConfiguration#getCoomRef <em>Coom Ref</em>}</li>
  *   <li>{@link com.visteon.onoff.states.ClientConfiguration#getTransTimeoutInMilliseconds <em>Trans Timeout In Milliseconds</em>}</li>
- *   <li>{@link com.visteon.onoff.states.ClientConfiguration#getNodeStateAssociations <em>Node State Associations</em>}</li>
  *   <li>{@link com.visteon.onoff.states.ClientConfiguration#getComponentTransitions <em>Component Transitions</em>}</li>
  *   <li>{@link com.visteon.onoff.states.ClientConfiguration#getComponentStates <em>Component States</em>}</li>
  *   <li>{@link com.visteon.onoff.states.ClientConfiguration#getFeatures <em>Features</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.ClientConfiguration#getNodeStateAssociations <em>Node State Associations</em>}</li>
  * </ul>
  *
  * @see com.visteon.onoff.states.StatesPackage#getClientConfiguration()
@@ -112,32 +112,6 @@ public interface ClientConfiguration extends EObject
   void setTransTimeoutInMilliseconds(int value);
 
   /**
-   * Returns the value of the '<em><b>Node State Associations</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Node State Associations</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Node State Associations</em>' containment reference.
-   * @see #setNodeStateAssociations(NodeStateAssociation)
-   * @see com.visteon.onoff.states.StatesPackage#getClientConfiguration_NodeStateAssociations()
-   * @model containment="true"
-   * @generated
-   */
-  NodeStateAssociation getNodeStateAssociations();
-
-  /**
-   * Sets the value of the '{@link com.visteon.onoff.states.ClientConfiguration#getNodeStateAssociations <em>Node State Associations</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Node State Associations</em>' containment reference.
-   * @see #getNodeStateAssociations()
-   * @generated
-   */
-  void setNodeStateAssociations(NodeStateAssociation value);
-
-  /**
    * Returns the value of the '<em><b>Component Transitions</b></em>' containment reference list.
    * The list contents are of type {@link com.visteon.onoff.states.ComponentTransition}.
    * <!-- begin-user-doc -->
@@ -184,5 +158,21 @@ public interface ClientConfiguration extends EObject
    * @generated
    */
   EList<Feature> getFeatures();
+
+  /**
+   * Returns the value of the '<em><b>Node State Associations</b></em>' containment reference list.
+   * The list contents are of type {@link com.visteon.onoff.states.NodeStateAssociation}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Node State Associations</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Node State Associations</em>' containment reference list.
+   * @see com.visteon.onoff.states.StatesPackage#getClientConfiguration_NodeStateAssociations()
+   * @model containment="true"
+   * @generated
+   */
+  EList<NodeStateAssociation> getNodeStateAssociations();
 
 } // ClientConfiguration

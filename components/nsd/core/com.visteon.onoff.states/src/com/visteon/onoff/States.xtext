@@ -5,8 +5,8 @@ import "http://www.visteon.com/onoff/Coom" as coom
 
 NodeStateConfiguration:
 	imports+=Import*
-	(nsd=NodeStateDiagram)
-	(clientConfig+=ClientConfiguration)*;
+	nsd=NodeStateDiagram
+	clientConfig+=ClientConfiguration*;
 
 Import:
 	'import' importURI=STRING;
@@ -35,10 +35,9 @@ ClientConfiguration:
 	'{'
 	('coom' coomRef=[coom::ComponentOnOffManifest])
 	('clientTransitionTimeout' transTimeoutInMilliseconds=INT)?
-	(nodeStateAssociations=NodeStateAssociation)?
 	(componentTransitions+=ComponentTransition |
 	componentStates+=ComponentState |
-	features+=Feature)*
+	features+=Feature | nodeStateAssociations+=NodeStateAssociation)*
 	'}';
 
 ComponentTransition:
@@ -46,14 +45,16 @@ ComponentTransition:
 	'{'
 	('timeout' timeoutInMilliseconds=INT)?
 	('max-retries' maxretries=INT)?
+	((stateDependency=StateDependency)? &
+	(featureDependency=FeatureDependency)?)
 	'}';
 
 ComponentState:
 	'State' state=[coom::State|FQN]
 	'{'
-	((stateDependencies=StateDependency)? &
-	(featureDependencies=FeatureDependency)? &
-	(transitionDependencies=TransitionDependency)?)
+	((stateDependency=StateDependency)? &
+	(featureDependency=FeatureDependency)? &
+	(transitionDependency=TransitionDependency)?)
 	'}';
 
 StateDependency:
@@ -66,7 +67,7 @@ FeatureDependency:
 	'depends on features' features+=[Feature] (',' features+=[Feature])*;
 
 NodeStateAssociation:
-	'For' clientState=[coom::State|FQN] 'set system states' systemStates+=[NodeState] (',' systemStates+=[NodeState])*;
+	'for' clientState=[coom::State|FQN] 'set system-states' systemStates+=[NodeState] (',' systemStates+=[NodeState])*;
 
 Feature:
 	'Feature' name=ID

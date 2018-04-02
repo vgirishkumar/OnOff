@@ -29,23 +29,21 @@ class StatesParsingTest {
 			}
 			
 			Client Test {
-				coom test.CompA
+				coom CompA
 				
-				State test.CompA.S1 {
-					depends on transitions test.CompA.S1toS2
+				State CompA.S1 {
+					depends on transitions CompA.S1toS2
 				}
 				
-				State test.CompA.S2 {
-					depends on transitions test.CompA.S1toS2
+				State CompA.S2 {
+					depends on transitions CompA.S1toS2
 				}
-				
-				For State1 set test.CompA.S1 
 				
 				Feature Name {
-					states test.CompA.S1 , test.CompA.S2
+					states CompA.S1 , CompA.S2
 				}
 				
-				Transition test.CompA.S1toS2 {
+				Transition CompA.S1toS2 {
 					timeout 1
 				}
 			}

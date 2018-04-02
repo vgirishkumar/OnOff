@@ -20,6 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.visteon.onoff.states.ComponentTransition#getTransition <em>Transition</em>}</li>
  *   <li>{@link com.visteon.onoff.states.ComponentTransition#getTimeoutInMilliseconds <em>Timeout In Milliseconds</em>}</li>
  *   <li>{@link com.visteon.onoff.states.ComponentTransition#getMaxretries <em>Maxretries</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.ComponentTransition#getStateDependency <em>State Dependency</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.ComponentTransition#getFeatureDependency <em>Feature Dependency</em>}</li>
  * </ul>
  *
  * @see com.visteon.onoff.states.StatesPackage#getComponentTransition()
@@ -131,5 +133,57 @@ public interface ComponentTransition extends EObject
    * @generated
    */
   void setMaxretries(int value);
+
+  /**
+   * Returns the value of the '<em><b>State Dependency</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>State Dependency</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>State Dependency</em>' containment reference.
+   * @see #setStateDependency(StateDependency)
+   * @see com.visteon.onoff.states.StatesPackage#getComponentTransition_StateDependency()
+   * @model containment="true"
+   * @generated
+   */
+  StateDependency getStateDependency();
+
+  /**
+   * Sets the value of the '{@link com.visteon.onoff.states.ComponentTransition#getStateDependency <em>State Dependency</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>State Dependency</em>' containment reference.
+   * @see #getStateDependency()
+   * @generated
+   */
+  void setStateDependency(StateDependency value);
+
+  /**
+   * Returns the value of the '<em><b>Feature Dependency</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Feature Dependency</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Feature Dependency</em>' containment reference.
+   * @see #setFeatureDependency(FeatureDependency)
+   * @see com.visteon.onoff.states.StatesPackage#getComponentTransition_FeatureDependency()
+   * @model containment="true"
+   * @generated
+   */
+  FeatureDependency getFeatureDependency();
+
+  /**
+   * Sets the value of the '{@link com.visteon.onoff.states.ComponentTransition#getFeatureDependency <em>Feature Dependency</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Feature Dependency</em>' containment reference.
+   * @see #getFeatureDependency()
+   * @generated
+   */
+  void setFeatureDependency(FeatureDependency value);
 
 } // ComponentTransition

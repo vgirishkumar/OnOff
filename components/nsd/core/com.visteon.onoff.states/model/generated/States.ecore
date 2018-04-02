@@ -39,14 +39,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="coomRef" eType="ecore:EClass platform:/resource/com.visteon.onoff.coom/model/generated/Coom.ecore#//ComponentOnOffManifest"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="transTimeoutInMilliseconds"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nodeStateAssociations"
-        eType="#//NodeStateAssociation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="componentTransitions" upperBound="-1"
         eType="#//ComponentTransition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="componentStates" upperBound="-1"
         eType="#//ComponentState" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
         eType="#//Feature" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodeStateAssociations"
+        upperBound="-1" eType="#//NodeStateAssociation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComponentTransition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="essential" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -54,15 +54,19 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeoutInMilliseconds"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxretries" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stateDependency" eType="#//StateDependency"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureDependency" eType="#//FeatureDependency"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComponentState">
     <eStructuralFeatures xsi:type="ecore:EReference" name="state" eType="ecore:EClass platform:/resource/com.visteon.onoff.coom/model/generated/Coom.ecore#//State"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="stateDependencies" eType="#//StateDependency"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stateDependency" eType="#//StateDependency"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureDependencies" eType="#//FeatureDependency"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureDependency" eType="#//FeatureDependency"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="transitionDependencies"
-        eType="#//TransitionDependency" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transitionDependency" eType="#//TransitionDependency"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StateDependency">
     <eStructuralFeatures xsi:type="ecore:EReference" name="states" unique="false"

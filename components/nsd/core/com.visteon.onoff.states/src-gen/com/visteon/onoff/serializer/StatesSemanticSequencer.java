@@ -97,8 +97,7 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         name=ID 
 	 *         coomRef=[ComponentOnOffManifest|ID] 
 	 *         transTimeoutInMilliseconds=INT? 
-	 *         nodeStateAssociations=NodeStateAssociation? 
-	 *         (componentTransitions+=ComponentTransition | componentStates+=ComponentState | features+=Feature)*
+	 *         (componentTransitions+=ComponentTransition | componentStates+=ComponentState | features+=Feature | nodeStateAssociations+=NodeStateAssociation)*
 	 *     )
 	 */
 	protected void sequence_ClientConfiguration(ISerializationContext context, ClientConfiguration semanticObject) {
@@ -111,7 +110,7 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     ComponentState returns ComponentState
 	 *
 	 * Constraint:
-	 *     (state=[State|FQN] (stateDependencies=StateDependency | featureDependencies=FeatureDependency | transitionDependencies=TransitionDependency)*)
+	 *     (state=[State|FQN] (stateDependency=StateDependency | featureDependency=FeatureDependency | transitionDependency=TransitionDependency)*)
 	 */
 	protected void sequence_ComponentState(ISerializationContext context, ComponentState semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -123,7 +122,13 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     ComponentTransition returns ComponentTransition
 	 *
 	 * Constraint:
-	 *     (essential?='essential'? transition=[Transition|FQN] timeoutInMilliseconds=INT? maxretries=INT?)
+	 *     (
+	 *         essential?='essential'? 
+	 *         transition=[Transition|FQN] 
+	 *         timeoutInMilliseconds=INT? 
+	 *         maxretries=INT? 
+	 *         (stateDependency=StateDependency | featureDependency=FeatureDependency)*
+	 *     )
 	 */
 	protected void sequence_ComponentTransition(ISerializationContext context, ComponentTransition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

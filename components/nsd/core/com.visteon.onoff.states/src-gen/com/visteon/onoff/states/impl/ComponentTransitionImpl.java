@@ -6,9 +6,12 @@ package com.visteon.onoff.states.impl;
 import com.visteon.onoff.coom.Transition;
 
 import com.visteon.onoff.states.ComponentTransition;
+import com.visteon.onoff.states.FeatureDependency;
+import com.visteon.onoff.states.StateDependency;
 import com.visteon.onoff.states.StatesPackage;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -28,6 +31,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.visteon.onoff.states.impl.ComponentTransitionImpl#getTransition <em>Transition</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.ComponentTransitionImpl#getTimeoutInMilliseconds <em>Timeout In Milliseconds</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.ComponentTransitionImpl#getMaxretries <em>Maxretries</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.impl.ComponentTransitionImpl#getStateDependency <em>State Dependency</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.impl.ComponentTransitionImpl#getFeatureDependency <em>Feature Dependency</em>}</li>
  * </ul>
  *
  * @generated
@@ -103,6 +108,26 @@ public class ComponentTransitionImpl extends MinimalEObjectImpl.Container implem
    * @ordered
    */
   protected int maxretries = MAXRETRIES_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getStateDependency() <em>State Dependency</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getStateDependency()
+   * @generated
+   * @ordered
+   */
+  protected StateDependency stateDependency;
+
+  /**
+   * The cached value of the '{@link #getFeatureDependency() <em>Feature Dependency</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFeatureDependency()
+   * @generated
+   * @ordered
+   */
+  protected FeatureDependency featureDependency;
 
   /**
    * <!-- begin-user-doc -->
@@ -242,6 +267,120 @@ public class ComponentTransitionImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
+  public StateDependency getStateDependency()
+  {
+    return stateDependency;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetStateDependency(StateDependency newStateDependency, NotificationChain msgs)
+  {
+    StateDependency oldStateDependency = stateDependency;
+    stateDependency = newStateDependency;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StatesPackage.COMPONENT_TRANSITION__STATE_DEPENDENCY, oldStateDependency, newStateDependency);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setStateDependency(StateDependency newStateDependency)
+  {
+    if (newStateDependency != stateDependency)
+    {
+      NotificationChain msgs = null;
+      if (stateDependency != null)
+        msgs = ((InternalEObject)stateDependency).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StatesPackage.COMPONENT_TRANSITION__STATE_DEPENDENCY, null, msgs);
+      if (newStateDependency != null)
+        msgs = ((InternalEObject)newStateDependency).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StatesPackage.COMPONENT_TRANSITION__STATE_DEPENDENCY, null, msgs);
+      msgs = basicSetStateDependency(newStateDependency, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, StatesPackage.COMPONENT_TRANSITION__STATE_DEPENDENCY, newStateDependency, newStateDependency));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FeatureDependency getFeatureDependency()
+  {
+    return featureDependency;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFeatureDependency(FeatureDependency newFeatureDependency, NotificationChain msgs)
+  {
+    FeatureDependency oldFeatureDependency = featureDependency;
+    featureDependency = newFeatureDependency;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StatesPackage.COMPONENT_TRANSITION__FEATURE_DEPENDENCY, oldFeatureDependency, newFeatureDependency);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFeatureDependency(FeatureDependency newFeatureDependency)
+  {
+    if (newFeatureDependency != featureDependency)
+    {
+      NotificationChain msgs = null;
+      if (featureDependency != null)
+        msgs = ((InternalEObject)featureDependency).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StatesPackage.COMPONENT_TRANSITION__FEATURE_DEPENDENCY, null, msgs);
+      if (newFeatureDependency != null)
+        msgs = ((InternalEObject)newFeatureDependency).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StatesPackage.COMPONENT_TRANSITION__FEATURE_DEPENDENCY, null, msgs);
+      msgs = basicSetFeatureDependency(newFeatureDependency, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, StatesPackage.COMPONENT_TRANSITION__FEATURE_DEPENDENCY, newFeatureDependency, newFeatureDependency));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case StatesPackage.COMPONENT_TRANSITION__STATE_DEPENDENCY:
+        return basicSetStateDependency(null, msgs);
+      case StatesPackage.COMPONENT_TRANSITION__FEATURE_DEPENDENCY:
+        return basicSetFeatureDependency(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -256,6 +395,10 @@ public class ComponentTransitionImpl extends MinimalEObjectImpl.Container implem
         return getTimeoutInMilliseconds();
       case StatesPackage.COMPONENT_TRANSITION__MAXRETRIES:
         return getMaxretries();
+      case StatesPackage.COMPONENT_TRANSITION__STATE_DEPENDENCY:
+        return getStateDependency();
+      case StatesPackage.COMPONENT_TRANSITION__FEATURE_DEPENDENCY:
+        return getFeatureDependency();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -281,6 +424,12 @@ public class ComponentTransitionImpl extends MinimalEObjectImpl.Container implem
         return;
       case StatesPackage.COMPONENT_TRANSITION__MAXRETRIES:
         setMaxretries((Integer)newValue);
+        return;
+      case StatesPackage.COMPONENT_TRANSITION__STATE_DEPENDENCY:
+        setStateDependency((StateDependency)newValue);
+        return;
+      case StatesPackage.COMPONENT_TRANSITION__FEATURE_DEPENDENCY:
+        setFeatureDependency((FeatureDependency)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -308,6 +457,12 @@ public class ComponentTransitionImpl extends MinimalEObjectImpl.Container implem
       case StatesPackage.COMPONENT_TRANSITION__MAXRETRIES:
         setMaxretries(MAXRETRIES_EDEFAULT);
         return;
+      case StatesPackage.COMPONENT_TRANSITION__STATE_DEPENDENCY:
+        setStateDependency((StateDependency)null);
+        return;
+      case StatesPackage.COMPONENT_TRANSITION__FEATURE_DEPENDENCY:
+        setFeatureDependency((FeatureDependency)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -330,6 +485,10 @@ public class ComponentTransitionImpl extends MinimalEObjectImpl.Container implem
         return timeoutInMilliseconds != TIMEOUT_IN_MILLISECONDS_EDEFAULT;
       case StatesPackage.COMPONENT_TRANSITION__MAXRETRIES:
         return maxretries != MAXRETRIES_EDEFAULT;
+      case StatesPackage.COMPONENT_TRANSITION__STATE_DEPENDENCY:
+        return stateDependency != null;
+      case StatesPackage.COMPONENT_TRANSITION__FEATURE_DEPENDENCY:
+        return featureDependency != null;
     }
     return super.eIsSet(featureID);
   }

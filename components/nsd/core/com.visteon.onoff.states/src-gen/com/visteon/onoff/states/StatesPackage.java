@@ -334,22 +334,13 @@ public interface StatesPackage extends EPackage
   int CLIENT_CONFIGURATION__TRANS_TIMEOUT_IN_MILLISECONDS = 2;
 
   /**
-   * The feature id for the '<em><b>Node State Associations</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS = 3;
-
-  /**
    * The feature id for the '<em><b>Component Transitions</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLIENT_CONFIGURATION__COMPONENT_TRANSITIONS = 4;
+  int CLIENT_CONFIGURATION__COMPONENT_TRANSITIONS = 3;
 
   /**
    * The feature id for the '<em><b>Component States</b></em>' containment reference list.
@@ -358,7 +349,7 @@ public interface StatesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLIENT_CONFIGURATION__COMPONENT_STATES = 5;
+  int CLIENT_CONFIGURATION__COMPONENT_STATES = 4;
 
   /**
    * The feature id for the '<em><b>Features</b></em>' containment reference list.
@@ -367,7 +358,16 @@ public interface StatesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLIENT_CONFIGURATION__FEATURES = 6;
+  int CLIENT_CONFIGURATION__FEATURES = 5;
+
+  /**
+   * The feature id for the '<em><b>Node State Associations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS = 6;
 
   /**
    * The number of structural features of the '<em>Client Configuration</em>' class.
@@ -425,13 +425,31 @@ public interface StatesPackage extends EPackage
   int COMPONENT_TRANSITION__MAXRETRIES = 3;
 
   /**
+   * The feature id for the '<em><b>State Dependency</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPONENT_TRANSITION__STATE_DEPENDENCY = 4;
+
+  /**
+   * The feature id for the '<em><b>Feature Dependency</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPONENT_TRANSITION__FEATURE_DEPENDENCY = 5;
+
+  /**
    * The number of structural features of the '<em>Component Transition</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPONENT_TRANSITION_FEATURE_COUNT = 4;
+  int COMPONENT_TRANSITION_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link com.visteon.onoff.states.impl.ComponentStateImpl <em>Component State</em>}' class.
@@ -453,31 +471,31 @@ public interface StatesPackage extends EPackage
   int COMPONENT_STATE__STATE = 0;
 
   /**
-   * The feature id for the '<em><b>State Dependencies</b></em>' containment reference.
+   * The feature id for the '<em><b>State Dependency</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPONENT_STATE__STATE_DEPENDENCIES = 1;
+  int COMPONENT_STATE__STATE_DEPENDENCY = 1;
 
   /**
-   * The feature id for the '<em><b>Feature Dependencies</b></em>' containment reference.
+   * The feature id for the '<em><b>Feature Dependency</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPONENT_STATE__FEATURE_DEPENDENCIES = 2;
+  int COMPONENT_STATE__FEATURE_DEPENDENCY = 2;
 
   /**
-   * The feature id for the '<em><b>Transition Dependencies</b></em>' containment reference.
+   * The feature id for the '<em><b>Transition Dependency</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPONENT_STATE__TRANSITION_DEPENDENCIES = 3;
+  int COMPONENT_STATE__TRANSITION_DEPENDENCY = 3;
 
   /**
    * The number of structural features of the '<em>Component State</em>' class.
@@ -917,17 +935,6 @@ public interface StatesPackage extends EPackage
   EAttribute getClientConfiguration_TransTimeoutInMilliseconds();
 
   /**
-   * Returns the meta object for the containment reference '{@link com.visteon.onoff.states.ClientConfiguration#getNodeStateAssociations <em>Node State Associations</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Node State Associations</em>'.
-   * @see com.visteon.onoff.states.ClientConfiguration#getNodeStateAssociations()
-   * @see #getClientConfiguration()
-   * @generated
-   */
-  EReference getClientConfiguration_NodeStateAssociations();
-
-  /**
    * Returns the meta object for the containment reference list '{@link com.visteon.onoff.states.ClientConfiguration#getComponentTransitions <em>Component Transitions</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -959,6 +966,17 @@ public interface StatesPackage extends EPackage
    * @generated
    */
   EReference getClientConfiguration_Features();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.visteon.onoff.states.ClientConfiguration#getNodeStateAssociations <em>Node State Associations</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Node State Associations</em>'.
+   * @see com.visteon.onoff.states.ClientConfiguration#getNodeStateAssociations()
+   * @see #getClientConfiguration()
+   * @generated
+   */
+  EReference getClientConfiguration_NodeStateAssociations();
 
   /**
    * Returns the meta object for class '{@link com.visteon.onoff.states.ComponentTransition <em>Component Transition</em>}'.
@@ -1015,6 +1033,28 @@ public interface StatesPackage extends EPackage
   EAttribute getComponentTransition_Maxretries();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.visteon.onoff.states.ComponentTransition#getStateDependency <em>State Dependency</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>State Dependency</em>'.
+   * @see com.visteon.onoff.states.ComponentTransition#getStateDependency()
+   * @see #getComponentTransition()
+   * @generated
+   */
+  EReference getComponentTransition_StateDependency();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.visteon.onoff.states.ComponentTransition#getFeatureDependency <em>Feature Dependency</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Feature Dependency</em>'.
+   * @see com.visteon.onoff.states.ComponentTransition#getFeatureDependency()
+   * @see #getComponentTransition()
+   * @generated
+   */
+  EReference getComponentTransition_FeatureDependency();
+
+  /**
    * Returns the meta object for class '{@link com.visteon.onoff.states.ComponentState <em>Component State</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1036,37 +1076,37 @@ public interface StatesPackage extends EPackage
   EReference getComponentState_State();
 
   /**
-   * Returns the meta object for the containment reference '{@link com.visteon.onoff.states.ComponentState#getStateDependencies <em>State Dependencies</em>}'.
+   * Returns the meta object for the containment reference '{@link com.visteon.onoff.states.ComponentState#getStateDependency <em>State Dependency</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>State Dependencies</em>'.
-   * @see com.visteon.onoff.states.ComponentState#getStateDependencies()
+   * @return the meta object for the containment reference '<em>State Dependency</em>'.
+   * @see com.visteon.onoff.states.ComponentState#getStateDependency()
    * @see #getComponentState()
    * @generated
    */
-  EReference getComponentState_StateDependencies();
+  EReference getComponentState_StateDependency();
 
   /**
-   * Returns the meta object for the containment reference '{@link com.visteon.onoff.states.ComponentState#getFeatureDependencies <em>Feature Dependencies</em>}'.
+   * Returns the meta object for the containment reference '{@link com.visteon.onoff.states.ComponentState#getFeatureDependency <em>Feature Dependency</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Feature Dependencies</em>'.
-   * @see com.visteon.onoff.states.ComponentState#getFeatureDependencies()
+   * @return the meta object for the containment reference '<em>Feature Dependency</em>'.
+   * @see com.visteon.onoff.states.ComponentState#getFeatureDependency()
    * @see #getComponentState()
    * @generated
    */
-  EReference getComponentState_FeatureDependencies();
+  EReference getComponentState_FeatureDependency();
 
   /**
-   * Returns the meta object for the containment reference '{@link com.visteon.onoff.states.ComponentState#getTransitionDependencies <em>Transition Dependencies</em>}'.
+   * Returns the meta object for the containment reference '{@link com.visteon.onoff.states.ComponentState#getTransitionDependency <em>Transition Dependency</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Transition Dependencies</em>'.
-   * @see com.visteon.onoff.states.ComponentState#getTransitionDependencies()
+   * @return the meta object for the containment reference '<em>Transition Dependency</em>'.
+   * @see com.visteon.onoff.states.ComponentState#getTransitionDependency()
    * @see #getComponentState()
    * @generated
    */
-  EReference getComponentState_TransitionDependencies();
+  EReference getComponentState_TransitionDependency();
 
   /**
    * Returns the meta object for class '{@link com.visteon.onoff.states.StateDependency <em>State Dependency</em>}'.
@@ -1431,14 +1471,6 @@ public interface StatesPackage extends EPackage
     EAttribute CLIENT_CONFIGURATION__TRANS_TIMEOUT_IN_MILLISECONDS = eINSTANCE.getClientConfiguration_TransTimeoutInMilliseconds();
 
     /**
-     * The meta object literal for the '<em><b>Node State Associations</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS = eINSTANCE.getClientConfiguration_NodeStateAssociations();
-
-    /**
      * The meta object literal for the '<em><b>Component Transitions</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1461,6 +1493,14 @@ public interface StatesPackage extends EPackage
      * @generated
      */
     EReference CLIENT_CONFIGURATION__FEATURES = eINSTANCE.getClientConfiguration_Features();
+
+    /**
+     * The meta object literal for the '<em><b>Node State Associations</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS = eINSTANCE.getClientConfiguration_NodeStateAssociations();
 
     /**
      * The meta object literal for the '{@link com.visteon.onoff.states.impl.ComponentTransitionImpl <em>Component Transition</em>}' class.
@@ -1505,6 +1545,22 @@ public interface StatesPackage extends EPackage
     EAttribute COMPONENT_TRANSITION__MAXRETRIES = eINSTANCE.getComponentTransition_Maxretries();
 
     /**
+     * The meta object literal for the '<em><b>State Dependency</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPONENT_TRANSITION__STATE_DEPENDENCY = eINSTANCE.getComponentTransition_StateDependency();
+
+    /**
+     * The meta object literal for the '<em><b>Feature Dependency</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPONENT_TRANSITION__FEATURE_DEPENDENCY = eINSTANCE.getComponentTransition_FeatureDependency();
+
+    /**
      * The meta object literal for the '{@link com.visteon.onoff.states.impl.ComponentStateImpl <em>Component State</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1523,28 +1579,28 @@ public interface StatesPackage extends EPackage
     EReference COMPONENT_STATE__STATE = eINSTANCE.getComponentState_State();
 
     /**
-     * The meta object literal for the '<em><b>State Dependencies</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>State Dependency</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference COMPONENT_STATE__STATE_DEPENDENCIES = eINSTANCE.getComponentState_StateDependencies();
+    EReference COMPONENT_STATE__STATE_DEPENDENCY = eINSTANCE.getComponentState_StateDependency();
 
     /**
-     * The meta object literal for the '<em><b>Feature Dependencies</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Feature Dependency</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference COMPONENT_STATE__FEATURE_DEPENDENCIES = eINSTANCE.getComponentState_FeatureDependencies();
+    EReference COMPONENT_STATE__FEATURE_DEPENDENCY = eINSTANCE.getComponentState_FeatureDependency();
 
     /**
-     * The meta object literal for the '<em><b>Transition Dependencies</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Transition Dependency</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference COMPONENT_STATE__TRANSITION_DEPENDENCIES = eINSTANCE.getComponentState_TransitionDependencies();
+    EReference COMPONENT_STATE__TRANSITION_DEPENDENCY = eINSTANCE.getComponentState_TransitionDependency();
 
     /**
      * The meta object literal for the '{@link com.visteon.onoff.states.impl.StateDependencyImpl <em>State Dependency</em>}' class.
