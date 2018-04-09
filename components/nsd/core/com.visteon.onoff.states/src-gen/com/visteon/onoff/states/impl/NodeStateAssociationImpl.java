@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * </p>
  * <ul>
  *   <li>{@link com.visteon.onoff.states.impl.NodeStateAssociationImpl#getClientState <em>Client State</em>}</li>
- *   <li>{@link com.visteon.onoff.states.impl.NodeStateAssociationImpl#getSystemStates <em>System States</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.impl.NodeStateAssociationImpl#getStates <em>States</em>}</li>
  * </ul>
  *
  * @generated
@@ -50,14 +50,14 @@ public class NodeStateAssociationImpl extends MinimalEObjectImpl.Container imple
   protected State clientState;
 
   /**
-   * The cached value of the '{@link #getSystemStates() <em>System States</em>}' reference list.
+   * The cached value of the '{@link #getStates() <em>States</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSystemStates()
+   * @see #getStates()
    * @generated
    * @ordered
    */
-  protected EList<NodeState> systemStates;
+  protected EList<NodeState> states;
 
   /**
    * <!-- begin-user-doc -->
@@ -128,13 +128,13 @@ public class NodeStateAssociationImpl extends MinimalEObjectImpl.Container imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<NodeState> getSystemStates()
+  public EList<NodeState> getStates()
   {
-    if (systemStates == null)
+    if (states == null)
     {
-      systemStates = new EObjectResolvingEList<NodeState>(NodeState.class, this, StatesPackage.NODE_STATE_ASSOCIATION__SYSTEM_STATES);
+      states = new EObjectResolvingEList<NodeState>(NodeState.class, this, StatesPackage.NODE_STATE_ASSOCIATION__STATES);
     }
-    return systemStates;
+    return states;
   }
 
   /**
@@ -150,8 +150,8 @@ public class NodeStateAssociationImpl extends MinimalEObjectImpl.Container imple
       case StatesPackage.NODE_STATE_ASSOCIATION__CLIENT_STATE:
         if (resolve) return getClientState();
         return basicGetClientState();
-      case StatesPackage.NODE_STATE_ASSOCIATION__SYSTEM_STATES:
-        return getSystemStates();
+      case StatesPackage.NODE_STATE_ASSOCIATION__STATES:
+        return getStates();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -170,9 +170,9 @@ public class NodeStateAssociationImpl extends MinimalEObjectImpl.Container imple
       case StatesPackage.NODE_STATE_ASSOCIATION__CLIENT_STATE:
         setClientState((State)newValue);
         return;
-      case StatesPackage.NODE_STATE_ASSOCIATION__SYSTEM_STATES:
-        getSystemStates().clear();
-        getSystemStates().addAll((Collection<? extends NodeState>)newValue);
+      case StatesPackage.NODE_STATE_ASSOCIATION__STATES:
+        getStates().clear();
+        getStates().addAll((Collection<? extends NodeState>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -191,8 +191,8 @@ public class NodeStateAssociationImpl extends MinimalEObjectImpl.Container imple
       case StatesPackage.NODE_STATE_ASSOCIATION__CLIENT_STATE:
         setClientState((State)null);
         return;
-      case StatesPackage.NODE_STATE_ASSOCIATION__SYSTEM_STATES:
-        getSystemStates().clear();
+      case StatesPackage.NODE_STATE_ASSOCIATION__STATES:
+        getStates().clear();
         return;
     }
     super.eUnset(featureID);
@@ -210,8 +210,8 @@ public class NodeStateAssociationImpl extends MinimalEObjectImpl.Container imple
     {
       case StatesPackage.NODE_STATE_ASSOCIATION__CLIENT_STATE:
         return clientState != null;
-      case StatesPackage.NODE_STATE_ASSOCIATION__SYSTEM_STATES:
-        return systemStates != null && !systemStates.isEmpty();
+      case StatesPackage.NODE_STATE_ASSOCIATION__STATES:
+        return states != null && !states.isEmpty();
     }
     return super.eIsSet(featureID);
   }

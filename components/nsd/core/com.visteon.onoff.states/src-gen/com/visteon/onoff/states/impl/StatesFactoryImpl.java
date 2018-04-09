@@ -77,7 +77,7 @@ public class StatesFactoryImpl extends EFactoryImpl implements StatesFactory
       case StatesPackage.TRANSITION_DEPENDENCY: return createTransitionDependency();
       case StatesPackage.FEATURE_DEPENDENCY: return createFeatureDependency();
       case StatesPackage.NODE_STATE_ASSOCIATION: return createNodeStateAssociation();
-      case StatesPackage.FEATURE: return createFeature();
+      case StatesPackage.COMPONENT_FEATURE: return createComponentFeature();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -220,10 +220,10 @@ public class StatesFactoryImpl extends EFactoryImpl implements StatesFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Feature createFeature()
+  public ComponentFeature createComponentFeature()
   {
-    FeatureImpl feature = new FeatureImpl();
-    return feature;
+    ComponentFeatureImpl componentFeature = new ComponentFeatureImpl();
+    return componentFeature;
   }
 
   /**

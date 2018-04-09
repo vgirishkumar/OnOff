@@ -21,6 +21,6 @@ class CoomGenerator extends AbstractGenerator {
 //				.filter(Greeting)
 //				.map[name]
 //				.join(', '))
-		println("Code generation for " + resource.URI.toFileString)
+		println("Code generation for " + resource.URI.toString)
 	}
 }

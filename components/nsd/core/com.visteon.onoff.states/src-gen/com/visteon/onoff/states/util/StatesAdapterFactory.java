@@ -136,9 +136,9 @@ public class StatesAdapterFactory extends AdapterFactoryImpl
         return createNodeStateAssociationAdapter();
       }
       @Override
-      public Adapter caseFeature(Feature object)
+      public Adapter caseComponentFeature(ComponentFeature object)
       {
-        return createFeatureAdapter();
+        return createComponentFeatureAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -343,16 +343,16 @@ public class StatesAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.visteon.onoff.states.Feature <em>Feature</em>}'.
+   * Creates a new adapter for an object of class '{@link com.visteon.onoff.states.ComponentFeature <em>Component Feature</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.visteon.onoff.states.Feature
+   * @see com.visteon.onoff.states.ComponentFeature
    * @generated
    */
-  public Adapter createFeatureAdapter()
+  public Adapter createComponentFeatureAdapter()
   {
     return null;
   }

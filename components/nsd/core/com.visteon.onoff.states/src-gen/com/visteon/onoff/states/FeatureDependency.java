@@ -27,7 +27,7 @@ public interface FeatureDependency extends EObject
 {
   /**
    * Returns the value of the '<em><b>Features</b></em>' reference list.
-   * The list contents are of type {@link com.visteon.onoff.states.Feature}.
+   * The list contents are of type {@link com.visteon.onoff.states.ComponentFeature}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Features</em>' reference list isn't clear,
@@ -39,6 +39,6 @@ public interface FeatureDependency extends EObject
    * @model
    * @generated
    */
-  EList<Feature> getFeatures();
+  EList<ComponentFeature> getFeatures();
 
 } // FeatureDependency

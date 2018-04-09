@@ -34,8 +34,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.visteon.onoff.states.impl.NodeStateDiagramImpl#getGEdgeWeight <em>GEdge Weight</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.NodeStateDiagramImpl#getGTransitionTimeoutInMilliseconds <em>GTransition Timeout In Milliseconds</em>}</li>
- *   <li>{@link com.visteon.onoff.states.impl.NodeStateDiagramImpl#getNodeStates <em>Node States</em>}</li>
- *   <li>{@link com.visteon.onoff.states.impl.NodeStateDiagramImpl#getNodeTransitions <em>Node Transitions</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.impl.NodeStateDiagramImpl#getStates <em>States</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.impl.NodeStateDiagramImpl#getTransitions <em>Transitions</em>}</li>
  * </ul>
  *
  * @generated
@@ -83,24 +83,24 @@ public class NodeStateDiagramImpl extends MinimalEObjectImpl.Container implement
   protected int gTransitionTimeoutInMilliseconds = GTRANSITION_TIMEOUT_IN_MILLISECONDS_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getNodeStates() <em>Node States</em>}' containment reference list.
+   * The cached value of the '{@link #getStates() <em>States</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNodeStates()
+   * @see #getStates()
    * @generated
    * @ordered
    */
-  protected EList<NodeState> nodeStates;
+  protected EList<NodeState> states;
 
   /**
-   * The cached value of the '{@link #getNodeTransitions() <em>Node Transitions</em>}' containment reference list.
+   * The cached value of the '{@link #getTransitions() <em>Transitions</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNodeTransitions()
+   * @see #getTransitions()
    * @generated
    * @ordered
    */
-  protected EList<NodeTransition> nodeTransitions;
+  protected EList<NodeTransition> transitions;
 
   /**
    * <!-- begin-user-doc -->
@@ -174,13 +174,13 @@ public class NodeStateDiagramImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<NodeState> getNodeStates()
+  public EList<NodeState> getStates()
   {
-    if (nodeStates == null)
+    if (states == null)
     {
-      nodeStates = new EObjectContainmentEList<NodeState>(NodeState.class, this, StatesPackage.NODE_STATE_DIAGRAM__NODE_STATES);
+      states = new EObjectContainmentEList<NodeState>(NodeState.class, this, StatesPackage.NODE_STATE_DIAGRAM__STATES);
     }
-    return nodeStates;
+    return states;
   }
 
   /**
@@ -188,13 +188,13 @@ public class NodeStateDiagramImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<NodeTransition> getNodeTransitions()
+  public EList<NodeTransition> getTransitions()
   {
-    if (nodeTransitions == null)
+    if (transitions == null)
     {
-      nodeTransitions = new EObjectContainmentEList<NodeTransition>(NodeTransition.class, this, StatesPackage.NODE_STATE_DIAGRAM__NODE_TRANSITIONS);
+      transitions = new EObjectContainmentEList<NodeTransition>(NodeTransition.class, this, StatesPackage.NODE_STATE_DIAGRAM__TRANSITIONS);
     }
-    return nodeTransitions;
+    return transitions;
   }
 
   /**
@@ -207,10 +207,10 @@ public class NodeStateDiagramImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case StatesPackage.NODE_STATE_DIAGRAM__NODE_STATES:
-        return ((InternalEList<?>)getNodeStates()).basicRemove(otherEnd, msgs);
-      case StatesPackage.NODE_STATE_DIAGRAM__NODE_TRANSITIONS:
-        return ((InternalEList<?>)getNodeTransitions()).basicRemove(otherEnd, msgs);
+      case StatesPackage.NODE_STATE_DIAGRAM__STATES:
+        return ((InternalEList<?>)getStates()).basicRemove(otherEnd, msgs);
+      case StatesPackage.NODE_STATE_DIAGRAM__TRANSITIONS:
+        return ((InternalEList<?>)getTransitions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -229,10 +229,10 @@ public class NodeStateDiagramImpl extends MinimalEObjectImpl.Container implement
         return getGEdgeWeight();
       case StatesPackage.NODE_STATE_DIAGRAM__GTRANSITION_TIMEOUT_IN_MILLISECONDS:
         return getGTransitionTimeoutInMilliseconds();
-      case StatesPackage.NODE_STATE_DIAGRAM__NODE_STATES:
-        return getNodeStates();
-      case StatesPackage.NODE_STATE_DIAGRAM__NODE_TRANSITIONS:
-        return getNodeTransitions();
+      case StatesPackage.NODE_STATE_DIAGRAM__STATES:
+        return getStates();
+      case StatesPackage.NODE_STATE_DIAGRAM__TRANSITIONS:
+        return getTransitions();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -254,13 +254,13 @@ public class NodeStateDiagramImpl extends MinimalEObjectImpl.Container implement
       case StatesPackage.NODE_STATE_DIAGRAM__GTRANSITION_TIMEOUT_IN_MILLISECONDS:
         setGTransitionTimeoutInMilliseconds((Integer)newValue);
         return;
-      case StatesPackage.NODE_STATE_DIAGRAM__NODE_STATES:
-        getNodeStates().clear();
-        getNodeStates().addAll((Collection<? extends NodeState>)newValue);
+      case StatesPackage.NODE_STATE_DIAGRAM__STATES:
+        getStates().clear();
+        getStates().addAll((Collection<? extends NodeState>)newValue);
         return;
-      case StatesPackage.NODE_STATE_DIAGRAM__NODE_TRANSITIONS:
-        getNodeTransitions().clear();
-        getNodeTransitions().addAll((Collection<? extends NodeTransition>)newValue);
+      case StatesPackage.NODE_STATE_DIAGRAM__TRANSITIONS:
+        getTransitions().clear();
+        getTransitions().addAll((Collection<? extends NodeTransition>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -282,11 +282,11 @@ public class NodeStateDiagramImpl extends MinimalEObjectImpl.Container implement
       case StatesPackage.NODE_STATE_DIAGRAM__GTRANSITION_TIMEOUT_IN_MILLISECONDS:
         setGTransitionTimeoutInMilliseconds(GTRANSITION_TIMEOUT_IN_MILLISECONDS_EDEFAULT);
         return;
-      case StatesPackage.NODE_STATE_DIAGRAM__NODE_STATES:
-        getNodeStates().clear();
+      case StatesPackage.NODE_STATE_DIAGRAM__STATES:
+        getStates().clear();
         return;
-      case StatesPackage.NODE_STATE_DIAGRAM__NODE_TRANSITIONS:
-        getNodeTransitions().clear();
+      case StatesPackage.NODE_STATE_DIAGRAM__TRANSITIONS:
+        getTransitions().clear();
         return;
     }
     super.eUnset(featureID);
@@ -306,10 +306,10 @@ public class NodeStateDiagramImpl extends MinimalEObjectImpl.Container implement
         return gEdgeWeight != GEDGE_WEIGHT_EDEFAULT;
       case StatesPackage.NODE_STATE_DIAGRAM__GTRANSITION_TIMEOUT_IN_MILLISECONDS:
         return gTransitionTimeoutInMilliseconds != GTRANSITION_TIMEOUT_IN_MILLISECONDS_EDEFAULT;
-      case StatesPackage.NODE_STATE_DIAGRAM__NODE_STATES:
-        return nodeStates != null && !nodeStates.isEmpty();
-      case StatesPackage.NODE_STATE_DIAGRAM__NODE_TRANSITIONS:
-        return nodeTransitions != null && !nodeTransitions.isEmpty();
+      case StatesPackage.NODE_STATE_DIAGRAM__STATES:
+        return states != null && !states.isEmpty();
+      case StatesPackage.NODE_STATE_DIAGRAM__TRANSITIONS:
+        return transitions != null && !transitions.isEmpty();
     }
     return super.eIsSet(featureID);
   }

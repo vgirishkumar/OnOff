@@ -17,10 +17,12 @@ import com.visteon.onoff.states.ClientConfiguration
 class StatesGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		println("Code generation for " + resource.URI.toFileString)
-		resource.allContents.filter(ClientConfiguration).head.componentStates.forEach [
-			println(state.name + " is from " + state.eResource.URI.toFileString + " and start state =" +
-				state.isInitial)
+		println("Code generation for " + resource.URI.toString)
+		resource.allContents.filter(ClientConfiguration).forEach [
+			states.forEach [
+				println(state.name + " is from " + state.eResource.URI.toString + " and start state =" +
+					state.isInitial)
+			]
 		]
 	}
 }

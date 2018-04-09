@@ -6,9 +6,9 @@ package com.visteon.onoff.states.impl;
 import com.visteon.onoff.coom.ComponentOnOffManifest;
 
 import com.visteon.onoff.states.ClientConfiguration;
+import com.visteon.onoff.states.ComponentFeature;
 import com.visteon.onoff.states.ComponentState;
 import com.visteon.onoff.states.ComponentTransition;
-import com.visteon.onoff.states.Feature;
 import com.visteon.onoff.states.NodeStateAssociation;
 import com.visteon.onoff.states.StatesPackage;
 
@@ -39,8 +39,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.visteon.onoff.states.impl.ClientConfigurationImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.ClientConfigurationImpl#getCoomRef <em>Coom Ref</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.ClientConfigurationImpl#getTransTimeoutInMilliseconds <em>Trans Timeout In Milliseconds</em>}</li>
- *   <li>{@link com.visteon.onoff.states.impl.ClientConfigurationImpl#getComponentTransitions <em>Component Transitions</em>}</li>
- *   <li>{@link com.visteon.onoff.states.impl.ClientConfigurationImpl#getComponentStates <em>Component States</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.impl.ClientConfigurationImpl#getTransitions <em>Transitions</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.impl.ClientConfigurationImpl#getStates <em>States</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.ClientConfigurationImpl#getFeatures <em>Features</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.ClientConfigurationImpl#getNodeStateAssociations <em>Node State Associations</em>}</li>
  * </ul>
@@ -100,24 +100,24 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
   protected int transTimeoutInMilliseconds = TRANS_TIMEOUT_IN_MILLISECONDS_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getComponentTransitions() <em>Component Transitions</em>}' containment reference list.
+   * The cached value of the '{@link #getTransitions() <em>Transitions</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getComponentTransitions()
+   * @see #getTransitions()
    * @generated
    * @ordered
    */
-  protected EList<ComponentTransition> componentTransitions;
+  protected EList<ComponentTransition> transitions;
 
   /**
-   * The cached value of the '{@link #getComponentStates() <em>Component States</em>}' containment reference list.
+   * The cached value of the '{@link #getStates() <em>States</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getComponentStates()
+   * @see #getStates()
    * @generated
    * @ordered
    */
-  protected EList<ComponentState> componentStates;
+  protected EList<ComponentState> states;
 
   /**
    * The cached value of the '{@link #getFeatures() <em>Features</em>}' containment reference list.
@@ -127,7 +127,7 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
    * @generated
    * @ordered
    */
-  protected EList<Feature> features;
+  protected EList<ComponentFeature> features;
 
   /**
    * The cached value of the '{@link #getNodeStateAssociations() <em>Node State Associations</em>}' containment reference list.
@@ -254,13 +254,13 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ComponentTransition> getComponentTransitions()
+  public EList<ComponentTransition> getTransitions()
   {
-    if (componentTransitions == null)
+    if (transitions == null)
     {
-      componentTransitions = new EObjectContainmentEList<ComponentTransition>(ComponentTransition.class, this, StatesPackage.CLIENT_CONFIGURATION__COMPONENT_TRANSITIONS);
+      transitions = new EObjectContainmentEList<ComponentTransition>(ComponentTransition.class, this, StatesPackage.CLIENT_CONFIGURATION__TRANSITIONS);
     }
-    return componentTransitions;
+    return transitions;
   }
 
   /**
@@ -268,13 +268,13 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ComponentState> getComponentStates()
+  public EList<ComponentState> getStates()
   {
-    if (componentStates == null)
+    if (states == null)
     {
-      componentStates = new EObjectContainmentEList<ComponentState>(ComponentState.class, this, StatesPackage.CLIENT_CONFIGURATION__COMPONENT_STATES);
+      states = new EObjectContainmentEList<ComponentState>(ComponentState.class, this, StatesPackage.CLIENT_CONFIGURATION__STATES);
     }
-    return componentStates;
+    return states;
   }
 
   /**
@@ -282,11 +282,11 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Feature> getFeatures()
+  public EList<ComponentFeature> getFeatures()
   {
     if (features == null)
     {
-      features = new EObjectContainmentEList<Feature>(Feature.class, this, StatesPackage.CLIENT_CONFIGURATION__FEATURES);
+      features = new EObjectContainmentEList<ComponentFeature>(ComponentFeature.class, this, StatesPackage.CLIENT_CONFIGURATION__FEATURES);
     }
     return features;
   }
@@ -315,10 +315,10 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case StatesPackage.CLIENT_CONFIGURATION__COMPONENT_TRANSITIONS:
-        return ((InternalEList<?>)getComponentTransitions()).basicRemove(otherEnd, msgs);
-      case StatesPackage.CLIENT_CONFIGURATION__COMPONENT_STATES:
-        return ((InternalEList<?>)getComponentStates()).basicRemove(otherEnd, msgs);
+      case StatesPackage.CLIENT_CONFIGURATION__TRANSITIONS:
+        return ((InternalEList<?>)getTransitions()).basicRemove(otherEnd, msgs);
+      case StatesPackage.CLIENT_CONFIGURATION__STATES:
+        return ((InternalEList<?>)getStates()).basicRemove(otherEnd, msgs);
       case StatesPackage.CLIENT_CONFIGURATION__FEATURES:
         return ((InternalEList<?>)getFeatures()).basicRemove(otherEnd, msgs);
       case StatesPackage.CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS:
@@ -344,10 +344,10 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
         return basicGetCoomRef();
       case StatesPackage.CLIENT_CONFIGURATION__TRANS_TIMEOUT_IN_MILLISECONDS:
         return getTransTimeoutInMilliseconds();
-      case StatesPackage.CLIENT_CONFIGURATION__COMPONENT_TRANSITIONS:
-        return getComponentTransitions();
-      case StatesPackage.CLIENT_CONFIGURATION__COMPONENT_STATES:
-        return getComponentStates();
+      case StatesPackage.CLIENT_CONFIGURATION__TRANSITIONS:
+        return getTransitions();
+      case StatesPackage.CLIENT_CONFIGURATION__STATES:
+        return getStates();
       case StatesPackage.CLIENT_CONFIGURATION__FEATURES:
         return getFeatures();
       case StatesPackage.CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS:
@@ -376,17 +376,17 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
       case StatesPackage.CLIENT_CONFIGURATION__TRANS_TIMEOUT_IN_MILLISECONDS:
         setTransTimeoutInMilliseconds((Integer)newValue);
         return;
-      case StatesPackage.CLIENT_CONFIGURATION__COMPONENT_TRANSITIONS:
-        getComponentTransitions().clear();
-        getComponentTransitions().addAll((Collection<? extends ComponentTransition>)newValue);
+      case StatesPackage.CLIENT_CONFIGURATION__TRANSITIONS:
+        getTransitions().clear();
+        getTransitions().addAll((Collection<? extends ComponentTransition>)newValue);
         return;
-      case StatesPackage.CLIENT_CONFIGURATION__COMPONENT_STATES:
-        getComponentStates().clear();
-        getComponentStates().addAll((Collection<? extends ComponentState>)newValue);
+      case StatesPackage.CLIENT_CONFIGURATION__STATES:
+        getStates().clear();
+        getStates().addAll((Collection<? extends ComponentState>)newValue);
         return;
       case StatesPackage.CLIENT_CONFIGURATION__FEATURES:
         getFeatures().clear();
-        getFeatures().addAll((Collection<? extends Feature>)newValue);
+        getFeatures().addAll((Collection<? extends ComponentFeature>)newValue);
         return;
       case StatesPackage.CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS:
         getNodeStateAssociations().clear();
@@ -415,11 +415,11 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
       case StatesPackage.CLIENT_CONFIGURATION__TRANS_TIMEOUT_IN_MILLISECONDS:
         setTransTimeoutInMilliseconds(TRANS_TIMEOUT_IN_MILLISECONDS_EDEFAULT);
         return;
-      case StatesPackage.CLIENT_CONFIGURATION__COMPONENT_TRANSITIONS:
-        getComponentTransitions().clear();
+      case StatesPackage.CLIENT_CONFIGURATION__TRANSITIONS:
+        getTransitions().clear();
         return;
-      case StatesPackage.CLIENT_CONFIGURATION__COMPONENT_STATES:
-        getComponentStates().clear();
+      case StatesPackage.CLIENT_CONFIGURATION__STATES:
+        getStates().clear();
         return;
       case StatesPackage.CLIENT_CONFIGURATION__FEATURES:
         getFeatures().clear();
@@ -447,10 +447,10 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
         return coomRef != null;
       case StatesPackage.CLIENT_CONFIGURATION__TRANS_TIMEOUT_IN_MILLISECONDS:
         return transTimeoutInMilliseconds != TRANS_TIMEOUT_IN_MILLISECONDS_EDEFAULT;
-      case StatesPackage.CLIENT_CONFIGURATION__COMPONENT_TRANSITIONS:
-        return componentTransitions != null && !componentTransitions.isEmpty();
-      case StatesPackage.CLIENT_CONFIGURATION__COMPONENT_STATES:
-        return componentStates != null && !componentStates.isEmpty();
+      case StatesPackage.CLIENT_CONFIGURATION__TRANSITIONS:
+        return transitions != null && !transitions.isEmpty();
+      case StatesPackage.CLIENT_CONFIGURATION__STATES:
+        return states != null && !states.isEmpty();
       case StatesPackage.CLIENT_CONFIGURATION__FEATURES:
         return features != null && !features.isEmpty();
       case StatesPackage.CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS:

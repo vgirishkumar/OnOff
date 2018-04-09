@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.visteon.onoff.states.NodeStateAssociation#getClientState <em>Client State</em>}</li>
- *   <li>{@link com.visteon.onoff.states.NodeStateAssociation#getSystemStates <em>System States</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.NodeStateAssociation#getStates <em>States</em>}</li>
  * </ul>
  *
  * @see com.visteon.onoff.states.StatesPackage#getNodeStateAssociation()
@@ -55,19 +55,19 @@ public interface NodeStateAssociation extends EObject
   void setClientState(State value);
 
   /**
-   * Returns the value of the '<em><b>System States</b></em>' reference list.
+   * Returns the value of the '<em><b>States</b></em>' reference list.
    * The list contents are of type {@link com.visteon.onoff.states.NodeState}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>System States</em>' reference list isn't clear,
+   * If the meaning of the '<em>States</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>System States</em>' reference list.
-   * @see com.visteon.onoff.states.StatesPackage#getNodeStateAssociation_SystemStates()
+   * @return the value of the '<em>States</em>' reference list.
+   * @see com.visteon.onoff.states.StatesPackage#getNodeStateAssociation_States()
    * @model
    * @generated
    */
-  EList<NodeState> getSystemStates();
+  EList<NodeState> getStates();
 
 } // NodeStateAssociation

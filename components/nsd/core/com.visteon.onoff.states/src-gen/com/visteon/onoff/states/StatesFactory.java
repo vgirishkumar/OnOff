@@ -132,13 +132,13 @@ public interface StatesFactory extends EFactory
   NodeStateAssociation createNodeStateAssociation();
 
   /**
-   * Returns a new object of class '<em>Feature</em>'.
+   * Returns a new object of class '<em>Component Feature</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Feature</em>'.
+   * @return a new object of class '<em>Component Feature</em>'.
    * @generated
    */
-  Feature createFeature();
+  ComponentFeature createComponentFeature();
 
   /**
    * Returns the package supported by this factory.

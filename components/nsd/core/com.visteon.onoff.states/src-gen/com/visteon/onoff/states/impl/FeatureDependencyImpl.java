@@ -3,7 +3,7 @@
  */
 package com.visteon.onoff.states.impl;
 
-import com.visteon.onoff.states.Feature;
+import com.visteon.onoff.states.ComponentFeature;
 import com.visteon.onoff.states.FeatureDependency;
 import com.visteon.onoff.states.StatesPackage;
 
@@ -40,7 +40,7 @@ public class FeatureDependencyImpl extends MinimalEObjectImpl.Container implemen
    * @generated
    * @ordered
    */
-  protected EList<Feature> features;
+  protected EList<ComponentFeature> features;
 
   /**
    * <!-- begin-user-doc -->
@@ -68,11 +68,11 @@ public class FeatureDependencyImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Feature> getFeatures()
+  public EList<ComponentFeature> getFeatures()
   {
     if (features == null)
     {
-      features = new EObjectResolvingEList<Feature>(Feature.class, this, StatesPackage.FEATURE_DEPENDENCY__FEATURES);
+      features = new EObjectResolvingEList<ComponentFeature>(ComponentFeature.class, this, StatesPackage.FEATURE_DEPENDENCY__FEATURES);
     }
     return features;
   }
@@ -106,7 +106,7 @@ public class FeatureDependencyImpl extends MinimalEObjectImpl.Container implemen
     {
       case StatesPackage.FEATURE_DEPENDENCY__FEATURES:
         getFeatures().clear();
-        getFeatures().addAll((Collection<? extends Feature>)newValue);
+        getFeatures().addAll((Collection<? extends ComponentFeature>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

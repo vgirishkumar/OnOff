@@ -21,8 +21,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.visteon.onoff.states.ClientConfiguration#getName <em>Name</em>}</li>
  *   <li>{@link com.visteon.onoff.states.ClientConfiguration#getCoomRef <em>Coom Ref</em>}</li>
  *   <li>{@link com.visteon.onoff.states.ClientConfiguration#getTransTimeoutInMilliseconds <em>Trans Timeout In Milliseconds</em>}</li>
- *   <li>{@link com.visteon.onoff.states.ClientConfiguration#getComponentTransitions <em>Component Transitions</em>}</li>
- *   <li>{@link com.visteon.onoff.states.ClientConfiguration#getComponentStates <em>Component States</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.ClientConfiguration#getTransitions <em>Transitions</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.ClientConfiguration#getStates <em>States</em>}</li>
  *   <li>{@link com.visteon.onoff.states.ClientConfiguration#getFeatures <em>Features</em>}</li>
  *   <li>{@link com.visteon.onoff.states.ClientConfiguration#getNodeStateAssociations <em>Node State Associations</em>}</li>
  * </ul>
@@ -112,40 +112,40 @@ public interface ClientConfiguration extends EObject
   void setTransTimeoutInMilliseconds(int value);
 
   /**
-   * Returns the value of the '<em><b>Component Transitions</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Transitions</b></em>' containment reference list.
    * The list contents are of type {@link com.visteon.onoff.states.ComponentTransition}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Component Transitions</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Transitions</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Component Transitions</em>' containment reference list.
-   * @see com.visteon.onoff.states.StatesPackage#getClientConfiguration_ComponentTransitions()
+   * @return the value of the '<em>Transitions</em>' containment reference list.
+   * @see com.visteon.onoff.states.StatesPackage#getClientConfiguration_Transitions()
    * @model containment="true"
    * @generated
    */
-  EList<ComponentTransition> getComponentTransitions();
+  EList<ComponentTransition> getTransitions();
 
   /**
-   * Returns the value of the '<em><b>Component States</b></em>' containment reference list.
+   * Returns the value of the '<em><b>States</b></em>' containment reference list.
    * The list contents are of type {@link com.visteon.onoff.states.ComponentState}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Component States</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>States</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Component States</em>' containment reference list.
-   * @see com.visteon.onoff.states.StatesPackage#getClientConfiguration_ComponentStates()
+   * @return the value of the '<em>States</em>' containment reference list.
+   * @see com.visteon.onoff.states.StatesPackage#getClientConfiguration_States()
    * @model containment="true"
    * @generated
    */
-  EList<ComponentState> getComponentStates();
+  EList<ComponentState> getStates();
 
   /**
    * Returns the value of the '<em><b>Features</b></em>' containment reference list.
-   * The list contents are of type {@link com.visteon.onoff.states.Feature}.
+   * The list contents are of type {@link com.visteon.onoff.states.ComponentFeature}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Features</em>' containment reference list isn't clear,
@@ -157,7 +157,7 @@ public interface ClientConfiguration extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Feature> getFeatures();
+  EList<ComponentFeature> getFeatures();
 
   /**
    * Returns the value of the '<em><b>Node State Associations</b></em>' containment reference list.

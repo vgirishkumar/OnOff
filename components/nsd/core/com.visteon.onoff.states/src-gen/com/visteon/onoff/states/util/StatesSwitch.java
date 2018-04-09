@@ -157,10 +157,10 @@ public class StatesSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case StatesPackage.FEATURE:
+      case StatesPackage.COMPONENT_FEATURE:
       {
-        Feature feature = (Feature)theEObject;
-        T result = caseFeature(feature);
+        ComponentFeature componentFeature = (ComponentFeature)theEObject;
+        T result = caseComponentFeature(componentFeature);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -361,17 +361,17 @@ public class StatesSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Feature</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Component Feature</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Feature</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Component Feature</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseFeature(Feature object)
+  public T caseComponentFeature(ComponentFeature object)
   {
     return null;
   }

@@ -3,10 +3,80 @@
  */
 package com.visteon.onoff.ui.contentassist
 
+import com.visteon.onoff.states.ClientConfiguration
+import com.visteon.onoff.states.ComponentFeature
+import com.visteon.onoff.states.FeatureDependency
+import com.visteon.onoff.states.NodeStateAssociation
+import com.visteon.onoff.states.StateDependency
+import com.visteon.onoff.states.TransitionDependency
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.Assignment
+import org.eclipse.xtext.CrossReference
+import org.eclipse.xtext.EcoreUtil2
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
  * on how to customize the content assistant.
  */
 class StatesProposalProvider extends AbstractStatesProposalProvider {
+
+	override completeStateDependency_States(EObject model, Assignment assignment, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		lookupCrossReference(assignment.getTerminal() as CrossReference, context, acceptor, [
+			!(model as StateDependency).states.contains(it.EObjectOrProxy)
+		]);
+	}
+
+	override completeTransitionDependency_Transistions(EObject model, Assignment assignment,
+		ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		lookupCrossReference(assignment.getTerminal() as CrossReference, context, acceptor, [
+			!(model as TransitionDependency).transistions.contains(it.EObjectOrProxy)
+		]);
+	}
+
+	override completeFeatureDependency_Features(EObject model, Assignment assignment, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		lookupCrossReference(assignment.getTerminal() as CrossReference, context, acceptor, [
+			!(model as FeatureDependency).features.contains(it.EObjectOrProxy)
+		]);
+	}
+
+	override completeComponentFeature_States(EObject model, Assignment assignment, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		lookupCrossReference(assignment.getTerminal() as CrossReference, context, acceptor, [
+			!(model as ComponentFeature).states.contains(it.EObjectOrProxy)
+		]);
+	}
+
+	override completeNodeStateAssociation_States(EObject model, Assignment assignment, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		lookupCrossReference(assignment.getTerminal() as CrossReference, context, acceptor, [
+			!(model as NodeStateAssociation).states.contains(it.EObjectOrProxy)
+		]);
+	}
+
+	override completeComponentState_State(EObject model, Assignment assignment, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		lookupCrossReference(assignment.getTerminal() as CrossReference, context, acceptor, [
+			!EcoreUtil2.getContainerOfType(model, ClientConfiguration).states.map[state].contains(it.EObjectOrProxy)
+		]);
+	}
+
+	override completeComponentTransition_Transition(EObject model, Assignment assignment, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		lookupCrossReference(assignment.getTerminal() as CrossReference, context, acceptor, [
+			!EcoreUtil2.getContainerOfType(model, ClientConfiguration).transitions.map[transition].contains(
+				it.EObjectOrProxy)
+		]);
+	}
+
+	override completeNodeStateAssociation_ClientState(EObject model, Assignment assignment,
+		ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		lookupCrossReference(assignment.getTerminal() as CrossReference, context, acceptor, [
+			!EcoreUtil2.getContainerOfType(model, ClientConfiguration).nodeStateAssociations.map[clientState].contains(
+				it.EObjectOrProxy)
+		]);
+	}
 }

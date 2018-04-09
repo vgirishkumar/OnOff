@@ -5,7 +5,7 @@ package com.visteon.onoff.states.impl;
 
 import com.visteon.onoff.coom.State;
 
-import com.visteon.onoff.states.Feature;
+import com.visteon.onoff.states.ComponentFeature;
 import com.visteon.onoff.states.StatesPackage;
 
 import java.util.Collection;
@@ -23,19 +23,19 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Feature</b></em>'.
+ * An implementation of the model object '<em><b>Component Feature</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.visteon.onoff.states.impl.FeatureImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.visteon.onoff.states.impl.FeatureImpl#getFeatureStates <em>Feature States</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.impl.ComponentFeatureImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.impl.ComponentFeatureImpl#getStates <em>States</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
+public class ComponentFeatureImpl extends MinimalEObjectImpl.Container implements ComponentFeature
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -58,21 +58,21 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getFeatureStates() <em>Feature States</em>}' reference list.
+   * The cached value of the '{@link #getStates() <em>States</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFeatureStates()
+   * @see #getStates()
    * @generated
    * @ordered
    */
-  protected EList<State> featureStates;
+  protected EList<State> states;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected FeatureImpl()
+  protected ComponentFeatureImpl()
   {
     super();
   }
@@ -85,7 +85,7 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   @Override
   protected EClass eStaticClass()
   {
-    return StatesPackage.Literals.FEATURE;
+    return StatesPackage.Literals.COMPONENT_FEATURE;
   }
 
   /**
@@ -108,7 +108,7 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, StatesPackage.FEATURE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, StatesPackage.COMPONENT_FEATURE__NAME, oldName, name));
   }
 
   /**
@@ -116,13 +116,13 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<State> getFeatureStates()
+  public EList<State> getStates()
   {
-    if (featureStates == null)
+    if (states == null)
     {
-      featureStates = new EObjectResolvingEList<State>(State.class, this, StatesPackage.FEATURE__FEATURE_STATES);
+      states = new EObjectResolvingEList<State>(State.class, this, StatesPackage.COMPONENT_FEATURE__STATES);
     }
-    return featureStates;
+    return states;
   }
 
   /**
@@ -135,10 +135,10 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   {
     switch (featureID)
     {
-      case StatesPackage.FEATURE__NAME:
+      case StatesPackage.COMPONENT_FEATURE__NAME:
         return getName();
-      case StatesPackage.FEATURE__FEATURE_STATES:
-        return getFeatureStates();
+      case StatesPackage.COMPONENT_FEATURE__STATES:
+        return getStates();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -154,12 +154,12 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   {
     switch (featureID)
     {
-      case StatesPackage.FEATURE__NAME:
+      case StatesPackage.COMPONENT_FEATURE__NAME:
         setName((String)newValue);
         return;
-      case StatesPackage.FEATURE__FEATURE_STATES:
-        getFeatureStates().clear();
-        getFeatureStates().addAll((Collection<? extends State>)newValue);
+      case StatesPackage.COMPONENT_FEATURE__STATES:
+        getStates().clear();
+        getStates().addAll((Collection<? extends State>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -175,11 +175,11 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   {
     switch (featureID)
     {
-      case StatesPackage.FEATURE__NAME:
+      case StatesPackage.COMPONENT_FEATURE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case StatesPackage.FEATURE__FEATURE_STATES:
-        getFeatureStates().clear();
+      case StatesPackage.COMPONENT_FEATURE__STATES:
+        getStates().clear();
         return;
     }
     super.eUnset(featureID);
@@ -195,10 +195,10 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   {
     switch (featureID)
     {
-      case StatesPackage.FEATURE__NAME:
+      case StatesPackage.COMPONENT_FEATURE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case StatesPackage.FEATURE__FEATURE_STATES:
-        return featureStates != null && !featureStates.isEmpty();
+      case StatesPackage.COMPONENT_FEATURE__STATES:
+        return states != null && !states.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -220,4 +220,4 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
     return result.toString();
   }
 
-} //FeatureImpl
+} //ComponentFeatureImpl

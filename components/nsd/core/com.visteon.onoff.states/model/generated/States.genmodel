@@ -17,8 +17,8 @@
     <genClasses ecoreClass="States.ecore#//NodeStateDiagram">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute States.ecore#//NodeStateDiagram/gEdgeWeight"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute States.ecore#//NodeStateDiagram/gTransitionTimeoutInMilliseconds"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference States.ecore#//NodeStateDiagram/nodeStates"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference States.ecore#//NodeStateDiagram/nodeTransitions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference States.ecore#//NodeStateDiagram/states"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference States.ecore#//NodeStateDiagram/transitions"/>
     </genClasses>
     <genClasses ecoreClass="States.ecore#//NodeState">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute States.ecore#//NodeState/initial"/>
@@ -36,8 +36,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute States.ecore#//ClientConfiguration/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference States.ecore#//ClientConfiguration/coomRef"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute States.ecore#//ClientConfiguration/transTimeoutInMilliseconds"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference States.ecore#//ClientConfiguration/componentTransitions"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference States.ecore#//ClientConfiguration/componentStates"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference States.ecore#//ClientConfiguration/transitions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference States.ecore#//ClientConfiguration/states"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference States.ecore#//ClientConfiguration/features"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference States.ecore#//ClientConfiguration/nodeStateAssociations"/>
     </genClasses>
@@ -66,11 +66,11 @@
     </genClasses>
     <genClasses ecoreClass="States.ecore#//NodeStateAssociation">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference States.ecore#//NodeStateAssociation/clientState"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference States.ecore#//NodeStateAssociation/systemStates"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference States.ecore#//NodeStateAssociation/states"/>
     </genClasses>
-    <genClasses ecoreClass="States.ecore#//Feature">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute States.ecore#//Feature/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference States.ecore#//Feature/featureStates"/>
+    <genClasses ecoreClass="States.ecore#//ComponentFeature">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute States.ecore#//ComponentFeature/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference States.ecore#//ComponentFeature/states"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

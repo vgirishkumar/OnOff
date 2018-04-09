@@ -18,8 +18,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.visteon.onoff.states.NodeStateDiagram#getGEdgeWeight <em>GEdge Weight</em>}</li>
  *   <li>{@link com.visteon.onoff.states.NodeStateDiagram#getGTransitionTimeoutInMilliseconds <em>GTransition Timeout In Milliseconds</em>}</li>
- *   <li>{@link com.visteon.onoff.states.NodeStateDiagram#getNodeStates <em>Node States</em>}</li>
- *   <li>{@link com.visteon.onoff.states.NodeStateDiagram#getNodeTransitions <em>Node Transitions</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.NodeStateDiagram#getStates <em>States</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.NodeStateDiagram#getTransitions <em>Transitions</em>}</li>
  * </ul>
  *
  * @see com.visteon.onoff.states.StatesPackage#getNodeStateDiagram()
@@ -81,35 +81,35 @@ public interface NodeStateDiagram extends EObject
   void setGTransitionTimeoutInMilliseconds(int value);
 
   /**
-   * Returns the value of the '<em><b>Node States</b></em>' containment reference list.
+   * Returns the value of the '<em><b>States</b></em>' containment reference list.
    * The list contents are of type {@link com.visteon.onoff.states.NodeState}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Node States</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>States</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Node States</em>' containment reference list.
-   * @see com.visteon.onoff.states.StatesPackage#getNodeStateDiagram_NodeStates()
+   * @return the value of the '<em>States</em>' containment reference list.
+   * @see com.visteon.onoff.states.StatesPackage#getNodeStateDiagram_States()
    * @model containment="true"
    * @generated
    */
-  EList<NodeState> getNodeStates();
+  EList<NodeState> getStates();
 
   /**
-   * Returns the value of the '<em><b>Node Transitions</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Transitions</b></em>' containment reference list.
    * The list contents are of type {@link com.visteon.onoff.states.NodeTransition}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Node Transitions</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Transitions</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Node Transitions</em>' containment reference list.
-   * @see com.visteon.onoff.states.StatesPackage#getNodeStateDiagram_NodeTransitions()
+   * @return the value of the '<em>Transitions</em>' containment reference list.
+   * @see com.visteon.onoff.states.StatesPackage#getNodeStateDiagram_Transitions()
    * @model containment="true"
    * @generated
    */
-  EList<NodeTransition> getNodeTransitions();
+  EList<NodeTransition> getTransitions();
 
 } // NodeStateDiagram

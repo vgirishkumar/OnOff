@@ -16,8 +16,8 @@ NodeStateDiagram:
 	'NodeStateDiagram' '{'
 	('globalEdgeweight' gEdgeWeight=INT)?
 	('globalTransitionTimeout' gTransitionTimeoutInMilliseconds=INT)?
-	(nodeStates+=NodeState |
-	nodeTransitions+=NodeTransition)*
+	(states+=NodeState |
+	transitions+=NodeTransition)*
 	'}';
 
 NodeState:
@@ -35,9 +35,9 @@ ClientConfiguration:
 	'{'
 	('coom' coomRef=[coom::ComponentOnOffManifest])
 	('clientTransitionTimeout' transTimeoutInMilliseconds=INT)?
-	(componentTransitions+=ComponentTransition |
-	componentStates+=ComponentState |
-	features+=Feature | nodeStateAssociations+=NodeStateAssociation)*
+	(transitions+=ComponentTransition |
+	states+=ComponentState |
+	features+=ComponentFeature | nodeStateAssociations+=NodeStateAssociation)*
 	'}';
 
 ComponentTransition:
@@ -64,15 +64,15 @@ TransitionDependency:
 	'depends on transitions' transistions+=[coom::Transition|FQN] (',' transistions+=[coom::Transition|FQN])*;
 
 FeatureDependency:
-	'depends on features' features+=[Feature] (',' features+=[Feature])*;
+	'depends on features' features+=[ComponentFeature] (',' features+=[ComponentFeature])*;
 
 NodeStateAssociation:
-	'for' clientState=[coom::State|FQN] 'set system-states' systemStates+=[NodeState] (',' systemStates+=[NodeState])*;
+	'for' clientState=[coom::State|FQN] 'set system-states' states+=[NodeState] (',' states+=[NodeState])*;
 
-Feature:
+ComponentFeature:
 	'Feature' name=ID
 	'{'
-	'states' featureStates+=[coom::State|FQN] (',' featureStates+=[coom::State|FQN])*
+	'states' states+=[coom::State|FQN] (',' states+=[coom::State|FQN])*
 	'}';
 
 FQN:

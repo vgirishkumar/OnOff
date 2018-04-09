@@ -11,22 +11,22 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Feature</b></em>'.
+ * A representation of the model object '<em><b>Component Feature</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.visteon.onoff.states.Feature#getName <em>Name</em>}</li>
- *   <li>{@link com.visteon.onoff.states.Feature#getFeatureStates <em>Feature States</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.ComponentFeature#getName <em>Name</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.ComponentFeature#getStates <em>States</em>}</li>
  * </ul>
  *
- * @see com.visteon.onoff.states.StatesPackage#getFeature()
+ * @see com.visteon.onoff.states.StatesPackage#getComponentFeature()
  * @model
  * @generated
  */
-public interface Feature extends EObject
+public interface ComponentFeature extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -38,14 +38,14 @@ public interface Feature extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see com.visteon.onoff.states.StatesPackage#getFeature_Name()
+   * @see com.visteon.onoff.states.StatesPackage#getComponentFeature_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link com.visteon.onoff.states.Feature#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link com.visteon.onoff.states.ComponentFeature#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -55,19 +55,19 @@ public interface Feature extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Feature States</b></em>' reference list.
+   * Returns the value of the '<em><b>States</b></em>' reference list.
    * The list contents are of type {@link com.visteon.onoff.coom.State}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Feature States</em>' reference list isn't clear,
+   * If the meaning of the '<em>States</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Feature States</em>' reference list.
-   * @see com.visteon.onoff.states.StatesPackage#getFeature_FeatureStates()
+   * @return the value of the '<em>States</em>' reference list.
+   * @see com.visteon.onoff.states.StatesPackage#getComponentFeature_States()
    * @model
    * @generated
    */
-  EList<State> getFeatureStates();
+  EList<State> getStates();
 
-} // Feature
+} // ComponentFeature

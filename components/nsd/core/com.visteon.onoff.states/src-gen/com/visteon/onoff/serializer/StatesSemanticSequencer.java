@@ -6,9 +6,9 @@ package com.visteon.onoff.serializer;
 import com.google.inject.Inject;
 import com.visteon.onoff.services.StatesGrammarAccess;
 import com.visteon.onoff.states.ClientConfiguration;
+import com.visteon.onoff.states.ComponentFeature;
 import com.visteon.onoff.states.ComponentState;
 import com.visteon.onoff.states.ComponentTransition;
-import com.visteon.onoff.states.Feature;
 import com.visteon.onoff.states.FeatureDependency;
 import com.visteon.onoff.states.Import;
 import com.visteon.onoff.states.NodeState;
@@ -47,14 +47,14 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case StatesPackage.CLIENT_CONFIGURATION:
 				sequence_ClientConfiguration(context, (ClientConfiguration) semanticObject); 
 				return; 
+			case StatesPackage.COMPONENT_FEATURE:
+				sequence_ComponentFeature(context, (ComponentFeature) semanticObject); 
+				return; 
 			case StatesPackage.COMPONENT_STATE:
 				sequence_ComponentState(context, (ComponentState) semanticObject); 
 				return; 
 			case StatesPackage.COMPONENT_TRANSITION:
 				sequence_ComponentTransition(context, (ComponentTransition) semanticObject); 
-				return; 
-			case StatesPackage.FEATURE:
-				sequence_Feature(context, (Feature) semanticObject); 
 				return; 
 			case StatesPackage.FEATURE_DEPENDENCY:
 				sequence_FeatureDependency(context, (FeatureDependency) semanticObject); 
@@ -97,10 +97,22 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         name=ID 
 	 *         coomRef=[ComponentOnOffManifest|ID] 
 	 *         transTimeoutInMilliseconds=INT? 
-	 *         (componentTransitions+=ComponentTransition | componentStates+=ComponentState | features+=Feature | nodeStateAssociations+=NodeStateAssociation)*
+	 *         (transitions+=ComponentTransition | states+=ComponentState | features+=ComponentFeature | nodeStateAssociations+=NodeStateAssociation)*
 	 *     )
 	 */
 	protected void sequence_ClientConfiguration(ISerializationContext context, ClientConfiguration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ComponentFeature returns ComponentFeature
+	 *
+	 * Constraint:
+	 *     (name=ID states+=[State|FQN] states+=[State|FQN]*)
+	 */
+	protected void sequence_ComponentFeature(ISerializationContext context, ComponentFeature semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -140,21 +152,9 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     FeatureDependency returns FeatureDependency
 	 *
 	 * Constraint:
-	 *     (features+=[Feature|ID] features+=[Feature|ID]*)
+	 *     (features+=[ComponentFeature|ID] features+=[ComponentFeature|ID]*)
 	 */
 	protected void sequence_FeatureDependency(ISerializationContext context, FeatureDependency semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Feature returns Feature
-	 *
-	 * Constraint:
-	 *     (name=ID featureStates+=[State|FQN] featureStates+=[State|FQN]*)
-	 */
-	protected void sequence_Feature(ISerializationContext context, Feature semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -182,7 +182,7 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     NodeStateAssociation returns NodeStateAssociation
 	 *
 	 * Constraint:
-	 *     (clientState=[State|FQN] systemStates+=[NodeState|ID] systemStates+=[NodeState|ID]*)
+	 *     (clientState=[State|FQN] states+=[NodeState|ID] states+=[NodeState|ID]*)
 	 */
 	protected void sequence_NodeStateAssociation(ISerializationContext context, NodeStateAssociation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -206,7 +206,7 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     NodeStateDiagram returns NodeStateDiagram
 	 *
 	 * Constraint:
-	 *     (gEdgeWeight=INT? gTransitionTimeoutInMilliseconds=INT? (nodeStates+=NodeState | nodeTransitions+=NodeTransition)*)
+	 *     (gEdgeWeight=INT? gTransitionTimeoutInMilliseconds=INT? (states+=NodeState | transitions+=NodeTransition)*)
 	 */
 	protected void sequence_NodeStateDiagram(ISerializationContext context, NodeStateDiagram semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

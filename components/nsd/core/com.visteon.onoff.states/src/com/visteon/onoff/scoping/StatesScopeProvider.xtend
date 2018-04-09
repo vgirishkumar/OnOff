@@ -3,6 +3,12 @@
  */
 package com.visteon.onoff.scoping
 
+import com.visteon.onoff.states.ClientConfiguration
+import com.visteon.onoff.states.StatesPackage
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.EReference
+import org.eclipse.xtext.EcoreUtil2
+import org.eclipse.xtext.scoping.Scopes
 
 /**
  * This class contains custom scoping description.
@@ -11,5 +17,23 @@ package com.visteon.onoff.scoping
  * on how and when to use it.
  */
 class StatesScopeProvider extends AbstractStatesScopeProvider {
+
+	override getScope(EObject context, EReference reference) {
+		if (reference == StatesPackage.Literals.COMPONENT_STATE__STATE ||
+			reference == StatesPackage.Literals.STATE_DEPENDENCY__STATES ||
+			reference == StatesPackage.Literals.NODE_STATE_ASSOCIATION__CLIENT_STATE ||
+			reference == StatesPackage.Literals.COMPONENT_FEATURE__STATES) {
+			return Scopes.scopeFor(EcoreUtil2.getContainerOfType(context, ClientConfiguration).coomRef.states)
+		}
+		if (reference == StatesPackage.Literals.COMPONENT_TRANSITION__TRANSITION || reference ==
+			StatesPackage.Literals.TRANSITION_DEPENDENCY__TRANSISTIONS) {
+			return Scopes.scopeFor(EcoreUtil2.getContainerOfType(context, ClientConfiguration).coomRef.transitions)
+		}
+		if (reference == StatesPackage.Literals.FEATURE_DEPENDENCY__FEATURES) {
+			return Scopes.scopeFor(EcoreUtil2.getContainerOfType(context, ClientConfiguration).features)
+		}
+
+		super.getScope(context, reference)
+	}
 
 }
