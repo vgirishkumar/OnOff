@@ -16,6 +16,7 @@
         <module>core/com.visteon.onoff.states</module>
         <module>ui/com.visteon.onoff.states.ide</module>
         <module>ui/com.visteon.onoff.states.ui</module>
+        <module>ui/com.visteon.onoff.states.design</module>
         <module>tests/com.visteon.onoff.states.tests</module>
         <module>tests/com.visteon.onoff.states.ui.tests</module>
         <module>features/com.visteon.onoff.nsd.core.feature</module>
