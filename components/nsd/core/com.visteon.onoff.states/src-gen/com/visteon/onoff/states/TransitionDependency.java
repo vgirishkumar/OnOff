@@ -3,8 +3,6 @@
  */
 package com.visteon.onoff.states;
 
-import com.visteon.onoff.coom.Transition;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -29,7 +27,7 @@ public interface TransitionDependency extends EObject
 {
   /**
    * Returns the value of the '<em><b>Transistions</b></em>' reference list.
-   * The list contents are of type {@link com.visteon.onoff.coom.Transition}.
+   * The list contents are of type {@link com.visteon.onoff.states.ComponentTransition}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Transistions</em>' reference list isn't clear,
@@ -41,6 +39,6 @@ public interface TransitionDependency extends EObject
    * @model
    * @generated
    */
-  EList<Transition> getTransistions();
+  EList<ComponentTransition> getTransistions();
 
 } // TransitionDependency

@@ -3,9 +3,14 @@
  */
 package com.visteon.onoff
 
+import com.visteon.onoff.naming.StatesQualifiedNameProvider
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class StatesRuntimeModule extends AbstractStatesRuntimeModule {
+
+	override bindIQualifiedNameProvider() {
+		return StatesQualifiedNameProvider
+	}
 }

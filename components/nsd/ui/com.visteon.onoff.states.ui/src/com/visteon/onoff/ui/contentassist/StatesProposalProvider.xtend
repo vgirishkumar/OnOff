@@ -79,4 +79,5 @@ class StatesProposalProvider extends AbstractStatesProposalProvider {
 				it.EObjectOrProxy)
 		]);
 	}
+
 }

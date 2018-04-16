@@ -1,30 +1,24 @@
 package com.visteon.onoff.generator.app;
 
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FilenameFilter;
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IProjectDescription;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IResourceVisitor;
-import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.xtext.resource.XtextResourceSet;
 
+import com.google.common.collect.Lists;
+import com.google.common.io.Files;
 import com.visteon.onoff.CoomStandaloneSetup;
 import com.visteon.onoff.StatesStandaloneSetup;
-import com.visteon.onoff.generator.CoomGenerator;
-import com.visteon.onoff.generator.StatesGenerator;
 
 public class RunGeneration implements IApplication {
 
@@ -36,11 +30,7 @@ public class RunGeneration implements IApplication {
 
 		final String[] appArgs = scanArguments(context);
 
-		IProject project = prepareWorkspace(appArgs);
-
-		buildProject(project);
-
-		doCodeGeneration(project);
+		doCodeGeneration(appArgs);
 
 		return IApplication.EXIT_OK;
 	}
@@ -56,34 +46,34 @@ public class RunGeneration implements IApplication {
 		return appArgs;
 	}
 
-	private void doCodeGeneration(IProject project) {
-		System.out.println("Loading the project '" + project.getName() + "' ...");
-		List<IResource> resources = collectResources(project);
+	private void doCodeGeneration(String[] appArgs) {
+		List<File> resources = collectResources(appArgs);
 
 		setUpXtextPackages();
 
+		long start = System.currentTimeMillis();
 		XtextResourceSet rset = loadModels(resources);
 
-		System.out.println("Loading Completed");
-
-		System.out.println("Code generation started for project '" + project.getName() + "' ...");
 		for (Resource res : rset.getResources()) {
+			System.out.println("Loading " + res.getURI().toString());
 			// based on extension, look for generators and call doGenerate on all of them
-			if (res.getURI().fileExtension().equals("coom")) {
-				new CoomGenerator().doGenerate(res, null, null);
-			} else {
-				new StatesGenerator().doGenerate(res, null, null);
-			}
+			/*
+			 * if (res.getURI().fileExtension().equals("coom")) { new
+			 * CoomGenerator().doGenerate(res, null, null); } else { new
+			 * StatesGenerator().doGenerate(res, null, null); }
+			 */
 		}
-		System.out.println("Code Generation Completed");
+		long end = System.currentTimeMillis();
+		System.out.println("Loading Completed in : " + (end - start) + "ms");
+		// System.out.println("Code Generation Completed");
 
 	}
 
-	private XtextResourceSet loadModels(List<IResource> resources) {
+	private XtextResourceSet loadModels(List<File> resources) {
 		XtextResourceSet rset = new XtextResourceSet();
-		for (IResource iResource : resources) {
+		for (File iResource : resources) {
 
-			URI locationURI = iResource.getLocationURI();
+			URI locationURI = iResource.toURI();
 			org.eclipse.emf.common.util.URI createURI = org.eclipse.emf.common.util.URI
 					.createURI(locationURI.toString());
 			rset.getResource(createURI, true);
@@ -98,46 +88,50 @@ public class RunGeneration implements IApplication {
 		StatesStandaloneSetup.doSetup();
 	}
 
-	private List<IResource> collectResources(IProject project) {
+	private List<File> collectResources(String[] appArgs) {
 
-		// This information should be available through extensions
-		List<String> extensions = new ArrayList<>();
-		extensions.add("coom");
-		extensions.add("nsd");
+		List<File> models = new ArrayList<File>();
+		String programPath = appArgs[0];
 
-		final List<IResource> resources = new ArrayList<>();
-		try {
-			project.accept(new IResourceVisitor() {
+		String componentFolderPath = programPath + File.separator + "components";
+		File Componetfolder = new File(componentFolderPath);
+		File[] components = Componetfolder.listFiles(new FileFilter() {
+			@Override
+			public boolean accept(File pathname) {
+				return pathname.isDirectory();
+			}
+		});
+		String coom = "coom";
+		for (File file : components) {
+			File[] componentsWithCoom = file.listFiles(new FilenameFilter() {
 				@Override
-				public boolean visit(IResource resource) throws CoreException {
-					if (resource instanceof IFile && !"bin".equals(resource.getProjectRelativePath().segments()[0])
-							&& extensions.contains(resource.getFileExtension())) {
-						resources.add(resource);
-					}
-					return true;
+				public boolean accept(File dir, String name) {
+					return name.equals(coom);
 				}
 			});
-		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+			for (File file2 : componentsWithCoom) {
+				File[] cooms = file2.listFiles(new FileFilter() {
+					@Override
+					public boolean accept(File pathname) {
+						// TODO Auto-generated method stub
+						return !pathname.isDirectory()
+								&& Files.getFileExtension(pathname.getAbsolutePath()).equals(coom);
+					}
+				});
+				models.addAll(Lists.newArrayList(cooms));
+			}
 		}
-		Collections.reverse(resources);
-		return resources;
-	}
 
-	private void buildProject(IProject project) throws CoreException {
-		project.build(IncrementalProjectBuilder.FULL_BUILD, null);
-	}
-
-	private IProject prepareWorkspace(final String[] appArgs) throws CoreException {
-		System.out.println("Importing the project " + appArgs[0] + " in to workspace");
-		IProjectDescription description = ResourcesPlugin.getWorkspace()
-				.loadProjectDescription(new Path(appArgs[0] + "/.project"));
-		IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(description.getName());
-		project.create(description, null);
-		project.open(null);
-		System.out.println("Importing the project " + appArgs[0] + " completed");
-		return project;
+		String nsd = "nsd";
+		File[] nsds = new File(programPath).listFiles(new FileFilter() {
+			@Override
+			public boolean accept(File pathname) {
+				return !pathname.isDirectory() && Files.getFileExtension(pathname.getAbsolutePath()).equals(nsd);
+			}
+		});
+		models.addAll(Lists.newArrayList(nsds));
+		return models;
 	}
 
 	@Override

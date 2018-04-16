@@ -66,7 +66,6 @@ public class StatesFactoryImpl extends EFactoryImpl implements StatesFactory
     switch (eClass.getClassifierID())
     {
       case StatesPackage.NODE_STATE_CONFIGURATION: return createNodeStateConfiguration();
-      case StatesPackage.IMPORT: return createImport();
       case StatesPackage.NODE_STATE_DIAGRAM: return createNodeStateDiagram();
       case StatesPackage.NODE_STATE: return createNodeState();
       case StatesPackage.NODE_TRANSITION: return createNodeTransition();
@@ -92,17 +91,6 @@ public class StatesFactoryImpl extends EFactoryImpl implements StatesFactory
   {
     NodeStateConfigurationImpl nodeStateConfiguration = new NodeStateConfigurationImpl();
     return nodeStateConfiguration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Import createImport()
-  {
-    ImportImpl import_ = new ImportImpl();
-    return import_;
   }
 
   /**

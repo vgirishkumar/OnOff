@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import com.visteon.onoff.coom.ComponentOnOffManifest
 
 /**
  * Generates code from your model files on save.
@@ -22,5 +23,8 @@ class CoomGenerator extends AbstractGenerator {
 //				.map[name]
 //				.join(', '))
 		println("Code generation for " + resource.URI.toString)
+		val head = resource.contents.filter(ComponentOnOffManifest).head
+		head.states.forEach[println(name)]
+		head.transitions.forEach[println(name)]
 	}
 }

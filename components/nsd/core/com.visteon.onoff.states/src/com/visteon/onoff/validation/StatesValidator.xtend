@@ -33,6 +33,7 @@ class StatesValidator extends AbstractStatesValidator {
 //					INVALID_NAME)
 //		}
 //	}
+	
 	@Check
 	def checkForMultipleInitialStates(NodeState state) {
 		if (state.isInitial) {
@@ -42,13 +43,14 @@ class StatesValidator extends AbstractStatesValidator {
 		}
 	}
 
+	 
 	@Check
 	def checkforDuplicateStateDependency_States(StateDependency sd) {
 		val states = sd.states
 		for (var i = 0; i < states.size; i++) {
 			val st = states.get(i)
 			if (states.filter[equals(st)].size > 1) {
-				error("Duplicate State " + st.name, sd, StatesPackage.Literals.STATE_DEPENDENCY__STATES, i)
+				error("Duplicate State " + st.state.name, sd, StatesPackage.Literals.STATE_DEPENDENCY__STATES, i)
 			}
 		}
 	}
@@ -59,7 +61,7 @@ class StatesValidator extends AbstractStatesValidator {
 		for (var i = 0; i < transistions.size; i++) {
 			val tr = transistions.get(i)
 			if (transistions.filter[equals(tr)].size > 1) {
-				error("Duplicate Transition " + tr.name, td, StatesPackage.Literals.TRANSITION_DEPENDENCY__TRANSISTIONS,
+				error("Duplicate Transition " + tr.transition.name, td, StatesPackage.Literals.TRANSITION_DEPENDENCY__TRANSISTIONS,
 					i)
 			}
 		}
@@ -125,5 +127,5 @@ class StatesValidator extends AbstractStatesValidator {
 			error("Duplicate State " + nsa.clientState.name, nsa,
 				StatesPackage.Literals.NODE_STATE_ASSOCIATION__CLIENT_STATE)
 		}
-	}
+	} 
 }

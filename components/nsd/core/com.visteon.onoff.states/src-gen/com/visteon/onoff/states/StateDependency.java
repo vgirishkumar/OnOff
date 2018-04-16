@@ -3,8 +3,6 @@
  */
 package com.visteon.onoff.states;
 
-import com.visteon.onoff.coom.State;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -29,7 +27,7 @@ public interface StateDependency extends EObject
 {
   /**
    * Returns the value of the '<em><b>States</b></em>' reference list.
-   * The list contents are of type {@link com.visteon.onoff.coom.State}.
+   * The list contents are of type {@link com.visteon.onoff.states.ComponentState}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>States</em>' reference list isn't clear,
@@ -41,6 +39,6 @@ public interface StateDependency extends EObject
    * @model
    * @generated
    */
-  EList<State> getStates();
+  EList<ComponentState> getStates();
 
 } // StateDependency

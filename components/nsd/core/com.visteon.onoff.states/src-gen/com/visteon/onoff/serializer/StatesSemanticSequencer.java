@@ -10,7 +10,6 @@ import com.visteon.onoff.states.ComponentFeature;
 import com.visteon.onoff.states.ComponentState;
 import com.visteon.onoff.states.ComponentTransition;
 import com.visteon.onoff.states.FeatureDependency;
-import com.visteon.onoff.states.Import;
 import com.visteon.onoff.states.NodeState;
 import com.visteon.onoff.states.NodeStateAssociation;
 import com.visteon.onoff.states.NodeStateConfiguration;
@@ -26,9 +25,7 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
-import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
-import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 
 @SuppressWarnings("all")
 public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer {
@@ -58,9 +55,6 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				return; 
 			case StatesPackage.FEATURE_DEPENDENCY:
 				sequence_FeatureDependency(context, (FeatureDependency) semanticObject); 
-				return; 
-			case StatesPackage.IMPORT:
-				sequence_Import(context, (Import) semanticObject); 
 				return; 
 			case StatesPackage.NODE_STATE:
 				sequence_NodeState(context, (NodeState) semanticObject); 
@@ -152,28 +146,10 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     FeatureDependency returns FeatureDependency
 	 *
 	 * Constraint:
-	 *     (features+=[ComponentFeature|ID] features+=[ComponentFeature|ID]*)
+	 *     (features+=[ComponentFeature|FQN] features+=[ComponentFeature|FQN]*)
 	 */
 	protected void sequence_FeatureDependency(ISerializationContext context, FeatureDependency semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Import returns Import
-	 *
-	 * Constraint:
-	 *     importURI=STRING
-	 */
-	protected void sequence_Import(ISerializationContext context, Import semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, StatesPackage.Literals.IMPORT__IMPORT_URI) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StatesPackage.Literals.IMPORT__IMPORT_URI));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getImportAccess().getImportURISTRINGTerminalRuleCall_1_0(), semanticObject.getImportURI());
-		feeder.finish();
 	}
 	
 	
@@ -194,7 +170,7 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     NodeStateConfiguration returns NodeStateConfiguration
 	 *
 	 * Constraint:
-	 *     (imports+=Import* nsd=NodeStateDiagram clientConfig+=ClientConfiguration*)
+	 *     (nsd=NodeStateDiagram clientConfig+=ClientConfiguration*)
 	 */
 	protected void sequence_NodeStateConfiguration(ISerializationContext context, NodeStateConfiguration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -249,7 +225,7 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     StateDependency returns StateDependency
 	 *
 	 * Constraint:
-	 *     (states+=[State|FQN] states+=[State|FQN]*)
+	 *     (states+=[ComponentState|FQN] states+=[ComponentState|FQN]*)
 	 */
 	protected void sequence_StateDependency(ISerializationContext context, StateDependency semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -261,7 +237,7 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     TransitionDependency returns TransitionDependency
 	 *
 	 * Constraint:
-	 *     (transistions+=[Transition|FQN] transistions+=[Transition|FQN]*)
+	 *     (transistions+=[ComponentTransition|FQN] transistions+=[ComponentTransition|FQN]*)
 	 */
 	protected void sequence_TransitionDependency(ISerializationContext context, TransitionDependency semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

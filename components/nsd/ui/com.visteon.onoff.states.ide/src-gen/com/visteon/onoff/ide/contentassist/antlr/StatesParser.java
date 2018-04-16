@@ -32,9 +32,8 @@ public class StatesParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getNodeStateDiagramAccess().getAlternatives_5(), "rule__NodeStateDiagram__Alternatives_5");
-					put(grammarAccess.getClientConfigurationAccess().getAlternatives_5(), "rule__ClientConfiguration__Alternatives_5");
+					put(grammarAccess.getClientConfigurationAccess().getAlternatives_6(), "rule__ClientConfiguration__Alternatives_6");
 					put(grammarAccess.getNodeStateConfigurationAccess().getGroup(), "rule__NodeStateConfiguration__Group__0");
-					put(grammarAccess.getImportAccess().getGroup(), "rule__Import__Group__0");
 					put(grammarAccess.getNodeStateDiagramAccess().getGroup(), "rule__NodeStateDiagram__Group__0");
 					put(grammarAccess.getNodeStateDiagramAccess().getGroup_3(), "rule__NodeStateDiagram__Group_3__0");
 					put(grammarAccess.getNodeStateDiagramAccess().getGroup_4(), "rule__NodeStateDiagram__Group_4__0");
@@ -44,8 +43,7 @@ public class StatesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNodeTransitionAccess().getGroup_7_1(), "rule__NodeTransition__Group_7_1__0");
 					put(grammarAccess.getNodeTransitionAccess().getGroup_7_2(), "rule__NodeTransition__Group_7_2__0");
 					put(grammarAccess.getClientConfigurationAccess().getGroup(), "rule__ClientConfiguration__Group__0");
-					put(grammarAccess.getClientConfigurationAccess().getGroup_3(), "rule__ClientConfiguration__Group_3__0");
-					put(grammarAccess.getClientConfigurationAccess().getGroup_4(), "rule__ClientConfiguration__Group_4__0");
+					put(grammarAccess.getClientConfigurationAccess().getGroup_5(), "rule__ClientConfiguration__Group_5__0");
 					put(grammarAccess.getComponentTransitionAccess().getGroup(), "rule__ComponentTransition__Group__0");
 					put(grammarAccess.getComponentTransitionAccess().getGroup_4(), "rule__ComponentTransition__Group_4__0");
 					put(grammarAccess.getComponentTransitionAccess().getGroup_5(), "rule__ComponentTransition__Group_5__0");
@@ -62,10 +60,8 @@ public class StatesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getComponentFeatureAccess().getGroup_5(), "rule__ComponentFeature__Group_5__0");
 					put(grammarAccess.getFQNAccess().getGroup(), "rule__FQN__Group__0");
 					put(grammarAccess.getFQNAccess().getGroup_1(), "rule__FQN__Group_1__0");
-					put(grammarAccess.getNodeStateConfigurationAccess().getImportsAssignment_0(), "rule__NodeStateConfiguration__ImportsAssignment_0");
-					put(grammarAccess.getNodeStateConfigurationAccess().getNsdAssignment_1(), "rule__NodeStateConfiguration__NsdAssignment_1");
-					put(grammarAccess.getNodeStateConfigurationAccess().getClientConfigAssignment_2(), "rule__NodeStateConfiguration__ClientConfigAssignment_2");
-					put(grammarAccess.getImportAccess().getImportURIAssignment_1(), "rule__Import__ImportURIAssignment_1");
+					put(grammarAccess.getNodeStateConfigurationAccess().getNsdAssignment_0(), "rule__NodeStateConfiguration__NsdAssignment_0");
+					put(grammarAccess.getNodeStateConfigurationAccess().getClientConfigAssignment_1(), "rule__NodeStateConfiguration__ClientConfigAssignment_1");
 					put(grammarAccess.getNodeStateDiagramAccess().getGEdgeWeightAssignment_3_1(), "rule__NodeStateDiagram__GEdgeWeightAssignment_3_1");
 					put(grammarAccess.getNodeStateDiagramAccess().getGTransitionTimeoutInMillisecondsAssignment_4_1(), "rule__NodeStateDiagram__GTransitionTimeoutInMillisecondsAssignment_4_1");
 					put(grammarAccess.getNodeStateDiagramAccess().getStatesAssignment_5_0(), "rule__NodeStateDiagram__StatesAssignment_5_0");
@@ -79,12 +75,12 @@ public class StatesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNodeTransitionAccess().getEdgeweightAssignment_7_1_1(), "rule__NodeTransition__EdgeweightAssignment_7_1_1");
 					put(grammarAccess.getNodeTransitionAccess().getTimeoutInMillisecondsAssignment_7_2_1(), "rule__NodeTransition__TimeoutInMillisecondsAssignment_7_2_1");
 					put(grammarAccess.getClientConfigurationAccess().getNameAssignment_1(), "rule__ClientConfiguration__NameAssignment_1");
-					put(grammarAccess.getClientConfigurationAccess().getCoomRefAssignment_3_1(), "rule__ClientConfiguration__CoomRefAssignment_3_1");
-					put(grammarAccess.getClientConfigurationAccess().getTransTimeoutInMillisecondsAssignment_4_1(), "rule__ClientConfiguration__TransTimeoutInMillisecondsAssignment_4_1");
-					put(grammarAccess.getClientConfigurationAccess().getTransitionsAssignment_5_0(), "rule__ClientConfiguration__TransitionsAssignment_5_0");
-					put(grammarAccess.getClientConfigurationAccess().getStatesAssignment_5_1(), "rule__ClientConfiguration__StatesAssignment_5_1");
-					put(grammarAccess.getClientConfigurationAccess().getFeaturesAssignment_5_2(), "rule__ClientConfiguration__FeaturesAssignment_5_2");
-					put(grammarAccess.getClientConfigurationAccess().getNodeStateAssociationsAssignment_5_3(), "rule__ClientConfiguration__NodeStateAssociationsAssignment_5_3");
+					put(grammarAccess.getClientConfigurationAccess().getCoomRefAssignment_4(), "rule__ClientConfiguration__CoomRefAssignment_4");
+					put(grammarAccess.getClientConfigurationAccess().getTransTimeoutInMillisecondsAssignment_5_1(), "rule__ClientConfiguration__TransTimeoutInMillisecondsAssignment_5_1");
+					put(grammarAccess.getClientConfigurationAccess().getTransitionsAssignment_6_0(), "rule__ClientConfiguration__TransitionsAssignment_6_0");
+					put(grammarAccess.getClientConfigurationAccess().getStatesAssignment_6_1(), "rule__ClientConfiguration__StatesAssignment_6_1");
+					put(grammarAccess.getClientConfigurationAccess().getFeaturesAssignment_6_2(), "rule__ClientConfiguration__FeaturesAssignment_6_2");
+					put(grammarAccess.getClientConfigurationAccess().getNodeStateAssociationsAssignment_6_3(), "rule__ClientConfiguration__NodeStateAssociationsAssignment_6_3");
 					put(grammarAccess.getComponentTransitionAccess().getEssentialAssignment_0(), "rule__ComponentTransition__EssentialAssignment_0");
 					put(grammarAccess.getComponentTransitionAccess().getTransitionAssignment_2(), "rule__ComponentTransition__TransitionAssignment_2");
 					put(grammarAccess.getComponentTransitionAccess().getTimeoutInMillisecondsAssignment_4_1(), "rule__ComponentTransition__TimeoutInMillisecondsAssignment_4_1");

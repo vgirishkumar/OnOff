@@ -7,12 +7,8 @@
   <genPackages prefix="States" basePackage="com.visteon.onoff" disposableProviderFactory="true"
       fileExtensions="nsd" ecorePackage="States.ecore#/">
     <genClasses ecoreClass="States.ecore#//NodeStateConfiguration">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference States.ecore#//NodeStateConfiguration/imports"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference States.ecore#//NodeStateConfiguration/nsd"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference States.ecore#//NodeStateConfiguration/clientConfig"/>
-    </genClasses>
-    <genClasses ecoreClass="States.ecore#//Import">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute States.ecore#//Import/importURI"/>
     </genClasses>
     <genClasses ecoreClass="States.ecore#//NodeStateDiagram">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute States.ecore#//NodeStateDiagram/gEdgeWeight"/>

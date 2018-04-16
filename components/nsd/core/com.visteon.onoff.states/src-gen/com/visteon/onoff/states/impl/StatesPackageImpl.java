@@ -10,7 +10,6 @@ import com.visteon.onoff.states.ComponentFeature;
 import com.visteon.onoff.states.ComponentState;
 import com.visteon.onoff.states.ComponentTransition;
 import com.visteon.onoff.states.FeatureDependency;
-import com.visteon.onoff.states.Import;
 import com.visteon.onoff.states.NodeState;
 import com.visteon.onoff.states.NodeStateAssociation;
 import com.visteon.onoff.states.NodeStateConfiguration;
@@ -42,13 +41,6 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
    * @generated
    */
   private EClass nodeStateConfigurationEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass importEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -208,7 +200,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getNodeStateConfiguration_Imports()
+  public EReference getNodeStateConfiguration_Nsd()
   {
     return (EReference)nodeStateConfigurationEClass.getEStructuralFeatures().get(0);
   }
@@ -218,39 +210,9 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getNodeStateConfiguration_Nsd()
-  {
-    return (EReference)nodeStateConfigurationEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getNodeStateConfiguration_ClientConfig()
   {
-    return (EReference)nodeStateConfigurationEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getImport()
-  {
-    return importEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getImport_ImportURI()
-  {
-    return (EAttribute)importEClass.getEStructuralFeatures().get(0);
+    return (EReference)nodeStateConfigurationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -754,12 +716,8 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
 
     // Create classes and their features
     nodeStateConfigurationEClass = createEClass(NODE_STATE_CONFIGURATION);
-    createEReference(nodeStateConfigurationEClass, NODE_STATE_CONFIGURATION__IMPORTS);
     createEReference(nodeStateConfigurationEClass, NODE_STATE_CONFIGURATION__NSD);
     createEReference(nodeStateConfigurationEClass, NODE_STATE_CONFIGURATION__CLIENT_CONFIG);
-
-    importEClass = createEClass(IMPORT);
-    createEAttribute(importEClass, IMPORT__IMPORT_URI);
 
     nodeStateDiagramEClass = createEClass(NODE_STATE_DIAGRAM);
     createEAttribute(nodeStateDiagramEClass, NODE_STATE_DIAGRAM__GEDGE_WEIGHT);
@@ -855,12 +813,8 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(nodeStateConfigurationEClass, NodeStateConfiguration.class, "NodeStateConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getNodeStateConfiguration_Imports(), this.getImport(), null, "imports", null, 0, -1, NodeStateConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNodeStateConfiguration_Nsd(), this.getNodeStateDiagram(), null, "nsd", null, 0, 1, NodeStateConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNodeStateConfiguration_ClientConfig(), this.getClientConfiguration(), null, "clientConfig", null, 0, -1, NodeStateConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getImport_ImportURI(), ecorePackage.getEString(), "importURI", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(nodeStateDiagramEClass, NodeStateDiagram.class, "NodeStateDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNodeStateDiagram_GEdgeWeight(), ecorePackage.getEInt(), "gEdgeWeight", null, 0, 1, NodeStateDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -904,10 +858,10 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
     initEReference(getComponentState_TransitionDependency(), this.getTransitionDependency(), null, "transitionDependency", null, 0, 1, ComponentState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stateDependencyEClass, StateDependency.class, "StateDependency", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getStateDependency_States(), theCoomPackage.getState(), null, "states", null, 0, -1, StateDependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStateDependency_States(), this.getComponentState(), null, "states", null, 0, -1, StateDependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(transitionDependencyEClass, TransitionDependency.class, "TransitionDependency", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTransitionDependency_Transistions(), theCoomPackage.getTransition(), null, "transistions", null, 0, -1, TransitionDependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTransitionDependency_Transistions(), this.getComponentTransition(), null, "transistions", null, 0, -1, TransitionDependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(featureDependencyEClass, FeatureDependency.class, "FeatureDependency", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getFeatureDependency_Features(), this.getComponentFeature(), null, "features", null, 0, -1, FeatureDependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

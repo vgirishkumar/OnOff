@@ -4,7 +4,6 @@
 package com.visteon.onoff.states.impl;
 
 import com.visteon.onoff.states.ClientConfiguration;
-import com.visteon.onoff.states.Import;
 import com.visteon.onoff.states.NodeStateConfiguration;
 import com.visteon.onoff.states.NodeStateDiagram;
 import com.visteon.onoff.states.StatesPackage;
@@ -33,7 +32,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.visteon.onoff.states.impl.NodeStateConfigurationImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.NodeStateConfigurationImpl#getNsd <em>Nsd</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.NodeStateConfigurationImpl#getClientConfig <em>Client Config</em>}</li>
  * </ul>
@@ -42,16 +40,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class NodeStateConfigurationImpl extends MinimalEObjectImpl.Container implements NodeStateConfiguration
 {
-  /**
-   * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getImports()
-   * @generated
-   * @ordered
-   */
-  protected EList<Import> imports;
-
   /**
    * The cached value of the '{@link #getNsd() <em>Nsd</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -91,20 +79,6 @@ public class NodeStateConfigurationImpl extends MinimalEObjectImpl.Container imp
   protected EClass eStaticClass()
   {
     return StatesPackage.Literals.NODE_STATE_CONFIGURATION;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Import> getImports()
-  {
-    if (imports == null)
-    {
-      imports = new EObjectContainmentEList<Import>(Import.class, this, StatesPackage.NODE_STATE_CONFIGURATION__IMPORTS);
-    }
-    return imports;
   }
 
   /**
@@ -179,8 +153,6 @@ public class NodeStateConfigurationImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case StatesPackage.NODE_STATE_CONFIGURATION__IMPORTS:
-        return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
       case StatesPackage.NODE_STATE_CONFIGURATION__NSD:
         return basicSetNsd(null, msgs);
       case StatesPackage.NODE_STATE_CONFIGURATION__CLIENT_CONFIG:
@@ -199,8 +171,6 @@ public class NodeStateConfigurationImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case StatesPackage.NODE_STATE_CONFIGURATION__IMPORTS:
-        return getImports();
       case StatesPackage.NODE_STATE_CONFIGURATION__NSD:
         return getNsd();
       case StatesPackage.NODE_STATE_CONFIGURATION__CLIENT_CONFIG:
@@ -220,10 +190,6 @@ public class NodeStateConfigurationImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case StatesPackage.NODE_STATE_CONFIGURATION__IMPORTS:
-        getImports().clear();
-        getImports().addAll((Collection<? extends Import>)newValue);
-        return;
       case StatesPackage.NODE_STATE_CONFIGURATION__NSD:
         setNsd((NodeStateDiagram)newValue);
         return;
@@ -245,9 +211,6 @@ public class NodeStateConfigurationImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case StatesPackage.NODE_STATE_CONFIGURATION__IMPORTS:
-        getImports().clear();
-        return;
       case StatesPackage.NODE_STATE_CONFIGURATION__NSD:
         setNsd((NodeStateDiagram)null);
         return;
@@ -268,8 +231,6 @@ public class NodeStateConfigurationImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case StatesPackage.NODE_STATE_CONFIGURATION__IMPORTS:
-        return imports != null && !imports.isEmpty();
       case StatesPackage.NODE_STATE_CONFIGURATION__NSD:
         return nsd != null;
       case StatesPackage.NODE_STATE_CONFIGURATION__CLIENT_CONFIG:

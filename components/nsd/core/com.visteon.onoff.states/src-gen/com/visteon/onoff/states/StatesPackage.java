@@ -68,22 +68,13 @@ public interface StatesPackage extends EPackage
   int NODE_STATE_CONFIGURATION = 0;
 
   /**
-   * The feature id for the '<em><b>Imports</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NODE_STATE_CONFIGURATION__IMPORTS = 0;
-
-  /**
    * The feature id for the '<em><b>Nsd</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NODE_STATE_CONFIGURATION__NSD = 1;
+  int NODE_STATE_CONFIGURATION__NSD = 0;
 
   /**
    * The feature id for the '<em><b>Client Config</b></em>' containment reference list.
@@ -92,7 +83,7 @@ public interface StatesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NODE_STATE_CONFIGURATION__CLIENT_CONFIG = 2;
+  int NODE_STATE_CONFIGURATION__CLIENT_CONFIG = 1;
 
   /**
    * The number of structural features of the '<em>Node State Configuration</em>' class.
@@ -101,35 +92,7 @@ public interface StatesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NODE_STATE_CONFIGURATION_FEATURE_COUNT = 3;
-
-  /**
-   * The meta object id for the '{@link com.visteon.onoff.states.impl.ImportImpl <em>Import</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.visteon.onoff.states.impl.ImportImpl
-   * @see com.visteon.onoff.states.impl.StatesPackageImpl#getImport()
-   * @generated
-   */
-  int IMPORT = 1;
-
-  /**
-   * The feature id for the '<em><b>Import URI</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IMPORT__IMPORT_URI = 0;
-
-  /**
-   * The number of structural features of the '<em>Import</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IMPORT_FEATURE_COUNT = 1;
+  int NODE_STATE_CONFIGURATION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.visteon.onoff.states.impl.NodeStateDiagramImpl <em>Node State Diagram</em>}' class.
@@ -139,7 +102,7 @@ public interface StatesPackage extends EPackage
    * @see com.visteon.onoff.states.impl.StatesPackageImpl#getNodeStateDiagram()
    * @generated
    */
-  int NODE_STATE_DIAGRAM = 2;
+  int NODE_STATE_DIAGRAM = 1;
 
   /**
    * The feature id for the '<em><b>GEdge Weight</b></em>' attribute.
@@ -194,7 +157,7 @@ public interface StatesPackage extends EPackage
    * @see com.visteon.onoff.states.impl.StatesPackageImpl#getNodeState()
    * @generated
    */
-  int NODE_STATE = 3;
+  int NODE_STATE = 2;
 
   /**
    * The feature id for the '<em><b>Initial</b></em>' attribute.
@@ -231,7 +194,7 @@ public interface StatesPackage extends EPackage
    * @see com.visteon.onoff.states.impl.StatesPackageImpl#getNodeTransition()
    * @generated
    */
-  int NODE_TRANSITION = 4;
+  int NODE_TRANSITION = 3;
 
   /**
    * The feature id for the '<em><b>Essential</b></em>' attribute.
@@ -304,7 +267,7 @@ public interface StatesPackage extends EPackage
    * @see com.visteon.onoff.states.impl.StatesPackageImpl#getClientConfiguration()
    * @generated
    */
-  int CLIENT_CONFIGURATION = 5;
+  int CLIENT_CONFIGURATION = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -386,7 +349,7 @@ public interface StatesPackage extends EPackage
    * @see com.visteon.onoff.states.impl.StatesPackageImpl#getComponentTransition()
    * @generated
    */
-  int COMPONENT_TRANSITION = 6;
+  int COMPONENT_TRANSITION = 5;
 
   /**
    * The feature id for the '<em><b>Essential</b></em>' attribute.
@@ -459,7 +422,7 @@ public interface StatesPackage extends EPackage
    * @see com.visteon.onoff.states.impl.StatesPackageImpl#getComponentState()
    * @generated
    */
-  int COMPONENT_STATE = 7;
+  int COMPONENT_STATE = 6;
 
   /**
    * The feature id for the '<em><b>State</b></em>' reference.
@@ -514,7 +477,7 @@ public interface StatesPackage extends EPackage
    * @see com.visteon.onoff.states.impl.StatesPackageImpl#getStateDependency()
    * @generated
    */
-  int STATE_DEPENDENCY = 8;
+  int STATE_DEPENDENCY = 7;
 
   /**
    * The feature id for the '<em><b>States</b></em>' reference list.
@@ -542,7 +505,7 @@ public interface StatesPackage extends EPackage
    * @see com.visteon.onoff.states.impl.StatesPackageImpl#getTransitionDependency()
    * @generated
    */
-  int TRANSITION_DEPENDENCY = 9;
+  int TRANSITION_DEPENDENCY = 8;
 
   /**
    * The feature id for the '<em><b>Transistions</b></em>' reference list.
@@ -570,7 +533,7 @@ public interface StatesPackage extends EPackage
    * @see com.visteon.onoff.states.impl.StatesPackageImpl#getFeatureDependency()
    * @generated
    */
-  int FEATURE_DEPENDENCY = 10;
+  int FEATURE_DEPENDENCY = 9;
 
   /**
    * The feature id for the '<em><b>Features</b></em>' reference list.
@@ -598,7 +561,7 @@ public interface StatesPackage extends EPackage
    * @see com.visteon.onoff.states.impl.StatesPackageImpl#getNodeStateAssociation()
    * @generated
    */
-  int NODE_STATE_ASSOCIATION = 11;
+  int NODE_STATE_ASSOCIATION = 10;
 
   /**
    * The feature id for the '<em><b>Client State</b></em>' reference.
@@ -635,7 +598,7 @@ public interface StatesPackage extends EPackage
    * @see com.visteon.onoff.states.impl.StatesPackageImpl#getComponentFeature()
    * @generated
    */
-  int COMPONENT_FEATURE = 12;
+  int COMPONENT_FEATURE = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -676,17 +639,6 @@ public interface StatesPackage extends EPackage
   EClass getNodeStateConfiguration();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.visteon.onoff.states.NodeStateConfiguration#getImports <em>Imports</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Imports</em>'.
-   * @see com.visteon.onoff.states.NodeStateConfiguration#getImports()
-   * @see #getNodeStateConfiguration()
-   * @generated
-   */
-  EReference getNodeStateConfiguration_Imports();
-
-  /**
    * Returns the meta object for the containment reference '{@link com.visteon.onoff.states.NodeStateConfiguration#getNsd <em>Nsd</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -707,27 +659,6 @@ public interface StatesPackage extends EPackage
    * @generated
    */
   EReference getNodeStateConfiguration_ClientConfig();
-
-  /**
-   * Returns the meta object for class '{@link com.visteon.onoff.states.Import <em>Import</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Import</em>'.
-   * @see com.visteon.onoff.states.Import
-   * @generated
-   */
-  EClass getImport();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.visteon.onoff.states.Import#getImportURI <em>Import URI</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Import URI</em>'.
-   * @see com.visteon.onoff.states.Import#getImportURI()
-   * @see #getImport()
-   * @generated
-   */
-  EAttribute getImport_ImportURI();
 
   /**
    * Returns the meta object for class '{@link com.visteon.onoff.states.NodeStateDiagram <em>Node State Diagram</em>}'.
@@ -1269,14 +1200,6 @@ public interface StatesPackage extends EPackage
     EClass NODE_STATE_CONFIGURATION = eINSTANCE.getNodeStateConfiguration();
 
     /**
-     * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference NODE_STATE_CONFIGURATION__IMPORTS = eINSTANCE.getNodeStateConfiguration_Imports();
-
-    /**
      * The meta object literal for the '<em><b>Nsd</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1291,24 +1214,6 @@ public interface StatesPackage extends EPackage
      * @generated
      */
     EReference NODE_STATE_CONFIGURATION__CLIENT_CONFIG = eINSTANCE.getNodeStateConfiguration_ClientConfig();
-
-    /**
-     * The meta object literal for the '{@link com.visteon.onoff.states.impl.ImportImpl <em>Import</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see com.visteon.onoff.states.impl.ImportImpl
-     * @see com.visteon.onoff.states.impl.StatesPackageImpl#getImport()
-     * @generated
-     */
-    EClass IMPORT = eINSTANCE.getImport();
-
-    /**
-     * The meta object literal for the '<em><b>Import URI</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute IMPORT__IMPORT_URI = eINSTANCE.getImport_ImportURI();
 
     /**
      * The meta object literal for the '{@link com.visteon.onoff.states.impl.NodeStateDiagramImpl <em>Node State Diagram</em>}' class.

@@ -3,8 +3,7 @@
  */
 package com.visteon.onoff.states.impl;
 
-import com.visteon.onoff.coom.Transition;
-
+import com.visteon.onoff.states.ComponentTransition;
 import com.visteon.onoff.states.StatesPackage;
 import com.visteon.onoff.states.TransitionDependency;
 
@@ -41,7 +40,7 @@ public class TransitionDependencyImpl extends MinimalEObjectImpl.Container imple
    * @generated
    * @ordered
    */
-  protected EList<Transition> transistions;
+  protected EList<ComponentTransition> transistions;
 
   /**
    * <!-- begin-user-doc -->
@@ -69,11 +68,11 @@ public class TransitionDependencyImpl extends MinimalEObjectImpl.Container imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Transition> getTransistions()
+  public EList<ComponentTransition> getTransistions()
   {
     if (transistions == null)
     {
-      transistions = new EObjectResolvingEList<Transition>(Transition.class, this, StatesPackage.TRANSITION_DEPENDENCY__TRANSISTIONS);
+      transistions = new EObjectResolvingEList<ComponentTransition>(ComponentTransition.class, this, StatesPackage.TRANSITION_DEPENDENCY__TRANSISTIONS);
     }
     return transistions;
   }
@@ -107,7 +106,7 @@ public class TransitionDependencyImpl extends MinimalEObjectImpl.Container imple
     {
       case StatesPackage.TRANSITION_DEPENDENCY__TRANSISTIONS:
         getTransistions().clear();
-        getTransistions().addAll((Collection<? extends Transition>)newValue);
+        getTransistions().addAll((Collection<? extends ComponentTransition>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

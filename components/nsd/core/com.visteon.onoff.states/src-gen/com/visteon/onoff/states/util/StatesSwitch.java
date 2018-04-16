@@ -80,13 +80,6 @@ public class StatesSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case StatesPackage.IMPORT:
-      {
-        Import import_ = (Import)theEObject;
-        T result = caseImport(import_);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case StatesPackage.NODE_STATE_DIAGRAM:
       {
         NodeStateDiagram nodeStateDiagram = (NodeStateDiagram)theEObject;
@@ -180,22 +173,6 @@ public class StatesSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseNodeStateConfiguration(NodeStateConfiguration object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Import</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Import</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseImport(Import object)
   {
     return null;
   }

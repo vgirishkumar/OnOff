@@ -3,9 +3,15 @@
  */
 package com.visteon.onoff
 
+import com.visteon.onoff.naming.CoomQualifiedNameProvider
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class CoomRuntimeModule extends AbstractCoomRuntimeModule {
+	
+	override bindIQualifiedNameProvider() {
+		CoomQualifiedNameProvider
+	}
+	
 }

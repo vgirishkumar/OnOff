@@ -3,11 +3,18 @@
  */
 package com.visteon.onoff.scoping
 
+import com.google.inject.Inject
+import com.visteon.onoff.naming.StatesQualifiedNameProvider
 import com.visteon.onoff.states.ClientConfiguration
+import com.visteon.onoff.states.ComponentFeature
+import com.visteon.onoff.states.ComponentState
+import com.visteon.onoff.states.ComponentTransition
 import com.visteon.onoff.states.StatesPackage
+import java.util.ArrayList
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.EcoreUtil2
+import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
 
 /**
@@ -18,21 +25,49 @@ import org.eclipse.xtext.scoping.Scopes
  */
 class StatesScopeProvider extends AbstractStatesScopeProvider {
 
+	@Inject
+	StatesQualifiedNameProvider provider
+
 	override getScope(EObject context, EReference reference) {
+
 		if (reference == StatesPackage.Literals.COMPONENT_STATE__STATE ||
-			reference == StatesPackage.Literals.STATE_DEPENDENCY__STATES ||
 			reference == StatesPackage.Literals.NODE_STATE_ASSOCIATION__CLIENT_STATE ||
 			reference == StatesPackage.Literals.COMPONENT_FEATURE__STATES) {
 			return Scopes.scopeFor(EcoreUtil2.getContainerOfType(context, ClientConfiguration).coomRef.states)
 		}
-		if (reference == StatesPackage.Literals.COMPONENT_TRANSITION__TRANSITION || reference ==
-			StatesPackage.Literals.TRANSITION_DEPENDENCY__TRANSISTIONS) {
+		if (reference == StatesPackage.Literals.STATE_DEPENDENCY__STATES) {
+			val parentConfig = EcoreUtil2.getContainerOfType(context, ClientConfiguration)
+			val siblingsOfParentConfig = EcoreUtil2.getSiblingsOfType(parentConfig, ClientConfiguration)
+			val siblingsOfParentConfigWithSameCooom = siblingsOfParentConfig.filter [
+				coomRef.equals(parentConfig.coomRef)
+			]
+			val objects = new ArrayList<ComponentState>
+			siblingsOfParentConfigWithSameCooom.forall[objects.addAll(states)]
+			return Scopes.scopeFor(objects, [provider.qualifiedName(it)], IScope.NULLSCOPE)
+		}
+		if (reference == StatesPackage.Literals.COMPONENT_TRANSITION__TRANSITION) {
 			return Scopes.scopeFor(EcoreUtil2.getContainerOfType(context, ClientConfiguration).coomRef.transitions)
 		}
-		if (reference == StatesPackage.Literals.FEATURE_DEPENDENCY__FEATURES) {
-			return Scopes.scopeFor(EcoreUtil2.getContainerOfType(context, ClientConfiguration).features)
+		if (reference == StatesPackage.Literals.TRANSITION_DEPENDENCY__TRANSISTIONS) {
+			val parentConfig = EcoreUtil2.getContainerOfType(context, ClientConfiguration)
+			val siblingsOfParentConfig = EcoreUtil2.getSiblingsOfType(parentConfig, ClientConfiguration)
+			val siblingsOfParentConfigWithSameCooom = siblingsOfParentConfig.filter [
+				coomRef.equals(parentConfig.coomRef)
+			]
+			val objects = new ArrayList<ComponentTransition>
+			siblingsOfParentConfigWithSameCooom.forall[objects.addAll(transitions)]
+			return Scopes.scopeFor(objects, [provider.qualifiedName(it)], IScope.NULLSCOPE)
 		}
-
+		if (reference == StatesPackage.Literals.FEATURE_DEPENDENCY__FEATURES) {
+			val parentConfig = EcoreUtil2.getContainerOfType(context, ClientConfiguration)
+			val siblingsOfParentConfig = EcoreUtil2.getSiblingsOfType(parentConfig, ClientConfiguration)
+			val siblingsOfParentConfigWithSameCooom = siblingsOfParentConfig.filter [
+				coomRef.equals(parentConfig.coomRef)
+			]
+			val objects = new ArrayList<ComponentFeature>
+			siblingsOfParentConfigWithSameCooom.forall[objects.addAll(features)]
+			return Scopes.scopeFor(objects, [provider.getFullyQualifiedName(it)], IScope.NULLSCOPE)
+		}
 		super.getScope(context, reference)
 	}
 

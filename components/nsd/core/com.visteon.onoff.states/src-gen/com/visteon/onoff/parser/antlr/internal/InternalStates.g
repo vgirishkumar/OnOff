@@ -79,28 +79,9 @@ ruleNodeStateConfiguration returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getNodeStateConfigurationAccess().getImportsImportParserRuleCall_0_0());
+					newCompositeNode(grammarAccess.getNodeStateConfigurationAccess().getNsdNodeStateDiagramParserRuleCall_0_0());
 				}
-				lv_imports_0_0=ruleImport
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getNodeStateConfigurationRule());
-					}
-					add(
-						$current,
-						"imports",
-						lv_imports_0_0,
-						"com.visteon.onoff.States.Import");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getNodeStateConfigurationAccess().getNsdNodeStateDiagramParserRuleCall_1_0());
-				}
-				lv_nsd_1_0=ruleNodeStateDiagram
+				lv_nsd_0_0=ruleNodeStateDiagram
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getNodeStateConfigurationRule());
@@ -108,7 +89,7 @@ ruleNodeStateConfiguration returns [EObject current=null]
 					set(
 						$current,
 						"nsd",
-						lv_nsd_1_0,
+						lv_nsd_0_0,
 						"com.visteon.onoff.States.NodeStateDiagram");
 					afterParserOrEnumRuleCall();
 				}
@@ -117,9 +98,9 @@ ruleNodeStateConfiguration returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getNodeStateConfigurationAccess().getClientConfigClientConfigurationParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getNodeStateConfigurationAccess().getClientConfigClientConfigurationParserRuleCall_1_0());
 				}
-				lv_clientConfig_2_0=ruleClientConfiguration
+				lv_clientConfig_1_0=ruleClientConfiguration
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getNodeStateConfigurationRule());
@@ -127,53 +108,12 @@ ruleNodeStateConfiguration returns [EObject current=null]
 					add(
 						$current,
 						"clientConfig",
-						lv_clientConfig_2_0,
+						lv_clientConfig_1_0,
 						"com.visteon.onoff.States.ClientConfiguration");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-	)
-;
-
-// Entry rule entryRuleImport
-entryRuleImport returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getImportRule()); }
-	iv_ruleImport=ruleImport
-	{ $current=$iv_ruleImport.current; }
-	EOF;
-
-// Rule Import
-ruleImport returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='import'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getImportAccess().getImportKeyword_0());
-		}
-		(
-			(
-				lv_importURI_1_0=RULE_STRING
-				{
-					newLeafNode(lv_importURI_1_0, grammarAccess.getImportAccess().getImportURISTRINGTerminalRuleCall_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getImportRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"importURI",
-						lv_importURI_1_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
-				}
-			)
-		)
 	)
 ;
 
@@ -548,35 +488,33 @@ ruleClientConfiguration returns [EObject current=null]
 		{
 			newLeafNode(otherlv_2, grammarAccess.getClientConfigurationAccess().getLeftCurlyBracketKeyword_2());
 		}
+		otherlv_3='coom'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getClientConfigurationAccess().getCoomKeyword_3());
+		}
 		(
-			otherlv_3='coom'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getClientConfigurationAccess().getCoomKeyword_3_0());
-			}
 			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getClientConfigurationRule());
-						}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getClientConfigurationRule());
 					}
-					otherlv_4=RULE_ID
-					{
-						newLeafNode(otherlv_4, grammarAccess.getClientConfigurationAccess().getCoomRefComponentOnOffManifestCrossReference_3_1_0());
-					}
-				)
+				}
+				otherlv_4=RULE_ID
+				{
+					newLeafNode(otherlv_4, grammarAccess.getClientConfigurationAccess().getCoomRefComponentOnOffManifestCrossReference_4_0());
+				}
 			)
 		)
 		(
 			otherlv_5='clientTransitionTimeout'
 			{
-				newLeafNode(otherlv_5, grammarAccess.getClientConfigurationAccess().getClientTransitionTimeoutKeyword_4_0());
+				newLeafNode(otherlv_5, grammarAccess.getClientConfigurationAccess().getClientTransitionTimeoutKeyword_5_0());
 			}
 			(
 				(
 					lv_transTimeoutInMilliseconds_6_0=RULE_INT
 					{
-						newLeafNode(lv_transTimeoutInMilliseconds_6_0, grammarAccess.getClientConfigurationAccess().getTransTimeoutInMillisecondsINTTerminalRuleCall_4_1_0());
+						newLeafNode(lv_transTimeoutInMilliseconds_6_0, grammarAccess.getClientConfigurationAccess().getTransTimeoutInMillisecondsINTTerminalRuleCall_5_1_0());
 					}
 					{
 						if ($current==null) {
@@ -595,7 +533,7 @@ ruleClientConfiguration returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getClientConfigurationAccess().getTransitionsComponentTransitionParserRuleCall_5_0_0());
+						newCompositeNode(grammarAccess.getClientConfigurationAccess().getTransitionsComponentTransitionParserRuleCall_6_0_0());
 					}
 					lv_transitions_7_0=ruleComponentTransition
 					{
@@ -615,7 +553,7 @@ ruleClientConfiguration returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getClientConfigurationAccess().getStatesComponentStateParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getClientConfigurationAccess().getStatesComponentStateParserRuleCall_6_1_0());
 					}
 					lv_states_8_0=ruleComponentState
 					{
@@ -635,7 +573,7 @@ ruleClientConfiguration returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getClientConfigurationAccess().getFeaturesComponentFeatureParserRuleCall_5_2_0());
+						newCompositeNode(grammarAccess.getClientConfigurationAccess().getFeaturesComponentFeatureParserRuleCall_6_2_0());
 					}
 					lv_features_9_0=ruleComponentFeature
 					{
@@ -655,7 +593,7 @@ ruleClientConfiguration returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getClientConfigurationAccess().getNodeStateAssociationsNodeStateAssociationParserRuleCall_5_3_0());
+						newCompositeNode(grammarAccess.getClientConfigurationAccess().getNodeStateAssociationsNodeStateAssociationParserRuleCall_6_3_0());
 					}
 					lv_nodeStateAssociations_10_0=ruleNodeStateAssociation
 					{
@@ -674,7 +612,7 @@ ruleClientConfiguration returns [EObject current=null]
 		)*
 		otherlv_11='}'
 		{
-			newLeafNode(otherlv_11, grammarAccess.getClientConfigurationAccess().getRightCurlyBracketKeyword_6());
+			newLeafNode(otherlv_11, grammarAccess.getClientConfigurationAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;
@@ -1031,7 +969,7 @@ ruleStateDependency returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getStateDependencyAccess().getStatesStateCrossReference_1_0());
+					newCompositeNode(grammarAccess.getStateDependencyAccess().getStatesComponentStateCrossReference_1_0());
 				}
 				ruleFQN
 				{
@@ -1052,7 +990,7 @@ ruleStateDependency returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getStateDependencyAccess().getStatesStateCrossReference_2_1_0());
+						newCompositeNode(grammarAccess.getStateDependencyAccess().getStatesComponentStateCrossReference_2_1_0());
 					}
 					ruleFQN
 					{
@@ -1092,7 +1030,7 @@ ruleTransitionDependency returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getTransitionDependencyAccess().getTransistionsTransitionCrossReference_1_0());
+					newCompositeNode(grammarAccess.getTransitionDependencyAccess().getTransistionsComponentTransitionCrossReference_1_0());
 				}
 				ruleFQN
 				{
@@ -1113,7 +1051,7 @@ ruleTransitionDependency returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getTransitionDependencyAccess().getTransistionsTransitionCrossReference_2_1_0());
+						newCompositeNode(grammarAccess.getTransitionDependencyAccess().getTransistionsComponentTransitionCrossReference_2_1_0());
 					}
 					ruleFQN
 					{
@@ -1152,9 +1090,12 @@ ruleFeatureDependency returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getFeatureDependencyRule());
 					}
 				}
-				otherlv_1=RULE_ID
 				{
-					newLeafNode(otherlv_1, grammarAccess.getFeatureDependencyAccess().getFeaturesComponentFeatureCrossReference_1_0());
+					newCompositeNode(grammarAccess.getFeatureDependencyAccess().getFeaturesComponentFeatureCrossReference_1_0());
+				}
+				ruleFQN
+				{
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -1170,9 +1111,12 @@ ruleFeatureDependency returns [EObject current=null]
 							$current = createModelElement(grammarAccess.getFeatureDependencyRule());
 						}
 					}
-					otherlv_3=RULE_ID
 					{
-						newLeafNode(otherlv_3, grammarAccess.getFeatureDependencyAccess().getFeaturesComponentFeatureCrossReference_2_1_0());
+						newCompositeNode(grammarAccess.getFeatureDependencyAccess().getFeaturesComponentFeatureCrossReference_2_1_0());
+					}
+					ruleFQN
+					{
+						afterParserOrEnumRuleCall();
 					}
 				)
 			)

@@ -2,15 +2,10 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="states" nsURI="http://www.visteon.com/onoff/States" nsPrefix="states">
   <eClassifiers xsi:type="ecore:EClass" name="NodeStateConfiguration">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
-        eType="#//Import" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nsd" eType="#//NodeStateDiagram"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="clientConfig" upperBound="-1"
         eType="#//ClientConfiguration" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Import">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NodeStateDiagram">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="gEdgeWeight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -70,11 +65,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StateDependency">
     <eStructuralFeatures xsi:type="ecore:EReference" name="states" unique="false"
-        upperBound="-1" eType="ecore:EClass platform:/resource/com.visteon.onoff.coom/model/generated/Coom.ecore#//State"/>
+        upperBound="-1" eType="#//ComponentState"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TransitionDependency">
     <eStructuralFeatures xsi:type="ecore:EReference" name="transistions" unique="false"
-        upperBound="-1" eType="ecore:EClass platform:/resource/com.visteon.onoff.coom/model/generated/Coom.ecore#//Transition"/>
+        upperBound="-1" eType="#//ComponentTransition"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FeatureDependency">
     <eStructuralFeatures xsi:type="ecore:EReference" name="features" unique="false"

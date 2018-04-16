@@ -17,7 +17,7 @@
          id="headless"
          point="org.eclipse.core.runtime.products">
       <product
-            application="com.visteon.onoff.generator.app"
+            application="com.visteon.onoff.generator.app.headlessgen"
             name="HeadlessGenerator">
          <property
                name="appName"
