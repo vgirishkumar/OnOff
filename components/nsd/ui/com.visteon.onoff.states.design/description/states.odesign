@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="states" version="12.0.0.2017041100">
+  <ownedViewpoints name="nsd" modelFileExtension="nsd">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="NodeState Diagram" domainClass="states::NodeStateDiagram" enablePopupBars="true">
+      <metamodel href="http://www.visteon.com/onoff/States#/"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="StateNode" semanticCandidatesExpression="feature:states" domainClass="states::NodeState">
+          <style xsi:type="style:EllipseNodeDescription" showIcon="false" sizeComputationExpression="6" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="TransitionEdge" semanticCandidatesExpression="feature:transitions" sourceMapping="//@ownedViewpoints[name='nsd']/@ownedRepresentations[name='NodeState%20Diagram']/@defaultLayer/@nodeMappings[name='StateNode']" targetMapping="//@ownedViewpoints[name='nsd']/@ownedRepresentations[name='NodeState%20Diagram']/@defaultLayer/@nodeMappings[name='StateNode']" targetFinderExpression="feature:toState" sourceFinderExpression="feature:fromState" domainClass="states::NodeTransition" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="com.visteon.onoff.states.design.Services"/>
+  </ownedViewpoints>
+</description:Group>
