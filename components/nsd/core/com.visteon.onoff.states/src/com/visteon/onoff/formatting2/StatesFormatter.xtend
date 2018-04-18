@@ -31,6 +31,7 @@ class StatesFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(NodeStateDiagram nsd, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		nsd.regionFor.keyword("NodeStateDiagram").prepend[noSpace]
 		interior(nsd.regionFor.keyword("{"), nsd.regionFor.keyword("}"))[indent]
 		interior(nsd.regionFor.keyword("{"), nsd.regionFor.keyword("}"))[newLine]
 		for (NodeState nodeState : nsd.getStates()) {

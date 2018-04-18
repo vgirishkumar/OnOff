@@ -18,6 +18,7 @@ class CoomFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(ComponentOnOffManifest componentOnOffManifest, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		componentOnOffManifest.regionFor.keyword("Component").prepend[noSpace]
 		interior(componentOnOffManifest.regionFor.keyword("{"), componentOnOffManifest.regionFor.keyword("}"))[indent]
 		interior(componentOnOffManifest.regionFor.keyword("{"), componentOnOffManifest.regionFor.keyword("}"))[newLine]
 
