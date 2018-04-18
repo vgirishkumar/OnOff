@@ -10,21 +10,31 @@ import com.visteon.onoff.coom.Transition
 import com.visteon.onoff.services.CoomGrammarAccess
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
+import com.visteon.onoff.coom.Version
 
 class CoomFormatter extends AbstractFormatter2 {
-	
+
 	@Inject extension CoomGrammarAccess
 
 	def dispatch void format(ComponentOnOffManifest componentOnOffManifest, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		interior(componentOnOffManifest.regionFor.keyword("{"), componentOnOffManifest.regionFor.keyword("}"))[indent]
+		interior(componentOnOffManifest.regionFor.keyword("{"), componentOnOffManifest.regionFor.keyword("}"))[newLine]
+
 		componentOnOffManifest.getVersion.format;
 		for (State state : componentOnOffManifest.getStates()) {
-			state.format;
+			state.format.prepend[newLines = 2];
 		}
 		for (Transition transition : componentOnOffManifest.getTransitions()) {
-			transition.format;
+			transition.format.prepend[newLines = 2];
 		}
 	}
-	
+
 	// TODO: implement for 
+	def dispatch void format(Version ver, extension IFormattableDocument document) {
+		interior(ver.regionFor.keyword("{"), ver.regionFor.keyword("}"))[indent]
+		interior(ver.regionFor.keyword("{"), ver.regionFor.keyword("}"))[newLine]
+
+		ver.regionFor.keyword("minor").prepend[newLine]
+	}
 }
