@@ -61,7 +61,7 @@ public class StatesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFQNAccess().getGroup(), "rule__FQN__Group__0");
 					put(grammarAccess.getFQNAccess().getGroup_1(), "rule__FQN__Group_1__0");
 					put(grammarAccess.getNodeStateConfigurationAccess().getNsdAssignment_0(), "rule__NodeStateConfiguration__NsdAssignment_0");
-					put(grammarAccess.getNodeStateConfigurationAccess().getClientConfigAssignment_1(), "rule__NodeStateConfiguration__ClientConfigAssignment_1");
+					put(grammarAccess.getNodeStateConfigurationAccess().getClientConfigsAssignment_1(), "rule__NodeStateConfiguration__ClientConfigsAssignment_1");
 					put(grammarAccess.getNodeStateDiagramAccess().getGEdgeWeightAssignment_3_1(), "rule__NodeStateDiagram__GEdgeWeightAssignment_3_1");
 					put(grammarAccess.getNodeStateDiagramAccess().getGTransitionTimeoutInMillisecondsAssignment_4_1(), "rule__NodeStateDiagram__GTransitionTimeoutInMillisecondsAssignment_4_1");
 					put(grammarAccess.getNodeStateDiagramAccess().getStatesAssignment_5_0(), "rule__NodeStateDiagram__StatesAssignment_5_0");

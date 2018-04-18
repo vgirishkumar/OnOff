@@ -42,6 +42,9 @@ Workflow {
 			serializer = {
 				generateStub = false
 			}
+			formatter = {
+				generateStub = true
+			}
 			referencedResource = "platform:/resource/com.visteon.onoff.coom/model/generated/Coom.genmodel"
 			validator = {
 				composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"

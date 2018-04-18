@@ -472,9 +472,9 @@ rule__NodeStateConfiguration__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getNodeStateConfigurationAccess().getClientConfigAssignment_1()); }
-	(rule__NodeStateConfiguration__ClientConfigAssignment_1)*
-	{ after(grammarAccess.getNodeStateConfigurationAccess().getClientConfigAssignment_1()); }
+	{ before(grammarAccess.getNodeStateConfigurationAccess().getClientConfigsAssignment_1()); }
+	(rule__NodeStateConfiguration__ClientConfigsAssignment_1)*
+	{ after(grammarAccess.getNodeStateConfigurationAccess().getClientConfigsAssignment_1()); }
 )
 ;
 finally {
@@ -3174,15 +3174,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__NodeStateConfiguration__ClientConfigAssignment_1
+rule__NodeStateConfiguration__ClientConfigsAssignment_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getNodeStateConfigurationAccess().getClientConfigClientConfigurationParserRuleCall_1_0()); }
+		{ before(grammarAccess.getNodeStateConfigurationAccess().getClientConfigsClientConfigurationParserRuleCall_1_0()); }
 		ruleClientConfiguration
-		{ after(grammarAccess.getNodeStateConfigurationAccess().getClientConfigClientConfigurationParserRuleCall_1_0()); }
+		{ after(grammarAccess.getNodeStateConfigurationAccess().getClientConfigsClientConfigurationParserRuleCall_1_0()); }
 	)
 ;
 finally {

@@ -5,7 +5,7 @@ import "http://www.visteon.com/onoff/Coom" as coom
 
 NodeStateConfiguration:
 	nsd=NodeStateDiagram
-	clientConfig+=ClientConfiguration*;
+	clientConfigs+=ClientConfiguration*;
 
 NodeStateDiagram:
 	{NodeStateDiagram}

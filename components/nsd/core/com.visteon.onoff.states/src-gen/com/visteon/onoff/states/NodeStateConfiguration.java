@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.visteon.onoff.states.NodeStateConfiguration#getNsd <em>Nsd</em>}</li>
- *   <li>{@link com.visteon.onoff.states.NodeStateConfiguration#getClientConfig <em>Client Config</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.NodeStateConfiguration#getClientConfigs <em>Client Configs</em>}</li>
  * </ul>
  *
  * @see com.visteon.onoff.states.StatesPackage#getNodeStateConfiguration()
@@ -53,19 +53,19 @@ public interface NodeStateConfiguration extends EObject
   void setNsd(NodeStateDiagram value);
 
   /**
-   * Returns the value of the '<em><b>Client Config</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Client Configs</b></em>' containment reference list.
    * The list contents are of type {@link com.visteon.onoff.states.ClientConfiguration}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Client Config</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Client Configs</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Client Config</em>' containment reference list.
-   * @see com.visteon.onoff.states.StatesPackage#getNodeStateConfiguration_ClientConfig()
+   * @return the value of the '<em>Client Configs</em>' containment reference list.
+   * @see com.visteon.onoff.states.StatesPackage#getNodeStateConfiguration_ClientConfigs()
    * @model containment="true"
    * @generated
    */
-  EList<ClientConfiguration> getClientConfig();
+  EList<ClientConfiguration> getClientConfigs();
 
 } // NodeStateConfiguration

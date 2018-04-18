@@ -26,5 +26,6 @@ Export-Package: com.visteon.onoff.validation,
  com.visteon.onoff.scoping,
  com.visteon.onoff.services,
  com.visteon.onoff,
- com.visteon.onoff.serializer
+ com.visteon.onoff.serializer,
+ com.visteon.onoff.formatting2
 Import-Package: org.apache.log4j

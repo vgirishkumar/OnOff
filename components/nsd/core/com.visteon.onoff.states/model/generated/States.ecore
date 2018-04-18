@@ -4,7 +4,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="NodeStateConfiguration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="nsd" eType="#//NodeStateDiagram"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="clientConfig" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clientConfigs" upperBound="-1"
         eType="#//ClientConfiguration" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NodeStateDiagram">

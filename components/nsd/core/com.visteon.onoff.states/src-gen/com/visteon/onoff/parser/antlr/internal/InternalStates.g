@@ -98,17 +98,17 @@ ruleNodeStateConfiguration returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getNodeStateConfigurationAccess().getClientConfigClientConfigurationParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getNodeStateConfigurationAccess().getClientConfigsClientConfigurationParserRuleCall_1_0());
 				}
-				lv_clientConfig_1_0=ruleClientConfiguration
+				lv_clientConfigs_1_0=ruleClientConfiguration
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getNodeStateConfigurationRule());
 					}
 					add(
 						$current,
-						"clientConfig",
-						lv_clientConfig_1_0,
+						"clientConfigs",
+						lv_clientConfigs_1_0,
 						"com.visteon.onoff.States.ClientConfiguration");
 					afterParserOrEnumRuleCall();
 				}

@@ -134,24 +134,24 @@ public class InternalStatesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNodeStateConfiguration"
-    // InternalStates.g:71:1: ruleNodeStateConfiguration returns [EObject current=null] : ( ( (lv_nsd_0_0= ruleNodeStateDiagram ) ) ( (lv_clientConfig_1_0= ruleClientConfiguration ) )* ) ;
+    // InternalStates.g:71:1: ruleNodeStateConfiguration returns [EObject current=null] : ( ( (lv_nsd_0_0= ruleNodeStateDiagram ) ) ( (lv_clientConfigs_1_0= ruleClientConfiguration ) )* ) ;
     public final EObject ruleNodeStateConfiguration() throws RecognitionException {
         EObject current = null;
 
         EObject lv_nsd_0_0 = null;
 
-        EObject lv_clientConfig_1_0 = null;
+        EObject lv_clientConfigs_1_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalStates.g:77:2: ( ( ( (lv_nsd_0_0= ruleNodeStateDiagram ) ) ( (lv_clientConfig_1_0= ruleClientConfiguration ) )* ) )
-            // InternalStates.g:78:2: ( ( (lv_nsd_0_0= ruleNodeStateDiagram ) ) ( (lv_clientConfig_1_0= ruleClientConfiguration ) )* )
+            // InternalStates.g:77:2: ( ( ( (lv_nsd_0_0= ruleNodeStateDiagram ) ) ( (lv_clientConfigs_1_0= ruleClientConfiguration ) )* ) )
+            // InternalStates.g:78:2: ( ( (lv_nsd_0_0= ruleNodeStateDiagram ) ) ( (lv_clientConfigs_1_0= ruleClientConfiguration ) )* )
             {
-            // InternalStates.g:78:2: ( ( (lv_nsd_0_0= ruleNodeStateDiagram ) ) ( (lv_clientConfig_1_0= ruleClientConfiguration ) )* )
-            // InternalStates.g:79:3: ( (lv_nsd_0_0= ruleNodeStateDiagram ) ) ( (lv_clientConfig_1_0= ruleClientConfiguration ) )*
+            // InternalStates.g:78:2: ( ( (lv_nsd_0_0= ruleNodeStateDiagram ) ) ( (lv_clientConfigs_1_0= ruleClientConfiguration ) )* )
+            // InternalStates.g:79:3: ( (lv_nsd_0_0= ruleNodeStateDiagram ) ) ( (lv_clientConfigs_1_0= ruleClientConfiguration ) )*
             {
             // InternalStates.g:79:3: ( (lv_nsd_0_0= ruleNodeStateDiagram ) )
             // InternalStates.g:80:4: (lv_nsd_0_0= ruleNodeStateDiagram )
@@ -184,7 +184,7 @@ public class InternalStatesParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalStates.g:98:3: ( (lv_clientConfig_1_0= ruleClientConfiguration ) )*
+            // InternalStates.g:98:3: ( (lv_clientConfigs_1_0= ruleClientConfiguration ) )*
             loop1:
             do {
                 int alt1=2;
@@ -197,16 +197,16 @@ public class InternalStatesParser extends AbstractInternalAntlrParser {
 
                 switch (alt1) {
             	case 1 :
-            	    // InternalStates.g:99:4: (lv_clientConfig_1_0= ruleClientConfiguration )
+            	    // InternalStates.g:99:4: (lv_clientConfigs_1_0= ruleClientConfiguration )
             	    {
-            	    // InternalStates.g:99:4: (lv_clientConfig_1_0= ruleClientConfiguration )
-            	    // InternalStates.g:100:5: lv_clientConfig_1_0= ruleClientConfiguration
+            	    // InternalStates.g:99:4: (lv_clientConfigs_1_0= ruleClientConfiguration )
+            	    // InternalStates.g:100:5: lv_clientConfigs_1_0= ruleClientConfiguration
             	    {
 
-            	    					newCompositeNode(grammarAccess.getNodeStateConfigurationAccess().getClientConfigClientConfigurationParserRuleCall_1_0());
+            	    					newCompositeNode(grammarAccess.getNodeStateConfigurationAccess().getClientConfigsClientConfigurationParserRuleCall_1_0());
             	    				
             	    pushFollow(FOLLOW_3);
-            	    lv_clientConfig_1_0=ruleClientConfiguration();
+            	    lv_clientConfigs_1_0=ruleClientConfiguration();
 
             	    state._fsp--;
 
@@ -216,8 +216,8 @@ public class InternalStatesParser extends AbstractInternalAntlrParser {
             	    					}
             	    					add(
             	    						current,
-            	    						"clientConfig",
-            	    						lv_clientConfig_1_0,
+            	    						"clientConfigs",
+            	    						lv_clientConfigs_1_0,
             	    						"com.visteon.onoff.States.ClientConfiguration");
             	    					afterParserOrEnumRuleCall();
             	    				

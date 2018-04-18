@@ -1461,20 +1461,20 @@ public class InternalStatesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NodeStateConfiguration__Group__1__Impl"
-    // InternalStates.g:469:1: rule__NodeStateConfiguration__Group__1__Impl : ( ( rule__NodeStateConfiguration__ClientConfigAssignment_1 )* ) ;
+    // InternalStates.g:469:1: rule__NodeStateConfiguration__Group__1__Impl : ( ( rule__NodeStateConfiguration__ClientConfigsAssignment_1 )* ) ;
     public final void rule__NodeStateConfiguration__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalStates.g:473:1: ( ( ( rule__NodeStateConfiguration__ClientConfigAssignment_1 )* ) )
-            // InternalStates.g:474:1: ( ( rule__NodeStateConfiguration__ClientConfigAssignment_1 )* )
+            // InternalStates.g:473:1: ( ( ( rule__NodeStateConfiguration__ClientConfigsAssignment_1 )* ) )
+            // InternalStates.g:474:1: ( ( rule__NodeStateConfiguration__ClientConfigsAssignment_1 )* )
             {
-            // InternalStates.g:474:1: ( ( rule__NodeStateConfiguration__ClientConfigAssignment_1 )* )
-            // InternalStates.g:475:2: ( rule__NodeStateConfiguration__ClientConfigAssignment_1 )*
+            // InternalStates.g:474:1: ( ( rule__NodeStateConfiguration__ClientConfigsAssignment_1 )* )
+            // InternalStates.g:475:2: ( rule__NodeStateConfiguration__ClientConfigsAssignment_1 )*
             {
-             before(grammarAccess.getNodeStateConfigurationAccess().getClientConfigAssignment_1()); 
-            // InternalStates.g:476:2: ( rule__NodeStateConfiguration__ClientConfigAssignment_1 )*
+             before(grammarAccess.getNodeStateConfigurationAccess().getClientConfigsAssignment_1()); 
+            // InternalStates.g:476:2: ( rule__NodeStateConfiguration__ClientConfigsAssignment_1 )*
             loop3:
             do {
                 int alt3=2;
@@ -1487,10 +1487,10 @@ public class InternalStatesParser extends AbstractInternalContentAssistParser {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalStates.g:476:3: rule__NodeStateConfiguration__ClientConfigAssignment_1
+            	    // InternalStates.g:476:3: rule__NodeStateConfiguration__ClientConfigsAssignment_1
             	    {
             	    pushFollow(FOLLOW_4);
-            	    rule__NodeStateConfiguration__ClientConfigAssignment_1();
+            	    rule__NodeStateConfiguration__ClientConfigsAssignment_1();
 
             	    state._fsp--;
 
@@ -1503,7 +1503,7 @@ public class InternalStatesParser extends AbstractInternalContentAssistParser {
                 }
             } while (true);
 
-             after(grammarAccess.getNodeStateConfigurationAccess().getClientConfigAssignment_1()); 
+             after(grammarAccess.getNodeStateConfigurationAccess().getClientConfigsAssignment_1()); 
 
             }
 
@@ -9775,9 +9775,9 @@ public class InternalStatesParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__NodeStateConfiguration__NsdAssignment_0"
 
 
-    // $ANTLR start "rule__NodeStateConfiguration__ClientConfigAssignment_1"
-    // InternalStates.g:3177:1: rule__NodeStateConfiguration__ClientConfigAssignment_1 : ( ruleClientConfiguration ) ;
-    public final void rule__NodeStateConfiguration__ClientConfigAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__NodeStateConfiguration__ClientConfigsAssignment_1"
+    // InternalStates.g:3177:1: rule__NodeStateConfiguration__ClientConfigsAssignment_1 : ( ruleClientConfiguration ) ;
+    public final void rule__NodeStateConfiguration__ClientConfigsAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -9788,13 +9788,13 @@ public class InternalStatesParser extends AbstractInternalContentAssistParser {
             // InternalStates.g:3182:2: ( ruleClientConfiguration )
             // InternalStates.g:3183:3: ruleClientConfiguration
             {
-             before(grammarAccess.getNodeStateConfigurationAccess().getClientConfigClientConfigurationParserRuleCall_1_0()); 
+             before(grammarAccess.getNodeStateConfigurationAccess().getClientConfigsClientConfigurationParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
             ruleClientConfiguration();
 
             state._fsp--;
 
-             after(grammarAccess.getNodeStateConfigurationAccess().getClientConfigClientConfigurationParserRuleCall_1_0()); 
+             after(grammarAccess.getNodeStateConfigurationAccess().getClientConfigsClientConfigurationParserRuleCall_1_0()); 
 
             }
 
@@ -9813,7 +9813,7 @@ public class InternalStatesParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__NodeStateConfiguration__ClientConfigAssignment_1"
+    // $ANTLR end "rule__NodeStateConfiguration__ClientConfigsAssignment_1"
 
 
     // $ANTLR start "rule__NodeStateDiagram__GEdgeWeightAssignment_3_1"

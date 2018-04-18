@@ -77,13 +77,13 @@ public interface StatesPackage extends EPackage
   int NODE_STATE_CONFIGURATION__NSD = 0;
 
   /**
-   * The feature id for the '<em><b>Client Config</b></em>' containment reference list.
+   * The feature id for the '<em><b>Client Configs</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NODE_STATE_CONFIGURATION__CLIENT_CONFIG = 1;
+  int NODE_STATE_CONFIGURATION__CLIENT_CONFIGS = 1;
 
   /**
    * The number of structural features of the '<em>Node State Configuration</em>' class.
@@ -650,15 +650,15 @@ public interface StatesPackage extends EPackage
   EReference getNodeStateConfiguration_Nsd();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.visteon.onoff.states.NodeStateConfiguration#getClientConfig <em>Client Config</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.visteon.onoff.states.NodeStateConfiguration#getClientConfigs <em>Client Configs</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Client Config</em>'.
-   * @see com.visteon.onoff.states.NodeStateConfiguration#getClientConfig()
+   * @return the meta object for the containment reference list '<em>Client Configs</em>'.
+   * @see com.visteon.onoff.states.NodeStateConfiguration#getClientConfigs()
    * @see #getNodeStateConfiguration()
    * @generated
    */
-  EReference getNodeStateConfiguration_ClientConfig();
+  EReference getNodeStateConfiguration_ClientConfigs();
 
   /**
    * Returns the meta object for class '{@link com.visteon.onoff.states.NodeStateDiagram <em>Node State Diagram</em>}'.
@@ -1208,12 +1208,12 @@ public interface StatesPackage extends EPackage
     EReference NODE_STATE_CONFIGURATION__NSD = eINSTANCE.getNodeStateConfiguration_Nsd();
 
     /**
-     * The meta object literal for the '<em><b>Client Config</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Client Configs</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference NODE_STATE_CONFIGURATION__CLIENT_CONFIG = eINSTANCE.getNodeStateConfiguration_ClientConfig();
+    EReference NODE_STATE_CONFIGURATION__CLIENT_CONFIGS = eINSTANCE.getNodeStateConfiguration_ClientConfigs();
 
     /**
      * The meta object literal for the '{@link com.visteon.onoff.states.impl.NodeStateDiagramImpl <em>Node State Diagram</em>}' class.

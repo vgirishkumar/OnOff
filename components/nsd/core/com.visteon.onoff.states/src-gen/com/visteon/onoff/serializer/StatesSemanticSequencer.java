@@ -170,7 +170,7 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     NodeStateConfiguration returns NodeStateConfiguration
 	 *
 	 * Constraint:
-	 *     (nsd=NodeStateDiagram clientConfig+=ClientConfiguration*)
+	 *     (nsd=NodeStateDiagram clientConfigs+=ClientConfiguration*)
 	 */
 	protected void sequence_NodeStateConfiguration(ISerializationContext context, NodeStateConfiguration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

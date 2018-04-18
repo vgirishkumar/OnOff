@@ -210,7 +210,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getNodeStateConfiguration_ClientConfig()
+  public EReference getNodeStateConfiguration_ClientConfigs()
   {
     return (EReference)nodeStateConfigurationEClass.getEStructuralFeatures().get(1);
   }
@@ -717,7 +717,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
     // Create classes and their features
     nodeStateConfigurationEClass = createEClass(NODE_STATE_CONFIGURATION);
     createEReference(nodeStateConfigurationEClass, NODE_STATE_CONFIGURATION__NSD);
-    createEReference(nodeStateConfigurationEClass, NODE_STATE_CONFIGURATION__CLIENT_CONFIG);
+    createEReference(nodeStateConfigurationEClass, NODE_STATE_CONFIGURATION__CLIENT_CONFIGS);
 
     nodeStateDiagramEClass = createEClass(NODE_STATE_DIAGRAM);
     createEAttribute(nodeStateDiagramEClass, NODE_STATE_DIAGRAM__GEDGE_WEIGHT);
@@ -814,7 +814,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
     // Initialize classes and features; add operations and parameters
     initEClass(nodeStateConfigurationEClass, NodeStateConfiguration.class, "NodeStateConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNodeStateConfiguration_Nsd(), this.getNodeStateDiagram(), null, "nsd", null, 0, 1, NodeStateConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getNodeStateConfiguration_ClientConfig(), this.getClientConfiguration(), null, "clientConfig", null, 0, -1, NodeStateConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNodeStateConfiguration_ClientConfigs(), this.getClientConfiguration(), null, "clientConfigs", null, 0, -1, NodeStateConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(nodeStateDiagramEClass, NodeStateDiagram.class, "NodeStateDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNodeStateDiagram_GEdgeWeight(), ecorePackage.getEInt(), "gEdgeWeight", null, 0, 1, NodeStateDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

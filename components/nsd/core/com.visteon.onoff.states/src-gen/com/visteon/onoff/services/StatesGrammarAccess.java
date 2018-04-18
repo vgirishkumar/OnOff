@@ -30,15 +30,15 @@ public class StatesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNsdAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cNsdNodeStateDiagramParserRuleCall_0_0 = (RuleCall)cNsdAssignment_0.eContents().get(0);
-		private final Assignment cClientConfigAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cClientConfigClientConfigurationParserRuleCall_1_0 = (RuleCall)cClientConfigAssignment_1.eContents().get(0);
+		private final Assignment cClientConfigsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cClientConfigsClientConfigurationParserRuleCall_1_0 = (RuleCall)cClientConfigsAssignment_1.eContents().get(0);
 		
 		//NodeStateConfiguration:
 		//	nsd=NodeStateDiagram
-		//	clientConfig+=ClientConfiguration*;
+		//	clientConfigs+=ClientConfiguration*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//nsd=NodeStateDiagram clientConfig+=ClientConfiguration*
+		//nsd=NodeStateDiagram clientConfigs+=ClientConfiguration*
 		public Group getGroup() { return cGroup; }
 		
 		//nsd=NodeStateDiagram
@@ -47,11 +47,11 @@ public class StatesGrammarAccess extends AbstractGrammarElementFinder {
 		//NodeStateDiagram
 		public RuleCall getNsdNodeStateDiagramParserRuleCall_0_0() { return cNsdNodeStateDiagramParserRuleCall_0_0; }
 		
-		//clientConfig+=ClientConfiguration*
-		public Assignment getClientConfigAssignment_1() { return cClientConfigAssignment_1; }
+		//clientConfigs+=ClientConfiguration*
+		public Assignment getClientConfigsAssignment_1() { return cClientConfigsAssignment_1; }
 		
 		//ClientConfiguration
-		public RuleCall getClientConfigClientConfigurationParserRuleCall_1_0() { return cClientConfigClientConfigurationParserRuleCall_1_0; }
+		public RuleCall getClientConfigsClientConfigurationParserRuleCall_1_0() { return cClientConfigsClientConfigurationParserRuleCall_1_0; }
 	}
 	public class NodeStateDiagramElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.visteon.onoff.States.NodeStateDiagram");
@@ -922,7 +922,7 @@ public class StatesGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//NodeStateConfiguration:
 	//	nsd=NodeStateDiagram
-	//	clientConfig+=ClientConfiguration*;
+	//	clientConfigs+=ClientConfiguration*;
 	public NodeStateConfigurationElements getNodeStateConfigurationAccess() {
 		return pNodeStateConfiguration;
 	}

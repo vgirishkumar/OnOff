@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.visteon.onoff.states.impl.NodeStateConfigurationImpl#getNsd <em>Nsd</em>}</li>
- *   <li>{@link com.visteon.onoff.states.impl.NodeStateConfigurationImpl#getClientConfig <em>Client Config</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.impl.NodeStateConfigurationImpl#getClientConfigs <em>Client Configs</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,14 +51,14 @@ public class NodeStateConfigurationImpl extends MinimalEObjectImpl.Container imp
   protected NodeStateDiagram nsd;
 
   /**
-   * The cached value of the '{@link #getClientConfig() <em>Client Config</em>}' containment reference list.
+   * The cached value of the '{@link #getClientConfigs() <em>Client Configs</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getClientConfig()
+   * @see #getClientConfigs()
    * @generated
    * @ordered
    */
-  protected EList<ClientConfiguration> clientConfig;
+  protected EList<ClientConfiguration> clientConfigs;
 
   /**
    * <!-- begin-user-doc -->
@@ -134,13 +134,13 @@ public class NodeStateConfigurationImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ClientConfiguration> getClientConfig()
+  public EList<ClientConfiguration> getClientConfigs()
   {
-    if (clientConfig == null)
+    if (clientConfigs == null)
     {
-      clientConfig = new EObjectContainmentEList<ClientConfiguration>(ClientConfiguration.class, this, StatesPackage.NODE_STATE_CONFIGURATION__CLIENT_CONFIG);
+      clientConfigs = new EObjectContainmentEList<ClientConfiguration>(ClientConfiguration.class, this, StatesPackage.NODE_STATE_CONFIGURATION__CLIENT_CONFIGS);
     }
-    return clientConfig;
+    return clientConfigs;
   }
 
   /**
@@ -155,8 +155,8 @@ public class NodeStateConfigurationImpl extends MinimalEObjectImpl.Container imp
     {
       case StatesPackage.NODE_STATE_CONFIGURATION__NSD:
         return basicSetNsd(null, msgs);
-      case StatesPackage.NODE_STATE_CONFIGURATION__CLIENT_CONFIG:
-        return ((InternalEList<?>)getClientConfig()).basicRemove(otherEnd, msgs);
+      case StatesPackage.NODE_STATE_CONFIGURATION__CLIENT_CONFIGS:
+        return ((InternalEList<?>)getClientConfigs()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -173,8 +173,8 @@ public class NodeStateConfigurationImpl extends MinimalEObjectImpl.Container imp
     {
       case StatesPackage.NODE_STATE_CONFIGURATION__NSD:
         return getNsd();
-      case StatesPackage.NODE_STATE_CONFIGURATION__CLIENT_CONFIG:
-        return getClientConfig();
+      case StatesPackage.NODE_STATE_CONFIGURATION__CLIENT_CONFIGS:
+        return getClientConfigs();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -193,9 +193,9 @@ public class NodeStateConfigurationImpl extends MinimalEObjectImpl.Container imp
       case StatesPackage.NODE_STATE_CONFIGURATION__NSD:
         setNsd((NodeStateDiagram)newValue);
         return;
-      case StatesPackage.NODE_STATE_CONFIGURATION__CLIENT_CONFIG:
-        getClientConfig().clear();
-        getClientConfig().addAll((Collection<? extends ClientConfiguration>)newValue);
+      case StatesPackage.NODE_STATE_CONFIGURATION__CLIENT_CONFIGS:
+        getClientConfigs().clear();
+        getClientConfigs().addAll((Collection<? extends ClientConfiguration>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -214,8 +214,8 @@ public class NodeStateConfigurationImpl extends MinimalEObjectImpl.Container imp
       case StatesPackage.NODE_STATE_CONFIGURATION__NSD:
         setNsd((NodeStateDiagram)null);
         return;
-      case StatesPackage.NODE_STATE_CONFIGURATION__CLIENT_CONFIG:
-        getClientConfig().clear();
+      case StatesPackage.NODE_STATE_CONFIGURATION__CLIENT_CONFIGS:
+        getClientConfigs().clear();
         return;
     }
     super.eUnset(featureID);
@@ -233,8 +233,8 @@ public class NodeStateConfigurationImpl extends MinimalEObjectImpl.Container imp
     {
       case StatesPackage.NODE_STATE_CONFIGURATION__NSD:
         return nsd != null;
-      case StatesPackage.NODE_STATE_CONFIGURATION__CLIENT_CONFIG:
-        return clientConfig != null && !clientConfig.isEmpty();
+      case StatesPackage.NODE_STATE_CONFIGURATION__CLIENT_CONFIGS:
+        return clientConfigs != null && !clientConfigs.isEmpty();
     }
     return super.eIsSet(featureID);
   }

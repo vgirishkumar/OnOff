@@ -7,10 +7,10 @@ import com.google.inject.Inject
 import com.visteon.onoff.coom.ComponentOnOffManifest
 import com.visteon.onoff.coom.State
 import com.visteon.onoff.coom.Transition
+import com.visteon.onoff.coom.Version
 import com.visteon.onoff.services.CoomGrammarAccess
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
-import com.visteon.onoff.coom.Version
 
 class CoomFormatter extends AbstractFormatter2 {
 
