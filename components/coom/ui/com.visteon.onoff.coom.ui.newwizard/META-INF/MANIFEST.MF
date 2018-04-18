@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: New Coom Wizard
+Bundle-SymbolicName: com.visteon.onoff.coom.ui.newwizard;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: VISTEON
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.ui.ide,
+ org.eclipse.xtext,
+ com.visteon.onoff.coom,
+ org.eclipse.jface,
+ org.eclipse.core.resources,
+ org.eclipse.core.runtime
