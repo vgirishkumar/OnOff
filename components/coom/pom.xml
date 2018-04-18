@@ -16,6 +16,7 @@
         <module>core/com.visteon.onoff.coom</module>
         <module>ui/com.visteon.onoff.coom.ide</module>
         <module>ui/com.visteon.onoff.coom.ui</module>
+        <module>ui/com.visteon.onoff.coom.ui.newwizard</module>
         <module>ui/com.visteon.onoff.coom.design</module>
         <module>tests/com.visteon.onoff.coom.tests</module>
         <module>tests/com.visteon.onoff.coom.ui.tests</module>
