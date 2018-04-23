@@ -4,8 +4,13 @@
 package com.visteon.onoff.ui.labeling
 
 import com.google.inject.Inject
+import com.visteon.onoff.states.ClientConfiguration
+import com.visteon.onoff.states.NodeState
+import com.visteon.onoff.states.NodeStateDiagram
+import com.visteon.onoff.states.NodeTransition
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
+import com.visteon.onoff.states.ComponentFeature
 
 /**
  * Provides labels for EObjects.
@@ -19,13 +24,30 @@ class StatesLabelProvider extends DefaultEObjectLabelProvider {
 		super(delegate);
 	}
 
-	// Labels and icons can be computed like this:
-	
-//	def text(Greeting ele) {
-//		'A greeting to ' + ele.name
-//	}
-//
-//	def image(Greeting ele) {
-//		'Greeting.gif'
-//	}
+	def image(ClientConfiguration cc) {
+		'ClientConfiguration.png'
+	}
+
+	def image(NodeStateDiagram nsd) {
+		'NodeStateDiagram.png'
+	}
+
+	def image(NodeState ns) {
+		if (ns.isInitial)
+			'Start_State.png'
+		else
+			'State.ico'
+	}
+
+	def image(NodeTransition ele) {
+		'Transition.png'
+	}
+
+	def image(ComponentFeature cf) {
+		'Feature.jpg'
+	}
+
+	def text(NodeStateDiagram nsd) {
+		'Node State Diagram'
+	}
 }

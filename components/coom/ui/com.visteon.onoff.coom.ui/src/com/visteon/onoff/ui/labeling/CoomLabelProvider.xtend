@@ -22,23 +22,18 @@ class CoomLabelProvider extends DefaultEObjectLabelProvider {
 		super(delegate);
 	}
 
-	// Labels and icons can be computed like this:
-//	def text(Greeting ele) {
-//		'A greeting to ' + ele.name
-//	}
-//
 	def image(ComponentOnOffManifest ele) {
-		'component.png'
+		'Component.png'
 	}
 
 	def image(State ele) {
 		if (ele.isInitial)
-			'start_state.png'
+			'Start_State.png'
 		else
-			'state.ico'
+			'State.ico'
 	}
 
 	def image(Transition ele) {
-		'transition.png'
+		'Transition.png'
 	}
 }
