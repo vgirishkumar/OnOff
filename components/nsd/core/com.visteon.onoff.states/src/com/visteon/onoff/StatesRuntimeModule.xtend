@@ -4,6 +4,7 @@
 package com.visteon.onoff
 
 import com.visteon.onoff.naming.StatesQualifiedNameProvider
+import com.visteon.onoff.resource.strategy.StatesResourceDescriptionStrategy
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
@@ -11,6 +12,10 @@ import com.visteon.onoff.naming.StatesQualifiedNameProvider
 class StatesRuntimeModule extends AbstractStatesRuntimeModule {
 
 	override bindIQualifiedNameProvider() {
-		return StatesQualifiedNameProvider
+		StatesQualifiedNameProvider
+	}
+
+	def bindIDefaultResourceDescriptionStrategy() {
+		StatesResourceDescriptionStrategy
 	}
 }
