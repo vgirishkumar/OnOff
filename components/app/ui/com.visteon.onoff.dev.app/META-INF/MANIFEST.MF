@@ -9,3 +9,4 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.ide.application
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
+Bundle-Vendor: Visteon
