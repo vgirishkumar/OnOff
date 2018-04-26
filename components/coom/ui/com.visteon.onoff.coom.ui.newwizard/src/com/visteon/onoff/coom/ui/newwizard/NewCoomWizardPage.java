@@ -1,32 +1,25 @@
 package com.visteon.onoff.coom.ui.newwizard;
 
-import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Text;
 
 import com.google.common.base.Strings;
 
-public class NewCoomWizardPage extends WizardPage implements Listener {
+public class NewCoomWizardPage extends AbstractValidationWizardPage {
 
 	private Text compName_text;
 	private Text majorVersion_text;
 	private Text minorVersion_text;
 
-	protected NewCoomWizardPage(String pageName) {
-		super(pageName);
-		setDescription("Creates a new Component OnOff Manifest");
+	protected NewCoomWizardPage() {
+		super("New Component OnOff Manifest", "Creates a new Component OnOff Manifest");
 	}
 
-	@Override
-	public void createControl(Composite parent) {
-		Composite container = new Composite(parent, SWT.NULL);
-		setControl(container);
+	protected void createUI(Composite container) {
 		GridLayout gl_container = new GridLayout(2, false);
 		gl_container.horizontalSpacing = 10;
 		gl_container.verticalSpacing = 10;
@@ -53,19 +46,6 @@ public class NewCoomWizardPage extends WizardPage implements Listener {
 		minorVersion_text = new Text(container, SWT.BORDER);
 		minorVersion_text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		minorVersion_text.addListener(SWT.Modify, this);
-		setPageComplete(validate());
-	}
-
-	public String getComponentName() {
-		return compName_text.getText();
-	}
-
-	public int getMajorVersion() {
-		return Integer.parseInt(majorVersion_text.getText());
-	}
-
-	public int getMinorVersion() {
-		return Integer.parseInt(minorVersion_text.getText());
 	}
 
 	protected boolean validate() {
@@ -99,9 +79,16 @@ public class NewCoomWizardPage extends WizardPage implements Listener {
 		return true;
 	}
 
-	@Override
-	public void handleEvent(Event arg0) {
-		setPageComplete(validate());
+	public String getComponentName() {
+		return compName_text.getText();
+	}
+
+	public int getMajorVersion() {
+		return Integer.parseInt(majorVersion_text.getText());
+	}
+
+	public int getMinorVersion() {
+		return Integer.parseInt(minorVersion_text.getText());
 	}
 
 	public static boolean isPositiveInteger(String input) {
@@ -110,7 +97,8 @@ public class NewCoomWizardPage extends WizardPage implements Listener {
 			if (parseInt >= 0)
 				return true;
 		} catch (Exception e) {
-			// Duck this
+			// Duck this Exception, as I want only boolean value here, which means its not
+			// positive int here
 		}
 		return false;
 	}

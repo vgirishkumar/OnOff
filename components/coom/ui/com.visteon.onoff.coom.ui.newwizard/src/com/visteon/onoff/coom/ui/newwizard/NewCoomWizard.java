@@ -34,7 +34,7 @@ public class NewCoomWizard extends BasicNewResourceWizard {
 	@Override
 	public void addPages() {
 		super.addPages();
-		newCoomWizardPage = new NewCoomWizardPage("New Component OnOff Manifest");
+		newCoomWizardPage = new NewCoomWizardPage();
 		addPage(newCoomWizardPage);
 	}
 
