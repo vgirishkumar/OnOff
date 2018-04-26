@@ -58,9 +58,9 @@ class StatesGenerator extends AbstractGenerator {
 					const char* nodeStateStrings[NodeState_Last] = {
 						"Invalid",
 						"Init",
-						«FOR state : states SEPARATOR ','»
-							"«state.name»"
-						«ENDFOR»
+						Â«FOR state : states SEPARATOR ','Â»
+							"Â«state.nameÂ»"
+						Â«ENDFORÂ»
 					};
 					
 				} // namespace TestProject
@@ -71,9 +71,9 @@ class StatesGenerator extends AbstractGenerator {
 					{
 						case TestProject::NodeState_Invalid : return TestProject::nodeStateStrings[0];
 						case TestProject::NodeState_Init : return TestProject::nodeStateStrings[1];
-						«FOR state : nsd.states»
-							case TestProject:: NodeState_«state.name» : return TestProject::nodeStateStrings[«nsd.states.indexOf(state) + 2»];
-						«ENDFOR»
+						Â«FOR state : nsd.statesÂ»
+							case TestProject:: NodeState_Â«state.nameÂ» : return TestProject::nodeStateStrings[Â«nsd.states.indexOf(state) + 2Â»];
+						Â«ENDFORÂ»
 						default: return TestProject::nodeStateStrings[0];
 					}
 				}
@@ -111,9 +111,9 @@ class StatesGenerator extends AbstractGenerator {
 				enum NodeState
 				{
 				    NodeState_Invalid = 0,
-				    «FOR state : nsd.states»
-				    	NodeState_«state.name»,
-				    «ENDFOR»
+				    Â«FOR state : nsd.statesÂ»
+				    	NodeState_Â«state.nameÂ»,
+				    Â«ENDFORÂ»
 				    NodeState_Last	//Guard element
 				};
 			} // namespace TestProject
