@@ -9,4 +9,8 @@ Require-Bundle: org.eclipse.xtext,
  com.visteon.onoff.coom,
  com.visteon.onoff.workbench.ui,
  org.eclipse.ui.ide,
- org.eclipse.jface
+ org.eclipse.jface,
+ org.apache.commons.lang,
+ org.eclipse.osgi,
+ org.eclipse.equinox.registry,
+ org.eclipse.core.runtime

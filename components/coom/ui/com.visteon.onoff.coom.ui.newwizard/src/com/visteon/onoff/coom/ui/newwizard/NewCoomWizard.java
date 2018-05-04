@@ -34,6 +34,7 @@ public class NewCoomWizard extends AbstractOnOffModelCreationWizard {
 		version.setMinorValue(newCoomWizardPage.getMinorVersion());
 
 		coom.setVersion(version);
+		newCoomWizardPage.getStates().forEach(state -> coom.getStates().add(state));
 		return coom;
 	}
 
