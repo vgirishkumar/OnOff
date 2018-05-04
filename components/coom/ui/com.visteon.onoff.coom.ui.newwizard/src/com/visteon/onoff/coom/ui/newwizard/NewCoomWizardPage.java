@@ -8,6 +8,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
 import com.google.common.base.Strings;
+import com.visteon.onoff.workbench.ui.AbstractValidationWizardPage;
 
 public class NewCoomWizardPage extends AbstractValidationWizardPage {
 

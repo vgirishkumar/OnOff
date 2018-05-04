@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ui
+Bundle-SymbolicName: com.visteon.onoff.workbench.ui
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: VISTEON
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.jface,
+ org.eclipse.ui.ide,
+ org.eclipse.xtext,
+ org.eclipse.core.resources,
+ org.eclipse.core.runtime
+Export-Package: com.visteon.onoff.workbench.ui

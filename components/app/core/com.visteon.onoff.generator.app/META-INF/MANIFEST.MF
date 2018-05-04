@@ -5,9 +5,8 @@ Bundle-SymbolicName: com.visteon.onoff.generator.app;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Visteon
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: org.eclipse.equinox.app,
- org.eclipse.core.runtime,
+Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources,
  com.visteon.onoff.states,
  com.visteon.onoff.coom,
- org.eclipse.xtext;bundle-version="2.13.0"
+ org.eclipse.xtext

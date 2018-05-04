@@ -4,17 +4,16 @@
     
     <parent>
         <groupId>com.visteon.onoff.tycho</groupId>
-        <artifactId>com.visteon.onoff.tycho.root</artifactId>
+        <artifactId>components</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     
-    <artifactId>components</artifactId>
+    <artifactId>workbench</artifactId>
     <packaging>pom</packaging>
     
     <modules>
-        <module>app</module>
-        <module>coom</module>
-        <module>nsd</module>
-        <module>workbench</module>
+        <!-- Build *.ui and *.tests here, BEFORE features/* -->
+        <module>ui/com.visteon.onoff.workbench.ui</module>
+        <module>features/com.visteon.onoff.workbench.ui.feature</module>
     </modules>
 </project>

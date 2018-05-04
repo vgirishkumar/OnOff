@@ -134,6 +134,7 @@
       <feature id="com.visteon.onoff.nsd.ui.feature"/>
       <feature id="com.visteon.onoff.app.core.feature"/>
       <feature id="com.visteon.onoff.app.ui.feature"/>
+      <feature id="com.visteon.onoff.workbench.ui.feature"/>
 	  <feature id="org.eclipse.sirius.runtime"/>
 	  <feature id="org.eclipse.sirius.runtime.ide.ui"/>
 	  <feature id="org.eclipse.sirius.runtime.ide.xtext" />
