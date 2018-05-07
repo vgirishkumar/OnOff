@@ -6,9 +6,12 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.CellEditor;
+import org.eclipse.jface.viewers.CheckStateChangedEvent;
 import org.eclipse.jface.viewers.CheckboxTableViewer;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.EditingSupport;
+import org.eclipse.jface.viewers.ICheckStateListener;
+import org.eclipse.jface.viewers.ICheckStateProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewerColumn;
@@ -31,6 +34,7 @@ import com.google.common.base.Strings;
 import com.visteon.onoff.coom.CoomFactory;
 import com.visteon.onoff.coom.State;
 import com.visteon.onoff.workbench.ui.AbstractValidationWizardPage;
+import org.eclipse.swt.widgets.Control;
 
 public class NewCoomWizardPage extends AbstractValidationWizardPage {
 
@@ -84,6 +88,30 @@ public class NewCoomWizardPage extends AbstractValidationWizardPage {
 		table.setHeaderVisible(true);
 		table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 
+		checkboxTableViewer.setCheckStateProvider(new ICheckStateProvider() {
+
+			@Override
+			public boolean isGrayed(Object element) {
+				return false;
+			}
+
+			@Override
+			public boolean isChecked(Object element) {
+				if (element instanceof State) {
+					return ((State) element).isInitial();
+				}
+				return false;
+			}
+		});
+		checkboxTableViewer.addCheckStateListener(new ICheckStateListener() {
+
+			@Override
+			public void checkStateChanged(CheckStateChangedEvent event) {
+				State element = (State) event.getElement();
+				element.setInitial(event.getChecked());
+
+			}
+		});
 		TableViewerColumn tableViewerColumn_1 = new TableViewerColumn(checkboxTableViewer, SWT.NONE);
 		TableColumn tblclmnInitial = tableViewerColumn_1.getColumn();
 		tblclmnInitial.setWidth(100);
@@ -143,7 +171,7 @@ public class NewCoomWizardPage extends AbstractValidationWizardPage {
 			public void mouseUp(MouseEvent e) {
 				State createState = CoomFactory.eINSTANCE.createState();
 				createState.setInitial(false);
-				createState.setName("State");
+				createState.setName("state");
 				states.add(createState);
 
 				checkboxTableViewer.refresh();
@@ -153,6 +181,9 @@ public class NewCoomWizardPage extends AbstractValidationWizardPage {
 		Button btnNewButton_1 = new Button(composite_1, SWT.NONE);
 		btnNewButton_1
 				.setImage(ResourceManager.getPluginImage("com.visteon.onoff.coom.ui.newwizard", "icons/Remove.png"));
+		composite_1.setTabList(new Control[]{btnNewButton, btnNewButton_1});
+		composite.setTabList(new Control[]{composite_1});
+		container.setTabList(new Control[]{compName_text, majorVersion_text, minorVersion_text, composite});
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseUp(MouseEvent e) {
