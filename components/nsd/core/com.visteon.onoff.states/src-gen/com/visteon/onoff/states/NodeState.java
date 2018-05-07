@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.visteon.onoff.states.NodeState#isInitial <em>Initial</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.NodeState#isExit <em>Exit</em>}</li>
  *   <li>{@link com.visteon.onoff.states.NodeState#getName <em>Name</em>}</li>
  * </ul>
  *
@@ -49,6 +50,32 @@ public interface NodeState extends EObject
    * @generated
    */
   void setInitial(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Exit</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Exit</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Exit</em>' attribute.
+   * @see #setExit(boolean)
+   * @see com.visteon.onoff.states.StatesPackage#getNodeState_Exit()
+   * @model
+   * @generated
+   */
+  boolean isExit();
+
+  /**
+   * Sets the value of the '{@link com.visteon.onoff.states.NodeState#isExit <em>Exit</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Exit</em>' attribute.
+   * @see #isExit()
+   * @generated
+   */
+  void setExit(boolean value);
 
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

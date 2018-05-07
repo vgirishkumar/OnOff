@@ -17,7 +17,7 @@ NodeStateDiagram:
 	'}';
 
 NodeState:
-	(initial?='initial')? 'State' name=ID;
+	(initial?='initial' | exit?='exit')? 'State' name=ID;
 
 NodeTransition:
 	(essential?='essential')? 'Transition' name=ID ':' fromState=[NodeState] '->' toState=[NodeState]
@@ -63,7 +63,11 @@ FeatureDependency:
 	'depends on features' features+=[ComponentFeature|FQN] (',' features+=[ComponentFeature|FQN])*;
 
 NodeStateAssociation:
-	'for' clientState=[coom::State|FQN] 'set system-states' states+=[NodeState] (',' states+=[NodeState])*;
+	nodeStateType=NodeStateType clientState=[coom::State|FQN] 'set system-states' states+=[NodeState] (','
+	states+=[NodeState])*;
+
+enum NodeStateType:
+	NormalState="forState" | SyncState="syncState" | ReqState="reqState";
 
 ComponentFeature:
 	'Feature' name=ID

@@ -10,6 +10,8 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.CrossReference;
+import org.eclipse.xtext.EnumLiteralDeclaration;
+import org.eclipse.xtext.EnumRule;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -19,6 +21,7 @@ import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
 import org.eclipse.xtext.UnorderedGroup;
 import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
+import org.eclipse.xtext.service.AbstractElementFinder.AbstractEnumRuleElementFinder;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
 
@@ -139,24 +142,36 @@ public class StatesGrammarAccess extends AbstractGrammarElementFinder {
 	public class NodeStateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.visteon.onoff.States.NodeState");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cInitialAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cInitialInitialKeyword_0_0 = (Keyword)cInitialAssignment_0.eContents().get(0);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Assignment cInitialAssignment_0_0 = (Assignment)cAlternatives_0.eContents().get(0);
+		private final Keyword cInitialInitialKeyword_0_0_0 = (Keyword)cInitialAssignment_0_0.eContents().get(0);
+		private final Assignment cExitAssignment_0_1 = (Assignment)cAlternatives_0.eContents().get(1);
+		private final Keyword cExitExitKeyword_0_1_0 = (Keyword)cExitAssignment_0_1.eContents().get(0);
 		private final Keyword cStateKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		
 		//NodeState:
-		//	initial?='initial'? 'State' name=ID;
+		//	(initial?='initial' | exit?='exit')? 'State' name=ID;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//initial?='initial'? 'State' name=ID
+		//(initial?='initial' | exit?='exit')? 'State' name=ID
 		public Group getGroup() { return cGroup; }
 		
-		//initial?='initial'?
-		public Assignment getInitialAssignment_0() { return cInitialAssignment_0; }
+		//(initial?='initial' | exit?='exit')?
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		
+		//initial?='initial'
+		public Assignment getInitialAssignment_0_0() { return cInitialAssignment_0_0; }
 		
 		//'initial'
-		public Keyword getInitialInitialKeyword_0_0() { return cInitialInitialKeyword_0_0; }
+		public Keyword getInitialInitialKeyword_0_0_0() { return cInitialInitialKeyword_0_0_0; }
+		
+		//exit?='exit'
+		public Assignment getExitAssignment_0_1() { return cExitAssignment_0_1; }
+		
+		//'exit'
+		public Keyword getExitExitKeyword_0_1_0() { return cExitExitKeyword_0_1_0; }
 		
 		//'State'
 		public Keyword getStateKeyword_1() { return cStateKeyword_1; }
@@ -696,7 +711,8 @@ public class StatesGrammarAccess extends AbstractGrammarElementFinder {
 	public class NodeStateAssociationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.visteon.onoff.States.NodeStateAssociation");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cForKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNodeStateTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNodeStateTypeNodeStateTypeEnumRuleCall_0_0 = (RuleCall)cNodeStateTypeAssignment_0.eContents().get(0);
 		private final Assignment cClientStateAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final CrossReference cClientStateStateCrossReference_1_0 = (CrossReference)cClientStateAssignment_1.eContents().get(0);
 		private final RuleCall cClientStateStateFQNParserRuleCall_1_0_1 = (RuleCall)cClientStateStateCrossReference_1_0.eContents().get(1);
@@ -711,14 +727,19 @@ public class StatesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cStatesNodeStateIDTerminalRuleCall_4_1_0_1 = (RuleCall)cStatesNodeStateCrossReference_4_1_0.eContents().get(1);
 		
 		//NodeStateAssociation:
-		//	'for' clientState=[coom::State|FQN] 'set system-states' states+=[NodeState] (',' states+=[NodeState])*;
+		//	nodeStateType=NodeStateType clientState=[coom::State|FQN] 'set system-states' states+=[NodeState] (','
+		//	states+=[NodeState])*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'for' clientState=[coom::State|FQN] 'set system-states' states+=[NodeState] (',' states+=[NodeState])*
+		//nodeStateType=NodeStateType clientState=[coom::State|FQN] 'set system-states' states+=[NodeState] (','
+		//states+=[NodeState])*
 		public Group getGroup() { return cGroup; }
 		
-		//'for'
-		public Keyword getForKeyword_0() { return cForKeyword_0; }
+		//nodeStateType=NodeStateType
+		public Assignment getNodeStateTypeAssignment_0() { return cNodeStateTypeAssignment_0; }
+		
+		//NodeStateType
+		public RuleCall getNodeStateTypeNodeStateTypeEnumRuleCall_0_0() { return cNodeStateTypeNodeStateTypeEnumRuleCall_0_0; }
 		
 		//clientState=[coom::State|FQN]
 		public Assignment getClientStateAssignment_1() { return cClientStateAssignment_1; }
@@ -854,6 +875,41 @@ public class StatesGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
 	}
 	
+	public class NodeStateTypeElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.visteon.onoff.States.NodeStateType");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cNormalStateEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cNormalStateForStateKeyword_0_0 = (Keyword)cNormalStateEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cSyncStateEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cSyncStateSyncStateKeyword_1_0 = (Keyword)cSyncStateEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cReqStateEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cReqStateReqStateKeyword_2_0 = (Keyword)cReqStateEnumLiteralDeclaration_2.eContents().get(0);
+		
+		//enum NodeStateType:
+		//	NormalState="forState" | SyncState="syncState" | ReqState="reqState";
+		public EnumRule getRule() { return rule; }
+		
+		//NormalState="forState" | SyncState="syncState" | ReqState="reqState"
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//NormalState="forState"
+		public EnumLiteralDeclaration getNormalStateEnumLiteralDeclaration_0() { return cNormalStateEnumLiteralDeclaration_0; }
+		
+		//"forState"
+		public Keyword getNormalStateForStateKeyword_0_0() { return cNormalStateForStateKeyword_0_0; }
+		
+		//SyncState="syncState"
+		public EnumLiteralDeclaration getSyncStateEnumLiteralDeclaration_1() { return cSyncStateEnumLiteralDeclaration_1; }
+		
+		//"syncState"
+		public Keyword getSyncStateSyncStateKeyword_1_0() { return cSyncStateSyncStateKeyword_1_0; }
+		
+		//ReqState="reqState"
+		public EnumLiteralDeclaration getReqStateEnumLiteralDeclaration_2() { return cReqStateEnumLiteralDeclaration_2; }
+		
+		//"reqState"
+		public Keyword getReqStateReqStateKeyword_2_0() { return cReqStateReqStateKeyword_2_0; }
+	}
 	
 	private final NodeStateConfigurationElements pNodeStateConfiguration;
 	private final NodeStateDiagramElements pNodeStateDiagram;
@@ -866,6 +922,7 @@ public class StatesGrammarAccess extends AbstractGrammarElementFinder {
 	private final TransitionDependencyElements pTransitionDependency;
 	private final FeatureDependencyElements pFeatureDependency;
 	private final NodeStateAssociationElements pNodeStateAssociation;
+	private final NodeStateTypeElements eNodeStateType;
 	private final ComponentFeatureElements pComponentFeature;
 	private final FQNElements pFQN;
 	
@@ -889,6 +946,7 @@ public class StatesGrammarAccess extends AbstractGrammarElementFinder {
 		this.pTransitionDependency = new TransitionDependencyElements();
 		this.pFeatureDependency = new FeatureDependencyElements();
 		this.pNodeStateAssociation = new NodeStateAssociationElements();
+		this.eNodeStateType = new NodeStateTypeElements();
 		this.pComponentFeature = new ComponentFeatureElements();
 		this.pFQN = new FQNElements();
 	}
@@ -945,7 +1003,7 @@ public class StatesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//NodeState:
-	//	initial?='initial'? 'State' name=ID;
+	//	(initial?='initial' | exit?='exit')? 'State' name=ID;
 	public NodeStateElements getNodeStateAccess() {
 		return pNodeState;
 	}
@@ -1038,13 +1096,24 @@ public class StatesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//NodeStateAssociation:
-	//	'for' clientState=[coom::State|FQN] 'set system-states' states+=[NodeState] (',' states+=[NodeState])*;
+	//	nodeStateType=NodeStateType clientState=[coom::State|FQN] 'set system-states' states+=[NodeState] (','
+	//	states+=[NodeState])*;
 	public NodeStateAssociationElements getNodeStateAssociationAccess() {
 		return pNodeStateAssociation;
 	}
 	
 	public ParserRule getNodeStateAssociationRule() {
 		return getNodeStateAssociationAccess().getRule();
+	}
+	
+	//enum NodeStateType:
+	//	NormalState="forState" | SyncState="syncState" | ReqState="reqState";
+	public NodeStateTypeElements getNodeStateTypeAccess() {
+		return eNodeStateType;
+	}
+	
+	public EnumRule getNodeStateTypeRule() {
+		return getNodeStateTypeAccess().getRule();
 	}
 	
 	//ComponentFeature:

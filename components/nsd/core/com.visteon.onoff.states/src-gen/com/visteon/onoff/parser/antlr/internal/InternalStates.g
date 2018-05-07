@@ -23,6 +23,7 @@ import org.eclipse.xtext.parser.*;
 import org.eclipse.xtext.parser.impl.*;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.xtext.parser.antlr.AbstractInternalAntlrParser;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream.HiddenTokens;
@@ -262,27 +263,44 @@ ruleNodeState returns [EObject current=null]
 	(
 		(
 			(
-				lv_initial_0_0='initial'
-				{
-					newLeafNode(lv_initial_0_0, grammarAccess.getNodeStateAccess().getInitialInitialKeyword_0_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getNodeStateRule());
+				(
+					lv_initial_0_0='initial'
+					{
+						newLeafNode(lv_initial_0_0, grammarAccess.getNodeStateAccess().getInitialInitialKeyword_0_0_0());
 					}
-					setWithLastConsumed($current, "initial", true, "initial");
-				}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getNodeStateRule());
+						}
+						setWithLastConsumed($current, "initial", true, "initial");
+					}
+				)
+			)
+			    |
+			(
+				(
+					lv_exit_1_0='exit'
+					{
+						newLeafNode(lv_exit_1_0, grammarAccess.getNodeStateAccess().getExitExitKeyword_0_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getNodeStateRule());
+						}
+						setWithLastConsumed($current, "exit", true, "exit");
+					}
+				)
 			)
 		)?
-		otherlv_1='State'
+		otherlv_2='State'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getNodeStateAccess().getStateKeyword_1());
+			newLeafNode(otherlv_2, grammarAccess.getNodeStateAccess().getStateKeyword_1());
 		}
 		(
 			(
-				lv_name_2_0=RULE_ID
+				lv_name_3_0=RULE_ID
 				{
-					newLeafNode(lv_name_2_0, grammarAccess.getNodeStateAccess().getNameIDTerminalRuleCall_2_0());
+					newLeafNode(lv_name_3_0, grammarAccess.getNodeStateAccess().getNameIDTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -291,7 +309,7 @@ ruleNodeState returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"name",
-						lv_name_2_0,
+						lv_name_3_0,
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
@@ -1140,10 +1158,25 @@ ruleNodeStateAssociation returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='for'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getNodeStateAssociationAccess().getForKeyword_0());
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getNodeStateAssociationAccess().getNodeStateTypeNodeStateTypeEnumRuleCall_0_0());
+				}
+				lv_nodeStateType_0_0=ruleNodeStateType
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getNodeStateAssociationRule());
+					}
+					set(
+						$current,
+						"nodeStateType",
+						lv_nodeStateType_0_0,
+						"com.visteon.onoff.States.NodeStateType");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		(
 			(
 				{
@@ -1327,6 +1360,41 @@ ruleFQN returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 				newLeafNode(this_ID_2, grammarAccess.getFQNAccess().getIDTerminalRuleCall_1_1());
 			}
 		)*
+	)
+;
+
+// Rule NodeStateType
+ruleNodeStateType returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='forState'
+			{
+				$current = grammarAccess.getNodeStateTypeAccess().getNormalStateEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getNodeStateTypeAccess().getNormalStateEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='syncState'
+			{
+				$current = grammarAccess.getNodeStateTypeAccess().getSyncStateEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getNodeStateTypeAccess().getSyncStateEnumLiteralDeclaration_1());
+			}
+		)
+		    |
+		(
+			enumLiteral_2='reqState'
+			{
+				$current = grammarAccess.getNodeStateTypeAccess().getReqStateEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getNodeStateTypeAccess().getReqStateEnumLiteralDeclaration_2());
+			}
+		)
 	)
 ;
 

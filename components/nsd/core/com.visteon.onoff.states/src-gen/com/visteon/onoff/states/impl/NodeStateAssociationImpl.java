@@ -7,6 +7,7 @@ import com.visteon.onoff.coom.State;
 
 import com.visteon.onoff.states.NodeState;
 import com.visteon.onoff.states.NodeStateAssociation;
+import com.visteon.onoff.states.NodeStateType;
 import com.visteon.onoff.states.StatesPackage;
 
 import java.util.Collection;
@@ -31,6 +32,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.visteon.onoff.states.impl.NodeStateAssociationImpl#getNodeStateType <em>Node State Type</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.NodeStateAssociationImpl#getClientState <em>Client State</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.NodeStateAssociationImpl#getStates <em>States</em>}</li>
  * </ul>
@@ -39,6 +41,26 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class NodeStateAssociationImpl extends MinimalEObjectImpl.Container implements NodeStateAssociation
 {
+  /**
+   * The default value of the '{@link #getNodeStateType() <em>Node State Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNodeStateType()
+   * @generated
+   * @ordered
+   */
+  protected static final NodeStateType NODE_STATE_TYPE_EDEFAULT = NodeStateType.NORMAL_STATE;
+
+  /**
+   * The cached value of the '{@link #getNodeStateType() <em>Node State Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNodeStateType()
+   * @generated
+   * @ordered
+   */
+  protected NodeStateType nodeStateType = NODE_STATE_TYPE_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getClientState() <em>Client State</em>}' reference.
    * <!-- begin-user-doc -->
@@ -78,6 +100,29 @@ public class NodeStateAssociationImpl extends MinimalEObjectImpl.Container imple
   protected EClass eStaticClass()
   {
     return StatesPackage.Literals.NODE_STATE_ASSOCIATION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NodeStateType getNodeStateType()
+  {
+    return nodeStateType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNodeStateType(NodeStateType newNodeStateType)
+  {
+    NodeStateType oldNodeStateType = nodeStateType;
+    nodeStateType = newNodeStateType == null ? NODE_STATE_TYPE_EDEFAULT : newNodeStateType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, StatesPackage.NODE_STATE_ASSOCIATION__NODE_STATE_TYPE, oldNodeStateType, nodeStateType));
   }
 
   /**
@@ -147,6 +192,8 @@ public class NodeStateAssociationImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
+      case StatesPackage.NODE_STATE_ASSOCIATION__NODE_STATE_TYPE:
+        return getNodeStateType();
       case StatesPackage.NODE_STATE_ASSOCIATION__CLIENT_STATE:
         if (resolve) return getClientState();
         return basicGetClientState();
@@ -167,6 +214,9 @@ public class NodeStateAssociationImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
+      case StatesPackage.NODE_STATE_ASSOCIATION__NODE_STATE_TYPE:
+        setNodeStateType((NodeStateType)newValue);
+        return;
       case StatesPackage.NODE_STATE_ASSOCIATION__CLIENT_STATE:
         setClientState((State)newValue);
         return;
@@ -188,6 +238,9 @@ public class NodeStateAssociationImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
+      case StatesPackage.NODE_STATE_ASSOCIATION__NODE_STATE_TYPE:
+        setNodeStateType(NODE_STATE_TYPE_EDEFAULT);
+        return;
       case StatesPackage.NODE_STATE_ASSOCIATION__CLIENT_STATE:
         setClientState((State)null);
         return;
@@ -208,12 +261,31 @@ public class NodeStateAssociationImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
+      case StatesPackage.NODE_STATE_ASSOCIATION__NODE_STATE_TYPE:
+        return nodeStateType != NODE_STATE_TYPE_EDEFAULT;
       case StatesPackage.NODE_STATE_ASSOCIATION__CLIENT_STATE:
         return clientState != null;
       case StatesPackage.NODE_STATE_ASSOCIATION__STATES:
         return states != null && !states.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (nodeStateType: ");
+    result.append(nodeStateType);
+    result.append(')');
+    return result.toString();
   }
 
 } //NodeStateAssociationImpl

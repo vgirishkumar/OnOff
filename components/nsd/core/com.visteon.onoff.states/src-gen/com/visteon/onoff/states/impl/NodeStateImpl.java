@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link com.visteon.onoff.states.impl.NodeStateImpl#isInitial <em>Initial</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.impl.NodeStateImpl#isExit <em>Exit</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.NodeStateImpl#getName <em>Name</em>}</li>
  * </ul>
  *
@@ -48,6 +49,26 @@ public class NodeStateImpl extends MinimalEObjectImpl.Container implements NodeS
    * @ordered
    */
   protected boolean initial = INITIAL_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isExit() <em>Exit</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isExit()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean EXIT_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isExit() <em>Exit</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isExit()
+   * @generated
+   * @ordered
+   */
+  protected boolean exit = EXIT_EDEFAULT;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -118,6 +139,29 @@ public class NodeStateImpl extends MinimalEObjectImpl.Container implements NodeS
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isExit()
+  {
+    return exit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExit(boolean newExit)
+  {
+    boolean oldExit = exit;
+    exit = newExit;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, StatesPackage.NODE_STATE__EXIT, oldExit, exit));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getName()
   {
     return name;
@@ -148,6 +192,8 @@ public class NodeStateImpl extends MinimalEObjectImpl.Container implements NodeS
     {
       case StatesPackage.NODE_STATE__INITIAL:
         return isInitial();
+      case StatesPackage.NODE_STATE__EXIT:
+        return isExit();
       case StatesPackage.NODE_STATE__NAME:
         return getName();
     }
@@ -166,6 +212,9 @@ public class NodeStateImpl extends MinimalEObjectImpl.Container implements NodeS
     {
       case StatesPackage.NODE_STATE__INITIAL:
         setInitial((Boolean)newValue);
+        return;
+      case StatesPackage.NODE_STATE__EXIT:
+        setExit((Boolean)newValue);
         return;
       case StatesPackage.NODE_STATE__NAME:
         setName((String)newValue);
@@ -187,6 +236,9 @@ public class NodeStateImpl extends MinimalEObjectImpl.Container implements NodeS
       case StatesPackage.NODE_STATE__INITIAL:
         setInitial(INITIAL_EDEFAULT);
         return;
+      case StatesPackage.NODE_STATE__EXIT:
+        setExit(EXIT_EDEFAULT);
+        return;
       case StatesPackage.NODE_STATE__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -206,6 +258,8 @@ public class NodeStateImpl extends MinimalEObjectImpl.Container implements NodeS
     {
       case StatesPackage.NODE_STATE__INITIAL:
         return initial != INITIAL_EDEFAULT;
+      case StatesPackage.NODE_STATE__EXIT:
+        return exit != EXIT_EDEFAULT;
       case StatesPackage.NODE_STATE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
@@ -225,6 +279,8 @@ public class NodeStateImpl extends MinimalEObjectImpl.Container implements NodeS
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (initial: ");
     result.append(initial);
+    result.append(", exit: ");
+    result.append(exit);
     result.append(", name: ");
     result.append(name);
     result.append(')');

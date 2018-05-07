@@ -32,7 +32,9 @@ public class StatesParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getNodeStateDiagramAccess().getAlternatives_5(), "rule__NodeStateDiagram__Alternatives_5");
+					put(grammarAccess.getNodeStateAccess().getAlternatives_0(), "rule__NodeState__Alternatives_0");
 					put(grammarAccess.getClientConfigurationAccess().getAlternatives_6(), "rule__ClientConfiguration__Alternatives_6");
+					put(grammarAccess.getNodeStateTypeAccess().getAlternatives(), "rule__NodeStateType__Alternatives");
 					put(grammarAccess.getNodeStateConfigurationAccess().getGroup(), "rule__NodeStateConfiguration__Group__0");
 					put(grammarAccess.getNodeStateDiagramAccess().getGroup(), "rule__NodeStateDiagram__Group__0");
 					put(grammarAccess.getNodeStateDiagramAccess().getGroup_3(), "rule__NodeStateDiagram__Group_3__0");
@@ -66,7 +68,8 @@ public class StatesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNodeStateDiagramAccess().getGTransitionTimeoutInMillisecondsAssignment_4_1(), "rule__NodeStateDiagram__GTransitionTimeoutInMillisecondsAssignment_4_1");
 					put(grammarAccess.getNodeStateDiagramAccess().getStatesAssignment_5_0(), "rule__NodeStateDiagram__StatesAssignment_5_0");
 					put(grammarAccess.getNodeStateDiagramAccess().getTransitionsAssignment_5_1(), "rule__NodeStateDiagram__TransitionsAssignment_5_1");
-					put(grammarAccess.getNodeStateAccess().getInitialAssignment_0(), "rule__NodeState__InitialAssignment_0");
+					put(grammarAccess.getNodeStateAccess().getInitialAssignment_0_0(), "rule__NodeState__InitialAssignment_0_0");
+					put(grammarAccess.getNodeStateAccess().getExitAssignment_0_1(), "rule__NodeState__ExitAssignment_0_1");
 					put(grammarAccess.getNodeStateAccess().getNameAssignment_2(), "rule__NodeState__NameAssignment_2");
 					put(grammarAccess.getNodeTransitionAccess().getEssentialAssignment_0(), "rule__NodeTransition__EssentialAssignment_0");
 					put(grammarAccess.getNodeTransitionAccess().getNameAssignment_2(), "rule__NodeTransition__NameAssignment_2");
@@ -97,6 +100,7 @@ public class StatesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTransitionDependencyAccess().getTransistionsAssignment_2_1(), "rule__TransitionDependency__TransistionsAssignment_2_1");
 					put(grammarAccess.getFeatureDependencyAccess().getFeaturesAssignment_1(), "rule__FeatureDependency__FeaturesAssignment_1");
 					put(grammarAccess.getFeatureDependencyAccess().getFeaturesAssignment_2_1(), "rule__FeatureDependency__FeaturesAssignment_2_1");
+					put(grammarAccess.getNodeStateAssociationAccess().getNodeStateTypeAssignment_0(), "rule__NodeStateAssociation__NodeStateTypeAssignment_0");
 					put(grammarAccess.getNodeStateAssociationAccess().getClientStateAssignment_1(), "rule__NodeStateAssociation__ClientStateAssignment_1");
 					put(grammarAccess.getNodeStateAssociationAccess().getStatesAssignment_3(), "rule__NodeStateAssociation__StatesAssignment_3");
 					put(grammarAccess.getNodeStateAssociationAccess().getStatesAssignment_4_1(), "rule__NodeStateAssociation__StatesAssignment_4_1");

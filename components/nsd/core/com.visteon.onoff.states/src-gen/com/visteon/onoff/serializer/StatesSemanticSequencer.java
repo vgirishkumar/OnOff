@@ -158,7 +158,7 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     NodeStateAssociation returns NodeStateAssociation
 	 *
 	 * Constraint:
-	 *     (clientState=[State|FQN] states+=[NodeState|ID] states+=[NodeState|ID]*)
+	 *     (nodeStateType=NodeStateType clientState=[State|FQN] states+=[NodeState|ID] states+=[NodeState|ID]*)
 	 */
 	protected void sequence_NodeStateAssociation(ISerializationContext context, NodeStateAssociation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -194,7 +194,7 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     NodeState returns NodeState
 	 *
 	 * Constraint:
-	 *     (initial?='initial'? name=ID)
+	 *     ((initial?='initial' | exit?='exit')? name=ID)
 	 */
 	protected void sequence_NodeState(ISerializationContext context, NodeState semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

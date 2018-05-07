@@ -18,6 +18,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NodeState">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="initial" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="exit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NodeTransition">
@@ -76,9 +77,15 @@
         upperBound="-1" eType="#//ComponentFeature"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NodeStateAssociation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodeStateType" eType="#//NodeStateType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="clientState" eType="ecore:EClass platform:/resource/com.visteon.onoff.coom/model/generated/Coom.ecore#//State"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="states" unique="false"
         upperBound="-1" eType="#//NodeState"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="NodeStateType">
+    <eLiterals name="NormalState" literal="forState"/>
+    <eLiterals name="SyncState" value="1" literal="syncState"/>
+    <eLiterals name="ReqState" value="2" literal="reqState"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComponentFeature">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

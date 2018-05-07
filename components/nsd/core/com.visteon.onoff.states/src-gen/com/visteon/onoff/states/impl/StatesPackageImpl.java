@@ -14,6 +14,7 @@ import com.visteon.onoff.states.NodeState;
 import com.visteon.onoff.states.NodeStateAssociation;
 import com.visteon.onoff.states.NodeStateConfiguration;
 import com.visteon.onoff.states.NodeStateDiagram;
+import com.visteon.onoff.states.NodeStateType;
 import com.visteon.onoff.states.NodeTransition;
 import com.visteon.onoff.states.StateDependency;
 import com.visteon.onoff.states.StatesFactory;
@@ -22,6 +23,7 @@ import com.visteon.onoff.states.TransitionDependency;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -118,6 +120,13 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
    * @generated
    */
   private EClass componentFeatureEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum nodeStateTypeEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -290,9 +299,19 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getNodeState_Name()
+  public EAttribute getNodeState_Exit()
   {
     return (EAttribute)nodeStateEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getNodeState_Name()
+  {
+    return (EAttribute)nodeStateEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -640,9 +659,19 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getNodeStateAssociation_NodeStateType()
+  {
+    return (EAttribute)nodeStateAssociationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getNodeStateAssociation_ClientState()
   {
-    return (EReference)nodeStateAssociationEClass.getEStructuralFeatures().get(0);
+    return (EReference)nodeStateAssociationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -652,7 +681,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
    */
   public EReference getNodeStateAssociation_States()
   {
-    return (EReference)nodeStateAssociationEClass.getEStructuralFeatures().get(1);
+    return (EReference)nodeStateAssociationEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -683,6 +712,16 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
   public EReference getComponentFeature_States()
   {
     return (EReference)componentFeatureEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getNodeStateType()
+  {
+    return nodeStateTypeEEnum;
   }
 
   /**
@@ -727,6 +766,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
 
     nodeStateEClass = createEClass(NODE_STATE);
     createEAttribute(nodeStateEClass, NODE_STATE__INITIAL);
+    createEAttribute(nodeStateEClass, NODE_STATE__EXIT);
     createEAttribute(nodeStateEClass, NODE_STATE__NAME);
 
     nodeTransitionEClass = createEClass(NODE_TRANSITION);
@@ -770,12 +810,16 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
     createEReference(featureDependencyEClass, FEATURE_DEPENDENCY__FEATURES);
 
     nodeStateAssociationEClass = createEClass(NODE_STATE_ASSOCIATION);
+    createEAttribute(nodeStateAssociationEClass, NODE_STATE_ASSOCIATION__NODE_STATE_TYPE);
     createEReference(nodeStateAssociationEClass, NODE_STATE_ASSOCIATION__CLIENT_STATE);
     createEReference(nodeStateAssociationEClass, NODE_STATE_ASSOCIATION__STATES);
 
     componentFeatureEClass = createEClass(COMPONENT_FEATURE);
     createEAttribute(componentFeatureEClass, COMPONENT_FEATURE__NAME);
     createEReference(componentFeatureEClass, COMPONENT_FEATURE__STATES);
+
+    // Create enums
+    nodeStateTypeEEnum = createEEnum(NODE_STATE_TYPE);
   }
 
   /**
@@ -824,6 +868,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
 
     initEClass(nodeStateEClass, NodeState.class, "NodeState", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNodeState_Initial(), ecorePackage.getEBoolean(), "initial", null, 0, 1, NodeState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getNodeState_Exit(), ecorePackage.getEBoolean(), "exit", null, 0, 1, NodeState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getNodeState_Name(), ecorePackage.getEString(), "name", null, 0, 1, NodeState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(nodeTransitionEClass, NodeTransition.class, "NodeTransition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -867,12 +912,19 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
     initEReference(getFeatureDependency_Features(), this.getComponentFeature(), null, "features", null, 0, -1, FeatureDependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(nodeStateAssociationEClass, NodeStateAssociation.class, "NodeStateAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNodeStateAssociation_NodeStateType(), this.getNodeStateType(), "nodeStateType", null, 0, 1, NodeStateAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNodeStateAssociation_ClientState(), theCoomPackage.getState(), null, "clientState", null, 0, 1, NodeStateAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNodeStateAssociation_States(), this.getNodeState(), null, "states", null, 0, -1, NodeStateAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(componentFeatureEClass, ComponentFeature.class, "ComponentFeature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getComponentFeature_Name(), ecorePackage.getEString(), "name", null, 0, 1, ComponentFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getComponentFeature_States(), theCoomPackage.getState(), null, "states", null, 0, -1, ComponentFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    // Initialize enums and add enum literals
+    initEEnum(nodeStateTypeEEnum, NodeStateType.class, "NodeStateType");
+    addEEnumLiteral(nodeStateTypeEEnum, NodeStateType.NORMAL_STATE);
+    addEEnumLiteral(nodeStateTypeEEnum, NodeStateType.SYNC_STATE);
+    addEEnumLiteral(nodeStateTypeEEnum, NodeStateType.REQ_STATE);
 
     // Create resource
     createResource(eNS_URI);

@@ -5,6 +5,7 @@ package com.visteon.onoff.states;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -169,13 +170,22 @@ public interface StatesPackage extends EPackage
   int NODE_STATE__INITIAL = 0;
 
   /**
+   * The feature id for the '<em><b>Exit</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NODE_STATE__EXIT = 1;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NODE_STATE__NAME = 1;
+  int NODE_STATE__NAME = 2;
 
   /**
    * The number of structural features of the '<em>Node State</em>' class.
@@ -184,7 +194,7 @@ public interface StatesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NODE_STATE_FEATURE_COUNT = 2;
+  int NODE_STATE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link com.visteon.onoff.states.impl.NodeTransitionImpl <em>Node Transition</em>}' class.
@@ -564,13 +574,22 @@ public interface StatesPackage extends EPackage
   int NODE_STATE_ASSOCIATION = 10;
 
   /**
+   * The feature id for the '<em><b>Node State Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NODE_STATE_ASSOCIATION__NODE_STATE_TYPE = 0;
+
+  /**
    * The feature id for the '<em><b>Client State</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NODE_STATE_ASSOCIATION__CLIENT_STATE = 0;
+  int NODE_STATE_ASSOCIATION__CLIENT_STATE = 1;
 
   /**
    * The feature id for the '<em><b>States</b></em>' reference list.
@@ -579,7 +598,7 @@ public interface StatesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NODE_STATE_ASSOCIATION__STATES = 1;
+  int NODE_STATE_ASSOCIATION__STATES = 2;
 
   /**
    * The number of structural features of the '<em>Node State Association</em>' class.
@@ -588,7 +607,7 @@ public interface StatesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NODE_STATE_ASSOCIATION_FEATURE_COUNT = 2;
+  int NODE_STATE_ASSOCIATION_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link com.visteon.onoff.states.impl.ComponentFeatureImpl <em>Component Feature</em>}' class.
@@ -626,6 +645,16 @@ public interface StatesPackage extends EPackage
    * @ordered
    */
   int COMPONENT_FEATURE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link com.visteon.onoff.states.NodeStateType <em>Node State Type</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.visteon.onoff.states.NodeStateType
+   * @see com.visteon.onoff.states.impl.StatesPackageImpl#getNodeStateType()
+   * @generated
+   */
+  int NODE_STATE_TYPE = 12;
 
 
   /**
@@ -734,6 +763,17 @@ public interface StatesPackage extends EPackage
    * @generated
    */
   EAttribute getNodeState_Initial();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.visteon.onoff.states.NodeState#isExit <em>Exit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Exit</em>'.
+   * @see com.visteon.onoff.states.NodeState#isExit()
+   * @see #getNodeState()
+   * @generated
+   */
+  EAttribute getNodeState_Exit();
 
   /**
    * Returns the meta object for the attribute '{@link com.visteon.onoff.states.NodeState#getName <em>Name</em>}'.
@@ -1113,6 +1153,17 @@ public interface StatesPackage extends EPackage
   EClass getNodeStateAssociation();
 
   /**
+   * Returns the meta object for the attribute '{@link com.visteon.onoff.states.NodeStateAssociation#getNodeStateType <em>Node State Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Node State Type</em>'.
+   * @see com.visteon.onoff.states.NodeStateAssociation#getNodeStateType()
+   * @see #getNodeStateAssociation()
+   * @generated
+   */
+  EAttribute getNodeStateAssociation_NodeStateType();
+
+  /**
    * Returns the meta object for the reference '{@link com.visteon.onoff.states.NodeStateAssociation#getClientState <em>Client State</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1165,6 +1216,16 @@ public interface StatesPackage extends EPackage
    * @generated
    */
   EReference getComponentFeature_States();
+
+  /**
+   * Returns the meta object for enum '{@link com.visteon.onoff.states.NodeStateType <em>Node State Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Node State Type</em>'.
+   * @see com.visteon.onoff.states.NodeStateType
+   * @generated
+   */
+  EEnum getNodeStateType();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1274,6 +1335,14 @@ public interface StatesPackage extends EPackage
      * @generated
      */
     EAttribute NODE_STATE__INITIAL = eINSTANCE.getNodeState_Initial();
+
+    /**
+     * The meta object literal for the '<em><b>Exit</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NODE_STATE__EXIT = eINSTANCE.getNodeState_Exit();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1572,6 +1641,14 @@ public interface StatesPackage extends EPackage
     EClass NODE_STATE_ASSOCIATION = eINSTANCE.getNodeStateAssociation();
 
     /**
+     * The meta object literal for the '<em><b>Node State Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NODE_STATE_ASSOCIATION__NODE_STATE_TYPE = eINSTANCE.getNodeStateAssociation_NodeStateType();
+
+    /**
      * The meta object literal for the '<em><b>Client State</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1612,6 +1689,16 @@ public interface StatesPackage extends EPackage
      * @generated
      */
     EReference COMPONENT_FEATURE__STATES = eINSTANCE.getComponentFeature_States();
+
+    /**
+     * The meta object literal for the '{@link com.visteon.onoff.states.NodeStateType <em>Node State Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.visteon.onoff.states.NodeStateType
+     * @see com.visteon.onoff.states.impl.StatesPackageImpl#getNodeStateType()
+     * @generated
+     */
+    EEnum NODE_STATE_TYPE = eINSTANCE.getNodeStateType();
 
   }
 
