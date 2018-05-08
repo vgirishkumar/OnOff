@@ -149,6 +149,7 @@
       <feature id="org.eclipse.sirius.aql"/>
       <feature id="org.eclipse.sirius.runtime.aql"/>
       <feature id="org.eclipse.sirius.specifier.ide.ui.aql"/>
+      <feature id="org.eclipse.sirius.properties.feature"/>
    </features>
 
    <configurations>
