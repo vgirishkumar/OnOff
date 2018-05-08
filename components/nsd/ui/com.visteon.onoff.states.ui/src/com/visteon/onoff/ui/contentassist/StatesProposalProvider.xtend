@@ -75,8 +75,9 @@ class StatesProposalProvider extends AbstractStatesProposalProvider {
 	override completeNodeStateAssociation_ClientState(EObject model, Assignment assignment,
 		ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		lookupCrossReference(assignment.getTerminal() as CrossReference, context, acceptor, [
-			!EcoreUtil2.getContainerOfType(model, ClientConfiguration).nodeStateAssociations.map[clientState].contains(
-				it.EObjectOrProxy)
+			!EcoreUtil2.getContainerOfType(model, ClientConfiguration).nodeStateAssociations.filter [
+				nodeStateType == (model as NodeStateAssociation).nodeStateType
+			].toList.map[clientState].contains(it.EObjectOrProxy)
 		]);
 	}
 

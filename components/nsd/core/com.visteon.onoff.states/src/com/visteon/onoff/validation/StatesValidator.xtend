@@ -33,7 +33,6 @@ class StatesValidator extends AbstractStatesValidator {
 //					INVALID_NAME)
 //		}
 //	}
-	
 	@Check
 	def checkForMultipleInitialStates(NodeState state) {
 		if (state.isInitial) {
@@ -43,7 +42,6 @@ class StatesValidator extends AbstractStatesValidator {
 		}
 	}
 
-	 
 	@Check
 	def checkforDuplicateStateDependency_States(StateDependency sd) {
 		val states = sd.states
@@ -61,8 +59,8 @@ class StatesValidator extends AbstractStatesValidator {
 		for (var i = 0; i < transistions.size; i++) {
 			val tr = transistions.get(i)
 			if (transistions.filter[equals(tr)].size > 1) {
-				error("Duplicate Transition " + tr.transition.name, td, StatesPackage.Literals.TRANSITION_DEPENDENCY__TRANSISTIONS,
-					i)
+				error("Duplicate Transition " + tr.transition.name, td,
+					StatesPackage.Literals.TRANSITION_DEPENDENCY__TRANSISTIONS, i)
 			}
 		}
 	}
@@ -122,10 +120,10 @@ class StatesValidator extends AbstractStatesValidator {
 	@Check
 	def checkForDuplicateNodeStateAssociation_ClientState(NodeStateAssociation nsa) {
 		val cc = EcoreUtil2.getContainerOfType(nsa, ClientConfiguration)
-		val map = cc.nodeStateAssociations.map[clientState]
+		val map = cc.nodeStateAssociations.filter[nodeStateType == nsa.nodeStateType].map[clientState]
 		if (map.filter[equals(nsa.clientState)].size > 1) {
 			error("Duplicate State " + nsa.clientState.name, nsa,
 				StatesPackage.Literals.NODE_STATE_ASSOCIATION__CLIENT_STATE)
 		}
-	} 
+	}
 }
