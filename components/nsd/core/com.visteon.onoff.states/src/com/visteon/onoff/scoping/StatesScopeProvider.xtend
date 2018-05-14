@@ -43,7 +43,7 @@ class StatesScopeProvider extends AbstractStatesScopeProvider {
 			 * 	coomRef.equals(parentConfig.coomRef)
 			 ]*/
 			val objects = new ArrayList<ComponentState>
-			siblingsOfParentConfig.forall[objects.addAll(states)]
+			siblingsOfParentConfig.forEach[objects.addAll(states)]
 			return Scopes.scopeFor(objects, [provider.qualifiedName(it)], IScope.NULLSCOPE)
 		}
 		if (reference == StatesPackage.Literals.COMPONENT_TRANSITION__TRANSITION) {
@@ -56,7 +56,7 @@ class StatesScopeProvider extends AbstractStatesScopeProvider {
 			 * 	coomRef.equals(parentConfig.coomRef)
 			 ]*/
 			val objects = new ArrayList<ComponentTransition>
-			siblingsOfParentConfig.forall[objects.addAll(transitions)]
+			siblingsOfParentConfig.forEach[objects.addAll(transitions)]
 			return Scopes.scopeFor(objects, [provider.qualifiedName(it)], IScope.NULLSCOPE)
 		}
 		if (reference == StatesPackage.Literals.FEATURE_DEPENDENCY__FEATURES) {
@@ -66,7 +66,7 @@ class StatesScopeProvider extends AbstractStatesScopeProvider {
 			 * 	coomRef.equals(parentConfig.coomRef)
 			 ]*/
 			val objects = new ArrayList<ComponentFeature>
-			siblingsOfParentConfig.forall[objects.addAll(features)]
+			siblingsOfParentConfig.forEach[objects.addAll(features)]
 			return Scopes.scopeFor(objects, [provider.getFullyQualifiedName(it)], IScope.NULLSCOPE)
 		}
 		super.getScope(context, reference)
