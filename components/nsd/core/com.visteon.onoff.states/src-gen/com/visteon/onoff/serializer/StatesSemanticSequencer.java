@@ -89,9 +89,10 @@ public class StatesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 * Constraint:
 	 *     (
 	 *         name=ID 
-	 *         coomRef=[ComponentOnOffManifest|ID] 
+	 *         (coomRef=[ComponentOnOffManifest|ID] | process=ID) 
 	 *         transTimeoutInMilliseconds=INT? 
-	 *         (transitions+=ComponentTransition | states+=ComponentState | features+=ComponentFeature | nodeStateAssociations+=NodeStateAssociation)*
+	 *         transitions+=ComponentTransition? 
+	 *         ((states+=ComponentState | features+=ComponentFeature | nodeStateAssociations+=NodeStateAssociation)? transitions+=ComponentTransition?)*
 	 *     )
 	 */
 	protected void sequence_ClientConfiguration(ISerializationContext context, ClientConfiguration semanticObject) {

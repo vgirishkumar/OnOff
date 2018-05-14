@@ -29,7 +29,7 @@ NodeTransition:
 ClientConfiguration:
 	'Client' name=ID // instance name - scope coming from COOM
 	'{'
-	'coom' coomRef=[coom::ComponentOnOffManifest]
+	('coom' coomRef=[coom::ComponentOnOffManifest] | 'process' process=ID)
 	('clientTransitionTimeout' transTimeoutInMilliseconds=INT)?
 	(transitions+=ComponentTransition |
 	states+=ComponentState |

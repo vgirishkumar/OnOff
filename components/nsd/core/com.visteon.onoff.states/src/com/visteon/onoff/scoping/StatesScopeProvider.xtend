@@ -14,6 +14,7 @@ import java.util.ArrayList
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.EcoreUtil2
+import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
 
@@ -33,27 +34,27 @@ class StatesScopeProvider extends AbstractStatesScopeProvider {
 		if (reference == StatesPackage.Literals.COMPONENT_STATE__STATE ||
 			reference == StatesPackage.Literals.NODE_STATE_ASSOCIATION__CLIENT_STATE ||
 			reference == StatesPackage.Literals.COMPONENT_FEATURE__STATES) {
-			return Scopes.scopeFor(EcoreUtil2.getContainerOfType(context, ClientConfiguration).coomRef.states)
+			return Scopes.scopeFor(context.statesFrom)
 		}
 		if (reference == StatesPackage.Literals.STATE_DEPENDENCY__STATES) {
 			val parentConfig = EcoreUtil2.getContainerOfType(context, ClientConfiguration)
 			val siblingsOfParentConfig = EcoreUtil2.getSiblingsOfType(parentConfig, ClientConfiguration)
 			/*val siblingsOfParentConfigWithSameCooom = siblingsOfParentConfig.filter [
-				coomRef.equals(parentConfig.coomRef)
-			]*/
+			 * 	coomRef.equals(parentConfig.coomRef)
+			 ]*/
 			val objects = new ArrayList<ComponentState>
 			siblingsOfParentConfig.forall[objects.addAll(states)]
 			return Scopes.scopeFor(objects, [provider.qualifiedName(it)], IScope.NULLSCOPE)
 		}
 		if (reference == StatesPackage.Literals.COMPONENT_TRANSITION__TRANSITION) {
-			return Scopes.scopeFor(EcoreUtil2.getContainerOfType(context, ClientConfiguration).coomRef.transitions)
+			return Scopes.scopeFor(context.transitionsFrom)
 		}
 		if (reference == StatesPackage.Literals.TRANSITION_DEPENDENCY__TRANSISTIONS) {
 			val parentConfig = EcoreUtil2.getContainerOfType(context, ClientConfiguration)
 			val siblingsOfParentConfig = EcoreUtil2.getSiblingsOfType(parentConfig, ClientConfiguration)
 			/*val siblingsOfParentConfigWithSameCooom = siblingsOfParentConfig.filter [
-				coomRef.equals(parentConfig.coomRef)
-			]*/
+			 * 	coomRef.equals(parentConfig.coomRef)
+			 ]*/
 			val objects = new ArrayList<ComponentTransition>
 			siblingsOfParentConfig.forall[objects.addAll(transitions)]
 			return Scopes.scopeFor(objects, [provider.qualifiedName(it)], IScope.NULLSCOPE)
@@ -62,13 +63,32 @@ class StatesScopeProvider extends AbstractStatesScopeProvider {
 			val parentConfig = EcoreUtil2.getContainerOfType(context, ClientConfiguration)
 			val siblingsOfParentConfig = EcoreUtil2.getSiblingsOfType(parentConfig, ClientConfiguration)
 			/*val siblingsOfParentConfigWithSameCooom = siblingsOfParentConfig.filter [
-				coomRef.equals(parentConfig.coomRef)
-			]*/
+			 * 	coomRef.equals(parentConfig.coomRef)
+			 ]*/
 			val objects = new ArrayList<ComponentFeature>
 			siblingsOfParentConfig.forall[objects.addAll(features)]
 			return Scopes.scopeFor(objects, [provider.getFullyQualifiedName(it)], IScope.NULLSCOPE)
 		}
 		super.getScope(context, reference)
 	}
+
+	def getTransitionsFrom(EObject context) {
+		val coomRef = EcoreUtil2.getContainerOfType(context, ClientConfiguration).coomRef
+		if (coomRef !== null)
+			coomRef.transitions
+		else
+			ProcessNameResolver.getProcess(rset).transitions
+	}
+
+	def getStatesFrom(EObject context) {
+		val coomRef = EcoreUtil2.getContainerOfType(context, ClientConfiguration).coomRef
+		if (coomRef !== null)
+			coomRef.states
+		else
+			ProcessNameResolver.getProcess(rset).states
+	}
+
+	@Inject
+	private XtextResourceSet rset
 
 }

@@ -38,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.visteon.onoff.states.impl.ClientConfigurationImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.ClientConfigurationImpl#getCoomRef <em>Coom Ref</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.impl.ClientConfigurationImpl#getProcess <em>Process</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.ClientConfigurationImpl#getTransTimeoutInMilliseconds <em>Trans Timeout In Milliseconds</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.ClientConfigurationImpl#getTransitions <em>Transitions</em>}</li>
  *   <li>{@link com.visteon.onoff.states.impl.ClientConfigurationImpl#getStates <em>States</em>}</li>
@@ -78,6 +79,26 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
    * @ordered
    */
   protected ComponentOnOffManifest coomRef;
+
+  /**
+   * The default value of the '{@link #getProcess() <em>Process</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getProcess()
+   * @generated
+   * @ordered
+   */
+  protected static final String PROCESS_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getProcess() <em>Process</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getProcess()
+   * @generated
+   * @ordered
+   */
+  protected String process = PROCESS_EDEFAULT;
 
   /**
    * The default value of the '{@link #getTransTimeoutInMilliseconds() <em>Trans Timeout In Milliseconds</em>}' attribute.
@@ -231,6 +252,29 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getProcess()
+  {
+    return process;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setProcess(String newProcess)
+  {
+    String oldProcess = process;
+    process = newProcess;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, StatesPackage.CLIENT_CONFIGURATION__PROCESS, oldProcess, process));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public int getTransTimeoutInMilliseconds()
   {
     return transTimeoutInMilliseconds;
@@ -342,6 +386,8 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
       case StatesPackage.CLIENT_CONFIGURATION__COOM_REF:
         if (resolve) return getCoomRef();
         return basicGetCoomRef();
+      case StatesPackage.CLIENT_CONFIGURATION__PROCESS:
+        return getProcess();
       case StatesPackage.CLIENT_CONFIGURATION__TRANS_TIMEOUT_IN_MILLISECONDS:
         return getTransTimeoutInMilliseconds();
       case StatesPackage.CLIENT_CONFIGURATION__TRANSITIONS:
@@ -372,6 +418,9 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
         return;
       case StatesPackage.CLIENT_CONFIGURATION__COOM_REF:
         setCoomRef((ComponentOnOffManifest)newValue);
+        return;
+      case StatesPackage.CLIENT_CONFIGURATION__PROCESS:
+        setProcess((String)newValue);
         return;
       case StatesPackage.CLIENT_CONFIGURATION__TRANS_TIMEOUT_IN_MILLISECONDS:
         setTransTimeoutInMilliseconds((Integer)newValue);
@@ -412,6 +461,9 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
       case StatesPackage.CLIENT_CONFIGURATION__COOM_REF:
         setCoomRef((ComponentOnOffManifest)null);
         return;
+      case StatesPackage.CLIENT_CONFIGURATION__PROCESS:
+        setProcess(PROCESS_EDEFAULT);
+        return;
       case StatesPackage.CLIENT_CONFIGURATION__TRANS_TIMEOUT_IN_MILLISECONDS:
         setTransTimeoutInMilliseconds(TRANS_TIMEOUT_IN_MILLISECONDS_EDEFAULT);
         return;
@@ -445,6 +497,8 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case StatesPackage.CLIENT_CONFIGURATION__COOM_REF:
         return coomRef != null;
+      case StatesPackage.CLIENT_CONFIGURATION__PROCESS:
+        return PROCESS_EDEFAULT == null ? process != null : !PROCESS_EDEFAULT.equals(process);
       case StatesPackage.CLIENT_CONFIGURATION__TRANS_TIMEOUT_IN_MILLISECONDS:
         return transTimeoutInMilliseconds != TRANS_TIMEOUT_IN_MILLISECONDS_EDEFAULT;
       case StatesPackage.CLIENT_CONFIGURATION__TRANSITIONS:
@@ -472,6 +526,8 @@ public class ClientConfigurationImpl extends MinimalEObjectImpl.Container implem
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", process: ");
+    result.append(process);
     result.append(", transTimeoutInMilliseconds: ");
     result.append(transTimeoutInMilliseconds);
     result.append(')');

@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.visteon.onoff.states.ClientConfiguration#getName <em>Name</em>}</li>
  *   <li>{@link com.visteon.onoff.states.ClientConfiguration#getCoomRef <em>Coom Ref</em>}</li>
+ *   <li>{@link com.visteon.onoff.states.ClientConfiguration#getProcess <em>Process</em>}</li>
  *   <li>{@link com.visteon.onoff.states.ClientConfiguration#getTransTimeoutInMilliseconds <em>Trans Timeout In Milliseconds</em>}</li>
  *   <li>{@link com.visteon.onoff.states.ClientConfiguration#getTransitions <em>Transitions</em>}</li>
  *   <li>{@link com.visteon.onoff.states.ClientConfiguration#getStates <em>States</em>}</li>
@@ -84,6 +85,32 @@ public interface ClientConfiguration extends EObject
    * @generated
    */
   void setCoomRef(ComponentOnOffManifest value);
+
+  /**
+   * Returns the value of the '<em><b>Process</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Process</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Process</em>' attribute.
+   * @see #setProcess(String)
+   * @see com.visteon.onoff.states.StatesPackage#getClientConfiguration_Process()
+   * @model
+   * @generated
+   */
+  String getProcess();
+
+  /**
+   * Sets the value of the '{@link com.visteon.onoff.states.ClientConfiguration#getProcess <em>Process</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Process</em>' attribute.
+   * @see #getProcess()
+   * @generated
+   */
+  void setProcess(String value);
 
   /**
    * Returns the value of the '<em><b>Trans Timeout In Milliseconds</b></em>' attribute.

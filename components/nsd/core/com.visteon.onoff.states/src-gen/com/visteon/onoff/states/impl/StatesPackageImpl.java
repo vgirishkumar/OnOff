@@ -419,7 +419,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getClientConfiguration_TransTimeoutInMilliseconds()
+  public EAttribute getClientConfiguration_Process()
   {
     return (EAttribute)clientConfigurationEClass.getEStructuralFeatures().get(2);
   }
@@ -429,9 +429,9 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getClientConfiguration_Transitions()
+  public EAttribute getClientConfiguration_TransTimeoutInMilliseconds()
   {
-    return (EReference)clientConfigurationEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)clientConfigurationEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -439,7 +439,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getClientConfiguration_States()
+  public EReference getClientConfiguration_Transitions()
   {
     return (EReference)clientConfigurationEClass.getEStructuralFeatures().get(4);
   }
@@ -449,7 +449,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getClientConfiguration_Features()
+  public EReference getClientConfiguration_States()
   {
     return (EReference)clientConfigurationEClass.getEStructuralFeatures().get(5);
   }
@@ -459,9 +459,19 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getClientConfiguration_NodeStateAssociations()
+  public EReference getClientConfiguration_Features()
   {
     return (EReference)clientConfigurationEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getClientConfiguration_NodeStateAssociations()
+  {
+    return (EReference)clientConfigurationEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -780,6 +790,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
     clientConfigurationEClass = createEClass(CLIENT_CONFIGURATION);
     createEAttribute(clientConfigurationEClass, CLIENT_CONFIGURATION__NAME);
     createEReference(clientConfigurationEClass, CLIENT_CONFIGURATION__COOM_REF);
+    createEAttribute(clientConfigurationEClass, CLIENT_CONFIGURATION__PROCESS);
     createEAttribute(clientConfigurationEClass, CLIENT_CONFIGURATION__TRANS_TIMEOUT_IN_MILLISECONDS);
     createEReference(clientConfigurationEClass, CLIENT_CONFIGURATION__TRANSITIONS);
     createEReference(clientConfigurationEClass, CLIENT_CONFIGURATION__STATES);
@@ -882,6 +893,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage
     initEClass(clientConfigurationEClass, ClientConfiguration.class, "ClientConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getClientConfiguration_Name(), ecorePackage.getEString(), "name", null, 0, 1, ClientConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClientConfiguration_CoomRef(), theCoomPackage.getComponentOnOffManifest(), null, "coomRef", null, 0, 1, ClientConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getClientConfiguration_Process(), ecorePackage.getEString(), "process", null, 0, 1, ClientConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getClientConfiguration_TransTimeoutInMilliseconds(), ecorePackage.getEInt(), "transTimeoutInMilliseconds", null, 0, 1, ClientConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClientConfiguration_Transitions(), this.getComponentTransition(), null, "transitions", null, 0, -1, ClientConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClientConfiguration_States(), this.getComponentState(), null, "states", null, 0, -1, ClientConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

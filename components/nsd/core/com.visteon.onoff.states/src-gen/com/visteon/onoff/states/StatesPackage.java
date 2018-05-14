@@ -298,13 +298,22 @@ public interface StatesPackage extends EPackage
   int CLIENT_CONFIGURATION__COOM_REF = 1;
 
   /**
+   * The feature id for the '<em><b>Process</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLIENT_CONFIGURATION__PROCESS = 2;
+
+  /**
    * The feature id for the '<em><b>Trans Timeout In Milliseconds</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLIENT_CONFIGURATION__TRANS_TIMEOUT_IN_MILLISECONDS = 2;
+  int CLIENT_CONFIGURATION__TRANS_TIMEOUT_IN_MILLISECONDS = 3;
 
   /**
    * The feature id for the '<em><b>Transitions</b></em>' containment reference list.
@@ -313,7 +322,7 @@ public interface StatesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLIENT_CONFIGURATION__TRANSITIONS = 3;
+  int CLIENT_CONFIGURATION__TRANSITIONS = 4;
 
   /**
    * The feature id for the '<em><b>States</b></em>' containment reference list.
@@ -322,7 +331,7 @@ public interface StatesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLIENT_CONFIGURATION__STATES = 4;
+  int CLIENT_CONFIGURATION__STATES = 5;
 
   /**
    * The feature id for the '<em><b>Features</b></em>' containment reference list.
@@ -331,7 +340,7 @@ public interface StatesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLIENT_CONFIGURATION__FEATURES = 5;
+  int CLIENT_CONFIGURATION__FEATURES = 6;
 
   /**
    * The feature id for the '<em><b>Node State Associations</b></em>' containment reference list.
@@ -340,7 +349,7 @@ public interface StatesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS = 6;
+  int CLIENT_CONFIGURATION__NODE_STATE_ASSOCIATIONS = 7;
 
   /**
    * The number of structural features of the '<em>Client Configuration</em>' class.
@@ -349,7 +358,7 @@ public interface StatesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLIENT_CONFIGURATION_FEATURE_COUNT = 7;
+  int CLIENT_CONFIGURATION_FEATURE_COUNT = 8;
 
   /**
    * The meta object id for the '{@link com.visteon.onoff.states.impl.ComponentTransitionImpl <em>Component Transition</em>}' class.
@@ -895,6 +904,17 @@ public interface StatesPackage extends EPackage
   EReference getClientConfiguration_CoomRef();
 
   /**
+   * Returns the meta object for the attribute '{@link com.visteon.onoff.states.ClientConfiguration#getProcess <em>Process</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Process</em>'.
+   * @see com.visteon.onoff.states.ClientConfiguration#getProcess()
+   * @see #getClientConfiguration()
+   * @generated
+   */
+  EAttribute getClientConfiguration_Process();
+
+  /**
    * Returns the meta object for the attribute '{@link com.visteon.onoff.states.ClientConfiguration#getTransTimeoutInMilliseconds <em>Trans Timeout In Milliseconds</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1435,6 +1455,14 @@ public interface StatesPackage extends EPackage
      * @generated
      */
     EReference CLIENT_CONFIGURATION__COOM_REF = eINSTANCE.getClientConfiguration_CoomRef();
+
+    /**
+     * The meta object literal for the '<em><b>Process</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CLIENT_CONFIGURATION__PROCESS = eINSTANCE.getClientConfiguration_Process();
 
     /**
      * The meta object literal for the '<em><b>Trans Timeout In Milliseconds</b></em>' attribute feature.

@@ -37,6 +37,7 @@
     <genClasses ecoreClass="States.ecore#//ClientConfiguration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute States.ecore#//ClientConfiguration/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference States.ecore#//ClientConfiguration/coomRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute States.ecore#//ClientConfiguration/process"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute States.ecore#//ClientConfiguration/transTimeoutInMilliseconds"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference States.ecore#//ClientConfiguration/transitions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference States.ecore#//ClientConfiguration/states"/>

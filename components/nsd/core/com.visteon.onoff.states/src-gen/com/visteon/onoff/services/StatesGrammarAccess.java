@@ -299,38 +299,43 @@ public class StatesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cCoomKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cCoomRefAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final CrossReference cCoomRefComponentOnOffManifestCrossReference_4_0 = (CrossReference)cCoomRefAssignment_4.eContents().get(0);
-		private final RuleCall cCoomRefComponentOnOffManifestIDTerminalRuleCall_4_0_1 = (RuleCall)cCoomRefComponentOnOffManifestCrossReference_4_0.eContents().get(1);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cClientTransitionTimeoutKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cTransTimeoutInMillisecondsAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cTransTimeoutInMillisecondsINTTerminalRuleCall_5_1_0 = (RuleCall)cTransTimeoutInMillisecondsAssignment_5_1.eContents().get(0);
-		private final Alternatives cAlternatives_6 = (Alternatives)cGroup.eContents().get(6);
-		private final Assignment cTransitionsAssignment_6_0 = (Assignment)cAlternatives_6.eContents().get(0);
-		private final RuleCall cTransitionsComponentTransitionParserRuleCall_6_0_0 = (RuleCall)cTransitionsAssignment_6_0.eContents().get(0);
-		private final Assignment cStatesAssignment_6_1 = (Assignment)cAlternatives_6.eContents().get(1);
-		private final RuleCall cStatesComponentStateParserRuleCall_6_1_0 = (RuleCall)cStatesAssignment_6_1.eContents().get(0);
-		private final Assignment cFeaturesAssignment_6_2 = (Assignment)cAlternatives_6.eContents().get(2);
-		private final RuleCall cFeaturesComponentFeatureParserRuleCall_6_2_0 = (RuleCall)cFeaturesAssignment_6_2.eContents().get(0);
-		private final Assignment cNodeStateAssociationsAssignment_6_3 = (Assignment)cAlternatives_6.eContents().get(3);
-		private final RuleCall cNodeStateAssociationsNodeStateAssociationParserRuleCall_6_3_0 = (RuleCall)cNodeStateAssociationsAssignment_6_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
+		private final Group cGroup_3_0 = (Group)cAlternatives_3.eContents().get(0);
+		private final Keyword cCoomKeyword_3_0_0 = (Keyword)cGroup_3_0.eContents().get(0);
+		private final Assignment cCoomRefAssignment_3_0_1 = (Assignment)cGroup_3_0.eContents().get(1);
+		private final CrossReference cCoomRefComponentOnOffManifestCrossReference_3_0_1_0 = (CrossReference)cCoomRefAssignment_3_0_1.eContents().get(0);
+		private final RuleCall cCoomRefComponentOnOffManifestIDTerminalRuleCall_3_0_1_0_1 = (RuleCall)cCoomRefComponentOnOffManifestCrossReference_3_0_1_0.eContents().get(1);
+		private final Group cGroup_3_1 = (Group)cAlternatives_3.eContents().get(1);
+		private final Keyword cProcessKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Assignment cProcessAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
+		private final RuleCall cProcessIDTerminalRuleCall_3_1_1_0 = (RuleCall)cProcessAssignment_3_1_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cClientTransitionTimeoutKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cTransTimeoutInMillisecondsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cTransTimeoutInMillisecondsINTTerminalRuleCall_4_1_0 = (RuleCall)cTransTimeoutInMillisecondsAssignment_4_1.eContents().get(0);
+		private final Alternatives cAlternatives_5 = (Alternatives)cGroup.eContents().get(5);
+		private final Assignment cTransitionsAssignment_5_0 = (Assignment)cAlternatives_5.eContents().get(0);
+		private final RuleCall cTransitionsComponentTransitionParserRuleCall_5_0_0 = (RuleCall)cTransitionsAssignment_5_0.eContents().get(0);
+		private final Assignment cStatesAssignment_5_1 = (Assignment)cAlternatives_5.eContents().get(1);
+		private final RuleCall cStatesComponentStateParserRuleCall_5_1_0 = (RuleCall)cStatesAssignment_5_1.eContents().get(0);
+		private final Assignment cFeaturesAssignment_5_2 = (Assignment)cAlternatives_5.eContents().get(2);
+		private final RuleCall cFeaturesComponentFeatureParserRuleCall_5_2_0 = (RuleCall)cFeaturesAssignment_5_2.eContents().get(0);
+		private final Assignment cNodeStateAssociationsAssignment_5_3 = (Assignment)cAlternatives_5.eContents().get(3);
+		private final RuleCall cNodeStateAssociationsNodeStateAssociationParserRuleCall_5_3_0 = (RuleCall)cNodeStateAssociationsAssignment_5_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//ClientConfiguration:
 		//	'Client' name=ID // instance name - scope coming from COOM
-		//	'{'
-		//	'coom' coomRef=[coom::ComponentOnOffManifest] ('clientTransitionTimeout' transTimeoutInMilliseconds=INT)?
-		//	(transitions+=ComponentTransition | states+=ComponentState | features+=ComponentFeature |
-		//	nodeStateAssociations+=NodeStateAssociation)*
+		//	'{' ('coom' coomRef=[coom::ComponentOnOffManifest] | 'process' process=ID) ('clientTransitionTimeout'
+		//	transTimeoutInMilliseconds=INT)? (transitions+=ComponentTransition | states+=ComponentState |
+		//	features+=ComponentFeature | nodeStateAssociations+=NodeStateAssociation)*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Client' name=ID // instance name - scope coming from COOM
-		//'{' 'coom' coomRef=[coom::ComponentOnOffManifest] ('clientTransitionTimeout' transTimeoutInMilliseconds=INT)?
-		//(transitions+=ComponentTransition | states+=ComponentState | features+=ComponentFeature |
-		//nodeStateAssociations+=NodeStateAssociation)* '}'
+		//'{' ('coom' coomRef=[coom::ComponentOnOffManifest] | 'process' process=ID) ('clientTransitionTimeout'
+		//transTimeoutInMilliseconds=INT)? (transitions+=ComponentTransition | states+=ComponentState |
+		//features+=ComponentFeature | nodeStateAssociations+=NodeStateAssociation)* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'Client'
@@ -346,60 +351,78 @@ public class StatesGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
+		//'coom' coomRef=[coom::ComponentOnOffManifest] | 'process' process=ID
+		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+		
+		//'coom' coomRef=[coom::ComponentOnOffManifest]
+		public Group getGroup_3_0() { return cGroup_3_0; }
+		
 		//'coom'
-		public Keyword getCoomKeyword_3() { return cCoomKeyword_3; }
+		public Keyword getCoomKeyword_3_0_0() { return cCoomKeyword_3_0_0; }
 		
 		//coomRef=[coom::ComponentOnOffManifest]
-		public Assignment getCoomRefAssignment_4() { return cCoomRefAssignment_4; }
+		public Assignment getCoomRefAssignment_3_0_1() { return cCoomRefAssignment_3_0_1; }
 		
 		//[coom::ComponentOnOffManifest]
-		public CrossReference getCoomRefComponentOnOffManifestCrossReference_4_0() { return cCoomRefComponentOnOffManifestCrossReference_4_0; }
+		public CrossReference getCoomRefComponentOnOffManifestCrossReference_3_0_1_0() { return cCoomRefComponentOnOffManifestCrossReference_3_0_1_0; }
 		
 		//ID
-		public RuleCall getCoomRefComponentOnOffManifestIDTerminalRuleCall_4_0_1() { return cCoomRefComponentOnOffManifestIDTerminalRuleCall_4_0_1; }
+		public RuleCall getCoomRefComponentOnOffManifestIDTerminalRuleCall_3_0_1_0_1() { return cCoomRefComponentOnOffManifestIDTerminalRuleCall_3_0_1_0_1; }
+		
+		//'process' process=ID
+		public Group getGroup_3_1() { return cGroup_3_1; }
+		
+		//'process'
+		public Keyword getProcessKeyword_3_1_0() { return cProcessKeyword_3_1_0; }
+		
+		//process=ID
+		public Assignment getProcessAssignment_3_1_1() { return cProcessAssignment_3_1_1; }
+		
+		//ID
+		public RuleCall getProcessIDTerminalRuleCall_3_1_1_0() { return cProcessIDTerminalRuleCall_3_1_1_0; }
 		
 		//('clientTransitionTimeout' transTimeoutInMilliseconds=INT)?
-		public Group getGroup_5() { return cGroup_5; }
+		public Group getGroup_4() { return cGroup_4; }
 		
 		//'clientTransitionTimeout'
-		public Keyword getClientTransitionTimeoutKeyword_5_0() { return cClientTransitionTimeoutKeyword_5_0; }
+		public Keyword getClientTransitionTimeoutKeyword_4_0() { return cClientTransitionTimeoutKeyword_4_0; }
 		
 		//transTimeoutInMilliseconds=INT
-		public Assignment getTransTimeoutInMillisecondsAssignment_5_1() { return cTransTimeoutInMillisecondsAssignment_5_1; }
+		public Assignment getTransTimeoutInMillisecondsAssignment_4_1() { return cTransTimeoutInMillisecondsAssignment_4_1; }
 		
 		//INT
-		public RuleCall getTransTimeoutInMillisecondsINTTerminalRuleCall_5_1_0() { return cTransTimeoutInMillisecondsINTTerminalRuleCall_5_1_0; }
+		public RuleCall getTransTimeoutInMillisecondsINTTerminalRuleCall_4_1_0() { return cTransTimeoutInMillisecondsINTTerminalRuleCall_4_1_0; }
 		
 		//(transitions+=ComponentTransition | states+=ComponentState | features+=ComponentFeature |
 		//nodeStateAssociations+=NodeStateAssociation)*
-		public Alternatives getAlternatives_6() { return cAlternatives_6; }
+		public Alternatives getAlternatives_5() { return cAlternatives_5; }
 		
 		//transitions+=ComponentTransition
-		public Assignment getTransitionsAssignment_6_0() { return cTransitionsAssignment_6_0; }
+		public Assignment getTransitionsAssignment_5_0() { return cTransitionsAssignment_5_0; }
 		
 		//ComponentTransition
-		public RuleCall getTransitionsComponentTransitionParserRuleCall_6_0_0() { return cTransitionsComponentTransitionParserRuleCall_6_0_0; }
+		public RuleCall getTransitionsComponentTransitionParserRuleCall_5_0_0() { return cTransitionsComponentTransitionParserRuleCall_5_0_0; }
 		
 		//states+=ComponentState
-		public Assignment getStatesAssignment_6_1() { return cStatesAssignment_6_1; }
+		public Assignment getStatesAssignment_5_1() { return cStatesAssignment_5_1; }
 		
 		//ComponentState
-		public RuleCall getStatesComponentStateParserRuleCall_6_1_0() { return cStatesComponentStateParserRuleCall_6_1_0; }
+		public RuleCall getStatesComponentStateParserRuleCall_5_1_0() { return cStatesComponentStateParserRuleCall_5_1_0; }
 		
 		//features+=ComponentFeature
-		public Assignment getFeaturesAssignment_6_2() { return cFeaturesAssignment_6_2; }
+		public Assignment getFeaturesAssignment_5_2() { return cFeaturesAssignment_5_2; }
 		
 		//ComponentFeature
-		public RuleCall getFeaturesComponentFeatureParserRuleCall_6_2_0() { return cFeaturesComponentFeatureParserRuleCall_6_2_0; }
+		public RuleCall getFeaturesComponentFeatureParserRuleCall_5_2_0() { return cFeaturesComponentFeatureParserRuleCall_5_2_0; }
 		
 		//nodeStateAssociations+=NodeStateAssociation
-		public Assignment getNodeStateAssociationsAssignment_6_3() { return cNodeStateAssociationsAssignment_6_3; }
+		public Assignment getNodeStateAssociationsAssignment_5_3() { return cNodeStateAssociationsAssignment_5_3; }
 		
 		//NodeStateAssociation
-		public RuleCall getNodeStateAssociationsNodeStateAssociationParserRuleCall_6_3_0() { return cNodeStateAssociationsNodeStateAssociationParserRuleCall_6_3_0; }
+		public RuleCall getNodeStateAssociationsNodeStateAssociationParserRuleCall_5_3_0() { return cNodeStateAssociationsNodeStateAssociationParserRuleCall_5_3_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 	public class ComponentTransitionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.visteon.onoff.States.ComponentTransition");
@@ -1026,10 +1049,9 @@ public class StatesGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//ClientConfiguration:
 	//	'Client' name=ID // instance name - scope coming from COOM
-	//	'{'
-	//	'coom' coomRef=[coom::ComponentOnOffManifest] ('clientTransitionTimeout' transTimeoutInMilliseconds=INT)?
-	//	(transitions+=ComponentTransition | states+=ComponentState | features+=ComponentFeature |
-	//	nodeStateAssociations+=NodeStateAssociation)*
+	//	'{' ('coom' coomRef=[coom::ComponentOnOffManifest] | 'process' process=ID) ('clientTransitionTimeout'
+	//	transTimeoutInMilliseconds=INT)? (transitions+=ComponentTransition | states+=ComponentState |
+	//	features+=ComponentFeature | nodeStateAssociations+=NodeStateAssociation)*
 	//	'}';
 	public ClientConfigurationElements getClientConfigurationAccess() {
 		return pClientConfiguration;
