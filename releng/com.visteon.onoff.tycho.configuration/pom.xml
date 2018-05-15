@@ -120,7 +120,7 @@
 		</repository>
 		<repository>
 			<id>RTC</id>
-			<url>file:/${ds.p2cache.location}/com.ibm.team.rtc/6.0.5/RTC-Client-p2Repo-6.0.5</url>
+			<url>file:/${ds.p2cache.location}/com.ibm.team.rtc/6.0.4/RTC-Client-p2Repo-6.0.4</url>
 			<layout>p2</layout>
 		</repository>
 		<repository>
