@@ -50,8 +50,8 @@
       <feature id="org.eclipse.emf.mapping.ecore"/>
       <feature id="org.eclipse.emf.mapping.ecore.editor"/>
       <feature id="org.eclipse.emf.mapping.ui"/>
-      <feature id="org.eclipse.emf.mwe.core"/>
-      <feature id="org.eclipse.emf.mwe.ui"/>
+      <feature id="org.eclipse.emf.mwe.core.feature"/>
+      <feature id="org.eclipse.emf.mwe.ui.feature"/>
       <feature id="org.eclipse.emf.mwe2.launcher"/>
       <feature id="org.eclipse.emf.query"/>
       <feature id="org.eclipse.emf.transaction"/>

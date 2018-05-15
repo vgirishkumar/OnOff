@@ -34,11 +34,6 @@
 			<layout>p2</layout>
 		</repository>
 		<repository>
-			<id>EMFT-MWE</id>
-			<url>file:/${ds.p2cache.location}/org.eclipse.emf.mwe/2.8.3/emft-mwe-Update-2.8.3</url>
-			<layout>p2</layout>
-		</repository>
-		<repository>
 			<id>EMFT-MWE2-LANG</id>
 			<url>file:/${ds.p2cache.location}/org.eclpse.emf.mwe2.lang/2.9.1/emft-mwe-2-lang-Update-2.9.1</url>
 			<layout>p2</layout>
